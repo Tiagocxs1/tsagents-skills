@@ -9,6 +9,10 @@ dependencies = [
 
 [tool.uv.sources]
 mcp-brasil = { path = "../../upstream/mcp-brasil" }
+# FastMCP declares watchfiles for its CLI auto-reload feature. That feature is
+# not used in a Cloudflare Worker; the local pure-Python shim disables it so
+# Pyodide does not need the native Rust wheel.
+watchfiles = { path = "vendor/watchfiles" }
 
 [dependency-groups]
 dev = [

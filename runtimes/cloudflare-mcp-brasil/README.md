@@ -17,6 +17,7 @@ Este runtime prepara o MCP Brasil como servidor remoto via **Streamable HTTP** e
 - FastMCP `http_app()` publica Streamable HTTP no caminho MCP padrão.
 - Autenticação Bearer obrigatória via Worker Secret `MCP_BRASIL_API_TOKEN`.
 - BM25 tool discovery evita expor centenas de schemas de uma vez.
+- Um shim local mínimo desativa apenas o file-watcher do comando de reload do FastMCP. O servidor HTTP não usa esse recurso; o original upstream permanece intocado.
 - Datasets locais permanecem desligados; primeiro deploy atende consultas às APIs remotas.
 
 ## Requisitos
