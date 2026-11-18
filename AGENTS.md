@@ -80,3 +80,13 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Credenciais devem ficar apenas em Secret Stores ou envs ignorados pelo Git. Nunca solicitar que o usuário cole chaves no chat.
 - Ações financeiras, publicação, cancelamento, estorno, alteração de conta e escrita em serviços externos exigem autorização explícita e confirmação contextual.
 - Para dados públicos brasileiros, respeitar LGPD, licenças das fontes, termos do MCP Brasil e suas políticas de uso; não fazer perfilamento sensível ou reidentificação.
+
+## SEO, GEO e Analytics
+
+- Para análise de SEO, GEO/AEO, tráfego orgânico, quedas de desempenho, indexação ou auditoria de páginas, consultar `seo-analytics-ops/SKILL.md` e `docs/SEO-ANALYTICS-STACK.md`.
+- Antes de conectar GA4/GSC, consultar também `privacy-by-design/SKILL.md`, `agents/mcp-privacy-auditor.md` e `docs/PRIVACY-TOOLING.md`.
+- Usar dados reais do GA4/GSC com propriedade, período, fuso, dimensões e métricas explicitados. Separar fatos, hipóteses e recomendações.
+- Preferir MCP oficial do GA4 e GSC comunitário em modo read-only. Não habilitar permissões de escrita/destruição em auditorias comuns.
+- Não instalar extensões pagas nem consumir APIs com custo sem autorização; priorizar CLI local e free tier.
+- Nunca versionar ADC, OAuth secrets, JSON de service account, tokens, exports privados ou dados identificáveis.
+- Não afirmar que uma página está indexada, que houve penalidade, que uma atualização algorítmica causou queda ou que GEO garantirá citações sem evidência verificável.
