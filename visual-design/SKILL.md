@@ -96,3 +96,7 @@ Usar geradores de imagem para fotografia, textura ou ilustração base. Para tex
 ## 7. Entrega
 
 Informar o que foi criado, formato/proporção, ferramenta, arquivo editável e exports. Quando aplicável, entregar master e versões finais. Não afirmar que está pronto sem conferir a renderização.
+
+## Escolha consciente entre asset real e imagem gerada
+
+Antes de gerar uma imagem, consultar image-brief-and-routing/SKILL.md. Uma fotografia verdadeira, screenshot, imagem licenciada ou gráfico com dados reais pode ser melhor do que uma imagem criada por IA. A geração é uma opção quando cria um elemento inexistente ou uma série controlada, não a etapa automática de todo trabalho.
