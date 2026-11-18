@@ -95,23 +95,16 @@ Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido 
 
 ## Runtimes MCP
 
-- [Arquitetura de execução](./docs/MCP-RUNTIME-ARCHITECTURE.md): diferença entre GitHub Actions, Cloudflare Workers, Durable Objects e runtimes locais.
-- [Runtimes](./runtimes/README.md): adaptadores e configuração de serviços remotos.
-- [MCP Brasil no Cloudflare](./runtimes/cloudflare-mcp-brasil/README.md): servidor remoto Python/Streamable HTTP, autenticação Bearer, CI e deploy manual.
+- [Arquitetura de execução](./docs/MCP-RUNTIME-ARCHITECTURE.md): diferença entre GitHub Actions, Cloudflare Workers, Render e runtimes locais.
+- [MCP Brasil — Render Free Docker](./runtimes/render-mcp-brasil/README.md): runtime Python/Linux com CI aprovado.
+- [Checklist de implantação](./docs/RENDER-DEPLOY-CHECKLIST.md): configuração pendente na conta Render.
+- [Cloudflare Python Worker experimental](./runtimes/cloudflare-mcp-brasil/README.md): não apto ao deploy devido a dependências sem wheels Pyodide compatíveis.
 
-Para recuperar as fontes e o runtime:
+**Estado MCP Brasil:** CI aprovado em 18/11/2026 (build Docker, container limitado a 512 MiB, health check, handshake Bearer, descoberta BM25 e chamada read-only `listar_features`). O endpoint ainda não foi publicado; falta criar o Blueprint e definir `MCP_BRASIL_API_TOKEN` como segredo no Render. A conta ChatGPT Free não pode conectar um MCP personalizado; esse endpoint não habilita acesso automático neste chat.
 
-```bash
-git clone --recurse-submodules https://github.com/Tiagocxs1/tsagents-skills.git
-```
+## Perfis de marca
 
-O runtime MCP Brasil passou no CI: build Docker, execução com limite de 512 MiB, health check, handshake Bearer, descoberta de ferramentas e chamada read-only `listar_features`. Ainda não foi implantado; o usuário precisa criar o Blueprint no Render e definir `MCP_BRASIL_API_TOKEN` no Secret Store do provedor. Nunca versionar `.dev.vars`, tokens, chaves ou credenciais.
+- [Guardian Seg — Brand Profile](./brands/guardianseg/BRAND-PROFILE.md): serviços, área de atuação, identidade visual, claims e restrições.
+- [Guardian Seg — Diretrizes de conteúdo social](./brands/guardianseg/SOCIAL-CONTENT-GUIDELINES.md): pilares editoriais e guardrails para calendário/postagens.
 
-
-## Runtime MCP Brasil
-
-- [Arquitetura de runtimes MCP](./docs/MCP-RUNTIME-ARCHITECTURE.md)
-- [Render Free Docker — caminho recomendado para testar o MCP Brasil completo](./runtimes/render-mcp-brasil/README.md)
-- [Cloudflare Python Worker — experimento stateless ainda não validado](./runtimes/cloudflare-mcp-brasil/README.md)
-
-O `render.yaml` na raiz permite criar um Blueprint no Render. O serviço exige a configuração de `MCP_BRASIL_API_TOKEN` no painel e utiliza o plano Free com cold starts após inatividade. O GitHub Actions valida o container antes de qualquer publicação.
+As fichas da marca são a fonte única antes de criar conteúdo. Os números internos recebidos da equipe estão marcados como pendentes de validação de data/base. Nunca versionar tokens, chaves ou credenciais.

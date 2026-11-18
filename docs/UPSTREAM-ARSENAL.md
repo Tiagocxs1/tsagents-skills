@@ -86,16 +86,22 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
 
-## 5. Primeiro runtime remoto preparado
+## 5. Runtime remoto MCP Brasil — Render Free
 
-O [runtime Cloudflare MCP Brasil](../runtimes/cloudflare-mcp-brasil/README.md) foi criado para servir o MCP Brasil via Python Workers + Durable Objects + Streamable HTTP.
+O runtime recomendado para executar o pacote upstream completo é o [Render Free Docker](../runtimes/render-mcp-brasil/README.md). O [checklist de implantação](./RENDER-DEPLOY-CHECKLIST.md) descreve a única etapa ainda dependente do proprietário da conta.
 
-**Estado:** código e workflows adicionados; deploy ainda pendente de CI verde e configuração de secrets do Cloudflare. O runtime usa autenticação estática Bearer, BM25 discovery e mantém datasets locais desativados.
+**Estado:** CI aprovado em 18/11/2026 (execução #44231297710): build Docker, container com limite de 512 MiB, endpoint saudável, handshake MCP autenticado, descoberta BM25 e chamada read-only `listar_features`. O servidor carregou 42 features ativas e registrou 307 ferramentas internas; sete ferramentas meta/discovery ficam visíveis inicialmente. O teste não consultou APIs externas.
 
-O repositório original continua no submódulo `upstream/mcp-brasil`; o runtime adiciona somente o adaptador de execução. A configuração está fixada em `runtimes/cloudflare-mcp-brasil/`.
+O serviço não foi implantado. Falta conectar o GitHub ao Render, criar o Blueprint da raiz e definir `MCP_BRASIL_API_TOKEN` como segredo privado no painel. O código força autenticação estática Bearer, BM25 e datasets locais desligados.
 
-Workflows:
-- `.github/workflows/mcp-brasil-ci.yml` — instala o pacote upstream fixado, sobe o Worker local e valida o health endpoint e o handshake MCP.
-- `.github/workflows/deploy-mcp-brasil.yml` — deploy manual, após adicionar secrets e variável da conta Cloudflare.
+O experimento Cloudflare Python Worker permanece em `runtimes/cloudflare-mcp-brasil/`, mas não está apto ao deploy: o extra `fastmcp[code-mode]` puxa `pydantic-monty` e `pydantic-monty-client`, que não possuem wheels compatíveis com o build Pyodide usado pelos Python Workers. O workflow do Worker é manual e experimental; seu deploy automático foi removido para evitar publicar um servidor não validado.
 
-A mudança de limite de tamanho de bundle da Cloudflare em 04/09/2026 elevou o limite para 64 MiB nos planos Free e Paid; isso remove a antiga barreira de 3 MiB, mas não assegura compatibilidade de cada biblioteca Python com Pyodide. O workflow é o gate de validação. No plano Free, respeitar CPU de 10 ms por invocação e quotas diárias dos Durable Objects/Workers.
+**Disponibilidade no ChatGPT:** a documentação OpenAI atual não permite que uma conta Free adicione MCP personalizado. Business e Enterprise/Edu suportam conexões personalizadas; Pro tem permissões limitadas a read/fetch. O endpoint remoto poderá ser usado em outros clientes compatíveis com Streamable HTTP. Para tarefas deste chat, usar os conectores já disponibilizados (GitHub, Canva, Adobe, MagicPath/Figma etc.).
+
+## 6. Roteiro de integração dos demais MCPs
+
+- **Google Analytics MCP:** código original presente como submódulo, ainda não configurado; faltam projeto Google Cloud, OAuth/ADC e autorização sobre a propriedade GA4. Começar somente leitura.
+- **MCP Dev LATAM:** catálogo presente como submódulo; não publicar o pacote inteiro como um servidor único. Selecionar somente conector estável, com provedor e rota documentados.
+- **Asaas MCP:** presente como submódulo, não conectado; precisa de credencial própria, sandbox e política de confirmação para cobranças, assinaturas e estornos.
+- **Hotmart MCP:** presente como submódulo, não conectado; precisa de credenciais OAuth e política de confirmação para cancelamento, estorno, cupons e alterações.
+- **Skills de social/marketing/UX e Superpowers:** são fontes de instruções e não exigem servidor MCP permanente. Devem ser carregadas seletivamente no runtime que executa o trabalho.

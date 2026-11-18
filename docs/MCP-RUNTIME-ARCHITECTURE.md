@@ -36,7 +36,7 @@ O runtime `runtimes/render-mcp-brasil/` usa Docker e instala o pacote publicado 
 
 Limitações verificadas do plano Free: 750 horas de instância por workspace/mês, 512 MB RAM, suspensão após 15 minutos sem tráfego e cerca de um minuto para acordar. O filesystem é efêmero e o serviço pode reiniciar. É adequado para testes e consultas ocasionais, não produção ou disponibilidade garantida. O primeiro deploy ainda exige que o usuário conecte o GitHub ao Render e defina `MCP_BRASIL_API_TOKEN` como segredo no painel. O script `start.py` valida o token antes de importar o upstream, força autenticação estática Bearer e mantém BM25/datasets locais limitados.
 
-O workflow `.github/workflows/render-mcp-brasil-ci.yml` faz build da imagem Docker, verifica `/health` e executa handshake MCP autenticado + descoberta de ferramentas. Só depois de CI verde faz sentido criar o Blueprint no Render.
+O workflow `.github/workflows/render-mcp-brasil-ci.yml` foi aprovado em 18/11/2026 (execução #44231297710): build Docker, limite de 512 MiB, `/health`, handshake Bearer, descoberta BM25 e chamada read-only `listar_features`. O servidor registrou 42 features ativas e 307 ferramentas internas; sete ferramentas de descoberta são expostas inicialmente. O smoke test não executou consultas nas APIs externas. O serviço ainda não foi criado no Render; falta conectar o repositório e definir o segredo no painel.
 
 ### Segurança
 
@@ -61,8 +61,8 @@ O workflow `.github/workflows/render-mcp-brasil-ci.yml` faz build da imagem Dock
 ## Como o ChatGPT poderá usar
 
 - Em clientes compatíveis com MCP remoto, configurar a URL HTTPS do servidor e o header Bearer.
-- No ChatGPT, a conexão com um MCP personalizado depende das permissões e dos planos suportados pela OpenAI; atualmente o suporte completo de escrita está restrito aos planos Business e Enterprise/Edu, e o suporte nos outros planos é mais limitado.
-- Enquanto a conta não oferecer conexão customizada, o runtime continua útil para Codex CLI, Claude Code, Cursor, OpenCode, Gemini CLI e para testes/automação de CI. Nesta conversa, os conectores já disponíveis continuam sendo a forma de acesso a ferramentas externas.
+- A documentação OpenAI atual informa que conexões a servidores MCP personalizados estão disponíveis para Business e Enterprise/Edu; Pro oferece permissões read/fetch. A conta Free não pode criar esta conexão personalizada.
+- O endpoint Render continua útil para clientes MCP compatíveis com Streamable HTTP, mas publicar não o conecta automaticamente ao ChatGPT Free. Nesta conversa, os conectores Canva, Adobe, Figma/MagicPath, GitHub e outros já disponíveis continuam sendo o caminho operacional.
 
 ## Referências técnicas
 
@@ -72,4 +72,6 @@ O workflow `.github/workflows/render-mcp-brasil-ci.yml` faz build da imagem Dock
 - Cloudflare Workers limits: https://developers.cloudflare.com/workers/platform/limits/
 - Durable Objects pricing and quotas: https://developers.cloudflare.com/durable-objects/platform/pricing/
 - GitHub Actions runners: https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job
-- OpenAI custom MCP connection requirements: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt
+- Render Free web services: https://render.com/docs/free
+- Render Docker hosting: https://render.com/hosting/docker
+- OpenAI custom MCP connection requirements and plan availability: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt

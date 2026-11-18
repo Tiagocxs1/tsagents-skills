@@ -9,7 +9,7 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 3. Para anúncios, tráfego pago, criativos de conversão e campanhas, ler também advertising-creative/SKILL.md.
 4. Para animações, vídeos e peças em movimento, ler também motion-design/SKILL.md.
 5. Antes de entregar, ler e aplicar visual-quality-review/SKILL.md.
-6. Quando existir uma marca, consultar os arquivos de marca, Brand Kit, logotipo, fontes, cores, fotos e peças anteriores disponíveis.
+6. Quando existir uma marca, consultar os arquivos de marca em `brands/<marca>/`, Brand Kit, logotipo, fontes, cores, fotos e peças anteriores disponíveis. A ficha da marca é a fonte única para identidade, serviços, claims e restrições; não reentrevistar sobre dados já registrados.
 7. Consultar docs/visual-tool-registry.md para escolher o fluxo e a ferramenta adequados.
 8. Para copywriting, estratégia, UX/UI, SEO, analytics, dados brasileiros ou integrações comerciais, consultar docs/UPSTREAM-ARSENAL.md e abrir a skill/README original pertinente antes de iniciar. Não carregar coleções inteiras sem necessidade; selecionar os módulos relevantes.
 
