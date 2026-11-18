@@ -50,3 +50,24 @@ Usar docs/visual-tool-registry.md para selecionar ferramenta. Preservar master e
 
 ## 6. Entrega
 Entregar conceito, público, master, exports, texto principal, headline, descrição, CTA, variações, variável modificada e hipótese de teste. Não afirmar que a peça vai converter. Não publicar campanha, alterar segmentação, orçamento ou gastar dinheiro sem autorização explícita.
+
+## Inteligência criativa baseada em evidências
+
+Para iteração e produção em escala, consultar evidências do negócio antes de inventar novos ângulos:
+- Anúncios vencedores recentes e anúncios que fatigaram.
+- Reviews/depoimentos autorizados e linguagem real de clientes.
+- Perguntas, comentários e objeções recorrentes.
+- Aprendizados anteriores de campanhas e resultados disponíveis.
+
+Cada conceito em um lote escalado deve indicar qual evidência o sustenta. Se não houver dados suficientes, criar apenas hipóteses claramente rotuladas — nunca apresentá-las como aprendizados reais.
+
+## Hipóteses de teste
+
+Para cada teste, declarar:
+- Variável alterada: hook, imagem, headline, oferta ou CTA.
+- Público/placement.
+- Métrica primária (por exemplo CTR, CPL ou taxa de conversão).
+- Direção esperada e motivo.
+- Evidência usada para formular a hipótese.
+
+Não alterar várias variáveis em um teste que será descrito como A/B isolado. Na próxima rodada, usar dados reais para decidir o que manter, pausar ou explorar.
