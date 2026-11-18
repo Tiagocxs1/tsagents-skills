@@ -132,3 +132,18 @@ Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido 
 - [Guardian Seg — Diretrizes de conteúdo social](./brands/guardianseg/SOCIAL-CONTENT-GUIDELINES.md): pilares editoriais e guardrails para calendário/postagens.
 
 As fichas da marca são a fonte única antes de criar conteúdo. Os números internos recebidos da equipe estão marcados como pendentes de validação de data/base. Nunca versionar tokens, chaves ou credenciais.
+
+
+## Publicações editoriais, e-books e PDFs
+
+| Skill | Uso |
+|---|---|
+| [editorial-design](./editorial-design/SKILL.md) | Tipografia editorial, serifas/sans-serif, capitulares, pull quotes, colunas e ritmo de leitura |
+| [digital-eguide-editorial](./digital-eguide-editorial/SKILL.md) | E-books, guias, lookbooks, capas, sumários, spreads, exercícios e páginas internas |
+| [frontend-design](./frontend-design/SKILL.md) | Direção visual distinta para sites, páginas, dashboards e componentes web |
+| [weasyprint-pdf-creation](./weasyprint-pdf-creation/SKILL.md) | HTML/CSS para PDF, @page, margens espelhadas, paginação, quebras e QA |
+
+### Fluxo recomendado
+Para um e-book ou guia: `visual-design` → `editorial-design` → `digital-eguide-editorial` → `weasyprint-pdf-creation` → `visual-quality-review`. Para interfaces web, usar `frontend-design` junto das skills de UX, responsividade e acessibilidade já catalogadas.
+
+As skills foram adicionadas ao repositório central. A skill de e-guide é uma implementação original TS Digitais: a referência atribuída a bykaranmrn não pôde ser confirmada como repositório público com licença verificável, portanto não redistribuímos código ou instruções daquele fornecedor.
