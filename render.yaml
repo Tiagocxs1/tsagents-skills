@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: tsagents-mcp-brasil
+    runtime: docker
+    plan: free
+    dockerfilePath: ./runtimes/render-mcp-brasil/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: MCP_BRASIL_AUTH_MODE
+        value: static
+      - key: MCP_BRASIL_TOOL_SEARCH
+        value: bm25
+      - key: MCP_BRASIL_DATASETS
+        value: ""
+      - key: MCP_BRASIL_HTTP_TIMEOUT
+        value: "20.0"
+      - key: MCP_BRASIL_HTTP_MAX_RETRIES
+        value: "2"
+      - key: MCP_BRASIL_API_TOKEN
+        sync: false

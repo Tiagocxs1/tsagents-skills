@@ -1,0 +1,67 @@
+name: MCP Brasil Render Docker CI
+
+on:
+  pull_request:
+    paths:
+      - "runtimes/render-mcp-brasil/**"
+      - "runtimes/cloudflare-mcp-brasil/scripts/smoke_test.py"
+      - "render.yaml"
+      - ".github/workflows/render-mcp-brasil-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "runtimes/render-mcp-brasil/**"
+      - "runtimes/cloudflare-mcp-brasil/scripts/smoke_test.py"
+      - "render.yaml"
+      - ".github/workflows/render-mcp-brasil-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Render Docker image
+        run: docker build -f runtimes/render-mcp-brasil/Dockerfile -t tsagents-mcp-brasil:ci .
+
+      - name: Start container with disposable read-only test token
+        run: |
+          docker run -d --name tsagents-mcp-brasil-ci \
+            -p 10000:10000 \
+            -e PORT=10000 \
+            -e MCP_BRASIL_API_TOKEN=ci-disposable-only-token-never-reuse-987654321 \
+            tsagents-mcp-brasil:ci
+
+      - name: Wait for health endpoint
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --connect-timeout 2 --max-time 5 --fail --silent --show-error http://127.0.0.1:10000/health; then
+              echo
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs tsagents-mcp-brasil-ci
+          exit 1
+
+      - name: Verify authenticated Streamable HTTP handshake and tool discovery
+        run: |
+          docker exec \
+            -e MCP_URL=http://127.0.0.1:10000/mcp/ \
+            -e MCP_BRASIL_API_TOKEN=ci-disposable-only-token-never-reuse-987654321 \
+            tsagents-mcp-brasil-ci \
+            python /app/smoke_test.py
+
+      - name: Show container logs on failure
+        if: failure()
+        run: docker logs tsagents-mcp-brasil-ci || true
+
+      - name: Stop container
+        if: always()
+        run: docker rm -f tsagents-mcp-brasil-ci || true

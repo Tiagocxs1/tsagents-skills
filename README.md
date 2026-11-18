@@ -106,3 +106,12 @@ git clone --recurse-submodules https://github.com/Tiagocxs1/tsagents-skills.git
 ```
 
 O runtime MCP Brasil está preparado, mas não implantado; o CI precisa validar as dependências e o smoke test antes do primeiro deploy. Nunca versionar `.dev.vars`, tokens, chaves ou credenciais.
+
+
+## Runtime MCP Brasil
+
+- [Arquitetura de runtimes MCP](./docs/MCP-RUNTIME-ARCHITECTURE.md)
+- [Render Free Docker — caminho recomendado para testar o MCP Brasil completo](./runtimes/render-mcp-brasil/README.md)
+- [Cloudflare Python Worker — experimento stateless ainda não validado](./runtimes/cloudflare-mcp-brasil/README.md)
+
+O `render.yaml` na raiz permite criar um Blueprint no Render. O serviço exige a configuração de `MCP_BRASIL_API_TOKEN` no painel e utiliza o plano Free com cold starts após inatividade. O GitHub Actions valida o container antes de qualquer publicação.

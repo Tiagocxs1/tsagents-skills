@@ -15,3 +15,9 @@ Esta pasta reúne configurações para executar os projetos upstream como servi�
 - [Cloudflare MCP Brasil](./cloudflare-mcp-brasil/README.md) — adaptador Python Worker + Durable Object para servir o MCP Brasil via Streamable HTTP com autenticação Bearer.
 
 Ver também [Arquitetura de runtimes MCP](../docs/MCP-RUNTIME-ARCHITECTURE.md).
+
+
+## Runtime recomendado para MCP Brasil
+
+- [Render Free Docker](./render-mcp-brasil/README.md) — caminho de teste do MCP Python completo em Linux comum; cold start após 15 minutos ocioso.
+- [Cloudflare Python Worker](./cloudflare-mcp-brasil/README.md) — experimento stateless; ainda bloqueado por dependências nativas do upstream no bundle Pyodide.

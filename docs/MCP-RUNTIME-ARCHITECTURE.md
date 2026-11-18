@@ -20,7 +20,7 @@ GitHub-hosted runners são máquinas novas por job; para repositórios públicos
 1. **Originais** continuam em `upstream/` como Git submodules fixados em commits.
 2. **Runtimes** ficam em `runtimes/`, em projetos isolados por MCP, sem editar os arquivos upstream.
 3. **CI** roda smoke tests e valida compatibilidade.
-4. **Deploy** é manual e exige confirmação, segredo do Cloudflare, ID da conta e token de acesso do MCP.
+4. **Deploy** é iniciado pelo usuário no painel do provedor, com secrets definidos diretamente no Secret Store.
 5. **Cliente MCP** conecta-se ao endpoint remoto Streamable HTTP; se o cliente só aceitar stdio, usar o runtime local ou um bridge específico.
 6. **ChatGPT** precisa suportar a modalidade de conexão MCP personalizada na conta/plano/workspace. Um endpoint remoto, por si só, não habilita a função no ChatGPT.
 
@@ -28,16 +28,15 @@ GitHub-hosted runners são máquinas novas por job; para repositórios públicos
 
 O projeto [MCP Brasil](https://github.com/Mcp-Brasil/mcp-brasil) foi selecionado porque concentra fontes públicas brasileiras em um servidor FastMCP Python e oferece suporte HTTP.
 
-O runtime em `runtimes/cloudflare-mcp-brasil/`:
-- usa Cloudflare Python Workers;
-- publica Streamable HTTP stateless via `workers.asgi.fetch` e `Default(WorkerEntrypoint)`;
-- não usa Durable Objects, evitando estado persistente e quota adicional;
-- força autenticação estática Bearer, sem modo anônimo;
-- usa BM25 discovery;
-- mantém os datasets locais desativados;
-- não configura chaves opcionais de fontes que não são necessárias para iniciar.
+O runtime experimental em `runtimes/cloudflare-mcp-brasil/` usa Cloudflare Python Workers e Streamable HTTP stateless, mas o CI confirmou que o bundle Pyodide não consegue resolver `pydantic-monty` e `pydantic-monty-client`, puxados pelo extra `fastmcp[code-mode]` do upstream. O limite de CPU de 10 ms por invocação no Workers Free também é restritivo para inicializar o catálogo de 70 fontes. **Esse runtime não está pronto para deploy** e não vamos modificar ou mutilar o submódulo original para forçar a instalação.
 
-A documentação do Workers agora permite bundles até 64 MiB em todos os planos, e Durable Objects SQLite existem no Workers Free. Isso remove a antiga barreira de bundle de 3 MiB do exemplo Python, mas **não prova que todos os pacotes do MCP Brasil sejam compatíveis com Pyodide/Workers**. Por isso o primeiro passo é o workflow `MCP Brasil Worker CI`, que tenta construir e testar o runtime localmente. Somente depois de CI verde deve ser feito o deploy.
+### Render Free — caminho de teste recomendado para o MCP Brasil completo
+
+O runtime `runtimes/render-mcp-brasil/` usa Docker e instala o pacote publicado `mcp-brasil==0.14.0` em Python/Linux comum. Isso mantém o código upstream completo e permite usar as wheels nativas requeridas pelo FastMCP/Code Mode. O arquivo `render.yaml` da raiz permite criar o Web Service pelo Blueprint do Render.
+
+Limitações verificadas do plano Free: 750 horas de instância por workspace/mês, 512 MB RAM, suspensão após 15 minutos sem tráfego e cerca de um minuto para acordar. O filesystem é efêmero e o serviço pode reiniciar. É adequado para testes e consultas ocasionais, não produção ou disponibilidade garantida. O primeiro deploy ainda exige que o usuário conecte o GitHub ao Render e defina `MCP_BRASIL_API_TOKEN` como segredo no painel.
+
+O workflow `.github/workflows/render-mcp-brasil-ci.yml` faz build da imagem Docker, verifica `/health` e executa handshake MCP autenticado + descoberta de ferramentas. Só depois de CI verde faz sentido criar o Blueprint no Render.
 
 ### Segurança
 

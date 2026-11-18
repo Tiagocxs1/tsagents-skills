@@ -4,10 +4,10 @@ Este runtime prepara o MCP Brasil como servidor remoto via **Streamable HTTP** e
 
 ## Estado atual
 
-- **Status: estrutura criada; CI e deploy ainda pendentes de validação.**
+- **Status: experimental; não implantado.** O CI não conseguiu montar o bundle Pyodide porque o extra `fastmcp[code-mode]` depende de `pydantic-monty` e `pydantic-monty-client`, sem wheels compatíveis com Python Workers.
 - Adaptador Python Worker, projeto uv, configuração Wrangler, smoke test e workflows adicionados.
 - **Ainda não implantado** no Cloudflare.
-- Compatibilidade real com Pyodide/Workers depende do resultado do workflow de CI.
+- Compatibilidade real com Pyodide/Workers está bloqueada por dependências nativas do upstream; não alterar o submódulo para contornar sem uma avaliação separada.
 - Nenhum token ou credencial foi gravado no Git.
 
 ## Arquitetura
@@ -27,7 +27,7 @@ Este runtime prepara o MCP Brasil como servidor remoto via **Streamable HTTP** e
 - Node.js 22+ e [uv](https://docs.astral.sh/uv/).
 - Para deploy por Actions: token Cloudflare com permissão de edição de Workers Scripts e leitura da conta.
 
-Workers Free inclui 100.000 requests/dia e 10 ms de CPU por invocação. Durable Objects SQLite têm cotas gratuitas diárias. Ao ultrapassar cotas, operações podem falhar até o reset diário. Consultas grandes ou cargas intensas não são garantidas no free tier.
+Workers Free inclui 100.000 requests/dia e 10 ms de CPU por invocação. Mesmo resolvendo as dependências, esse limite pode ser insuficiente para inicializar o catálogo completo de fontes governamentais.
 
 ## Testar localmente
 
