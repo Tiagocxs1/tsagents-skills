@@ -33,7 +33,7 @@ Pesquisa e inventário inicial em 17/11/2026. “Conectado” significa que o co
 |---|---|---|---|
 | https://github.com/social-media-skills/skills | Estratégia social, identidade, carrossel, thumbnail, infográfico, prompts de imagem, vídeo, planejamento e analytics | MIT; catálogo com 106 skills no snapshot consultado | Prioridade máxima para produção de conteúdo social. Instalar módulos seletivos. |
 | https://github.com/coreyhaines31/marketingskills | Copy, psicologia, anúncios, social content e CRO | Catálogo popular; skills de ads e ad-creative têm alto uso no skills.sh | Prioridade máxima para estratégia/copy de anúncios; não é gerador de layout. |
-| https://github.com/adkit/ads-skills | Planejamento e execução de campanhas Meta/Google | Termos de redistribuição restritivos no README | Não copiar para este repositório. Avaliar apenas no ambiente externo e sob seus termos. |
+| https://github.com/adkit/ads-skills | Estratégia e skills de execução para Meta, Google e outros canais; estratégia standalone, MCP opcional para criar/publicar | Repositório MIT, mas `meta-ads-strategy` e `google-ads-strategy` têm licença própria sem redistribuição; MCP AdKit é externo | Manter link externo. Não copiar as duas skills com licença especial; não ativar serviço de execução sem avaliar custo e autorização de publicação. |
 
 ### Motion e mídia
 - https://gsap.com/ — timeline e motion web avançado.
@@ -134,3 +134,7 @@ Esses comandos são opcionais e instalam no runtime que executa a skills CLI; el
 - Line Art Animation: usar em ilustração vetorial animada, personagens ou cenas SVG; verificar compatibilidade do runtime e não carregar a biblioteca quando CSS/SVG simples resolver.
 - AnyDesign: ativar quando o usuário enviar um site, screenshot ou arquivo Figma como referência. Extrair tokens e componentes com nível de confiança e separar observação de inferência.
 - Imagen: alternativa de geração, não padrão obrigatório. Priorizar imagem_gen e ferramentas já conectadas com custo claro; avaliar Gemini somente se houver API key e custo/qualidade justificarem.
+
+## 10. Arsenal de copy, UX, dados e mercado brasileiro
+
+Para os projetos upstream completos, versões fixadas, licenças, riscos e instruções de checkout, consultar [docs/UPSTREAM-ARSENAL.md](./UPSTREAM-ARSENAL.md). Os originais licenciados estão referenciados como Git submodules em `upstream/`; os itens sem licença clara ou com licenças de subpasta são somente referências externas. Nenhum MCP foi conectado nem nenhuma API autenticada nesta atualização.
