@@ -12,6 +12,7 @@ WORKDIR /app
 RUN pip install --no-cache-dir "mcp-brasil==0.14.0"
 
 COPY runtimes/cloudflare-mcp-brasil/scripts/smoke_test.py /app/smoke_test.py
+COPY runtimes/render-mcp-brasil/start.py /app/start.py
 
 ENV MCP_BRASIL_AUTH_MODE=static \
     MCP_BRASIL_TOOL_SEARCH=bm25 \
@@ -21,4 +22,4 @@ ENV MCP_BRASIL_AUTH_MODE=static \
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "fastmcp run mcp_brasil.server:mcp --transport http --host 0.0.0.0 --port ${PORT:-10000} --path /mcp/"]
+CMD ["python", "/app/start.py"]
