@@ -132,3 +132,17 @@ Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido 
 - [Guardian Seg — Diretrizes de conteúdo social](./brands/guardianseg/SOCIAL-CONTENT-GUIDELINES.md): pilares editoriais e guardrails para calendário/postagens.
 
 As fichas da marca são a fonte única antes de criar conteúdo. Os números internos recebidos da equipe estão marcados como pendentes de validação de data/base. Nunca versionar tokens, chaves ou credenciais.
+
+## SEO, GEO e Analytics
+
+| Recurso | Uso |
+|---|---|
+| [SEO & Analytics Ops](./seo-analytics-ops/SKILL.md) | Orquestra auditorias técnicas/editoriais, GEO/AEO e análise baseada em dados reais |
+| [Stack SEO & Analytics](./docs/SEO-ANALYTICS-STACK.md) | Instalação e configuração dos MCPs GA4/GSC e ferramentas de auditoria |
+| [Google Analytics MCP oficial](https://github.com/googleanalytics/google-analytics-mcp) | Consultas GA4 read-only; original já está em `upstream/google-analytics-mcp` |
+| [Google Search Console MCP](https://github.com/AminForou/mcp-gsc) | Métricas de pesquisa, inspeção de URLs e sitemaps; instalação local opcional |
+| [Claude SEO](https://github.com/AgriciDaniel/claude-seo) | Coleção upstream de skills/subagents para SEO técnico, conteúdo e GEO |
+| [SEOmator Audit](https://github.com/seo-skills/seo-audit-skill) | Auditoria técnica determinística por CLI |
+| [JeffLi SEO Audit](https://github.com/JeffLi1993/seo-audit-skill) | Auditoria de página com scripts e skill |
+
+MCPs precisam ser instalados e autenticados no runtime do agente; a presença dos links/arquivos no GitHub não conecta contas Google. Começar em modo read-only, nunca versionar credenciais e consultar `docs/SEO-ANALYTICS-STACK.md` antes da instalação.
