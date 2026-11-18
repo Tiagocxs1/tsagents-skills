@@ -138,3 +138,18 @@ Esses comandos são opcionais e instalam no runtime que executa a skills CLI; el
 ## 10. Arsenal de copy, UX, dados e mercado brasileiro
 
 Para os projetos upstream completos, versões fixadas, licenças, riscos e instruções de checkout, consultar [docs/UPSTREAM-ARSENAL.md](./UPSTREAM-ARSENAL.md). Os originais licenciados estão referenciados como Git submodules em `upstream/`; os itens sem licença clara ou com licenças de subpasta são somente referências externas. Nenhum MCP foi conectado nem nenhuma API autenticada nesta atualização.
+
+
+## 11. Publicação editorial, e-books e PDF
+
+| Skill TS Digitais | Função | Referência/licença |
+|---|---|---|
+| [editorial-design](../editorial-design/SKILL.md) | Tipografia editorial, drop caps, pull quotes, colunas, hairlines e responsividade | Adaptada de sickn33/agentic-awesome-skills; MIT preservada em `editorial-design/LICENSE`. |
+| [digital-eguide-editorial](../digital-eguide-editorial/SKILL.md) | E-books, lookbooks, guias, capa, sumário visual, spreads, exercícios e QA multipágina | Implementação original TS Digitais. A origem bykaranmrn citada em marketplace não foi confirmada com licença pública. |
+| [frontend-design](../frontend-design/SKILL.md) | Design intencional de interfaces sem padrões genéricos | Guia oficial Anthropic usado como referência; arquivo TS Digitais independente. Upstream: https://github.com/anthropics/skills/tree/main/skills/frontend-design |
+| [weasyprint-pdf-creation](../weasyprint-pdf-creation/SKILL.md) | Render HTML/CSS para PDF, @page, margens, paginação e validação | Adaptada de slapash/weasyprint-pdf-skill; MIT preservada em `weasyprint-pdf-creation/LICENSE`. |
+
+### Encadeamento
+- Artigo ou layout editorial: `editorial-design` + `frontend-design` conforme o canal.
+- E-book/guia: `editorial-design` → `digital-eguide-editorial` → `weasyprint-pdf-creation` → `visual-quality-review`.
+- PDF criado com WeasyPrint deve ser validado no arquivo exportado: logs, dimensões, número de páginas, extração de texto, links e inspeção visual. Não aprovar apenas o HTML ou screenshot.
