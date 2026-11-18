@@ -40,3 +40,12 @@ Quando a plataforma permitir subagentes, consultar os perfis em agents/:
 - visual-critic.md: revisão independente.
 
 Se não houver delegação real, executar esses papéis como etapas sequenciais. Não alegar paralelismo que não ocorreu.
+
+## Módulos especializados adicionais
+
+- Se o trabalho depende de uma identidade visual de cliente, consultar brand-profile/SKILL.md antes de produzir.
+- Se o usuário trouxer website, screenshot, referência ou arquivo Figma para estudar, consultar visual-reference-analysis/SKILL.md.
+- Para dados/gráficos/infográficos, consultar infographic-design/SKILL.md.
+- Para prompts e escolha de modelos de imagem, consultar image-brief-and-routing/SKILL.md.
+- Para estética editorial limitada a uma ou duas tintas, consultar editorial-print-design/SKILL.md.
+- Para ilustração animada em SVG/TypeScript, consultar line-art-animation/SKILL.md.
