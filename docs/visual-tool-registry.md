@@ -109,3 +109,28 @@ Instalar apenas as necessárias para cada projeto. Verificar a nomenclatura atua
 - https://github.com/Upload-Post/upload-post-mcp — MCP Upload-Post.
 
 Revisar atividade, licença, documentação e preços antes de novas adoções. Atualizar este catálogo periodicamente.
+
+## 8. Complementos citados no briefing original — verificados
+
+| Recurso | Link | O que acrescenta | Licença / condição |
+|---|---|---|---|
+| Mono-Color / Monocolor Editorial Print | https://github.com/yanliudesign/mono-color-skill | Peças editoriais de uma ou duas tintas, papel, halftone, pôsteres, zines, retratos e embalagens | MIT; skill especializada em uma direção visual, não deve ser aplicada a toda marca ou campanha. |
+| Line Art Animation | https://github.com/JDhruv14/line-art-animation | Ilustração animada em SVG + TypeScript, figuras com ciclos de caminhada e cenas com variação dia/noite; usa biblioteca de código pequena | MIT; README pede Node 22.18+ para os exemplos. Recomendado para motion SVG, não para posts estáticos. |
+| AnyDesign | https://github.com/uxKero/anydesign | Analisa screenshot, site ou Figma e gera design.md, tokens, inventário de componentes e notas de reconstrução | MIT; ideal para estudar referências e documentar padrões, não para copiar uma peça sem autorização. |
+| Imagen Skill (Gemini API) | https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen | Skill para gerar assets visuais com a API de imagem do Gemini | Apache-2.0; requer GEMINI_API_KEY e uso da API. Conferir o modelo e o preço atuais antes de executar; não assumir gratuidade. |
+
+Instalação sugerida em agentes compatíveis:
+
+    npx skills add yanliudesign/mono-color-skill
+    npx skills add JDhruv14/line-art-animation
+    npx skills add uxKero/anydesign
+    npx skills add sanjay3290/ai-skills --skill imagen
+
+Esses comandos são opcionais e instalam no runtime que executa a skills CLI; eles não ativam essas skills automaticamente no registro interno do ChatGPT.
+
+## 9. Critério de seleção dessas skills
+
+- Mono-Color: usar somente quando o conceito pedir linguagem editorial limitada a uma ou duas tintas; não converter toda arte para esse estilo.
+- Line Art Animation: usar em ilustração vetorial animada, personagens ou cenas SVG; verificar compatibilidade do runtime e não carregar a biblioteca quando CSS/SVG simples resolver.
+- AnyDesign: ativar quando o usuário enviar um site, screenshot ou arquivo Figma como referência. Extrair tokens e componentes com nível de confiança e separar observação de inferência.
+- Imagen: alternativa de geração, não padrão obrigatório. Priorizar imagem_gen e ferramentas já conectadas com custo claro; avaliar Gemini somente se houver API key e custo/qualidade justificarem.
