@@ -21,6 +21,7 @@ Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são 
 | [spec-driven-development](./spec-driven-development/SKILL.md) | Especificar, planejar, dividir tarefas, implementar e verificar mudanças; inspirado no GitHub Spec Kit |
 | [privacy-by-design](./privacy-by-design/SKILL.md) | Engenharia de privacidade e minimização para qualquer produto que trate dados pessoais |
 | [privacy-legal](./privacy-legal/SKILL.md) | Análise procedimental LGPD/GDPR, direitos, RIPD/DPIA e fontes oficiais |
+| [leis-mcp](https://github.com/mazulo/leis-mcp) | MCP opcional e local para consultar e citar legislação brasileira (inclui LGPD); requer configuração no cliente MCP |
 | [messaging-private-storage](./messaging-private-storage/SKILL.md) | Segurança de mensageria, isolamento de usuários, uploads, downloads e retenção |
 
 ## Instalação por projeto
