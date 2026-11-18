@@ -30,8 +30,8 @@ O projeto [MCP Brasil](https://github.com/Mcp-Brasil/mcp-brasil) foi selecionado
 
 O runtime em `runtimes/cloudflare-mcp-brasil/`:
 - usa Cloudflare Python Workers;
-- usa Durable Object SQLite para manter o servidor/session manager;
-- publica Streamable HTTP;
+- publica Streamable HTTP stateless via `workers.asgi.fetch` e `Default(WorkerEntrypoint)`;
+- não usa Durable Objects, evitando estado persistente e quota adicional;
 - força autenticação estática Bearer, sem modo anônimo;
 - usa BM25 discovery;
 - mantém os datasets locais desativados;

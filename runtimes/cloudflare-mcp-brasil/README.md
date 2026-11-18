@@ -13,10 +13,10 @@ Este runtime prepara o MCP Brasil como servidor remoto via **Streamable HTTP** e
 ## Arquitetura
 
 - Cloudflare Python Worker recebe o tráfego HTTP.
-- Durable Object com SQLite mantém uma instância FastMCP/session manager estável.
-- FastMCP `http_app()` publica Streamable HTTP no caminho MCP padrão.
+- FastMCP `http_app()` publica Streamable HTTP stateless no caminho MCP padrão, sem Durable Object.
 - Autenticação Bearer obrigatória via Worker Secret `MCP_BRASIL_API_TOKEN`.
 - BM25 tool discovery evita expor centenas de schemas de uma vez.
+- O modo stateless elimina dependência de sessão persistente entre invocações; clientes MCP precisam suportar Streamable HTTP stateless.
 - Um shim local mínimo desativa apenas o file-watcher do comando de reload do FastMCP. O servidor HTTP não usa esse recurso; o original upstream permanece intocado.
 - Datasets locais permanecem desligados; primeiro deploy atende consultas às APIs remotas.
 
@@ -87,7 +87,7 @@ O workflow atualiza o Worker Secret e publica o Worker. A URL `workers.dev` apar
 
 ## Clientes MCP
 
-O endpoint remoto segue Streamable HTTP e pode ser configurado em clientes compatíveis como Claude Code, Cursor, OpenCode, Gemini CLI ou outros.
+O endpoint remoto segue Streamable HTTP stateless e pode ser configurado em clientes compatíveis como Claude Code, Cursor, OpenCode, Gemini CLI ou outros.
 
 Exemplo genérico:
 

@@ -1,23 +1,26 @@
-"""Remote MCP Brasil server on Cloudflare Python Workers.
+"""Stateless MCP Brasil endpoint on Cloudflare Python Workers.
 
-The API token is a Cloudflare Worker secret. Authentication is forced to
-static Bearer-token mode before importing mcp_brasil.server, because that
-upstream package reads its settings at import time.
+Cloudflare Python Workers export a Default(WorkerEntrypoint) class. The
+original MCP Brasil package is imported only after the Worker secret has been
+copied into the environment, because upstream reads auth settings at import.
 
-The Durable Object keeps one FastMCP instance/session manager stable for
-Streamable HTTP requests. Local datasets remain disabled by default.
+FastMCP runs with stateless Streamable HTTP so the endpoint does not depend on
+a long-lived process or Durable Object session between requests.
 """
 
-from workers import DurableObject, Response, asgi
+from __future__ import annotations
+
+import os
+from urllib.parse import urlparse
+
+from workers import WorkerEntrypoint, Response, asgi
 
 
-SERVICE_OBJECT_NAME = "mcp-brasil"
+_cached_app = None
 
 
 def build_asgi_app(env):
-    """Configure the upstream package and build its Streamable HTTP ASGI app."""
-    import os
-
+    """Configure the upstream package and build a stateless ASGI application."""
     token = getattr(env, "MCP_BRASIL_API_TOKEN", None)
     if not token or len(str(token)) < 32:
         raise RuntimeError(
@@ -25,7 +28,7 @@ def build_asgi_app(env):
             "Cloudflare Worker secret (minimum 32 characters)."
         )
 
-    # Fail closed: do not permit an unauthenticated public MCP endpoint.
+    # Fail closed: never permit an unauthenticated public MCP endpoint.
     os.environ["MCP_BRASIL_AUTH_MODE"] = "static"
     os.environ["MCP_BRASIL_API_TOKEN"] = str(token)
     os.environ["MCP_BRASIL_TOOL_SEARCH"] = "bm25"
@@ -33,40 +36,35 @@ def build_asgi_app(env):
     os.environ["MCP_BRASIL_HTTP_TIMEOUT"] = "20.0"
     os.environ["MCP_BRASIL_HTTP_MAX_RETRIES"] = "2"
 
-    # Import after setting the environment: mcp-brasil loads settings and
-    # creates its auth provider during module initialization.
+    # Import after setting the environment: upstream creates its auth provider
+    # during module initialization.
     from mcp_brasil.server import mcp
 
-    # FastMCP's HTTP ASGI app uses Streamable HTTP (the remote MCP transport).
-    return mcp.http_app()
+    return mcp.http_app(path="/mcp/", stateless_http=True, json_response=True)
 
 
-class MCPBrasilServer(DurableObject):
-    """Durable session host for the Streamable HTTP MCP application."""
+class Default(WorkerEntrypoint):
+    """Cloudflare Python Worker entrypoint."""
 
-    def __init__(self, ctx, env):
-        self.ctx = ctx
-        self.env = env
-        self.app = build_asgi_app(env)
+    async def fetch(self, request):
+        global _cached_app
 
-    async def on_fetch(self, request, env, ctx):
-        return await asgi.fetch(self.app, request, self.env, self.ctx)
+        path = urlparse(request.url).path.rstrip("/")
 
+        # Liveness check only; does not import the upstream package.
+        if path == "/health":
+            return Response("ok", status=200)
 
-async def on_fetch(request, env):
-    """Public Worker entry point with an edge health check and DO-backed MCP."""
-    path = str(request.url).split("?", 1)[0].rstrip("/")
+        if path not in {"/mcp", "/mcp/"}:
+            return Response("Not found", status=404)
 
-    # Liveness only: confirms the Worker edge responds without initializing the
-    # Python MCP application. The authenticated MCP handshake is the readiness
-    # check and exercises the Durable Object/session host.
-    if path.endswith("/health"):
-        return Response("ok", status=200)
+        token = getattr(self.env, "MCP_BRASIL_API_TOKEN", None)
+        if not token:
+            return Response("MCP server is not configured", status=503)
 
-    token = getattr(env, "MCP_BRASIL_API_TOKEN", None)
-    if not token:
-        return Response("MCP server is not configured", status=503)
+        if _cached_app is None:
+            _cached_app = build_asgi_app(self.env)
 
-    object_id = env.ns.idFromName(SERVICE_OBJECT_NAME)
-    durable_object = env.ns.get(object_id)
-    return await durable_object.fetch(request)
+        # Cloudflare's ASGI adapter maps the Fetch Request to the ASGI app.
+        # FastMCP stateless_http means each request can be handled independently.
+        return await asgi.fetch(_cached_app, request, self.env, self.ctx)

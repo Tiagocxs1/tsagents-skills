@@ -11,20 +11,6 @@
     "MCP_BRASIL_HTTP_TIMEOUT": "20.0",
     "MCP_BRASIL_HTTP_MAX_RETRIES": "2"
   },
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "ns",
-        "class_name": "MCPBrasilServer"
-      }
-    ]
-  },
-  "migrations": [
-    {
-      "tag": "v1",
-      "new_sqlite_classes": ["MCPBrasilServer"]
-    }
-  ],
   "observability": {
     "enabled": true
   }
