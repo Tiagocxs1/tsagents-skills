@@ -39,9 +39,21 @@ async def main() -> int:
                         "The MCP Brasil meta-tool 'listar_features' was not exposed"
                     )
 
+                # Exercise one real, read-only tool call instead of stopping
+                # after a successful initialize + tools/list handshake.
+                feature_result = await session.call_tool("listar_features", {})
+                if getattr(feature_result, "isError", False):
+                    raise RuntimeError("listar_features returned an MCP error")
+                if not feature_result.content:
+                    raise RuntimeError("listar_features returned an empty result")
+
                 print("MCP handshake: OK")
                 print(f"Tools visible to client: {len(names)}")
-                print("Required discovery tool: listar_features")
+                print("Visible tool names: " + ", ".join(names))
+                print(
+                    "listar_features invocation: OK "
+                    f"({len(feature_result.content)} content block(s))"
+                )
                 return 0
 
 

@@ -105,7 +105,7 @@ Para recuperar as fontes e o runtime:
 git clone --recurse-submodules https://github.com/Tiagocxs1/tsagents-skills.git
 ```
 
-O runtime MCP Brasil está preparado, mas não implantado; o CI precisa validar as dependências e o smoke test antes do primeiro deploy. Nunca versionar `.dev.vars`, tokens, chaves ou credenciais.
+O runtime MCP Brasil passou no CI: build Docker, execução com limite de 512 MiB, health check, handshake Bearer, descoberta de ferramentas e chamada read-only `listar_features`. Ainda não foi implantado; o usuário precisa criar o Blueprint no Render e definir `MCP_BRASIL_API_TOKEN` no Secret Store do provedor. Nunca versionar `.dev.vars`, tokens, chaves ou credenciais.
 
 
 ## Runtime MCP Brasil

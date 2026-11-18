@@ -71,9 +71,7 @@ O workflow `.github/workflows/deploy-mcp-brasil.yml` exige disparo manual e conf
 - **Actions Secret:** `MCP_BRASIL_API_TOKEN`
 - **Actions Variable:** `CLOUDFLARE_ACCOUNT_ID`
 
-Depois vá a **Actions → Deploy MCP Brasil → Run workflow**, na branch `main`, e marque a confirmação.
-
-O workflow atualiza o Worker Secret e publica o Worker. A URL `workers.dev` aparece no log do deploy; use o sufixo `/mcp/`.
+Não há workflow de deploy ativo para esta variante experimental. Não tente publicar até que o bundle Python Workers consiga instalar as dependências originais e passar no handshake MCP. O caminho de teste aprovado no momento é o Render Free.
 
 ## Operação e segurança
 

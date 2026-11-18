@@ -33,6 +33,7 @@ jobs:
       - name: Start container with disposable read-only test token
         run: |
           docker run -d --name tsagents-mcp-brasil-ci \
+            --memory=512m --memory-swap=512m \
             -p 10000:10000 \
             -e PORT=10000 \
             -e MCP_BRASIL_API_TOKEN=ci-disposable-only-token-never-reuse-987654321 \

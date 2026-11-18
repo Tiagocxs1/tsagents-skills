@@ -34,13 +34,13 @@ O runtime experimental em `runtimes/cloudflare-mcp-brasil/` usa Cloudflare Pytho
 
 O runtime `runtimes/render-mcp-brasil/` usa Docker e instala o pacote publicado `mcp-brasil==0.14.0` em Python/Linux comum. Isso mantém o código upstream completo e permite usar as wheels nativas requeridas pelo FastMCP/Code Mode. O arquivo `render.yaml` da raiz permite criar o Web Service pelo Blueprint do Render.
 
-Limitações verificadas do plano Free: 750 horas de instância por workspace/mês, 512 MB RAM, suspensão após 15 minutos sem tráfego e cerca de um minuto para acordar. O filesystem é efêmero e o serviço pode reiniciar. É adequado para testes e consultas ocasionais, não produção ou disponibilidade garantida. O primeiro deploy ainda exige que o usuário conecte o GitHub ao Render e defina `MCP_BRASIL_API_TOKEN` como segredo no painel.
+Limitações verificadas do plano Free: 750 horas de instância por workspace/mês, 512 MB RAM, suspensão após 15 minutos sem tráfego e cerca de um minuto para acordar. O filesystem é efêmero e o serviço pode reiniciar. É adequado para testes e consultas ocasionais, não produção ou disponibilidade garantida. O primeiro deploy ainda exige que o usuário conecte o GitHub ao Render e defina `MCP_BRASIL_API_TOKEN` como segredo no painel. O script `start.py` valida o token antes de importar o upstream, força autenticação estática Bearer e mantém BM25/datasets locais limitados.
 
 O workflow `.github/workflows/render-mcp-brasil-ci.yml` faz build da imagem Docker, verifica `/health` e executa handshake MCP autenticado + descoberta de ferramentas. Só depois de CI verde faz sentido criar o Blueprint no Render.
 
 ### Segurança
 
-- O token MCP fica apenas em Worker Secret/Actions Secret; nunca no código, no `.dev.vars.example` ou no `wrangler.jsonc`.
+- O token MCP fica apenas no Secret Store do Render (ou, em runtimes futuros, no secret store do host); nunca no código, em `.dev.vars.example`, no `wrangler.jsonc` ou no Dockerfile.
 - Não criar endpoint público sem autenticação.
 - Não habilitar datasets locais grandes no primeiro deploy.
 - Não configurar chaves opcionais das fontes sem necessidade real.

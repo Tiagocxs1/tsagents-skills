@@ -1,26 +1,16 @@
-name: MCP Brasil Worker CI
+name: MCP Brasil Worker CI (experimental)
 
 on:
-  pull_request:
-    paths:
-      - "runtimes/cloudflare-mcp-brasil/**"
-      - "upstream/mcp-brasil"
-      - ".gitmodules"
-      - ".github/workflows/mcp-brasil-ci.yml"
-  push:
-    branches: [main]
-    paths:
-      - "runtimes/cloudflare-mcp-brasil/**"
-      - "upstream/mcp-brasil"
-      - ".gitmodules"
-      - ".github/workflows/mcp-brasil-ci.yml"
+  # Manual-only: this target is currently blocked by Pyodide wheel availability.
+  # Keep it available for future compatibility experiments without failing
+  # every normal push to the main branch.
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  smoke-test:
+  experimental-worker-check:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -36,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-
 
       - name: Set up Python
         uses: actions/setup-python@v5
