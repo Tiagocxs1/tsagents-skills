@@ -76,3 +76,22 @@ Consulte [docs/visual-tool-registry.md](./docs/visual-tool-registry.md) para con
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-quality-review
 
 Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido automaticamente apenas por agentes/ambientes que adotem esse padrão; o ChatGPT também precisa consultar os arquivos pelo conector GitHub quando iniciar uma tarefa visual.
+### Skills complementares para referências e estilos específicos
+
+| Skill | Uso |
+|---|---|
+| [brand-profile](./brand-profile/SKILL.md) | Fonte única da identidade de cada marca |
+| [visual-reference-analysis](./visual-reference-analysis/SKILL.md) | Análise de sites, screenshots e Figma em tokens e documentação visual |
+| [image-brief-and-routing](./image-brief-and-routing/SKILL.md) | Brief de imagem, prompts e escolha consciente da ferramenta |
+| [infographic-design](./infographic-design/SKILL.md) | Gráficos e infográficos com dados reais, escalas honestas e acessibilidade |
+| [editorial-print-design](./editorial-print-design/SKILL.md) | Pôsteres/zines com estética de uma ou duas tintas |
+| [line-art-animation](./line-art-animation/SKILL.md) | Ilustração animada em SVG e TypeScript |
+
+Instalação de módulos locais adicionais:
+
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill brand-profile
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-reference-analysis
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill image-brief-and-routing
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill infographic-design
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill editorial-print-design
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill line-art-animation
