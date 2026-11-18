@@ -42,6 +42,16 @@ Se não houver como renderizar ou testar, declarar a limitação e não afirmar 
 - Para GA4 e APIs comerciais, começar por consulta/leitura. Operações de escrita, cobranças, estornos, cancelamentos, publicação e mudança de conta exigem autorização explícita e confirmação contextual. Preferir sandbox.
 - Ferramentas externas podem exigir dependências, Node/Python, chaves, conta ou serviço pago. Consultar docs/UPSTREAM-ARSENAL.md e verificar custos/requisitos antes de recomendar execução.
 
+## Privacidade e segurança de dados
+
+- Para qualquer mudança que trate contas, perfis, dados pessoais, analytics, cookies, logs, pagamentos ou integrações, consultar obrigatoriamente `privacy-by-design/SKILL.md`.
+- Para mensagens, grupos, anexos, uploads, downloads, links compartilhados, storage ou exclusão de arquivos, consultar também `messaging-private-storage/SKILL.md`.
+- Para requisitos LGPD/GDPR, direitos dos titulares, RIPD/DPIA, incidentes ou transferências, consultar também `privacy-legal/SKILL.md` e confirmar a legislação/orientação vigente em fontes oficiais.
+- Para instalar ou conectar skills, plugins, agentes ou MCPs, consultar `agents/mcp-privacy-auditor.md` e `docs/PRIVACY-TOOLING.md`. Não instalar somente com base em uma ficha de marketplace.
+- Autorização deve ser validada no servidor e por objeto. RLS, IDs aleatórios, URL assinada, `.cursorignore` ou UI escondida não substituem autorização testada.
+- Não declarar conformidade jurídica, E2EE, exclusão física ou proteção contra vazamentos sem evidências, testes executados e limites documentados.
+- Nunca usar dados reais de usuários em fixtures, demos, screenshots, prompts de IA ou serviços externos sem necessidade, base e autorização apropriadas.
+
 ## Papéis de agentes
 
 Quando a plataforma permitir subagentes, consultar os perfis em agents/:
