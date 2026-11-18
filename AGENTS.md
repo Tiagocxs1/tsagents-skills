@@ -60,3 +60,13 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Para prompts e escolha de modelos de imagem, consultar image-brief-and-routing/SKILL.md.
 - Para estética editorial limitada a uma ou duas tintas, consultar editorial-print-design/SKILL.md.
 - Para ilustração animada em SVG/TypeScript, consultar line-art-animation/SKILL.md.
+
+## MCPs e runtimes
+
+- Antes de instalar ou publicar um MCP, consultar docs/MCP-RUNTIME-ARCHITECTURE.md e a documentação do upstream.
+- Distinguir skills (arquivos de instruções), MCPs locais por stdio, MCPs remotos por Streamable HTTP e runtimes temporários de CI.
+- Nunca declarar um serviço implantado/conectado sem verificar a URL, autenticação, handshake MCP e ferramentas expostas.
+- Preferir free tier, mas respeitar cotas de CPU, requests, storage e subrequests; não presumir execução gratuita ilimitada.
+- Credenciais devem ficar apenas em Secret Stores ou envs ignorados pelo Git. Nunca solicitar que o usuário cole chaves no chat.
+- Ações financeiras, publicação, cancelamento, estorno, alteração de conta e escrita em serviços externos exigem autorização explícita e confirmação contextual.
+- Para dados públicos brasileiros, respeitar LGPD, licenças das fontes, termos do MCP Brasil e suas políticas de uso; não fazer perfilamento sensível ou reidentificação.

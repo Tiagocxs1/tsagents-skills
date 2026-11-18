@@ -1,0 +1,20 @@
+[project]
+name = "ts-mcp-brasil-worker"
+version = "0.1.0"
+description = "Cloudflare Python Worker for the pinned MCP Brasil upstream"
+requires-python = "==3.12.*"
+dependencies = [
+    "mcp-brasil==0.14.0",
+]
+
+[tool.uv.sources]
+mcp-brasil = { path = "../../upstream/mcp-brasil" }
+
+[dependency-groups]
+dev = [
+    "workers-py",
+    "workers-runtime-sdk",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

@@ -92,3 +92,17 @@ Os submódulos preservam o código e os arquivos originais sem modificações. O
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-quality-review
 
 Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido automaticamente apenas por agentes/ambientes que adotem esse padrão; o ChatGPT também precisa consultar os arquivos pelo conector GitHub quando iniciar uma tarefa visual.
+
+## Runtimes MCP
+
+- [Arquitetura de execução](./docs/MCP-RUNTIME-ARCHITECTURE.md): diferença entre GitHub Actions, Cloudflare Workers, Durable Objects e runtimes locais.
+- [Runtimes](./runtimes/README.md): adaptadores e configuração de serviços remotos.
+- [MCP Brasil no Cloudflare](./runtimes/cloudflare-mcp-brasil/README.md): servidor remoto Python/Streamable HTTP, autenticação Bearer, CI e deploy manual.
+
+Para recuperar as fontes e o runtime:
+
+```bash
+git clone --recurse-submodules https://github.com/Tiagocxs1/tsagents-skills.git
+```
+
+O runtime MCP Brasil está preparado, mas não implantado; o CI precisa validar as dependências e o smoke test antes do primeiro deploy. Nunca versionar `.dev.vars`, tokens, chaves ou credenciais.

@@ -1,0 +1,83 @@
+name: MCP Brasil Worker CI
+
+on:
+  pull_request:
+    paths:
+      - "runtimes/cloudflare-mcp-brasil/**"
+      - "upstream/mcp-brasil"
+      - ".gitmodules"
+      - ".github/workflows/mcp-brasil-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "runtimes/cloudflare-mcp-brasil/**"
+      - "upstream/mcp-brasil"
+      - ".gitmodules"
+      - ".github/workflows/mcp-brasil-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout runtime and pinned MCP Brasil source
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Initialize only the required upstream submodule
+        run: git submodule update --init upstream/mcp-brasil
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: runtimes/cloudflare-mcp-brasil/pyproject.toml
+
+      - name: Install Python Worker dependencies
+        working-directory: runtimes/cloudflare-mcp-brasil
+        run: uv sync --all-groups
+
+      - name: Configure a disposable local-only token
+        working-directory: runtimes/cloudflare-mcp-brasil
+        run: |
+          printf '%s\n' 'MCP_BRASIL_API_TOKEN=ci-local-only-token-please-never-reuse' > .dev.vars
+
+      - name: Start the local Cloudflare Worker
+        working-directory: runtimes/cloudflare-mcp-brasil
+        run: |
+          nohup uv run pywrangler dev --ip 127.0.0.1 --port 8787 > "$RUNNER_TEMP/mcp-brasil-worker.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/mcp-brasil-worker.pid"
+
+      - name: Wait for health endpoint
+        working-directory: runtimes/cloudflare-mcp-brasil
+        run: |
+          for attempt in $(seq 1 90); do
+            if curl --fail --silent http://127.0.0.1:8787/health; then
+              echo
+              exit 0
+            fi
+            sleep 2
+          done
+          cat "$RUNNER_TEMP/mcp-brasil-worker.log"
+          exit 1
+
+      - name: Verify authenticated Streamable HTTP handshake and tool discovery
+        working-directory: runtimes/cloudflare-mcp-brasil
+        env:
+          MCP_URL: http://127.0.0.1:8787/mcp/
+          MCP_BRASIL_API_TOKEN: ci-local-only-token-please-never-reuse
+        run: uv run python scripts/smoke_test.py
+
+      - name: Show worker logs on failure
+        if: failure()
+        run: cat "$RUNNER_TEMP/mcp-brasil-worker.log"

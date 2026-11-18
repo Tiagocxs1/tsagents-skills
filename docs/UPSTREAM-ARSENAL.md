@@ -85,3 +85,17 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 ## 4. Histórico de versões
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
+
+## 5. Primeiro runtime remoto preparado
+
+O [runtime Cloudflare MCP Brasil](../runtimes/cloudflare-mcp-brasil/README.md) foi criado para servir o MCP Brasil via Python Workers + Durable Objects + Streamable HTTP.
+
+**Estado:** código e workflows adicionados; deploy ainda pendente de CI verde e configuração de secrets do Cloudflare. O runtime usa autenticação estática Bearer, BM25 discovery e mantém datasets locais desativados.
+
+O repositório original continua no submódulo `upstream/mcp-brasil`; o runtime adiciona somente o adaptador de execução. A configuração está fixada em `runtimes/cloudflare-mcp-brasil/`.
+
+Workflows:
+- `.github/workflows/mcp-brasil-ci.yml` — instala o pacote upstream fixado, sobe o Worker local e valida o health endpoint e o handshake MCP.
+- `.github/workflows/deploy-mcp-brasil.yml` — deploy manual, após adicionar secrets e variável da conta Cloudflare.
+
+A mudança de limite de tamanho de bundle da Cloudflare em 04/09/2026 elevou o limite para 64 MiB nos planos Free e Paid; isso remove a antiga barreira de 3 MiB, mas não assegura compatibilidade de cada biblioteca Python com Pyodide. O workflow é o gate de validação. No plano Free, respeitar CPU de 10 ms por invocação e quotas diárias dos Durable Objects/Workers.

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "tsagents-mcp-brasil",
+  "main": "src/worker.py",
+  "compatibility_date": "2026-11-17",
+  "compatibility_flags": ["python_workers"],
+  "vars": {
+    "MCP_BRASIL_AUTH_MODE": "static",
+    "MCP_BRASIL_TOOL_SEARCH": "bm25",
+    "MCP_BRASIL_DATASETS": "",
+    "MCP_BRASIL_HTTP_TIMEOUT": "20.0",
+    "MCP_BRASIL_HTTP_MAX_RETRIES": "2"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ns",
+        "class_name": "MCPBrasilServer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["MCPBrasilServer"]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
