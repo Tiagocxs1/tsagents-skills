@@ -47,10 +47,32 @@ As skills TS Digitais são originais desta biblioteca; não são cópias integra
 - **Não instalado como plugin global:** estrutura e comandos são próprios do ecossistema Claude; o bundle contém workflows jurídicos e conectores específicos. Não é plugin universal de Cursor/VS Code nem MCP regulatório genérico.
 - Os autores deixam claro que resultados são rascunhos sujeitos à revisão de advogado.
 
+### leis-mcp — legislação brasileira com fonte oficial
+
+- Repositório: https://github.com/mazulo/leis-mcp
+- Licença do código: MIT. Versão declarada no pyproject consultado: 0.3.0.
+- Commit auditado: `5430cfc167689ad7d40a86e9d9e3fa60c9373603` (13/11/2026); metadados do GitHub atualizados em 17/11/2026.
+- Servidor MCP em Python 3.12+, protocolo stdio e Streamable HTTP, sem API key. O modo padrão é stdio; o HTTP local usa `127.0.0.1`.
+- Oferece ferramentas read-only para buscar normas, ler artigo/dispositivo, pesquisar texto e navegar pelo catálogo. Inclui LGPD e legislação de diferentes esferas.
+- O index SQLite é baixado/armazenado localmente (aprox. 100 MB na primeira instalação, segundo o README). O conteúdo é consultado sob demanda no repositório `ctresb/leis`, com validação de hash; a verificação online de vigência/redação para normas federais consulta `normas.leg.br` e Senado Federal. As consultas jurídicas digitadas pelo usuário vão para as fontes oficiais/repositório conforme a ferramenta acionada.
+- O upstream inclui `uv.lock` com hashes, testes e CI. A inspeção pontual do código confirmou handlers marcados como read-only, cache local, download validado por hash e fontes externas declaradas. Isso não equivale a auditoria de segurança completa.
+- **Limitação jurídica importante:** o próprio README alerta que textos são convertidos automaticamente e podem conter erros de conversão/OCR; as respostas incluem fonte e aviso, mas não substituem a publicação oficial. O campo de vigência não confirma por si só vigência integral nem resolve revogação tácita, jurisprudência ou interpretação. Sempre abrir e conferir a fonte oficial antes de afirmar um requisito jurídico.
+- **Status:** aprovado como MCP opcional de consulta normativa brasileira, não instalado automaticamente. O primeiro uso baixa um índice grande e requer Python 3.12+/uv/uvx. Usar preferencialmente stdio local; não expor HTTP em rede sem autenticação e controles adicionais.
+- Configuração de terminal genérica indicada pelo upstream:
+  ```bash
+  uvx leis-mcp index
+  uvx leis-mcp serve
+  ```
+- Codex CLI (registro global do usuário, para todos os projetos):
+  ```bash
+  codex mcp add leis -- uvx leis-mcp serve
+  ```
+- Cursor/VS Code/Claude Code: seguir as configurações específicas do upstream, pois o formato e escopo de registro variam por cliente: https://github.com/mazulo/leis-mcp#início-rápido
+
 ### LGPD MCP Server — MCP Market
 - Referência citada: https://mcpmarket.com/server/lgpd
 - Não localizamos repositório canônico verificável com código, licença, release, mantenedor, documentação de transporte/autenticação e permissões.
-- **Status: não instalado.** Uma ficha de diretório ou promessa de “nove ferramentas” não basta para conectar um servidor a mensagens, arquivos ou credenciais.
+- **Status: não instalado.** Uma ficha de diretório ou promessa de “nove ferramentas” não basta para conectar um servidor a mensagens, arquivos ou credenciais. Preferimos o `leis-mcp` auditável para pesquisa de normas brasileiras.
 
 ### Global Compliance Audit MCP Server — artigo Hugging Face
 - Referência: https://huggingface.co/blog/MCP-1st-Birthday/global-compliance-audit-mcp-server
@@ -101,6 +123,10 @@ Antes de transformar o resultado em check obrigatório:
 - Não habilitar hooks automáticos sem inspecionar o instalador e entender os arquivos que altera.
 - Não confundir skill, plugin, agente, workflow GitHub Actions e servidor MCP: são artefatos diferentes e exigem instalações distintas.
 - Toda conclusão de conformidade deve indicar evidências, lacunas, testes e decisões jurídicas pendentes.
+
+## Jurisdição europeia (GDPR)
+
+Não foi incorporado um servidor MCP genérico para GDPR nesta curadoria. Para pesquisa de legislação europeia, consulte diretamente a versão consolidada do Regulamento (UE) 2016/679 no EUR-Lex e as orientações do EDPB/autoridades nacionais. Não trate uma skill de engenharia GDPR como fonte jurídica primária.
 
 ## Fontes normativas oficiais
 - LGPD — Lei nº 13.709/2018: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
