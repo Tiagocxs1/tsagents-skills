@@ -19,6 +19,9 @@ Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são 
 | Skill | Uso |
 |---|---|
 | [spec-driven-development](./spec-driven-development/SKILL.md) | Especificar, planejar, dividir tarefas, implementar e verificar mudanças; inspirado no GitHub Spec Kit |
+| [privacy-by-design](./privacy-by-design/SKILL.md) | Engenharia de privacidade e minimização para qualquer produto que trate dados pessoais |
+| [privacy-legal](./privacy-legal/SKILL.md) | Análise procedimental LGPD/GDPR, direitos, RIPD/DPIA e fontes oficiais |
+| [messaging-private-storage](./messaging-private-storage/SKILL.md) | Segurança de mensageria, isolamento de usuários, uploads, downloads e retenção |
 
 ## Instalação por projeto
 
@@ -40,6 +43,26 @@ Para UI/UX, instale também `ui-ux-pro-max`. Para auditorias de acessibilidade, 
 - Spec-driven development: [github/spec-kit](https://github.com/github/spec-kit).
 
 As skills agregadoras são guias de trabalho, não substituem a leitura das fontes oficiais. Revise os repositórios de origem antes de atualizar cópias locais e não instale dependências de UI sem necessidade demonstrada.
+
+## Privacidade, LGPD/GDPR e segurança de agentes
+
+| Recurso | Uso |
+|---|---|
+| [Privacy by Design](./privacy-by-design/SKILL.md) | Guardrails técnicos para todo tratamento de dados pessoais |
+| [LGPD/GDPR](./privacy-legal/SKILL.md) | Mapeamento jurídico-procedimental com fontes oficiais e decisões pendentes |
+| [Mensageria e arquivos privados](./messaging-private-storage/SKILL.md) | Autorização por objeto, RLS, storage privado, URLs assinadas, retenção e expurgo |
+| [Privacy Engineer](./agents/privacy-engineer.md) | Implementação de controles e testes |
+| [Privacy Reviewer](./agents/privacy-reviewer.md) | Revisão independente de segurança e privacidade |
+| [MCP Privacy Auditor](./agents/mcp-privacy-auditor.md) | Avaliação de origem, licença, permissões e rede de agentes/MCPs |
+| [Curadoria de ferramentas](./docs/PRIVACY-TOOLING.md) | OTTO, skills jurídicas, limitações, templates e critérios para MCPs |
+
+Para disponibilizar as três skills em todos os projetos no computador, use a instalação global da CLI:
+
+~~~bash
+npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill privacy-by-design --skill privacy-legal --skill messaging-private-storage -g -a '*' -y
+~~~
+
+O workflow OTTO é opcional e está em [templates/github-actions/otto-privacy-review.yml](./templates/github-actions/otto-privacy-review.yml). Os templates de exclusão de arquivos sensíveis estão em [templates/privacy/](./templates/privacy/). Não foi conectado nenhum MCP jurídico externo sem origem/código verificável. Consulte a curadoria antes de ativar automações ou serviços de terceiros.
 
 ## Direção de arte, social e publicidade
 
