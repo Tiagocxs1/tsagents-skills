@@ -64,6 +64,10 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 
 ## Módulos especializados adicionais
 
+- Para layouts de revista, páginas editoriais, tipografia serif/sans, capitulares e pull quotes, consultar `editorial-design/SKILL.md`.
+- Para e-books, guias digitais, lookbooks e lead magnets, consultar `digital-eguide-editorial/SKILL.md` e, na geração de PDF, `weasyprint-pdf-creation/SKILL.md`.
+- Para criação ou reformulação de interfaces web, consultar `frontend-design/SKILL.md` junto às skills de UX, responsividade e acessibilidade.
+
 - Se o trabalho depende de uma identidade visual de cliente, consultar brand-profile/SKILL.md antes de produzir.
 - Se o usuário trouxer website, screenshot, referência ou arquivo Figma para estudar, consultar visual-reference-analysis/SKILL.md.
 - Para dados/gráficos/infográficos, consultar infographic-design/SKILL.md.
