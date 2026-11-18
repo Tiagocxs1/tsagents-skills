@@ -4,7 +4,7 @@ Este runtime prepara o MCP Brasil como servidor remoto via **Streamable HTTP** e
 
 ## Estado atual
 
-- <badge color="success">Estrutura criada</badge>
+- **Status: estrutura criada; CI e deploy ainda pendentes de validação.**
 - Adaptador Python Worker, projeto uv, configuração Wrangler, smoke test e workflows adicionados.
 - **Ainda não implantado** no Cloudflare.
 - Compatibilidade real com Pyodide/Workers depende do resultado do workflow de CI.
