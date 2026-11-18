@@ -5,7 +5,7 @@ import os
 import sys
 
 from mcp import ClientSession
-from mcp.client.streamable_http import streamablehttp_client
+from mcp.client.streamable_http import streamable_http_client
 
 
 async def main() -> int:
@@ -21,7 +21,7 @@ async def main() -> int:
 
     headers = {"Authorization": f"Bearer {token}"}
 
-    async with streamablehttp_client(url, headers=headers) as (
+    async with streamable_http_client(url, headers=headers) as (
         read_stream,
         write_stream,
         _get_session_id,
