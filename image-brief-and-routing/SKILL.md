@@ -1,0 +1,37 @@
+---
+name: image-brief-and-routing
+description: Criar briefings e prompts de imagem objetivos e escolher a ferramenta visual correta conforme finalidade, estilo, precisão, edição e custo.
+---
+
+# Image Brief and Routing
+
+Usar quando a tarefa precisar de fotografia, ilustração, textura, imagem de produto, fundo ou asset gerado por IA. Consultar primeiro visual-design e brand-profile.
+
+## Gate: imagem precisa ser gerada?
+Antes de usar IA, avaliar se uma foto real do produto/local/equipe, screenshot, asset licenciado ou gráfico verdadeiro comunicaria melhor. Não fabricar a aparência de uma pessoa, negócio, local ou produto real. Preferir geração quando o elemento não existe, precisa de uma direção visual específica ou uma série consistente não pode ser obtida por assets existentes.
+
+## Brief de imagem
+Definir em linguagem natural:
+- Função: hero, produto, lifestyle, fundo, ilustração, thumbnail, ad, ícone ou textura.
+- Assunto e ação principal.
+- Composição, enquadramento, perspectiva e espaço negativo para texto.
+- Luz, paleta, materialidade, textura, estilo e clima.
+- Proporção/resolução e destino.
+- Restrições: sem texto, sem logo inventado, sem marca d'água, sem deformações ou elementos não desejados.
+- Referências fornecidas e o que cada uma controla.
+
+Evitar prompts recheados de tokens como masterpiece/8k. Descrever cena, linguagem, enquadramento e condições específicas.
+
+## Roteamento
+- Texto tipográfico dentro da imagem: só usar modelo comprovadamente confiável para texto curto; revisar cada caractere. Caso contrário, gerar o fundo/arte e compor texto separadamente.
+- Fotografia realista de produto: escolher modelo com controle de referência e luz.
+- Ilustração/arte editorial: escolher modelo por linguagem, não pelo nome de marca.
+- Edição localizada: escolher ferramenta que preserve pixels não afetados.
+- SVG/vetor: preferir Figma/SVG/gerador vetorial e validar edição; não converter bitmap em vetor quando a fidelidade não for suficiente.
+- Vídeo: usar um fluxo de vídeo próprio, com storyboard e continuidade.
+
+## Custo e privacidade
+Consultar docs/visual-tool-registry.md; verificar créditos, modelo, limite e política de retenção antes da execução. Não assumir que uma API ou plano é gratuito. Usar apenas referência que o usuário tem direito de usar.
+
+## Pós-geração
+Conferir assunto, composição, marca, texto, anatomia, detalhes, consistência entre variações, proporção e safe zones. Registrar disclosure de IA quando aplicável e aplicar visual-quality-review.
