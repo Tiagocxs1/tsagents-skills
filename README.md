@@ -126,6 +126,18 @@ Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido 
 
 **Estado MCP Brasil:** CI aprovado em 18/11/2026 (build Docker, container limitado a 512 MiB, health check, handshake Bearer, descoberta BM25 e chamada read-only `listar_features`). O endpoint ainda não foi publicado; falta criar o Blueprint e definir `MCP_BRASIL_API_TOKEN` como segredo no Render. A conta ChatGPT Free não pode conectar um MCP personalizado; esse endpoint não habilita acesso automático neste chat.
 
+## Apresentações e propostas comerciais
+
+| Skill / referência | Uso |
+|---|---|
+| [presentation-studio](./presentation-studio/SKILL.md) | Orquestra a criação e revisão de PowerPoint editável, Google Slides e apresentações HTML |
+| [commercial-proposal](./commercial-proposal/SKILL.md) | Propostas comerciais com escopo, entregáveis, cronograma, investimento e condições verificáveis |
+| [slides](./slides/SKILL.md) | Estratégia de slides, copywriting, layouts e apresentações HTML |
+| [frontend-slides](./frontend-slides/SKILL.md) | Apresentações web responsivas e animadas |
+| [Catálogo de ferramentas de apresentação](./docs/PRESENTATION-TOOLING.md) | Ranking conferido, licenças, MCPs, custos e roteamento de ferramentas |
+
+Upstreams adicionados: Frontend Slides, Guizang PPT Skill e pptx-tools. O PPT Master é instalado pelo comando da Skill CLI para evitar clonar o histórico completo do repositório. Consulte o catálogo antes de habilitar serviços por créditos ou MCPs com permissões externas.
+
 ## Perfis de marca
 
 - [Guardian Seg — Brand Profile](./brands/guardianseg/BRAND-PROFILE.md): serviços, área de atuação, identidade visual, claims e restrições.

@@ -64,6 +64,8 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 
 ## Módulos especializados adicionais
 
+- Para apresentações, slides e pitch decks, consultar presentation-studio/SKILL.md e docs/PRESENTATION-TOOLING.md. Para propostas comerciais, consultar também commercial-proposal/SKILL.md; não inventar preços, ROI ou cláusulas.
+
 - Se o trabalho depende de uma identidade visual de cliente, consultar brand-profile/SKILL.md antes de produzir.
 - Se o usuário trouxer website, screenshot, referência ou arquivo Figma para estudar, consultar visual-reference-analysis/SKILL.md.
 - Para dados/gráficos/infográficos, consultar infographic-design/SKILL.md.

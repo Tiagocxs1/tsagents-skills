@@ -46,3 +46,14 @@
 [submodule "upstream/hotmart-mcp"]
 	path = upstream/hotmart-mcp
 	url = https://github.com/thaleslaray/hotmart-mcp.git
+
+
+[submodule "upstream/frontend-slides"]
+	path = upstream/frontend-slides
+	url = https://github.com/zarazhangrui/frontend-slides.git
+[submodule "upstream/guizang-ppt-skill"]
+	path = upstream/guizang-ppt-skill
+	url = https://github.com/op7418/guizang-ppt-skill.git
+[submodule "upstream/pptx-tools"]
+	path = upstream/pptx-tools
+	url = https://github.com/jongalloway/pptx-tools.git

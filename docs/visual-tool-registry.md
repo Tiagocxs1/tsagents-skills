@@ -138,3 +138,8 @@ Esses comandos são opcionais e instalam no runtime que executa a skills CLI; el
 ## 10. Arsenal de copy, UX, dados e mercado brasileiro
 
 Para os projetos upstream completos, versões fixadas, licenças, riscos e instruções de checkout, consultar [docs/UPSTREAM-ARSENAL.md](./UPSTREAM-ARSENAL.md). Os originais licenciados estão referenciados como Git submodules em `upstream/`; os itens sem licença clara ou com licenças de subpasta são somente referências externas. Nenhum MCP foi conectado nem nenhuma API autenticada nesta atualização.
+
+
+## 3. Apresentações e propostas comerciais
+
+O roteamento, a situação de cada MCP, as licenças, os custos e os commits upstream estão centralizados em docs/PRESENTATION-TOOLING.md. Skills locais: presentation-studio/SKILL.md e commercial-proposal/SKILL.md. Reutilizar Canva já catalogado; não instalar conectores duplicados. Google Slides MCP oficial continua em Developer Preview e não está autenticado por este registro.
