@@ -54,7 +54,15 @@ class MCPBrasilServer(DurableObject):
 
 
 async def on_fetch(request, env):
-    """Public Worker entry point; all MCP traffic is routed to one DO instance."""
+    """Public Worker entry point with an edge health check and DO-backed MCP."""
+    path = str(request.url).split("?", 1)[0].rstrip("/")
+
+    # Liveness only: confirms the Worker edge responds without initializing the
+    # Python MCP application. The authenticated MCP handshake is the readiness
+    # check and exercises the Durable Object/session host.
+    if path.endswith("/health"):
+        return Response("ok", status=200)
+
     token = getattr(env, "MCP_BRASIL_API_TOKEN", None)
     if not token:
         return Response("MCP server is not configured", status=503)

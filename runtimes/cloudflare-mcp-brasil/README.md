@@ -77,7 +77,7 @@ O workflow atualiza o Worker Secret e publica o Worker. A URL `workers.dev` apar
 ## Operação e segurança
 
 - Endpoint MCP protegido por Bearer token. Nunca coloque o token em issues, logs, prompts ou arquivos versionados.
-- `/health` serve apenas como indicador de disponibilidade.
+- `/health` responde diretamente na borda e confirma apenas que o Worker está vivo; não inicializa o servidor. A prontidão do MCP é confirmada pelo handshake autenticado e pela descoberta de ferramentas no smoke test.
 - `MCP_BRASIL_DATASETS` permanece vazio. Não habilite datasets TSE/INEP/SIAPA/ANP sem revisar cache, limites, privacidade e licenças.
 - Algumas fontes têm chaves opcionais; nenhuma foi configurada nesta primeira etapa.
 - Leia `upstream/mcp-brasil/ACCEPTABLE_USE.md` e `SOURCES.md`.
