@@ -40,3 +40,39 @@ Para UI/UX, instale também `ui-ux-pro-max`. Para auditorias de acessibilidade, 
 - Spec-driven development: [github/spec-kit](https://github.com/github/spec-kit).
 
 As skills agregadoras são guias de trabalho, não substituem a leitura das fontes oficiais. Revise os repositórios de origem antes de atualizar cópias locais e não instale dependências de UI sem necessidade demonstrada.
+
+## Direção de arte, social e publicidade
+
+| Skill | Uso |
+|---|---|
+| [visual-design](./visual-design/SKILL.md) | Skill obrigatória antes de qualquer arte, SVG, HTML, CSS ou JSON visual |
+| [social-media-creative](./social-media-creative/SKILL.md) | Posts, stories, carrosséis, thumbnails, formatos e safe zones |
+| [advertising-creative](./advertising-creative/SKILL.md) | Criativos de anúncios, hooks, ofertas e testes A/B |
+| [motion-design](./motion-design/SKILL.md) | Vídeos, animações e motion graphics |
+| [visual-quality-review](./visual-quality-review/SKILL.md) | Revisão de qualidade antes da entrega |
+
+## Perfis de agentes criativos
+
+- [Creative Director](./agents/creative-director.md)
+- [Brand Guardian](./agents/brand-guardian.md)
+- [Ad Creative Strategist](./agents/ad-creative-strategist.md)
+- [Visual Critic](./agents/visual-critic.md)
+
+Esses arquivos são perfis reutilizáveis para subagentes ou etapas sequenciais; não representam agentes autônomos implantados.
+
+## Regras globais
+
+O arquivo [AGENTS.md](./AGENTS.md) exige consulta às skills visuais antes de qualquer criação e revisão do preview real antes da entrega.
+
+## Catálogo visual de ferramentas e MCPs
+
+Consulte [docs/visual-tool-registry.md](./docs/visual-tool-registry.md) para conectores disponíveis, opções externas, referências, licenças, custos, comandos de instalação e roteamento por tipo de peça.
+
+## Instalação da biblioteca TS Digitais
+
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-design
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill social-media-creative
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill advertising-creative
+    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-quality-review
+
+Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido automaticamente apenas por agentes/ambientes que adotem esse padrão; o ChatGPT também precisa consultar os arquivos pelo conector GitHub quando iniciar uma tarefa visual.
