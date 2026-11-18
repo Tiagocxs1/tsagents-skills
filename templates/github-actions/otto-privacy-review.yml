@@ -1,0 +1,30 @@
+# Template opcional: copie para .github/workflows/otto-privacy-review.yml
+# Começa em report-only (fail-under: 0). Calibre o score antes de bloquear PRs.
+# Consulte docs/PRIVACY-TOOLING.md sobre as dependências transitivas do OTTO.
+name: OTTO privacy review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  privacy:
+    name: LGPD / GDPR code scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Run OTTO privacy review
+        uses: metricasboss/otto@f0bb2bd4d69ce18f42f5d183cd0e1c4df10baa1e
+        with:
+          regulation: both
+          fail-under: 0
+          comment: true
+          sarif: false

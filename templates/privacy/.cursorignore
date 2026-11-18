@@ -1,0 +1,34 @@
+# Proteção adicional de contexto para Cursor.
+# Não é uma fronteira de segurança: terminal e ferramentas MCP ainda podem ler estes caminhos.
+# Mantenha também .gitignore, controles do sistema operacional e secret stores.
+
+.env
+.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+**/*service-account*.json
+**/*credentials*.json
+**/*secrets*.json
+**/secrets/**
+**/.secrets/**
+**/private/**
+**/backups/**
+**/backup/**
+**/dumps/**
+**/database-dumps/**
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+**/*.dump
+**/*.sql.gz
+**/logs/**
+**/*.log
+**/test/fixtures/real-data/**
+**/tests/fixtures/real-data/**
+**/fixtures/real-data/**
+**/supabase/.temp/**
