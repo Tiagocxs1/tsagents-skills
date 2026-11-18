@@ -5,6 +5,9 @@ description = "Cloudflare Python Worker for the pinned MCP Brasil upstream"
 requires-python = "==3.12.*"
 dependencies = [
     "mcp-brasil==0.14.0",
+    # Explicit root dependency so uv applies the local source override to the
+    # transitive FastMCP CLI-only watcher required by upstream metadata.
+    "watchfiles>=1.0.0",
 ]
 
 [tool.uv.sources]
