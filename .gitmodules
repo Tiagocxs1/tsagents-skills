@@ -1,0 +1,48 @@
+[submodule "upstream/social-media-skills"]
+	path = upstream/social-media-skills
+	url = https://github.com/social-media-skills/skills.git
+[submodule "upstream/marketing-skills-corey"]
+	path = upstream/marketing-skills-corey
+	url = https://github.com/coreyhaines31/marketingskills.git
+[submodule "upstream/marketing-skills-kostja"]
+	path = upstream/marketing-skills-kostja
+	url = https://github.com/kostja94/marketing-skills.git
+[submodule "upstream/hedgehog-prose-engineering"]
+	path = upstream/hedgehog-prose-engineering
+	url = https://github.com/skyf0xx/hedgehog-core-copywriting-prose-engineering.git
+[submodule "upstream/alireza-claude-skills"]
+	path = upstream/alireza-claude-skills
+	url = https://github.com/alirezarezvani/claude-skills.git
+[submodule "upstream/superpowers"]
+	path = upstream/superpowers
+	url = https://github.com/obra/superpowers.git
+[submodule "upstream/ui-ux-agent-skill-system"]
+	path = upstream/ui-ux-agent-skill-system
+	url = https://github.com/sergekostenchuk/ui-ux-agent-skill-system.git
+[submodule "upstream/ux-ui-agent-skills"]
+	path = upstream/ux-ui-agent-skills
+	url = https://github.com/plugin87/ux-ui-agent-skills.git
+[submodule "upstream/interface-review-skills"]
+	path = upstream/interface-review-skills
+	url = https://github.com/jakubkrehel/skills.git
+[submodule "upstream/google-analytics-mcp"]
+	path = upstream/google-analytics-mcp
+	url = https://github.com/googleanalytics/google-analytics-mcp.git
+[submodule "upstream/skills-marketing-br"]
+	path = upstream/skills-marketing-br
+	url = https://github.com/tiago1002bravy/skills-marketing.git
+[submodule "upstream/mcp-brasil"]
+	path = upstream/mcp-brasil
+	url = https://github.com/Mcp-Brasil/mcp-brasil.git
+[submodule "upstream/ruben-agent-skills"]
+	path = upstream/ruben-agent-skills
+	url = https://github.com/rubenmarcus/agent-skills.git
+[submodule "upstream/mcp-dev-latam"]
+	path = upstream/mcp-dev-latam
+	url = https://github.com/codespar/mcp-dev-latam.git
+[submodule "upstream/asaas-mcp"]
+	path = upstream/asaas-mcp
+	url = https://github.com/theYahia/asaas-mcp.git
+[submodule "upstream/hotmart-mcp"]
+	path = upstream/hotmart-mcp
+	url = https://github.com/thaleslaray/hotmart-mcp.git

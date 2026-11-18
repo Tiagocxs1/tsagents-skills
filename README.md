@@ -1,6 +1,6 @@
 # TS Agents Skills
 
-Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são organizadas em pastas com um arquivo `SKILL.md` e referências/scripts quando aplicável.
+Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são organizadas em pastas com um arquivo `SKILL.md` e referências/scripts quando aplicável. Os projetos originais avaliados ficam separados como Git submodules em `upstream/`; nossas adaptações permanecem na raiz.
 
 ## UI, UX e qualidade de produto
 
@@ -64,9 +64,25 @@ Esses arquivos são perfis reutilizáveis para subagentes ou etapas sequenciais;
 
 O arquivo [AGENTS.md](./AGENTS.md) exige consulta às skills visuais antes de qualquer criação e revisão do preview real antes da entrega.
 
-## Catálogo visual de ferramentas e MCPs
+## Catálogos e fontes externas
 
-Consulte [docs/visual-tool-registry.md](./docs/visual-tool-registry.md) para conectores disponíveis, opções externas, referências, licenças, custos, comandos de instalação e roteamento por tipo de peça.
+- [Catálogo visual de ferramentas e MCPs](./docs/visual-tool-registry.md): ferramentas conectadas, opções externas, custos e roteamento.
+- [Arsenal upstream completo](./docs/UPSTREAM-ARSENAL.md): originais, commits fixados, licenças, riscos e recomendações para copy, estratégia, UX/UI, marketing brasileiro, dados, GA4 e MCPs.
+- [Fontes originais](./.gitmodules): lista de repositórios preservados como submódulos.
+
+## Recuperar os projetos originais completos
+
+```bash
+git clone --recurse-submodules https://github.com/Tiagocxs1/tsagents-skills.git
+```
+
+Em um clone existente:
+
+```bash
+git submodule update --init --recursive
+```
+
+Os submódulos preservam o código e os arquivos originais sem modificações. O repositório principal fixa cada origem em um commit específico. Eles não ficam automaticamente instalados ou conectados em runtime.
 
 ## Instalação da biblioteca TS Digitais
 
@@ -76,22 +92,3 @@ Consulte [docs/visual-tool-registry.md](./docs/visual-tool-registry.md) para con
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-quality-review
 
 Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido automaticamente apenas por agentes/ambientes que adotem esse padrão; o ChatGPT também precisa consultar os arquivos pelo conector GitHub quando iniciar uma tarefa visual.
-### Skills complementares para referências e estilos específicos
-
-| Skill | Uso |
-|---|---|
-| [brand-profile](./brand-profile/SKILL.md) | Fonte única da identidade de cada marca |
-| [visual-reference-analysis](./visual-reference-analysis/SKILL.md) | Análise de sites, screenshots e Figma em tokens e documentação visual |
-| [image-brief-and-routing](./image-brief-and-routing/SKILL.md) | Brief de imagem, prompts e escolha consciente da ferramenta |
-| [infographic-design](./infographic-design/SKILL.md) | Gráficos e infográficos com dados reais, escalas honestas e acessibilidade |
-| [editorial-print-design](./editorial-print-design/SKILL.md) | Pôsteres/zines com estética de uma ou duas tintas |
-| [line-art-animation](./line-art-animation/SKILL.md) | Ilustração animada em SVG e TypeScript |
-
-Instalação de módulos locais adicionais:
-
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill brand-profile
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-reference-analysis
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill image-brief-and-routing
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill infographic-design
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill editorial-print-design
-    npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill line-art-animation
