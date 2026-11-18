@@ -105,3 +105,18 @@ O experimento Cloudflare Python Worker permanece em `runtimes/cloudflare-mcp-bra
 - **Asaas MCP:** presente como submódulo, não conectado; precisa de credencial própria, sandbox e política de confirmação para cobranças, assinaturas e estornos.
 - **Hotmart MCP:** presente como submódulo, não conectado; precisa de credenciais OAuth e política de confirmação para cancelamento, estorno, cupons e alterações.
 - **Skills de social/marketing/UX e Superpowers:** são fontes de instruções e não exigem servidor MCP permanente. Devem ser carregadas seletivamente no runtime que executa o trabalho.
+
+## 7. SEO, GEO e Google Search Console
+
+| Projeto | Licença / tipo | Decisão |
+|---|---|---|
+| [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) | MIT; skills e subagents | Fonte upstream prioritária para SEO técnico, conteúdo, E-E-A-T, schema, GEO/AEO e SEO local. O README consultado anuncia 26 skills e 19 subagents; instalar seletivamente e não assumir compatibilidade integral entre runtimes. |
+| [AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc) | MIT; MCP Python | MCP comunitário para GSC, com Search Analytics, comparação de períodos, inspeção/indexação e sitemaps. Começar read-only e manter `GSC_ALLOW_DESTRUCTIVE=false`. Não é mantido pelo Google. |
+| [seo-skills/seo-audit-skill](https://github.com/seo-skills/seo-audit-skill) | MIT; CLI npm | SEOmator com auditoria técnica, crawl, dados estruturados, acessibilidade, segurança e checks de CWV. O README atual anuncia 373 regras/20 categorias; o número é mutável e não é score oficial do Google. |
+| [JeffLi1993/seo-audit-skill](https://github.com/JeffLi1993/seo-audit-skill) | MIT; skill e scripts Python | Auditoria de página com verificações determinísticas e interpretação LLM. O tier full requer PageSpeed Insights API key para as medições de PageSpeed. |
+| [Gatescrispy/mcp-ga4-ultimate](https://github.com/Gatescrispy/mcp-ga4-ultimate) | MIT declarado; MCP comunitário | Alternativa secundária, não padrão. A atividade observada é menos recente que a do MCP oficial e o README descreve permissões de escrita; exigir revisão de código e allowlist antes de conectar. |
+
+O MCP oficial do Google Analytics já consta como submódulo em `upstream/google-analytics-mcp` e usa Apache-2.0. Sua documentação oficial recomenda ADC, APIs Admin/Data habilitadas e papel Viewer na propriedade; manter somente leitura para auditorias.
+
+Detalhes de instalação, exemplos locais e fluxo integrado: [SEO-ANALYTICS-STACK.md](./SEO-ANALYTICS-STACK.md) e [seo-analytics-ops/SKILL.md](../seo-analytics-ops/SKILL.md).
+
