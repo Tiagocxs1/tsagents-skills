@@ -59,10 +59,13 @@ Quando a plataforma permitir subagentes, consultar os perfis em agents/:
 - brand-guardian.md: identidade visual e ativos oficiais.
 - ad-creative-strategist.md: estratégia criativa e anúncios.
 - visual-critic.md: revisão independente.
+- editorial-art-director.md: direção e arquitetura de revistas, magazines, e-books e flipbooks.
 
 Se não houver delegação real, executar esses papéis como etapas sequenciais. Não alegar paralelismo que não ocorreu.
 
 ## Módulos especializados adicionais
+
+- Para revistas digitais, magazines, e-books diagramados e flipbooks, consultar obrigatoriamente `editorial-magazine/SKILL.md` e o perfil `agents/editorial-art-director.md`. O fluxo inclui direção de arte, arquitetura página a página, copy dimensionada, sistema de margens/grid/tipografia, páginas-piloto e revisão visual completa antes da publicação.
 
 - Para apresentações, slides e pitch decks, consultar presentation-studio/SKILL.md e docs/PRESENTATION-TOOLING.md. Para propostas comerciais, consultar também commercial-proposal/SKILL.md; não inventar preços, ROI ou cláusulas.
 
