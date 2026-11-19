@@ -70,7 +70,7 @@ Sempre retorne as suas propostas de texto estruturadas no seguinte formato Markd
 
 Quando o briefing incluir uma marca específica, siga este fluxo:
 
-1. **Buscar DNA da marca** em `docs/brand/{marca}-dna.md`
+1. **Buscar DNA da marca** em `brands/{marca}/BRAND-PROFILE.md`
 2. **Extrair:** paleta de cores, tom de voz, público-alvo, arquétipo
 3. **Aplicar** o tom de voz em cada elemento gerado (eyebrow → body copy)
 4. **Referenciar assets visuais** do Cloudinary quando disponíveis (ver seção `# ASSETS CLOUDINARY` no DNA da marca)
@@ -78,7 +78,7 @@ Quando o briefing incluir uma marca específica, siga este fluxo:
 ### Marcas com DNA disponível
 | Marca | Arquivo |
 |-------|---------|
-| Guardian | `docs/brand/guardian-dna.md` |
+| Guardian | `brands/guardianseg/BRAND-PROFILE.md` |
 
 ---
 
