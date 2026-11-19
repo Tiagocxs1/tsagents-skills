@@ -143,3 +143,53 @@ Para os projetos upstream completos, versões fixadas, licenças, riscos e instr
 ## 3. Apresentações e propostas comerciais
 
 O roteamento, a situação de cada MCP, as licenças, os custos e os commits upstream estão centralizados em docs/PRESENTATION-TOOLING.md. Skills locais: presentation-studio/SKILL.md e commercial-proposal/SKILL.md. Reutilizar Canva já catalogado; não instalar conectores duplicados. Google Slides MCP oficial continua em Developer Preview e não está autenticado por este registro.
+
+## 11. Revistas digitais, e-books e flipbooks
+
+### Separação de responsabilidades
+
+Uma revista profissional exige duas camadas distintas:
+- **Produção editorial:** direção de arte, sequência narrativa, copy, sistema tipográfico, grid, margens, imagens e diagramas.
+- **Leitor/flipbook:** renderização de páginas, virada, zoom, pan, navegação, fullscreen e acessibilidade.
+
+O motor de flipbook não é ferramenta de direção de arte. Primeiro aprovar o sistema editorial e as páginas-piloto; depois selecionar ou trocar o motor.
+
+### Skills e agentes TS Digitais
+
+- `editorial-magazine/SKILL.md` — padrão obrigatório de produção de revistas digitais.
+- `design-driven-copywriter/SKILL.md` — copy dimensionada para os elementos do layout.
+- `editorial-print-design/SKILL.md` — linguagem gráfica de impressão/zine quando adequada.
+- `visual-design/SKILL.md` e `visual-quality-review/SKILL.md` — direção visual e gate final.
+- `agents/editorial-art-director.md` — direção e arquitetura de publicação.
+- `agents/brand-guardian.md` — verificação de marca/claims.
+- `agents/visual-critic.md` — revisão independente.
+
+### Motores e referências avaliados
+
+| Projeto | Papel | Licença/estado verificado | Decisão |
+|---|---|---|---|
+| [StPageFlip / page-flip](https://github.com/Nodlik/StPageFlip) | Motor JS sem dependências, páginas HTML/imagens, modos portrait/landscape, folhas rígidas/flexíveis | MIT; package.json consultado com versão 2.0.7 | Candidato prioritário para prova de conceito React. Validar manutenção, acessibilidade, tamanho, touch, zoom/pan e compatibilidade antes de adoção. |
+| [create-photo-flipbook-ui](https://github.com/HaichaoLihc/create-photo-flipbook-ui) | Skill de direção de arte para fotolivros e zines, com ideação, plano de sequência e geração de spreads | Repositório externo; skill exige geração de toda abertura com ImageGen e inclui runtime 3D de hardcover | Referência de direção criativa/ritmo, não incorporar integralmente ao fluxo corporativo quando texto exato, selecionável e editável for obrigatório. Não consta instalado no registro do ChatGPT nem como submódulo TS. |
+| [flip-book-jquery](https://github.com/iberezansky/flip-book-jquery) | Motor 3D jQuery para PDF, imagens e HTML | GPL-2.0; dependências/empacotador antigos e pacote sem testes implementados no script npm | Não priorizar para projeto novo sem auditoria de compatibilidade e revisão das obrigações GPL. |
+| [DearFlip JS Flipbook](https://github.com/dearhive/dearflip-js-flipbook) | Visualizador de PDF/imagens com modos 2D/3D | Repositório público identifica versão lite como CC BY-NC-ND 4.0, não comercial e sem derivados | Não usar como base de produto comercial. Investigar versão comercial apenas se houver orçamento; priorizar alternativa MIT. |
+| [FlipHTML5 MCP](https://fliphtml5.com/pt/features/mcp/) | Publicação, conversão e gestão de flipbooks pela plataforma | MCP não conectado nesta conta; exige conta e API key | Opcional apenas para workflow de publicação/gestão. Não substitui direção de arte nem editor de layout. |
+
+### Estado observado no projeto Guardian Seg (18/11/2026)
+
+- `src/components/MagazineFlipbook.tsx` implementa o leitor React próprio.
+- O componente importa React e ícones Lucide, não StPageFlip, DearFlip, flip-book-jquery ou o runtime create-photo-flipbook.
+- O package.json inclui Three.js e React Three Fiber para outras partes do projeto, mas o componente de flipbook consultado não importa esses pacotes.
+- Não há dependência de motor externo de flipbook identificada no package.json/lockfiles consultados.
+
+**Decisão:** manter o leitor existente enquanto se corrige o sistema editorial. Criar uma prova de conceito isolada com StPageFlip só depois das páginas-piloto; comparar recursos e qualidade antes de qualquer migração. Não instalar vários motores simultaneamente em produção.
+
+### Ferramentas de criação e revisão
+
+- Figma: grid, páginas-mestre, componentes e tokens editáveis.
+- Canva/Adobe: composição visual e assets, conforme exigência de editabilidade e controle tipográfico.
+- HTML/CSS/SVG: montagem precisa de páginas com texto nativo e responsivo.
+- Cloudinary: biblioteca e entrega de imagens, sem substituir direção criativa.
+- Browser/Playwright: screenshots e medidas objetivas; inspecionar cada página e spreads em viewports reais.
+- fal.ai/Comfy Cloud/Adobe: imagens e ilustrações quando necessárias; estimar créditos antes de produzir e manter texto fora da imagem gerada.
+
+**Não existe um MCP único que transforme copy e assets automaticamente em uma revista de qualidade.** As skills organizam o trabalho; o motor publica/apresenta; a direção editorial e a crítica definem a qualidade.
