@@ -6,5 +6,6 @@ Estes arquivos são briefs de papel reutilizáveis para subagentes ou etapas esp
 - brand-guardian.md — ativos e consistência da marca.
 - ad-creative-strategist.md — mensagem, hooks, oferta e experimentos criativos.
 - visual-critic.md — crítica independente e controle de qualidade.
+- editorial-art-director.md — direção de arte e arquitetura de revistas, e-books e flipbooks.
 
 O agente principal coordena o fluxo e preserva o briefing, a marca e as aprovações do usuário.
