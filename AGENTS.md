@@ -43,6 +43,7 @@ Se não houver como renderizar ou testar, declarar a limitação e não afirmar 
 - Para UX/UI, partir de Jobs-to-be-Done, contexto real, fluxos, acessibilidade e design system; não confundir uma skill de pesquisa de jornada com um gerador automático de telas.
 - Para pesquisa brasileira, usar fontes primárias e respeitar licença de cada fonte, LGPD e as políticas de uso. Dados do MCP Brasil não autorizam identificação, reidentificação ou perfilamento sensível.
 - Para pesquisa de tendências e comparação de palavras-chave, consultar `google-trends-research/SKILL.md`. Usar Trendspyg fixado na versão do workflow, interpretar os valores como índice relativo 0–100 e nunca inferir volume absoluto, CPC ou competição Ads. Respeitar uma chamada por coleta e parar em 403/429.
+- Para auditorias técnicas de sites, consultar `technical-seo-audit/SKILL.md`. Usar Lighthouse no workflow compartilhado, limitar a cinco URLs públicas HTTPS por execução, guardar relatórios na branch separada `seo-reports` e distinguir dados de laboratório de dados de campo. Nunca gravar relatórios na branch que aciona deploy de produção.
 - Para GA4 e APIs comerciais, começar por consulta/leitura. Operações de escrita, cobranças, estornos, cancelamentos, publicação e mudança de conta exigem autorização explícita e confirmação contextual. Preferir sandbox.
 - Ferramentas externas podem exigir dependências, Node/Python, chaves, conta ou serviço pago. Consultar docs/UPSTREAM-ARSENAL.md e verificar custos/requisitos antes de recomendar execução.
 
