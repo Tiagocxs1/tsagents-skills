@@ -1,12 +1,13 @@
 {
   "project": "guardian",
-  "campaign": "controle-de-acesso-condominios",
+  "campaign": "guardian-agency-vector-routine",
+  "art_direction": "agency_vector_campaign",
   "source": {
-    "image_url": "https://images.pexels.com/photos/35557557/pexels-photo-35557557.jpeg?cs=srgb&dl=pexels-eeeat-35557557.jpg&fm=jpg",
-    "page_url": "https://www.pexels.com/photo/modern-building-entrance-at-night-with-warm-lighting-35557557/",
-    "photographer": "Siyuan Zhao",
-    "license": "Pexels License — Free; commercial use permitted; no attribution required",
-    "use_note": "Generic stock image only. Do not imply this is a Guardian customer installation or that depicted people/venue endorse Guardian."
+    "image_url": "https://images.pexels.com/photos/13847074/pexels-photo-13847074.jpeg?cs=srgb&dl=pexels-roman-ska-3453281-13847074.jpg&fm=jpg",
+    "page_url": "https://www.pexels.com/photo/woman-entering-apartment-building-13847074/",
+    "photographer": "Roman Ska",
+    "license": "Pexels License — Free use; verify current terms for commercial use",
+    "use_note": "Fotografia real de banco de imagens usada somente como entrada de vetorização. Não representa cliente, colaboradora ou instalação Guardian."
   },
   "brand": {
     "name": "Guardian",
@@ -18,47 +19,37 @@
       "white": "#FFFFFF"
     },
     "no_green": true,
-    "logo_policy": "No official logo asset is supplied in this request. Use text-only brand name, not an imitation of the logo."
+    "logo_policy": "Sem arquivo de logo oficial. Usar apenas lettering tipográfico GUARDIAN, sem imitar o símbolo."
   },
   "copy": {
-    "kicker": "PORTARIA E CONTROLE DE ACESSO",
+    "kicker": "PORTARIA REMOTA  ·  CONTROLE DE ACESSO",
     "headline": [
-      "O acesso é diário.",
-      "O controle também."
+      "A ROTINA",
+      "NÃO PARA."
     ],
     "support": [
       "Portaria remota e controle de acesso",
-      "integrados à rotina do seu condomínio."
+      "no ritmo do seu condomínio."
     ],
-    "cta": "Fale com a Guardian",
-    "caption": "Em um condomínio, o fluxo de moradores, visitantes e prestadores faz parte da rotina. A portaria remota da Guardian integra comunicação, câmeras e controle de acesso, com apoio da central para acompanhar a operação do dia a dia. Quer avaliar uma solução adequada ao seu condomínio? Fale com a Guardian. A imagem é ilustrativa e não representa uma instalação da Guardian."
+    "cta": "Converse com a Guardian",
+    "caption": "Cada condomínio tem uma rotina própria: moradores, visitantes, entregas e prestadores circulam ao longo do dia. A Guardian oferece soluções de portaria remota e controle de acesso para integrar esses fluxos à operação do condomínio. Converse com nossa equipe e avalie a solução adequada à sua estrutura. A imagem é ilustrativa, não representa cliente ou instalação da Guardian."
   },
   "outputs": [
     {
-      "name": "guardian-controle-acesso-feed",
+      "name": "guardian-rotina-feed-1080x1350",
       "width": 1080,
       "height": 1350,
       "layout": "feed"
-    },
-    {
-      "name": "guardian-controle-acesso-story",
-      "width": 1080,
-      "height": 1920,
-      "layout": "story"
-    },
-    {
-      "name": "guardian-controle-acesso-square",
-      "width": 1080,
-      "height": 1080,
-      "layout": "square"
     }
   ],
   "trace": {
     "enabled": true,
     "max_width": 1400,
-    "max_colors": 96,
-    "filter_speckle": 2,
-    "simplify": 0.8,
-    "description": "Experimental raster-to-vector approximation. The hybrid photo SVG remains the faithful photographic master."
-  }
+    "max_colors": 260,
+    "filter_speckle": 1,
+    "simplify": 0.24,
+    "path_precision": 3,
+    "description": "Conversão da fotografia real em paths spline empilhados, sem bitmap incorporado no master final."
+  },
+  "alt_text": "Arte vetorial da Guardian sobre portaria remota e controle de acesso. A imagem mostra uma pessoa de costas entrando em um edifício residencial por uma porta laranja, com a fotografia original convertida em caminhos vetoriais SVG e integrada a camadas gráficas azul-marinho, ciano e vermelho. Cena ilustrativa, não representa cliente nem instalação da Guardian."
 }
