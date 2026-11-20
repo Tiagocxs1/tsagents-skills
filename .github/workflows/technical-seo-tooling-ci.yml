@@ -39,6 +39,26 @@ jobs:
         working-directory: technical-seo-audit/siteone-crawler/scripts
         run: python -m unittest -v
 
+      - name: Smoke-test pinned SiteOne release binary
+        env:
+          SITEONE_SHA256: bd96b9502563aea2581fc248625871e69b60d7f1bb68a484f226c551c73706fd
+        run: |
+          set -euo pipefail
+          ARCHIVE="$RUNNER_TEMP/siteone-crawler-smoke.tar.gz"
+          curl --fail --location --retry 2 --retry-delay 2 \
+            "https://github.com/janreges/siteone-crawler/releases/download/v2.5.1/siteone-crawler-v2.5.1-linux-musl-x64.tar.gz" \
+            --output "$ARCHIVE"
+          echo "$SITEONE_SHA256  $ARCHIVE" | sha256sum --check -
+          mkdir -p "$RUNNER_TEMP/siteone-smoke"
+          tar -xzf "$ARCHIVE" -C "$RUNNER_TEMP/siteone-smoke"
+          BIN="$(find "$RUNNER_TEMP/siteone-smoke" -type f -name siteone-crawler -print -quit)"
+          test -n "$BIN"
+          chmod +x "$BIN"
+          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--max-visited-urls" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-html-report" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-json-file" "$RUNNER_TEMP/siteone-help.txt"
+
       - name: Validate Lighthouse example config
         run: |
           python technical-seo-audit/scripts/run_lighthouse.py \
