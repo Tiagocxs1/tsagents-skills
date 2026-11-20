@@ -84,6 +84,8 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Para estética editorial limitada a uma ou duas tintas, consultar editorial-print-design/SKILL.md.
 - Para ilustração animada em SVG/TypeScript, consultar line-art-animation/SKILL.md.
 
+- Para posts com fotografias incorporadas em SVG, conversão raster→vetor ou vetorização fotorrealista/por camadas, consultar obrigatoriamente `image-to-vector-pipeline/SKILL.md`. Priorizar SVG híbrido com fotografia raster original incorporada quando a fidelidade fotográfica for essencial; vetorização integral de fotos é uma escolha estética deliberada, não o padrão.
+
 ## MCPs e runtimes
 
 - Antes de instalar ou publicar um MCP, consultar docs/MCP-RUNTIME-ARCHITECTURE.md e a documentação do upstream.
