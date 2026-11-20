@@ -2,6 +2,14 @@
 
 O Vector Studio executa remotamente no GitHub Actions. Nenhuma dependência de Python, Rust, Cairo, VTracer ou renderização SVG precisa ser instalada no computador do usuário.
 
+## Prompt mestre de renderização
+
+Antes de criar cenas fotorrealistas, retratos, vetorização de fotografia ou objetos 3D em SVG puro, consulte obrigatoriamente:
+
+- [PROMPT-MESTRE-VECTOR-REALISM-SVG-ENGINE.md](./PROMPT-MESTRE-VECTOR-REALISM-SVG-ENGINE.md)
+
+O prompt diferencia SVG híbrido, vetorização raster→SVG e síntese ótica 3D em SVG puro; define diagnóstico, camadas, critérios de qualidade, custos, direitos dos assets e validação visual. É a referência de direção técnica para novos fluxos — não substitui a revisão das skills de marca/social/design aplicáveis.
+
 ## O que o pipeline entrega
 
 - SVG híbrido autocontido com fotografia JPEG incorporada em Base64.
