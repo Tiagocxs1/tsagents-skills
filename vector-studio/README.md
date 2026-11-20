@@ -10,7 +10,7 @@ O Vector Studio executa remotamente no GitHub Actions. Nenhuma dependência de P
 - Vetorização experimental da fotografia com VTracer, separada do master fotográfico.
 - PNG renderizado da versão vetorizada.
 - Foto de origem, legenda, alt text e relatório técnico/proveniência.
-- Publicação temporária de todos os arquivos no Cloudflare R2 por uma API protegida com GitHub Actions OIDC; não há token estático armazenado no GitHub.
+- Upload temporário para Cloudflare R2, usando GitHub Actions OIDC (sem token Cloudflare estático no GitHub).
 
 **Regra de fidelidade:** para aparência fotográfica real, a fotografia original é preservada no SVG híbrido. A saída VTracer é uma interpretação por regiões/caminhos e não substitui a fotografia nem promete equivalência pixel a pixel.
 
@@ -29,9 +29,11 @@ Também é possível executar manualmente em Actions → workflow → Run workfl
 - O repositório é público; runners padrão hospedados pelo GitHub são gratuitos em repositórios públicos, conforme as regras atuais do GitHub Actions.
 - O job não usa GPU, HF Jobs, APIs de imagem pagas nem credenciais persistentes.
 - Cloudflare Worker `ts-svg-assets` é apenas API de upload/download; vetorização continua no runner.
-- Os resultados ficam no R2 privado e são servidos pelo Worker em URLs públicas temporárias; a regra de lifecycle existente para o prefixo `images/` remove os objetos após 7 dias (a exclusão do R2 é assíncrona).
-- O endpoint de upload valida assinatura JWT via GitHub OIDC, restringindo repo, proprietário, branch principal e workflow específico. Nenhum secret fixo de Cloudflare foi adicionado ao GitHub.
-- O artefato de Actions expira após 7 dias; faça download se precisar manter cópia.
+- Código do Worker versionado em `vector-studio/cloudflare-worker.js`; deployment atual: `ts-svg-assets.tiagocxs-tdb.workers.dev`.
+- O Worker aceita uploads assinados com GitHub OIDC somente para o repositório `Tiagocxs1/tsagents-skills`, branch `main` e workflow `vector-studio.yml`. A assinatura RS256 é validada usando as chaves públicas do GitHub.
+- O armazenamento é R2 privado servido pelo Worker em links temporários, sob `images/vector-studio/{run_id}/`.
+- A regra de lifecycle existente para o prefixo `images/` remove os objetos após 7 dias (a exclusão do R2 é assíncrona).
+- O artefato do GitHub Actions expira após 7 dias; faça download se precisar manter cópia.
 
 ## Segurança e direitos
 
