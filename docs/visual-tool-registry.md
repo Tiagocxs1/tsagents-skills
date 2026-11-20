@@ -193,3 +193,23 @@ O motor de flipbook não é ferramenta de direção de arte. Primeiro aprovar o 
 - fal.ai/Comfy Cloud/Adobe: imagens e ilustrações quando necessárias; estimar créditos antes de produzir e manter texto fora da imagem gerada.
 
 **Não existe um MCP único que transforme copy e assets automaticamente em uma revista de qualidade.** As skills organizam o trabalho; o motor publica/apresenta; a direção editorial e a crítica definem a qualidade.
+
+
+## 12. Fotografia incorporada, raster-to-vector e SVG fotorrealista
+
+Nova skill: `image-to-vector-pipeline/SKILL.md`. Consultar quando uma peça exigir fotografia real incorporada em SVG, vetorização de raster ou otimização vetorial diferenciável.
+
+### Regra prática
+Para posts comerciais com fotografia fotorrealista, preferir SVG híbrido: foto original autorizada incorporada como raster + tipografia, logo, recortes, máscaras, gradientes e elementos gráficos em vetor. Vetorizar a fotografia inteira somente quando o estilo final pedir posterização, mosaico, gravura ou ilustração por camadas.
+
+### Motores e pesquisa
+| Ferramenta | Função correta | Licença/custo/estado observado | Decisão |
+|---|---|---|---|
+| [VTracer](https://github.com/visioncortex/vtracer) | Raster → SVG por clustering de cores, regiões e curvas; possui binding Python | MIT; documentação atual mostra `Config` e linha 1.0.0 alpha | Principal primeira experiência open-source para posterização/vetorização de raster; testar versão e parâmetros isoladamente. A API antiga `convert_image_to_svg_py` não deve ser presumida como atual. |
+| [DiffVG](https://github.com/BachiLi/diffvg) | Rasterização vetorial diferenciável e otimização de paths contra imagem-alvo | Apache-2.0; infraestrutura científica/PyTorch, potencialmente exigente | Referência técnica, não conversor semântico pronto. |
+| [PyTorch-SVGRender](https://github.com/ximinng/PyTorch-SVGRender) | Coleção de técnicas de renderização/vetorização; inclui LIVE image-to-SVG por camadas | MPL-2.0; projeto ativo, documentação com API ainda incompleta | Laboratório de pesquisa para provas de conceito image-to-SVG. |
+| [Chat2SVG](https://github.com/kingnobro/Chat2SVG) | LLM + template SVG + SDEdit/ControlNet + SAM + otimização de paths | Código público; licença não identificada por SPDX no repositório consultado; dependências e modelos pesados | Referência experimental principalmente text-to-SVG; não confundir com vetorizar uma foto fornecida. |
+| [Vectorizer.AI](https://vectorizer.ai/api) | Vetorização por API | Pago por créditos; preços consultados em https://vectorizer.ai/pricing | Fallback pago opcional, nunca pressupor uso gratuito. |
+| [Illustrator MCP Server](https://github.com/ie3jp/illustrator-mcp-server) | Controle local do Illustrator, manipulação vetorial e export | Servidor MIT, mas requer Adobe Illustrator instalado e licenciado; macOS/Windows, Node 20+ | Não priorizar para ambiente Linux/custo zero. |
+
+Não confundir ferramenta open-source com pipeline leve: DiffVG, PyTorch-SVGRender e Chat2SVG podem exigir ambiente de pesquisa, downloads de modelos e GPU. Conferir versão, licença, modelos, VRAM/RAM e custo antes de instalar. Nunca instalar vários motores por tentativa.
