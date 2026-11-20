@@ -1,0 +1,4 @@
+Pillow>=11,<13
+requests>=2.32,<3
+vtracer==1.0.0a4
+CairoSVG>=2.8,<3
