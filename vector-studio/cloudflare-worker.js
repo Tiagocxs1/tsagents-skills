@@ -126,6 +126,7 @@ function cors() {
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET, PUT, OPTIONS",
     "access-control-allow-headers": "Authorization, Content-Type",
+    "access-control-expose-headers": "Content-Length, X-Asset-Size, ETag, Content-Type",
     "access-control-max-age": "86400",
     vary: "Origin"
   };
@@ -221,6 +222,7 @@ export default {
       headers.set("x-content-type-options", "nosniff");
       headers.set("cache-control", "public, max-age=300, s-maxage=300");
       headers.set("content-length", String(object.size));
+      headers.set("x-asset-size", String(object.size));
       headers.set("content-disposition", 'inline; filename="' + name.replace(/["\\\r\n]/g, "_") + '"');
       if (name.toLowerCase().endsWith(".svg")) {
         headers.set("content-security-policy", "default-src 'none'; img-src data:; style-src 'unsafe-inline';");
