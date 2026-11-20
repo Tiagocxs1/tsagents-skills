@@ -12,6 +12,7 @@ on:
     paths:
       - "technical-seo-audit/**"
       - ".github/workflows/lighthouse-collect.yml"
+      - ".github/workflows/siteone-crawler-audit.yml"
       - ".github/workflows/technical-seo-tooling-ci.yml"
 
 permissions:
@@ -30,9 +31,6 @@ jobs:
         run: |
           python -m py_compile technical-seo-audit/scripts/run_lighthouse.py
           python -m py_compile technical-seo-audit/siteone-crawler/scripts/run_siteone.py
-      - name: Unit tests
-        working-directory: technical-seo-audit/scripts
-        run: python -m unittest -v
       - name: Test Lighthouse config and runner
         working-directory: technical-seo-audit/scripts
         run: python -m unittest -v
