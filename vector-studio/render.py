@@ -172,6 +172,7 @@ def create_artboard(image_uri: str, output: dict, copy: dict, brand: dict, sourc
     photo_w = width - 80
     radius = 28 if width > 1080 else 24
     photo_bottom = photo_y + photo_h
+    line_y = photo_bottom + (16 if layout == "square" else 32)
 
     # Gradients keep the photography readable without flattening the actual photo.
     svg = [
@@ -196,7 +197,7 @@ def create_artboard(image_uri: str, output: dict, copy: dict, brand: dict, sourc
         # Fine frame detail and a restrained red corner marker.
         f'<rect x="{photo_x}" y="{photo_y}" width="{photo_w}" height="{photo_h}" rx="{radius}" fill="none" stroke="#A6B8C2" stroke-opacity="0.32" stroke-width="1.5"/>',
         f'<rect x="{photo_x+photo_w-54}" y="{photo_y+photo_h-10}" width="28" height="4" rx="2" fill="{RED}"/>',
-        f'<line x1="{margin}" y1="{photo_bottom+32}" x2="{margin+92}" y2="{photo_bottom+32}" stroke="{CYAN}" stroke-width="3"/>',
+        f'<line x1="{margin}" y1="{line_y}" x2="{margin+92}" y2="{line_y}" stroke="{CYAN}" stroke-width="3"/>',
         svg_text(margin, support_y[0], support[0], support_size, weight=500, color=WHITE),
         svg_text(margin, support_y[1], support[1], support_size, weight=500, color=WHITE),
         f'<rect x="{margin}" y="{cta_y}" width="{cta_w}" height="{cta_h}" rx="{int(cta_h/2)}" fill="{RED}"/>',
