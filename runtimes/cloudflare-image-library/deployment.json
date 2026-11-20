@@ -40,6 +40,7 @@
     "Cron was not added: the account already uses all 5 Cron triggers available on Workers Free.",
     "R2 lifecycle is the authoritative expiry mechanism; deletion usually completes within 24 hours after the lifecycle expiration timestamp.",
     "No Cloudinary duplicate is created by the default ingest path.",
-    "Account and database UUIDs are configured in Cloudflare, not repeated in the public skills repository."
+    "Account and database UUIDs are configured in Cloudflare, not repeated in the public skills repository.",
+    "For a client-owned token, rotate/set ASSET_API_TOKEN through Cloudflare Dashboard or Wrangler; no secret value is stored in the Git repository."
   ]
 }
