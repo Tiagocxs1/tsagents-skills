@@ -96,11 +96,12 @@ def load_logo(url: str) -> tuple[str, str, dict, bytes]:
     original_uri = "data:image/png;base64," + base64.b64encode(raw).decode("ascii")
     white_uri = "data:image/png;base64," + base64.b64encode(white_bytes).decode("ascii")
     with Image.open(io.BytesIO(white_bytes)) as white_check:
-        white_check.verify()
+        white_check.load()
         if white_check.size != (192, 50) or white_check.mode != "RGBA":
             raise ValueError("A versão branca do logo não preservou dimensões/transparência.")
-        if white_check.getchannel("A").getextrema()[0] == 255:
-            raise ValueError("A versão branca do logo parece ter perdido a transparência.")
+        alpha_min = white_check.getchannel("A").getextrema()[0]
+    if alpha_min == 255:
+        raise ValueError("A versão branca do logo parece ter perdido a transparência.")
     return original_uri, white_uri, {
         "source_url": url,
         "format": "PNG",
