@@ -348,7 +348,7 @@ def compose_social_test_svg(post: dict, white_logo_uri: str, photo_uri: str, fon
             '<path d="M0 875L1080 775" fill="none" stroke="#FFFFFF" stroke-opacity=".28" stroke-width="2"/>',
             direct_logo(white_logo_uri, 72, 62, 278),
             '<path d="M880 145H1004V269M1004 145L1032 173M880 269L908 297" fill="none" stroke="#00FFFF" stroke-width="3" opacity=".78"/>',
-            campaign_text("MONITORAMENTO DE IMAGEM 24H", 74, 902, 19, "#C9E1EA", "Manrope", 700, font_paths, 760, 1.7),
+            campaign_text("MONITORAMENTO DE IMAGEM 24H", 74, 850, 19, "#C9E1EA", "Manrope", 700, font_paths, 760, 1.7),
             campaign_text("ALÉM DO", 66, 1038, 148, WHITE, "Oswald", 700, font_paths, 860, -4.2),
             campaign_text("ALERTA.", 72, 1225, 180, RED, "Oswald", 700, font_paths, 860, -4.8),
             campaign_text("A imagem complementa a análise de eventos pela central.", 74, 1278, 20, WHITE, "Manrope", 600, font_paths, 930),
