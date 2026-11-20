@@ -82,9 +82,22 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 6. **Sem custo presumido:** verificar planos, limites, créditos e custo de API antes de executar integrações; priorizar ferramentas existentes e modos gratuitos.
 7. **Sem confiar em afirmações de marketing:** contagens, pontuações, métricas de desempenho e claims dos READMEs são declarações dos autores até serem reproduzidas em avaliação independente.
 
+## 3.1 Google Trends — Trendspyg
+
+- Repositório: https://github.com/flack0x/trendspyg
+- Licença: MIT; versão adotada no coletor compartilhado: `1.9.0`.
+- Uso: tendências atuais por RSS, interesse relativo no tempo, comparação de 2–5 termos na mesma escala, consultas relacionadas e interesse por região.
+- Compatibilidade: inclui `trendspyg.compat.request.TrendReq` para migrar fluxos comuns do Pytrends 4.9.2; não é uma substituição integral. Conferir `docs/MIGRATING_FROM_PYTRENDS.md`.
+- Limite dos dados: o índice de 0–100 é relativo ao termo/conjunto, país e janela escolhida; não representa volume absoluto mensal, CPC ou concorrência de anúncios.
+- Runtime adotado: GitHub Actions reutilizável em `.github/workflows/google-trends-collect.yml`, com uma coleta mensal/manual no repositório privado chamador. O runner é efêmero; nenhum cookie Google ou credencial é persistido.
+- Rate limit: no máximo uma chamada Explore/comparação por execução, `engine="auto"`, `max_retries=1`, sem retry loop para 403/429. Parar a coleta quando o Google bloquear.
+- **Status:** skill, coletor e workflow compartilhado foram integrados à biblioteca TS Agents Skills; primeira configuração privada da Guardian está em PR separado, sem merge porque o repositório dispara deploy HostGator em qualquer push para `main`.
+- O extra `trendspyg[mcp]` disponibiliza MCP local por stdio. Não é serviço remoto HTTP, não foi instalado no computador do usuário e não fica conectado automaticamente ao ChatGPT.
+
 ## 4. Histórico de versões
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
+- 2026-11-20 — adoção de Trendspyg 1.9.0 para Google Trends; coletor de baixa frequência em GitHub Actions e compatibilidade Pytrends documentados.
 
 ## 5. Runtime remoto MCP Brasil — Render Free
 
