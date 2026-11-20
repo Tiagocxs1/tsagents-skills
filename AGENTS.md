@@ -37,6 +37,7 @@ Se não houver como renderizar ou testar, declarar a limitação e não afirmar 
 ## Pesquisa, copy, UX e integrações
 
 - Para campanhas e textos, cruzar a estratégia com o briefing, a identidade de marca, as exigências reais da plataforma e as skills upstream escolhidas; Hedgehog é um verificador auxiliar, não árbitro definitivo de português.
+- Para Google Search Console, GA4 e Google Ads, consultar `google-marketing-operator/SKILL.md` antes de auditar, configurar ou automatizar. Começar em leitura, confirmar a propriedade/conta correta e respeitar os portões de autorização descritos na skill.
 - Para UX/UI, partir de Jobs-to-be-Done, contexto real, fluxos, acessibilidade e design system; não confundir uma skill de pesquisa de jornada com um gerador automático de telas.
 - Para pesquisa brasileira, usar fontes primárias e respeitar licença de cada fonte, LGPD e as políticas de uso. Dados do MCP Brasil não autorizam identificação, reidentificação ou perfilamento sensível.
 - Para GA4 e APIs comerciais, começar por consulta/leitura. Operações de escrita, cobranças, estornos, cancelamentos, publicação e mudança de conta exigem autorização explícita e confirmação contextual. Preferir sandbox.
