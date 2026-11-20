@@ -1,7 +1,7 @@
 {
   "project": "guardian",
-  "campaign": "guardian-social-svg-nov-2026-v2",
-  "art_direction": "guardian_pure_svg_posts",
+  "campaign": "guardian-social-hybrid-2026-11-premium",
+  "art_direction": "guardian_hybrid_photographic_campaign",
   "logo": {
     "public_id": "guardianseg/images/logo-guardian",
     "url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1786481463/guardianseg/images/logo-guardian.png",
@@ -10,7 +10,7 @@
       192,
       50
     ],
-    "policy": "Incorporar o arquivo original sem redesenhar, recolorir ou distorcer. Preservar proporção."
+    "instruction": "Use o arquivo original intacto e preservar proporções; placa branca apenas para contraste."
   },
   "brand": {
     "name": "Guardian",
@@ -31,24 +31,80 @@
   },
   "posts": [
     {
-      "slug": "guardian-portaria-remota-controle-acesso",
+      "slug": "guardian-portaria-remota-2026",
       "name": "Portaria remota e controle de acesso",
-      "theme": "architecture"
+      "layout": "portaria",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013035/guardianseg/ebook-2026/delivery.jpg",
+      "source_public_id": "guardianseg/ebook-2026/delivery",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 1350
+      },
+      "centering": [
+        0.5,
+        0.47
+      ],
+      "caption": "Moradores, visitantes e prestadores fazem parte do fluxo diário de um condomínio. A portaria remota integra comunicação, câmeras e controle de acesso à operação definida para cada estrutura. A Guardian oferece soluções para condomínios de Florianópolis e Grande Florianópolis.\\n\\nImagem ilustrativa; não representa cliente ou instalação da Guardian.\\n\\n#Guardian #PortariaRemota #ControleDeAcesso #Condomínios #Florianópolis",
+      "alt_text": "Post da Guardian sobre portaria remota e controle de acesso. Fotografia ilustrativa de acesso residencial em destaque, com tratamento escuro azul-marinho, tipografia grande branca e vermelha e o logo oficial."
     },
     {
-      "slug": "guardian-monitoramento-alarme-24h",
+      "slug": "guardian-monitoramento-alarme-24h-2026",
       "name": "Monitoramento de alarme 24 horas",
-      "theme": "alarm"
+      "layout": "alarme",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013017/guardianseg/ebook-2026/control-room.jpg",
+      "source_public_id": "guardianseg/ebook-2026/control-room",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 760
+      },
+      "centering": [
+        0.5,
+        0.5
+      ],
+      "caption": "O monitoramento de alarme 24h permite que os eventos recebidos sejam acompanhados pela central, conforme a estrutura e os procedimentos contratados. Cada projeto deve considerar o imóvel, os pontos de detecção e a rotina de quem utiliza o espaço. Converse com a Guardian para avaliar a solução adequada.\\n\\nImagem ilustrativa; não representa nossa central, equipe ou instalações.\\n\\n#Guardian #MonitoramentoDeAlarme #SegurançaEletrônica #Florianópolis",
+      "alt_text": "Post da Guardian sobre monitoramento de alarme 24 horas. Fotografia ilustrativa de uma sala de monitoramento ocupa a parte superior; a mensagem aparece em uma área azul-marinho com tipografia branca e vermelha e o logo oficial."
     },
     {
-      "slug": "guardian-monitoramento-imagem-24h",
+      "slug": "guardian-monitoramento-imagem-2026",
       "name": "Monitoramento de imagem 24 horas",
-      "theme": "image"
+      "layout": "imagem",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013008/guardianseg/ebook-2026/cctv-exterior.jpg",
+      "source_public_id": "guardianseg/ebook-2026/cctv-exterior",
+      "photo_box": {
+        "x": 520,
+        "y": 0,
+        "width": 560,
+        "height": 1350
+      },
+      "centering": [
+        0.51,
+        0.48
+      ],
+      "caption": "No monitoramento de imagem, câmeras e eventos podem ser integrados à operação da central para apoiar a análise da situação, conforme o projeto e o serviço contratado. Fale com a Guardian para conhecer as possibilidades para seu condomínio ou empresa.\\n\\nFotografia ilustrativa; não representa instalação da Guardian nem identifica um equipamento do portfólio.\\n\\n#Guardian #MonitoramentoDeImagem #Câmeras #SegurançaEletrônica #GrandeFlorianópolis",
+      "alt_text": "Post da Guardian sobre monitoramento de imagem. A metade direita apresenta fotografia ilustrativa de câmera/segurança em edifício; à esquerda, fundo azul-marinho, manchete em branco e vermelho e logo oficial."
     },
     {
-      "slug": "guardian-manutencao-sistemas-seguranca",
+      "slug": "guardian-manutencao-sistemas-2026",
       "name": "Manutenção preventiva e corretiva",
-      "theme": "maintenance"
+      "layout": "manutencao",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795014368/guardianseg/ebook-2026/server-maintenance.jpg",
+      "source_public_id": "guardianseg/ebook-2026/server-maintenance",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 610,
+        "height": 1350
+      },
+      "centering": [
+        0.5,
+        0.47
+      ],
+      "caption": "A manutenção preventiva e corretiva contempla alarmes, câmeras, automatizadores, interfones e controle de acesso. Uma avaliação técnica ajuda a identificar necessidades e ajustes nos sistemas e na instalação. Solicite uma avaliação com a Guardian.\\n\\nImagem ilustrativa; não representa colaborador ou serviço executado pela Guardian.\\n\\n#Guardian #ManutençãoPreventiva #SegurançaEletrônica #Condomínios #Florianópolis",
+      "alt_text": "Post da Guardian sobre manutenção preventiva e corretiva. Fotografia ilustrativa de técnico em infraestrutura ocupa a metade esquerda; à direita, painel azul-marinho com tipografia branca e vermelha e logo oficial."
     }
   ]
 }
