@@ -52,7 +52,7 @@ jobs:
 
       - name: Render hybrid SVGs and vector trace
         env:
-          REQUEST_PATH: ${{ github.event.inputs.request_path || 'vector-studio/requests/active.json' }}
+          REQUEST_PATH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.request_path || 'vector-studio/requests/guardian-nov-2026.json' }}
         run: |
           python vector-studio/render.py --request "$REQUEST_PATH" --out-dir output/vector-studio
 
