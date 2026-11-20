@@ -281,3 +281,24 @@ Usuário: "a tipografia dos posts está ruim, espaçamento estranho"
 → Verificar checklist
 → Reportar: "Corrigido: gap hl→sub reduzido de 13cqw para 9cqw, CTA tracking adicionado, body color ajustado para WCAG AA"
 ```
+
+
+## Tipografia de campanha — auditoria obrigatória para social, ads e pôsteres
+
+As regras gerais de texto corrido não podem ser aplicadas automaticamente a peças publicitárias.
+
+- Fazer um design read de canvas, público e conteúdo; identificar separadamente hero display, apoio, kicker, CTA e body.
+- Usar uma família display real, com personalidade e licença verificada. Não recorrer a DejaVu Sans, Arial ou outra fonte de sistema como headline por conveniência.
+- Se não houver fonte oficial da marca, documentar a fonte escolhida como direção criativa provisória, nunca como tipografia oficial.
+- A regra 45–75 caracteres por linha vale para parágrafos de body, não para headlines.
+- Desenhar quebras manualmente por significado, prosódia e impacto. Balancear a largura e o peso óptico das linhas; não forçar larguras iguais ou a mesma quantidade de caracteres.
+- Evitar viúvas, órfãs, palavras soltas involuntárias e separações gramaticais que enfraqueçam a frase.
+- Headline display pode usar avanço de baseline compacto (aprox. 0,86–1,02 em como ponto de partida); revisar os limites visíveis dos glifos, acentos, ascendentes e descendentes.
+- Headline em caixa alta não precisa de tracking aberto: display monumental/condensado normalmente pede tracking neutro ou negativo. Tracking aberto (+0,06 a +0,12 em) é mais adequado a labels e kickers pequenos.
+- Definir entrelinha, tracking, kerning e espaço entre headline/apoio/CTA por função e família; não aplicar o mesmo valor indiscriminadamente.
+- Integrar o bloco tipográfico à imagem e aos grafismos por escala, recorte, proximidade, diagonais, sobreposição ou uso intencional do espaço negativo.
+- Nunca comprimir texto com `textLength/lengthAdjust`, `scaleX`, `font-stretch`, stroke artificial ou auto-fit silencioso. Se não couber, rever copy, fonte, quebras e composição.
+- Testar a headline isolada em preto e branco, como thumbnail e integrada ao visual final. Conferir exatamente a mesma fonte no preview e no PNG exportado.
+
+### Gate visual
+A headline precisa ter presença e uma silhueta própria; cada quebra deve ser intencional; as linhas devem equilibrar peso e ritmo; a entrelinha deve ser medida pelas formas reais dos glifos; a tipografia e a fotografia devem parecer uma composição única. Se parecer documento ou texto sobreposto a uma foto, refazer a direção tipográfica e a composição em conjunto.

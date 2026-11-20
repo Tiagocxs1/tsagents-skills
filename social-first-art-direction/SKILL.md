@@ -43,6 +43,22 @@ Escolher uma linguagem deliberada para a mensagem e a marca: tipográfica, fotog
 - Manter alinhamentos, margens, contraste e áreas seguras rigorosos mesmo em composições ousadas.
 - A composição deve parecer feita para aquela mensagem, não preenchida por componentes pré-formatados.
 
+
+### 3.1 Tipografia é parte do conceito, não uma camada tardia
+
+Para posts e criativos de impacto, a direção tipográfica deve ser definida no mesmo momento do conceito visual e da seleção da fotografia.
+
+- Escolher uma display face com personalidade e intenção (condensada, monumental, extended, grotesca, geométrica, editorial etc.); não usar a fonte padrão de UI/documento por conveniência.
+- Tratar as linhas como uma forma única: desenhar manualmente quebras, comprimentos ópticos, rag, alinhamento, ritmo, entrelinha e centro de massa.
+- Balancear pelo peso visual dos glifos, não pela quantidade de caracteres ou por larguras iguais.
+- Headlines em caixa alta podem usar tracking neutro/negativo; tracking positivo aberto é mais adequado a labels/kickers pequenos.
+- A headline pode avançar sobre a fotografia, compartilhar diagonais, ocupar o espaço negativo ou interagir com recortes e silhuetas. Não deixar a tipografia como overlay genérico colocado por último.
+- Não comprimir glifos com `textLength/lengthAdjust`, `scaleX`, stroke artificial ou auto-fit. Revisar copy, quebras e composição em vez disso.
+- Não aceitar entrelinha ou quebras automáticas sem prova visual. Revisar acentos, ascendentes e descendentes em cada linha.
+- O bloco precisa funcionar sozinho em alto contraste e depois integrado à imagem; a composição integrada deve parecer uma única peça.
+
+As faixas métricas e o workflow estão em `typography-master/SKILL.md` e no capítulo “Tipografia publicitária como direção de arte” do Prompt Mestre.
+
 ## 4. Anti-template e anti-documento
 
 São sinais de alerta — não proibições absolutas:

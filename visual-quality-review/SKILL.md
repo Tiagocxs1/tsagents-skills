@@ -78,3 +78,21 @@ Para cada SVG/HTML com fotografia, logo ou ilustração:
 - inspecionar a exportação efetivamente entregue, não só outra prévia/cache anterior.
 
 HTTP 200, Content-Type, XML válido ou uma tag de imagem presente não contam como prova visual. Se só a estrutura foi testada, declarar que a revisão visual não foi concluída.
+
+
+## 9. Gate específico de tipografia publicitária
+
+Para posts, anúncios e pôsteres, a nota de tipografia não pode passar apenas por legibilidade. Avaliar também desenho e direção de arte:
+- A família display foi escolhida por personalidade ou é fallback de sistema/documento?
+- A headline tem presença e uma silhueta própria?
+- Cada quebra é intencional e semântica?
+- As linhas equilibram peso, largura e ritmo sem uniformidade mecânica?
+- A entrelinha foi ajustada pelas formas reais dos glifos, incluindo acentos e descendentes?
+- Tracking e kerning são específicos para fonte, caixa e tamanho?
+- Tipografia, fotografia e grafismos parecem uma composição única, não camadas independentes?
+- O bloco funciona isolado, em thumbnail e integrado na arte?
+- O arquivo exportado usa exatamente a mesma família e os mesmos pesos do preview?
+
+**Bloqueadores:** headline com fonte genérica escolhida por conveniência; fonte substituída silenciosamente; texto deformado por compressão/estiramento; quebra automática sem revisão; linhas visivelmente desequilibradas; entrelinha que cola ou separa o bloco; acentos cortados.
+
+Se qualquer bloqueador ocorrer, refazer o bloco tipográfico e recompor a peça antes da entrega.

@@ -87,3 +87,16 @@ Um post de impacto é uma peça de comunicação para feed, não uma página inf
 - Variar layouts de uma campanha com um sistema visual comum, sem obrigar todos os posts a terem o mesmo esqueleto.
 
 Consultar `social-first-art-direction/SKILL.md` para a direção de arte detalhada, direitos dos assets e QA de SVG/HTML. O checklist final deve perguntar explicitamente: “Isto parece um post de rede social ou um documento com proporção vertical?” Se parecer documento quando o pedido era post, refazer a composição.
+
+
+## Tipografia como elemento de arte — obrigatório
+
+Em post único, story, capa e criativo publicitário, headline não é texto corrido e não deve ser composta como título de documento. Consultar `typography-master/SKILL.md` antes da produção.
+
+- Escolher fonte display com personalidade e licença verificada; não usar Arial/DejaVu/Inter ou fonte padrão como escolha automática de impacto.
+- Definir manualmente as quebras e o desenho do bloco tipográfico: largura visual das linhas, rag, alinhamento, ritmo, entrelinha e tracking.
+- Equilibrar pelo peso óptico das formas, sem forçar todas as linhas à mesma largura.
+- Integrar a headline à fotografia, ao recorte e aos elementos gráficos como parte da composição; não acrescentar um título genérico no final.
+- Distinguir tracking de display em caixa alta de tracking de labels; não abrir automaticamente as letras da headline.
+- Nunca comprimir ou esticar texto para caber. Corrigir copy, fonte, quebra ou composição.
+- Validar o bloco isolado e depois integrado, em thumbnail e em tamanho integral.

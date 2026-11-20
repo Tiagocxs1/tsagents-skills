@@ -45,6 +45,21 @@ Em teste A/B, alterar uma variável principal por vez e identificar o que mudou.
 - Evitar urgência artificial, clickbait, promessas absolutas ou claims sem comprovação.
 - Deixar a imagem apoiar a mensagem sem competir com a headline.
 
+
+### Tipografia publicitária — regra de execução
+
+Headline, imagem e CTA precisam formar uma composição única. Para criativos estáticos:
+- Definir display face e tratamento de headline no próprio conceito criativo, e não depois da imagem.
+- Usar contraste tipográfico com intenção: peso, largura, inclinação, escala, caixa e tracking; não depender apenas de cor e tamanho.
+- Construir a silhueta das linhas manualmente. Quebras, rag, alinhamento e entrelinha devem refletir o sentido da frase e a energia do anúncio.
+- Não usar fontes neutras de documento/UI nem a fonte padrão do sistema como display por conveniência.
+- Apoio e CTA têm papéis menores e não devem competir com o benefício principal.
+- A headline pode interagir com recorte, pessoa, produto e planos da fotografia; não cobrir elementos que sejam a prova visual ou o ponto focal.
+- Não distorcer texto com `textLength`, `lengthAdjust`, `scaleX`, stretch ou redução automática.
+- Para anúncios A/B, manter a direção tipográfica coerente e alterar somente a variável que o teste pretende medir.
+
+Aplicar o mapa de quebras, parâmetros por papel e gate visual de `typography-master/SKILL.md`.
+
 ## 5. Produção
 Usar docs/visual-tool-registry.md para selecionar ferramenta. Preservar master editável e variações. Conferir as regras atuais da plataforma. Verificar créditos/custo de modelos pagos antes da execução; não consumir saldo em muitas tentativas sem apresentar direção e quantidade.
 

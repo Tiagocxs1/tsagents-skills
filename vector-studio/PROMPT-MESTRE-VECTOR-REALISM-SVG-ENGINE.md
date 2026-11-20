@@ -1,7 +1,7 @@
 # PROMPT MESTRE — Vector Realism SVG Engine
 
-**Versão:** 1.0.0  
-**Status:** Prompt operacional inicial — sujeito a evolução por testes  
+**Versão:** 1.1.0  
+**Status:** Prompt operacional — inclui protocolo obrigatório de tipografia publicitária integrada à composição.  
 **Uso:** orquestração de renderização vetorial fotorrealista, SVG híbrido, vetorização raster→SVG e síntese ótica 3D em SVG puro.  
 **Idioma de operação:** português, salvo solicitação diferente.
 
@@ -191,6 +191,124 @@ Para posts, anúncios e peças sociais, a arquitetura técnica não substitui di
 - Não crie logo, fonte oficial, estatística, depoimento, selo, instalação ou endosso que a marca não forneceu.
 - Respeite Brand Profile, paleta, tom de voz, claims e limitações da marca. Não transforme uma direção provisória em identidade oficial.
 - Faça adaptações específicas para feed, story, thumbnail e demais placements; não apenas corte a mesma arte para todos.
+
+
+
+## 4.1 Tipografia publicitária como direção de arte — regra obrigatória
+
+Em posts, anúncios, pôsteres, capas e peças de campanha, a tipografia **não é uma camada de informação acrescentada depois da fotografia**. Ela é um dos elementos visuais protagonistas e deve ser concebida junto com a imagem, o recorte, a cor, a luz, a profundidade e o espaço negativo.
+
+### A. Separar tipografia de campanha e tipografia de documento
+
+Não aplicar mecanicamente regras de texto corrido a headlines de publicidade.
+
+- **Display / headline:** personalidade, desenho, presença, escala, ritmo e composição. Pode ser condensada, expandida, pesada, estreita, inclinada, serifada, grotesca ou expressiva conforme o conceito.
+- **Subheadline / apoio:** mantém a voz visual da campanha, mas prioriza leitura rápida e complementa a headline.
+- **Kicker / eyebrow / CTA / microcopy:** função de orientação; pode usar caixa alta e tracking mais aberto, sempre subordinado à mensagem principal.
+- **Body copy:** quando inevitável na arte, usar família legível, medida curta e entrelinha confortável. Em post único, conteúdo explicativo longo vai para a legenda ou carrossel.
+
+A regra de 45–75 caracteres por linha pertence a parágrafos de leitura contínua, não a headlines. Uma headline pode ter uma palavra, duas palavras ou uma linha muito curta; sua qualidade é julgada pelo impacto, pela semântica e pela silhueta tipográfica.
+
+### B. Escolha real e intencional da fonte
+
+Antes do layout, definir uma direção tipográfica usando palavras concretas: condensada e monumental; grotesca e tecnológica; geométrica e precisa; editorial e sofisticada; humanista e próxima. A fonte escolhida precisa reforçar o posicionamento e a mensagem, não apenas caber no retângulo.
+
+- Não usar `DejaVu Sans`, Arial, Helvetica, Inter ou qualquer sans-serif genérica como escolha automática de headline. Só podem entrar quando a direção de arte justificar explicitamente essa escolha.
+- Não assumir que a fonte da interface, do site ou do documento é adequada para uma peça publicitária.
+- Se a marca tiver fonte oficial confirmada, usar os arquivos e pesos corretos. Se a marca não tiver fonte registrada — como no Brand Profile atual da Guardian — escolher uma direção tipográfica provisória específica para a campanha e identificá-la como escolha criativa, não como fonte oficial da marca.
+- Priorizar fontes gratuitas/open-source com licença verificada (por exemplo, famílias OFL disponíveis em Google Fonts/Fontsource). Consultar foundry, licença, cobertura de português, pesos, largura, itálicos e eixos variáveis. Fontes Adobe Fonts ou outras comerciais só entram quando o usuário já tiver acesso/licença ou aprovar o custo.
+- Verificar se a família tem os caracteres usados em português: acentos, cedilha, til, pontuação, numerais e símbolos.
+- Escolher o peso e a largura reais existentes na família. Não simular Black/Bold com stroke e não usar um peso inexistente.
+- Criar uma prova tipográfica com a **headline exata** e pelo menos uma linha de apoio antes de fechar a família. Um nome de fonte ou uma amostra genérica não substitui essa prova.
+
+### C. Hierarquia e papéis tipográficos
+
+Planejar três funções, mesmo que alguma não seja usada:
+
+1. **Hero display:** headline, com personalidade e escala dominantes.
+2. **Supporting display/text:** segunda voz ou peso para explicar o benefício sem competir com o hero.
+3. **Functional microtype:** kicker, CTA, região, observação ou metadado, com presença controlada.
+
+Usar uma ou duas famílias como padrão. Uma terceira só entra quando houver uma função formal clara, não para decorar. Contraste de largura, peso, inclinação, caixa, escala e ritmo dentro da mesma família pode criar hierarquia mais forte do que empilhar fontes diferentes.
+
+Não deixar headline, subtítulo, CTA e localização com a mesma fonte, peso, escala e espaçamento. Tampouco criar quatro estilos concorrentes. Deve existir um protagonista e uma ordem de leitura inequívoca.
+
+### D. Quebras de linha desenhadas, não automáticas
+
+Tratar cada linha da headline como uma forma gráfica deliberada.
+
+- Definir as quebras manualmente a partir do sentido, da prosódia e do impacto. Não aceitar quebras automáticas ou feitas apenas para caber na largura disponível.
+- Planejar a headline como um bloco: número de linhas, comprimento visual de cada linha, alinhamento, ritmo, largura do bloco e centro de massa.
+- Balancear pelo **peso visual dos glifos**, não por igualdade matemática de caracteres ou por larguras idênticas. É válido alternar uma linha monumental e outra curta quando isso cria ritmo intencional.
+- Preservar unidades semânticas. Não separar artigo de substantivo, preposição de complemento ou expressões que precisam ser lidas juntas, salvo quando a quebra for uma decisão expressiva consciente.
+- Evitar viúvas e órfãs involuntárias, palavras soltas sem função, pontuação pendurada, sílabas partidas e uma última linha fraca. Uma palavra isolada só pode aparecer quando for um golpe visual deliberado.
+- Não forçar todas as linhas a terminarem no mesmo eixo. Alinhamento irregular, rag, diagonal e assimetria são recursos válidos quando ajudam o conceito.
+- Testar a frase como silhueta preta sobre fundo branco, sem fotografia nem cor: a composição das linhas deve parecer equilibrada antes dos efeitos.
+
+Antes do código, registrar um mapa de quebras (linha 1 / linha 2 / linha 3) com indicação de alinhamento, largura relativa, peso e função de cada linha. O mapa deve ser revisto como um lockup tipográfico único.
+
+### E. Entrelinha, tracking e kerning
+
+Os valores abaixo são intervalos de partida para prova, não presets absolutos:
+
+| Papel | Entrelinha / avanço de baseline | Tracking inicial |
+|---|---:|---:|
+| Headline display compacta | aproximadamente 0,86–1,02 em | cerca de -0,04 a -0,01 em, conforme desenho |
+| Headline display aberta/editorial | aproximadamente 1,00–1,12 em | -0,02 a +0,01 em |
+| Subheadline curta | aproximadamente 1,12–1,32 em | normalmente -0,01 a +0,01 em |
+| Apoio em duas ou três linhas | aproximadamente 1,25–1,45 em | normalmente neutro |
+| Label/eyebrow pequeno em caixa alta | aproximadamente 1,0–1,2 em | +0,06 a +0,12 em |
+| Parágrafo/body | 1,45–1,65 em | neutro |
+
+A métrica não substitui a observação dos limites reais dos glifos. Ajustar o avanço de baseline considerando ascendentes, descendentes, acentos, cedilha, caixa alta, itálicos e o desenho da família. Em headlines enormes, medir o espaço visível entre as linhas; não confiar apenas em `line-height` nominal ou no bounding box da caixa.
+
+- Caixa alta de headline display **não** recebe automaticamente tracking aberto. Em tipos condensados/monumentais, tracking negativo ou quase neutro costuma preservar o bloco; tracking aberto é reservado com frequência a labels, kicker e microcopy.
+- Fazer kerning óptico em pares problemáticos, sobretudo em títulos grandes, pontuação, diagonais e combinações como AV, WA, TA, LT e acentos. Ativar kerning OpenType quando o motor suportar.
+- Não aplicar o mesmo tracking em palavras, tamanhos e famílias diferentes.
+- O espaçamento entre headline, apoio e CTA deve criar relação: próximos o bastante para pertencerem à mesma ideia, separados o bastante para não colidirem. Medir o espaço visível entre formas, não só margens CSS.
+
+### F. Escala e presença no canvas social
+
+Para um canvas de feed 1080 × 1350 px, usar como referência inicial — e não como tabela rígida — headline display frequentemente entre 100 e 190 px, subheadline entre 32 e 48 px, apoio entre 24 e 34 px e microcopy entre 18 e 24 px. O conceito, a fonte, o número de linhas, a fotografia e a leitura em thumbnail determinam o valor final.
+
+- A headline deve dominar visualmente a peça, não parecer um título de documento.
+- Se o texto não couber, primeiro revisar copy, quebras, distribuição, grid e relação com a fotografia; depois testar outra largura ou família. Não reduzir a fonte até perder presença.
+- Não usar o mesmo tamanho para todas as peças de uma campanha. A consistência vem do sistema, não da repetição mecânica.
+
+### G. Integrar tipografia à imagem e à composição
+
+A tipografia precisa participar da cena como forma e estrutura:
+
+- Construir relação espacial entre letras, pessoa/objeto, arquitetura, recorte fotográfico, planos de profundidade e áreas de cor.
+- Usar aproximação, sobreposição, oclusão, recortes, máscaras, alinhamentos compartilhados, diagonais e interação com a silhueta quando ajudarem a mensagem.
+- Permitir que a imagem enquadre, revele, atravesse ou contraponha o bloco tipográfico. O texto pode ocupar o espaço negativo da fotografia ou avançar sobre uma área de imagem com contraste e controle.
+- Headline, imagem e grafismos devem parecer projetados em conjunto, não três camadas independentes empilhadas.
+- Não esconder olhos, rosto, produto, equipamento ou detalhe que seja essencial à história. Não sacrificar legibilidade por integração decorativa.
+- Não resolver todo contraste com caixas, cartões, tarjas, botões ou rodapés. Uma tarja pode ser usada quando a direção pedir, mas não é o modo padrão de separar texto e fotografia.
+- Não usar contorno, sombra, glow, bevel ou transparência como substituto de escolha tipográfica e composição.
+
+### H. Proibições de implementação
+
+- Nunca usar SVG `textLength` com `lengthAdjust="spacingAndGlyphs"` para comprimir ou esticar uma frase até caber. Isso distorce a fonte e é sinal de tipografia improvisada.
+- Não usar `transform: scaleX()`, `font-stretch` artificial, stroke para simular peso ou tracking forçado como correção de largura.
+- Não usar auto-fit que encolhe silenciosamente o tamanho da headline até caber.
+- Não usar quebras automáticas sem revisão humana do bloco.
+- Não misturar fonte carregada no browser com fallback diferente no PNG. Instalar/carregar a família real no renderizador, conferir o peso efetivo e validar a mesma fonte na exportação.
+- Em SVG, manter texto como texto editável no master quando possível; incorporar/empacotar a fonte conforme sua licença e validar no navegador e no renderizador de exportação. Se um renderizador não suportar a família corretamente, trocar o renderizador ou corrigir a instalação da fonte — não aceitar fallback genérico.
+- Não converter tudo em paths apenas para esconder problemas de fonte. Caso outlines sejam necessários para um export específico, preservar também o master com texto editável.
+
+### I. Gate tipográfico antes de aprovar
+
+Revisar a headline:
+- isolada, sem foto, em preto e branco;
+- como thumbnail de feed;
+- no tamanho integral 1080 × 1350;
+- com a fotografia e os demais elementos ativos;
+- em escala mobile.
+
+Aprovar só quando cada linha tiver função, intenção e peso visual; a leitura seguir ritmo natural; as quebras parecerem desenhadas para aquela frase; entrelinha e tracking forem ópticos, sem colisão nem dispersão; o bloco estiver equilibrado com a imagem e o espaço negativo; e a tipografia for percebida como parte da arte.
+
+Se o bloco tipográfico falhar, refazer tipografia e composição em conjunto. Não basta trocar a fonte ou ajustar dois pixels.
 
 ---
 
