@@ -317,8 +317,8 @@ async function deleteAsset(env, id) {
   const row = await getAsset(env, id);
   if (!row) throw new Error("Asset não encontrado.");
   if (row.object_key) await env.ASSETS.delete(row.object_key);
-  await env.DB.prepare("UPDATE assets SET status = 'deleted' WHERE id = ?1").bind(id).run();
-  return { id: id, status: "deleted", file_removed: true };
+  await env.DB.prepare("DELETE FROM assets WHERE id = ?1").bind(id).run();
+  return { id: id, status: "deleted", file_removed: true, reference_removed: true };
 }
 
 async function recoverAsset(env, origin, id) {
@@ -389,7 +389,7 @@ function toolDefinitions() {
         type: "object",
         properties: {
           project: { type: "string" },
-          status: { type: "string", enum: ["active", "expired", "deleted"] },
+          status: { type: "string", enum: ["active", "expired"] },
           q: { type: "string" },
           limit: { type: "integer", minimum: 1, maximum: 50 }
         }
