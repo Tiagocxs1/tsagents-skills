@@ -6,7 +6,7 @@ on:
       request_path:
         description: JSON request file inside vector-studio/requests
         required: true
-        default: vector-studio/requests/active.json
+        default: vector-studio/requests/guardian-typography-tests-2026-11.json
         type: string
   push:
     paths:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Render hybrid SVGs and vector trace
         env:
-          REQUEST_PATH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.request_path || 'vector-studio/requests/guardian-nov-2026.json' }}
+          REQUEST_PATH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.request_path || 'vector-studio/requests/guardian-typography-tests-2026-11.json' }}
         run: |
           python vector-studio/render.py --request "$REQUEST_PATH" --out-dir output/vector-studio
 

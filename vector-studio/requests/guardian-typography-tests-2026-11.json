@@ -1,0 +1,95 @@
+{
+  "project": "guardian",
+  "campaign": "guardian-typography-art-direction-tests-2026-11",
+  "art_direction": "guardian_hybrid_photo_posts",
+  "logo": {
+    "public_id": "guardianseg/images/logo-guardian",
+    "url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1786481463/guardianseg/images/logo-guardian.png",
+    "expected_format": "PNG",
+    "expected_dimensions": [
+      192,
+      50
+    ],
+    "instruction": "Preservar o arquivo original e criar uma variação branca monocromática com fundo transparente a partir dos pixels originais; não usar placa branca."
+  },
+  "brand": {
+    "name": "Guardian",
+    "colors": {
+      "red": "#CB3033",
+      "navy": "#04344C",
+      "slate": "#506A76",
+      "cyan": "#00FFFF",
+      "white": "#FFFFFF"
+    },
+    "no_green": true,
+    "typography_note": "Oswald e Manrope são escolhas criativas provisórias desta rodada, não fontes oficiais da marca."
+  },
+  "format": {
+    "platform": "Instagram Feed",
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5"
+  },
+  "posts": [
+    {
+      "slug": "guardian-teste-acesso-com-gestao-2026",
+      "name": "Portaria remota — acesso com gestão",
+      "layout": "flow",
+      "logo_variant": "white",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013035/guardianseg/ebook-2026/delivery.jpg",
+      "source_public_id": "guardianseg/ebook-2026/delivery",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 1350
+      },
+      "centering": [
+        0.5,
+        0.47
+      ],
+      "caption": "Moradores, visitantes, entregas e prestadores fazem parte da rotina do condomínio. A portaria remota integra comunicação, câmeras e controle de acesso à operação definida para cada estrutura. Converse com a Guardian para avaliar a solução adequada ao seu condomínio.\n\nImagem ilustrativa; não representa cliente ou instalação da Guardian.\n\n#Guardian #PortariaRemota #ControleDeAcesso #Condomínios #Florianópolis",
+      "alt_text": "Post da Guardian sobre portaria remota. Fotografia ilustrativa de acesso residencial em tela cheia, com headline monumental integrada à área escurecida inferior e logo branco transparente, sem placa de fundo."
+    },
+    {
+      "slug": "guardian-teste-alem-do-alerta-2026",
+      "name": "Monitoramento de imagem — além do alerta",
+      "layout": "monitor",
+      "logo_variant": "white",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1794441593/guardianseg/blog/editorial/lgpd-cameras-condominio-cftv.jpg",
+      "source_public_id": "guardianseg/blog/editorial/lgpd-cameras-condominio-cftv",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 930
+      },
+      "centering": [
+        0.5,
+        0.5
+      ],
+      "caption": "No monitoramento de imagem 24h, câmeras e eventos podem ser integrados à operação da central para apoiar a análise da situação, conforme o projeto e o serviço contratado. Fale com a Guardian e conheça as possibilidades para seu condomínio ou empresa.\n\nFotografia ilustrativa; não representa instalação da Guardian nem identifica um equipamento do portfólio.\n\n#Guardian #MonitoramentoDeImagem #SegurançaEletrônica #Condomínios #GrandeFlorianópolis",
+      "alt_text": "Post da Guardian sobre monitoramento de imagem. Fotografia ilustrativa de câmera de CFTV, com recorte diagonal, detalhe geométrico inspirado em enquadramento e headline de display sobre uma base azul-marinho."
+    },
+    {
+      "slug": "guardian-teste-sistema-em-dia-2026",
+      "name": "Manutenção — sistema em dia",
+      "layout": "maintenance_test",
+      "logo_variant": "white",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795014368/guardianseg/ebook-2026/server-maintenance.jpg",
+      "source_public_id": "guardianseg/ebook-2026/server-maintenance",
+      "photo_box": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 1350
+      },
+      "centering": [
+        0.5,
+        0.47
+      ],
+      "caption": "A manutenção preventiva e corretiva contempla alarmes, câmeras, automatizadores, interfonia e controle de acesso. Uma avaliação técnica ajuda a identificar necessidades e ajustes nos sistemas e na instalação. Solicite uma avaliação com a Guardian.\n\nImagem ilustrativa; não representa colaborador ou serviço executado pela Guardian.\n\n#Guardian #ManutençãoPreventiva #SegurançaEletrônica #Condomínios #Florianópolis",
+      "alt_text": "Post da Guardian sobre manutenção preventiva e corretiva. Fotografia ilustrativa de infraestrutura ocupa a área esquerda; uma composição diagonal azul-marinho e vermelha integra a headline tipográfica e o logo branco sem fundo."
+    }
+  ]
+}
