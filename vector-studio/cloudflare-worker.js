@@ -196,12 +196,13 @@ export default {
         key,
         filename: name,
         bytes: bytes.byteLength,
+        content_type: expectedType,
         url: publicUrl,
         expires_by_policy: "approximately 7 days"
       }, 201);
     }
 
-    if (url.pathname.startsWith("/file/") && request.method === "GET") {
+    if (url.pathname.startsWith("/file/") && (request.method === "GET" || request.method === "HEAD")) {
       const parts = url.pathname.slice("/file/".length).split("/");
       if (parts.length !== 2) return new Response("Not found", { status: 404, headers: cors() });
 
@@ -219,6 +220,7 @@ export default {
       headers.set("etag", object.httpEtag);
       headers.set("x-content-type-options", "nosniff");
       headers.set("cache-control", "public, max-age=300, s-maxage=300");
+      headers.set("content-length", String(object.size));
       headers.set("content-disposition", 'inline; filename="' + name.replace(/["\\\r\n]/g, "_") + '"');
       if (name.toLowerCase().endsWith(".svg")) {
         headers.set("content-security-policy", "default-src 'none'; img-src data:; style-src 'unsafe-inline';");
