@@ -106,6 +106,19 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 - Limitação: são medições de laboratório. Para Core Web Vitals de campo, usar CrUX/PageSpeed Insights e Search Console quando disponíveis.
 - **Status:** skill e runner implementados; CI de sintaxe/configuração/testes será validado antes do merge. O primeiro caller privado da Guardian será separado e não será integrado à main enquanto o deploy de produção for acionado por push nessa branch.
 
+## 3.3 SiteOne Crawler — auditoria técnica por GitHub Actions
+
+- Repositório: https://github.com/janreges/siteone-crawler
+- Licença: MIT; aproximadamente 1.017 estrelas no inventário de 20/11/2026.
+- Versão usada pelo workflow: v2.5.1 (Linux x64 musl).
+- SHA-256 do archive fixado: `bd96b9502563aea2581fc248625871e69b60d7f1bb68a484f226c551c73706fd`.
+- Runtime: GitHub Actions reutilizável `.github/workflows/siteone-crawler-audit.yml`; runner baixa release, valida checksum, executa binário e exporta HTML/JSON. Não requer banco ou servidor persistente.
+- Limites padrão: 300 URLs visitadas (incluindo assets), profundidade 4, dois workers, duas requisições/s e timeout de 10 s. A configuração valida até 500 URLs, profundidade 6, três workers e 2 req/s.
+- O crawler respeita robots.txt por padrão; o workflow não ativa stress/load testing, não usa proxy e não envia relatórios para serviços externos.
+- Relatórios: artifact de 30 dias e branch privada `seo-reports` do projeto chamador, nunca a branch de produção.
+- **Status:** runner, workflow e testes adicionados ao branch de feature; a CI valida configuração e construção do comando, sem fazer crawls externos. O resultado real só será confirmado após execução manual/mensal num projeto chamador.
+- SiteOne apresenta score próprio de qualidade 0–10; não comparar com os scores Lighthouse 0–100 nem com ranking Google.
+
 ## 4. Histórico de versões
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
