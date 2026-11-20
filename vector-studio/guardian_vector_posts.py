@@ -98,6 +98,16 @@ def scene_for(theme):
       <g fill="{CYAN}"><circle cx="980" cy="300" r="6"/><circle cx="1000" cy="1115" r="6"/><circle cx="330" cy="740" r="6"/><circle cx="1030" cy="985" r="6"/></g>
     </g>"""
 
+def scene_transform(theme, markup):
+    # Keep the 3D focal object in the lower-right quadrant, clear of copy and footer.
+    transforms = {
+        "architecture": "translate(400 460) scale(.62)",
+        "alarm": "translate(420 340) scale(.62)",
+        "image": "translate(470 350) scale(.58)",
+        "maintenance": "translate(485 435) scale(.52)"
+    }
+    return f'<g transform="{transforms[theme]}">{markup}</g>'
+
 def make_svg(post,logo):
     theme=post["theme"]
     if theme=="architecture":
@@ -145,7 +155,7 @@ def make_svg(post,logo):
     {title}
     <text x="74" y="742" fill="#DCEBF0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25">{e(support[0])}</text>
     <text x="74" y="781" fill="#DCEBF0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25">{e(support[1])}</text>
-    {scene_for(theme)}
+    {scene_transform(theme,scene_for(theme))}
     <text x="74" y="1140" fill="#8FB1BE" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">FLORIANÓPOLIS E GRANDE FLORIANÓPOLIS</text>
     <path d="M72 1180H1008" stroke="#B9D5DF" stroke-opacity=".22" stroke-width="1.5"/>
     <text x="74" y="1260" fill="{WHITE}" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="1.5">CONVERSE COM A GUARDIAN</text>
