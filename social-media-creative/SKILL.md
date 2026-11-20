@@ -74,3 +74,16 @@ Antes de gerar, consultar image-brief-and-routing/SKILL.md. Uma foto verdadeira 
 ## Dados e infográficos
 
 Quando houver números, gráficos ou pesquisa, consultar infographic-design/SKILL.md. Exibir fonte e data, usar escalas honestas e alt text; nunca inventar dados ou manipular visualização.
+
+## Direção social-first — obrigatória em post único e Story
+
+Um post de impacto é uma peça de comunicação para feed, não uma página informativa reduzida. Antes de compor, escolher um gancho, uma mensagem principal, um ponto focal dominante e uma direção visual que pertença àquela campanha.
+
+- Preferir headline curta, imagem protagonista e apoio mínimo. O essencial precisa ser entendido sem abrir a legenda.
+- Usar diferença de escala, posicionamento, recortes, assimetria, tipografia expressiva, sobreposição e blocos de cor com intenção; não centralizar tudo nem repetir a mesma caixa sete vezes por comodidade de código.
+- Não transformar posts em jornal, relatório, catálogo, ficha biográfica ou dashboard, a menos que o briefing peça deliberadamente um infográfico/editorial.
+- Se houver muitos dados, pessoas ou explicações, decidir entre síntese fiel, carrossel ou infográfico; não espremer todos os detalhes em uma única tela.
+- Não usar placeholders ou áreas de imagem vazias na entrega. Se um retrato não tiver autorização adequada para o uso, buscar asset autorizado ou representar a pessoa tipograficamente de modo explícito, sem simular fotografia.
+- Variar layouts de uma campanha com um sistema visual comum, sem obrigar todos os posts a terem o mesmo esqueleto.
+
+Consultar `social-first-art-direction/SKILL.md` para a direção de arte detalhada, direitos dos assets e QA de SVG/HTML. O checklist final deve perguntar explicitamente: “Isto parece um post de rede social ou um documento com proporção vertical?” Se parecer documento quando o pedido era post, refazer a composição.
