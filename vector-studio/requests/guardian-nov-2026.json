@@ -53,8 +53,8 @@
       "slug": "guardian-monitoramento-alarme-24h-2026",
       "name": "Monitoramento de alarme 24 horas",
       "layout": "alarme",
-      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013017/guardianseg/ebook-2026/control-room.jpg",
-      "source_public_id": "guardianseg/ebook-2026/control-room",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1794441601/guardianseg/blog/editorial/lgpd-central-monitoramento.jpg",
+      "source_public_id": "guardianseg/blog/editorial/lgpd-central-monitoramento",
       "photo_box": {
         "x": 0,
         "y": 0,
@@ -72,20 +72,20 @@
       "slug": "guardian-monitoramento-imagem-2026",
       "name": "Monitoramento de imagem 24 horas",
       "layout": "imagem",
-      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1795013008/guardianseg/ebook-2026/cctv-exterior.jpg",
-      "source_public_id": "guardianseg/ebook-2026/cctv-exterior",
+      "image_url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1794441593/guardianseg/blog/editorial/lgpd-cameras-condominio-cftv.jpg",
+      "source_public_id": "guardianseg/blog/editorial/lgpd-cameras-condominio-cftv",
       "photo_box": {
-        "x": 520,
-        "y": 0,
-        "width": 560,
-        "height": 1350
+        "x": 0,
+        "y": 220,
+        "width": 1080,
+        "height": 720
       },
       "centering": [
-        0.51,
-        0.48
+        0.5,
+        0.5
       ],
-      "caption": "No monitoramento de imagem, câmeras e eventos podem ser integrados à operação da central para apoiar a análise da situação, conforme o projeto e o serviço contratado. Fale com a Guardian para conhecer as possibilidades para seu condomínio ou empresa.\\n\\nFotografia ilustrativa; não representa instalação da Guardian nem identifica um equipamento do portfólio.\\n\\n#Guardian #MonitoramentoDeImagem #Câmeras #SegurançaEletrônica #GrandeFlorianópolis",
-      "alt_text": "Post da Guardian sobre monitoramento de imagem. A metade direita apresenta fotografia ilustrativa de câmera/segurança em edifício; à esquerda, fundo azul-marinho, manchete em branco e vermelho e logo oficial."
+      "caption": "No monitoramento de imagem, câmeras e eventos podem ser integrados à operação da central para apoiar a análise da situação, conforme o projeto e o serviço contratado. Fale com a Guardian para conhecer as possibilidades para seu condomínio ou empresa.\\n\\nFotografia ilustrativa de CFTV; não representa instalação da Guardian nem identifica um equipamento do portfólio.\\n\\n#Guardian #MonitoramentoDeImagem #Câmeras #SegurançaEletrônica #GrandeFlorianópolis",
+      "alt_text": "Post da Guardian sobre monitoramento de imagem. Uma fotografia ilustrativa, em formato horizontal, mostra uma câmera de CFTV instalada em uma fachada urbana; no cabeçalho e na área inferior aparecem o logo oficial e a mensagem em azul-marinho, branco e vermelho."
     },
     {
       "slug": "guardian-manutencao-sistemas-2026",

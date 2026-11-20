@@ -179,8 +179,8 @@ def compose_svg(post: dict, logo: str, photo: str) -> str:
             f'<rect width="{W}" height="{H}" fill="{NAVY}"/>',
             photo_image(photo, box),
             '<rect width="820" height="1350" fill="url(#dark-left)"/>',
-            '<path d="M690 0H730L560 1350H520Z" fill="#CB3033" opacity=".96"/>',
-            '<path d="M735 0H745L575 1350H565Z" fill="#FFFFFF" opacity=".16"/>',
+            '<path d="M724 0L744 0L704 1350L684 1350Z" fill="#CB3033" opacity=".96"/>',
+            '<path d="M748 0L758 0L718 1350L708 1350Z" fill="#FFFFFF" opacity=".16"/>',
             logo_plate(logo, 72, 64, 310, 82),
             small_line(74, 256, "PORTARIA REMOTA 24H", 21, "#D6E4E9", 700, 2.6),
             '<rect x="72" y="278" width="58" height="5" rx="2.5" fill="#CB3033"/>',
@@ -211,20 +211,16 @@ def compose_svg(post: dict, logo: str, photo: str) -> str:
         parts += [
             f'<rect width="{W}" height="{H}" fill="{NAVY}"/>',
             photo_image(photo, box),
-            '<path d="M490 0H540L470 1350H420Z" fill="#CB3033"/>',
-            '<path d="M548 0H562L492 1350H478Z" fill="#FFFFFF" opacity=".14"/>',
-            logo_plate(logo, 54, 62, 306, 82),
-            small_line(58, 246, "MONITORAMENTO DE IMAGEM", 18, "#D6E4E9", 700, 1.4),
-            '<rect x="58" y="268" width="48" height="5" rx="2.5" fill="#CB3033"/>',
-            title_line(54, 450, "VER É", 106, 400, WHITE, -4),
-            title_line(54, 565, "SÓ O", 106, 400, WHITE, -4),
-            title_line(54, 680, "COMEÇO.", 90, 420, RED, -3),
-            small_line(58, 826, "Análise de imagens", 26, WHITE, 500),
-            small_line(58, 866, "integrada aos eventos", 26, WHITE, 500),
-            small_line(58, 906, "da operação 24h.", 26, WHITE, 500),
-            small_line(58, 1192, "CONHEÇA O MONITORAMENTO", 19, WHITE, 800, 1.0),
-            '<path d="M58 1218H346" stroke="#00FFFF" stroke-width="3"/>',
-            small_line(58, 1280, "GUARDIAN • GRANDE FLORIANÓPOLIS", 15, "#C0D3DC", 700, .8)
+            '<rect x="0" y="0" width="1080" height="220" fill="#04344C"/>',
+            logo_plate(logo, 72, 58, 310, 82),
+            small_line(620, 170, "MONITORAMENTO DE IMAGEM 24H", 20, "#D6E4E9", 700, 1.5),
+            '<path d="M0 922L1080 880" stroke="#CB3033" stroke-width="9"/>',
+            '<path d="M0 934L1080 892" stroke="#FFFFFF" stroke-opacity=".23" stroke-width="2"/>',
+            small_line(74, 1022, "MONITORAMENTO E ANÁLISE DE EVENTOS", 18, "#C8DCE4", 700, 1.8),
+            title_line(70, 1128, "IMAGEM EM FOCO.", 100, 950, WHITE, -4),
+            small_line(74, 1195, "Câmeras integradas à operação da central 24h.", 25, WHITE, 500),
+            small_line(74, 1280, "FALE COM A GUARDIAN", 22, WHITE, 800, 1.4),
+            '<path d="M74 1307H320" stroke="#00FFFF" stroke-width="3"/>'
         ]
     elif layout == "manutencao":
         parts += [
