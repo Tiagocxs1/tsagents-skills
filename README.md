@@ -2,14 +2,16 @@
 
 Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são organizadas em pastas com um arquivo `SKILL.md` e referências/scripts quando aplicável. Os projetos originais avaliados ficam separados como Git submodules em `upstream/`; nossas adaptações permanecem na raiz.
 
-## SEO, pesquisa e tendências
+## SEO, pesquisa e auditoria técnica
 
 | Skill / runtime | Uso |
 |---|---|
-| [Google Trends Research](./google-trends-research/SKILL.md) | Trendspyg 1.9.0 (MIT), compatibilidade para projetos Pytrends, comparação de interesse, tendências e configuração por projeto |
-| [Coletor reutilizável](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatórios no repositório privado de cada projeto |
+| [Google Trends Research](./google-trends-research/SKILL.md) | Trendspyg 1.9.0 (MIT), compatibilidade para projetos Pytrends, comparação de interesse e tendências |
+| [Technical SEO Audit](./technical-seo-audit/SKILL.md) | Auditoria técnica com Lighthouse 13.6.0 (Apache-2.0), saída HTML/JSON e execução sem servidor permanente |
+| [Coletor Google Trends](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatório privado por projeto |
+| [Coletor Lighthouse](./.github/workflows/lighthouse-collect.yml) | GitHub Actions reutilizável, até cinco URLs por execução, mobile/desktop e relatórios na branch separada seo-reports |
 
-A integração usa o índice relativo 0–100 do Google Trends; não produz volume absoluto de buscas, CPC ou concorrência de anúncios. Para projetos privados, o consumo de GitHub Actions pertence ao repositório chamador e deve respeitar a cota Free. O original Pytrends está arquivado; projetos novos devem usar Trendspyg e a camada `trendspyg.compat` para migrações compatíveis.
+Google Trends fornece índice relativo 0–100, não volume absoluto, CPC ou concorrência de anúncios. Lighthouse fornece medições de laboratório, não dados de campo nem garantia de ranking. Os workflows dos repositórios privados consomem minutos da cota incluída do GitHub Actions; não são execução ilimitada. O Pytrends original está arquivado; projetos novos devem usar Trendspyg e a camada de compatibilidade quando aplicável.
 
 ## UI, UX e qualidade de produto
 
