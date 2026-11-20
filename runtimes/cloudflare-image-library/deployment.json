@@ -1,0 +1,46 @@
+{
+  "service": "ts-image-library",
+  "worker_script": "ts-image-library",
+  "worker_url": "https://ts-image-library.tiagocxs-tdb.workers.dev",
+  "mcp_endpoint": "https://ts-image-library.tiagocxs-tdb.workers.dev/mcp",
+  "http_api_base": "https://ts-image-library.tiagocxs-tdb.workers.dev",
+  "r2": {
+    "bucket": "ts-image-assets-temp",
+    "binding": "ASSETS",
+    "object_prefix": "images/",
+    "expiration_seconds": 604800,
+    "lifecycle_delete": {
+      "type": "Age",
+      "maxAge": 604800
+    },
+    "incomplete_multipart_upload_expiration_seconds": 86400
+  },
+  "d1": {
+    "database": "ts-image-assets-index",
+    "binding": "DB",
+    "retained_fields": [
+      "source_url",
+      "source_page_url",
+      "project",
+      "filename",
+      "content_type",
+      "size_bytes",
+      "license",
+      "attribution",
+      "created_at",
+      "expires_at",
+      "status"
+    ]
+  },
+  "secrets": [
+    "ASSET_API_TOKEN"
+  ],
+  "cron": null,
+  "notes": [
+    "Cron was not added: the account already uses all 5 Cron triggers available on Workers Free.",
+    "R2 lifecycle is the authoritative expiry mechanism; deletion usually completes within 24 hours after the lifecycle expiration timestamp.",
+    "No Cloudinary duplicate is created by the default ingest path.",
+    "Account and database UUIDs are configured in Cloudflare, not repeated in the public skills repository.",
+    "For a client-owned token, rotate/set ASSET_API_TOKEN through Cloudflare Dashboard or Wrangler; no secret value is stored in the Git repository."
+  ]
+}

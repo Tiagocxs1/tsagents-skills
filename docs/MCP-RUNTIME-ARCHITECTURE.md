@@ -1,6 +1,6 @@
 # Arquitetura de runtimes MCP e agentes
 
-**Atualizado em 18/11/2026.** Objetivo: permitir que ferramentas open-source sejam executadas em ambientes remotos, com o menor custo possível, sem confundir execução temporária com serviço persistente e sem expor credenciais.
+**Atualizado em 20/11/2026.** Objetivo: permitir que ferramentas open-source sejam executadas em ambientes remotos, com o menor custo possível, sem confundir execução temporária com serviço persistente e sem expor credenciais.
 
 ## Resposta direta: GitHub Actions ou Cloudflare Workers?
 
@@ -75,3 +75,18 @@ O workflow `.github/workflows/render-mcp-brasil-ci.yml` foi aprovado em 18/11/20
 - Render Free web services: https://render.com/docs/free
 - Render Docker hosting: https://render.com/hosting/docker
 - OpenAI custom MCP connection requirements and plan availability: https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt
+
+
+## Runtime: TS Image Library — Cloudflare R2 + Worker
+
+O runtime `runtimes/cloudflare-image-library/` disponibiliza ingestão de imagens raster por API HTTP autenticada e MCP Streamable HTTP com Bearer token. Recursos exclusivos: bucket R2 `ts-image-assets-temp` e D1 `ts-image-assets-index`; não reutiliza os buckets e Workers preexistentes.
+
+- Endpoint MCP: `https://ts-image-library.tiagocxs-tdb.workers.dev/mcp`
+- API: `https://ts-image-library.tiagocxs-tdb.workers.dev`
+- Ferramentas: `import_image`, `import_images_batch`, `search_assets`, `get_asset`, `recover_asset`, `delete_asset`.
+- Retenção: regra nativa R2 remove objetos em `images/` após 604800 segundos. A exclusão física costuma ocorrer até 24 horas após o timestamp de expiração; não é um SLA de segundo exato.
+- Catálogo: D1 preserva metadados de origem/licença e a URL de origem sanitizada para permitir tentativa de recuperação. URLs assinadas que dependam de query string podem não ser recuperáveis sem uma URL nova.
+- Sem cópia automática em Cloudinary e sem Cron adicional: a conta já usava os cinco triggers disponíveis no plano Free.
+- Segurança: Bearer token armazenado como secret do Worker, R2 privado, UUID imprevisível, URLs de origem validadas, redirecionamentos revalidados, tamanho/tipo verificados e formatos raster permitidos. O link de arquivo é público temporário enquanto ativo, pois foi concebido para inserir imagens em artes que serão públicas.
+- Limitação de clientes: endpoint MCP pode ser usado por clientes que suportam Streamable HTTP com Bearer; ChatGPT Free não oferece conexão de MCP personalizado na configuração atual. Consulte `README.md` do runtime antes de configurar um cliente.
+
