@@ -8,7 +8,7 @@ Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são 
 |---|---|
 | [Google Trends Research](./google-trends-research/SKILL.md) | Trendspyg 1.9.0 (MIT), compatibilidade para projetos Pytrends, comparação de interesse e tendências |
 | [Technical SEO Audit](./technical-seo-audit/SKILL.md) | Lighthouse 13.6.0 para lab de 1–5 URLs e SiteOne Crawler v2.5.1 para crawls limitados do site; relatórios HTML/JSON sem servidor permanente |
-| [Coletor Google Trends](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatório privado por projeto |
+| [Coletor Google Trends](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatórios numa branch privada separada, sem tocar na branch de deploy |
 | [Coletor Lighthouse](./.github/workflows/lighthouse-collect.yml) | GitHub Actions reutilizável, até cinco URLs por execução, mobile/desktop e relatórios na branch separada seo-reports |
 | [Coletor SiteOne](./.github/workflows/siteone-crawler-audit.yml) | GitHub Actions reutilizável, crawler Rust MIT com URL/depth/rate limits e relatório de site inteiro na branch separada seo-reports |
 

@@ -16,4 +16,5 @@ jobs:
       contents: write
     with:
       config_path: .seo/google-trends.json
-      output_dir: reports/seo/google-trends
+      report_branch: seo-reports
+      report_root: reports/seo/google-trends
