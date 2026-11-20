@@ -358,7 +358,7 @@ def compose_social_test_svg(post: dict, white_logo_uri: str, photo_uri: str, fon
             direct_logo(white_logo_uri, 716, 72, 278),
             campaign_text("PREVENTIVA + CORRETIVA", 674, 405, 18, CYAN, "Manrope", 700, font_paths, 365, 1.4),
             campaign_text("SISTEMA", 670, 575, 104, WHITE, "Oswald", 700, font_paths, 360, -3.0),
-            campaign_text("EM DIA.", 670, 710, 122, RED, "Oswald", 700, font_paths, 360, -3.6),
+            campaign_text("EM DIA.", 670, 710, 122, RED, "Oswald", 700, font_paths, 400, -3.6),
             campaign_text("Alarmes, câmeras,", 674, 815, 21, WHITE, "Manrope", 600, font_paths, 360),
             campaign_text("automatizadores, interfonia", 674, 850, 21, WHITE, "Manrope", 600, font_paths, 375),
             campaign_text("e controle de acesso.", 674, 885, 21, WHITE, "Manrope", 600, font_paths, 360),
