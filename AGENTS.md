@@ -85,3 +85,13 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Credenciais devem ficar apenas em Secret Stores ou envs ignorados pelo Git. Nunca solicitar que o usuário cole chaves no chat.
 - Ações financeiras, publicação, cancelamento, estorno, alteração de conta e escrita em serviços externos exigem autorização explícita e confirmação contextual.
 - Para dados públicos brasileiros, respeitar LGPD, licenças das fontes, termos do MCP Brasil e suas políticas de uso; não fazer perfilamento sensível ou reidentificação.
+
+
+## Biblioteca universal de imagens externas
+- Antes de criar qualquer peça visual que dependa de fotografias ou imagens encontradas na web, consultar `image-asset-ingestion/SKILL.md`.
+- Preferir importar imagens raster públicas pela TS Image Library (Cloudflare R2 + Worker/MCP) e usar a URL temporária retornada, em vez de depender de downloads manuais do navegador ou anexos do chat.
+- Cada cópia de imagem deve permanecer no R2 apenas por 7 dias, via lifecycle do prefixo `images/` (604800 segundos). O R2 processa a exclusão de forma assíncrona; a remoção costuma ocorrer até 24 horas após o vencimento. Não prometer exclusão no minuto exato.
+- Após a exclusão do binário, manter apenas metadados mínimos e a URL de origem no catálogo D1 para tentar recuperar/rebaixar a imagem depois. A recuperação depende de a origem continuar pública e disponível; não equivale a backup permanente.
+- Não duplicar arquivos automaticamente no Cloudinary, Git, repositórios, diretórios permanentes ou outros buckets. Qualquer cópia adicional exige uma política própria de retenção equivalente.
+- Registrar licença/atribuição somente quando verificadas; usar `unknown` quando a licença for incerta. Baixar não concede direito de uso/publicação. Nunca contornar login, paywall, controles anti-bot, bloqueios ou restrições de acesso.
+- Se a biblioteca/MCP não estiver disponível no ambiente atual, informar o bloqueio e usar alternativa autorizada; nunca declarar que um arquivo foi importado sem confirmação.
