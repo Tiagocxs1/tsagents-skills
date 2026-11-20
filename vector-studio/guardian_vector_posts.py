@@ -76,6 +76,12 @@ def recolor_logo_white(raw: bytes) -> bytes:
     )
     if original_alpha.getextrema() != (255, 255):
         mask = ImageChops.multiply(mask, original_alpha)
+    # The source artwork is grey; normalize its strongest logo pixel to full opacity.
+    # This makes the recolored mark truly white while retaining anti-aliased contours.
+    maximum_alpha = mask.getextrema()[1]
+    if maximum_alpha <= 0:
+        raise ValueError("Não foi possível extrair pixels visíveis do logo original.")
+    mask = mask.point(lambda value: min(255, round(value * 255 / maximum_alpha)))
     white = Image.new("RGBA", rgba.size, (255, 255, 255, 0))
     white.putalpha(mask)
     buffer = io.BytesIO()
@@ -342,9 +348,9 @@ def compose_social_test_svg(post: dict, white_logo_uri: str, photo_uri: str, fon
             '<path d="M0 875L1080 775" fill="none" stroke="#FFFFFF" stroke-opacity=".28" stroke-width="2"/>',
             direct_logo(white_logo_uri, 72, 62, 278),
             '<path d="M880 145H1004V269M1004 145L1032 173M880 269L908 297" fill="none" stroke="#00FFFF" stroke-width="3" opacity=".78"/>',
-            campaign_text("MONITORAMENTO DE IMAGEM 24H", 74, 932, 19, "#C9E1EA", "Manrope", 700, font_paths, 760, 1.7),
-            campaign_text("ALÉM DO", 66, 1088, 148, WHITE, "Oswald", 700, font_paths, 860, -4.2),
-            campaign_text("ALERTA.", 72, 1232, 180, RED, "Oswald", 700, font_paths, 860, -4.8),
+            campaign_text("MONITORAMENTO DE IMAGEM 24H", 74, 902, 19, "#C9E1EA", "Manrope", 700, font_paths, 760, 1.7),
+            campaign_text("ALÉM DO", 66, 1038, 148, WHITE, "Oswald", 700, font_paths, 860, -4.2),
+            campaign_text("ALERTA.", 72, 1225, 180, RED, "Oswald", 700, font_paths, 860, -4.8),
             campaign_text("A imagem complementa a análise de eventos pela central.", 74, 1278, 20, WHITE, "Manrope", 600, font_paths, 930),
             campaign_text("FALE COM A GUARDIAN", 74, 1320, 18, WHITE, "Manrope", 800, font_paths, 400, 1.2),
         ]
