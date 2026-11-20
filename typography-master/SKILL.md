@@ -20,10 +20,10 @@ Declare em uma linha: **"Lendo como: [tipo de canvas] para [público], com [esti
 
 | # | Regra | Fonte | Implementação |
 |---|-------|-------|---------------|
-| 1 | **Medida (line length):** 45-75 caracteres por linha, 66 é ideal | Medium #9, CM #10 | Container width = `min(65ch, 100%)` para body. Headline: max 8-12 palavras |
+| 1 | **Medida (line length):** 45–75 caracteres por linha é referência para parágrafos/body, não para display | Medium #9, CM #10 | Body: `min(65ch, 100%)`. Headline é avaliada por sentido, número de palavras, silhueta, quebras manuais e peso visual. |
 | 2 | **Contraste WCAG:** Body ≥ 4.5:1 (AA), ideal 7:1 (AAA). Muted ≥ 4.5:1 | CM #11, Strikingly | `color: rgba(255,255,255,0.6)` = 4.5:1 em bg #04344C. Texto claro em bg claro = mínimo #475569 |
-| 3 | **Leading (line-height):** Body = 1.5-1.8×. Headline = 1.0-1.2×. Nunca abaixo de 1.5 para parágrafos | Medium #10, CM #11 | Body: `line-height:1.55`. Headline Space Grotesk 800: `line-height:1.1` |
-| 4 | **Tracking em uppercase:** Todo texto em CAIXA ALTA precisa de letter-spacing (0.05-0.15em) | Medium #22, CM #9 | CTAs: `letter-spacing:0.08em`. Tags/badges: `letter-spacing:0.06em`. Footer: `letter-spacing:0.08em` |
+| 3 | **Leading (line-height):** Body/parágrafo = 1.5–1.8×. Display/headline tem faixa própria e depende da métrica da fonte. | Medium #10, CM #11 | Body: `line-height:1.55`. Display: definir avanço de baseline por família, peso, escala e formas visíveis; consultar a seção de tipografia de campanha. |
+| 4 | **Tracking por função:** caixa alta não exige tracking positivo em todos os casos. | Medium #22, CM #9 | Kicker/labels pequenos: `+0.06–0.12em`; headline display em caixa alta pode pedir tracking neutro ou negativo; CTA conforme fonte, tamanho e composição. |
 
 ### P1 — ALTA (legibilidade)
 
@@ -31,10 +31,10 @@ Declare em uma linha: **"Lendo como: [tipo de canvas] para [público], com [esti
 |---|-------|-------|---------------|
 | 5 | **Hierarquia visual:** Título 3× maior que body. Max 2-3 famílias tipográficas | CM #6, #8, Guizang PPT | Display 800 weight + sans body 400 weight. Proporção ~2.5-3:1 |
 | 6 | **Espaçamento vertical proporcional:** Gap entre .hl → .sub → .ct deve seguir escala | Format, guizang-ppt | .hl→.sub gap = 1.5-2× line-height do body. .sub→.ct gap = 1.2-1.5× |
-| 7 | **Widows & Orphans:** Última linha de parágrafo deve ter ≥3 palavras | CM #13, Medium #16 | `text-wrap: balance` em headlines. `text-wrap: pretty` em body. Nunca 1 palavra isolada |
+| 7 | **Widows & Orphans:** Evitar linhas órfãs em body e quebras fracas em headings. | CM #13, Medium #16 | Body: `text-wrap: pretty`; headings de leitura: `balance`. Em display publicitário, uma palavra isolada só é permitida quando for um golpe visual intencional e equilibrado. |
 | 8 | **Flush left por padrão:** Justificado só com >60 chars/linha E hifenização ativa | Medium #11 | Em cards sociais: left ou center. Justify só para body >60 chars |
-| 9 | **Tracking em títulos grandes:** Reduzir tracking proporcional ao aumentar font-size | Medium #19, Medium #21 | Títulos >40px: `letter-spacing:-0.015em` a `-0.02em`. Nunca letter-spacing em lowercase body |
-| 10 | **Line length em títulos:** Max 8-12 palavras. Se passar, reduz font-size ou quebra linha | CM #6, Guizang | Headline >60 chars → reduz `--title` ou usa grid que acomoda texto longo |
+| 9 | **Tracking em títulos grandes:** Ajustar opticamente por família, peso, caixa e escala | Medium #19, Medium #21 | Tracking negativo é frequente em display grande, mas não universal. Conferir pares, densidade e leitura; body mantém tracking neutro salvo justificativa. |
+| 10 | **Headlines:** Preferir copy curta e específica; número de palavras é uma referência, não uma trava. | CM #6, Guizang | Desenhar as quebras manualmente e recompor o bloco. Se não couber, rever copy, família, distribuição e layout — não reduzir tamanho automaticamente. |
 
 ### P2 — MÉDIA (polimento)
 
@@ -43,9 +43,9 @@ Declare em uma linha: **"Lendo como: [tipo de canvas] para [público], com [esti
 | 11 | **Sem stretching de fontes:** Nunca `transform: scaleX()` em texto | CM #14, Medium #25 | Use fontes condensed se precisar de largura menor |
 | 12 | **White space ativo:** ~40% do canvas deve ser "respiro". Espaço vazio é desenhado | CM #15, social-posts-html | Margens mínimas: `clamp(36px, 5.5cqw, 80px)`. Conteúdo ≤ 70% largura |
 | 13 | **Modular scale:** Use ratio 1.25 (major third) ou 1.333 (perfect fourth) para escala tipográfica | CM #10, Format | `--fo:9px → --bs:11px → --body:15px → --cta:13px → --title:38px` |
-| 14 | **Font pairing:** Sans display + sans body OU serif display + sans body. Máx 2 famílias | CM #8, #9, Medium #5, #6 | Space Grotesk (display) + DM Sans (body) = contraste por peso, não por família |
+| 14 | **Font pairing:** Escolher até duas famílias por função, com contraste intencional. | CM #8, #9, Medium #5, #6 | Uma display escolhida para o conceito + uma família de apoio legível. Space Grotesk + DM Sans é apenas um exemplo, nunca preset automático. |
 | 15 | **x-height similar:** Fontes emparelhadas devem ter x-height próxima | Medium #7 | Space Grotesk e DM Sans têm x-height similar (~0.5x cap height) |
-| 16 | **Kerning:** Não kern manualmente a menos que seja headline de logo | Medium #18, CM #3 | Use `letter-spacing` (tracking) para ajuste geral, não kerning par-a-par |
+| 16 | **Kerning:** Ativar kerning OpenType quando suportado e revisar opticamente pares em headlines grandes. | Medium #18, CM #3 | Tracking ajusta o conjunto; kerning corrige relações específicas entre glifos. Os dois não são intercambiáveis. |
 
 ### P3 — BAIXA (validação)
 
@@ -107,21 +107,21 @@ Sempre que aplicar tipografia, use este sistema de tokens como referência (adap
   --tw: min(56cqw, 520px);           /* content width ~65 chars at 16px */
 }
 
-/* Headline display (800 weight) */
+/* Headline display: definir --font-display, --display-leading e --display-tracking para cada campanha */
 .hl {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display), sans-serif;
+  font-weight: var(--display-weight, 800);
   font-size: var(--title);
   color: #FFFFFF;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  line-height: var(--display-leading, 1.0);
+  letter-spacing: var(--display-tracking, -0.02em);
   text-wrap: balance;
   text-shadow: 0 1px 4px rgba(0,0,0,0.15);  /* legibilidade em bg escuro */
 }
 
-/* Body / Subtitle (400 weight) */
+/* Body / Subtitle: escolher uma família de apoio que contraste com o display */
 .sub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-weight: 400;
   font-size: var(--body);
   color: rgba(255,255,255,0.6);      /* WCAG AA 4.5:1 em #04344C */
@@ -264,9 +264,9 @@ if __name__ == '__main__':
 |-------------|---------|-------------|
 | `color:#506A76` em bg escuro | Falha WCAG AA (ratio ~2.5:1) | `rgba(255,255,255,0.6)` |
 | `line-height:1.04` em Space Grotesk 800 | Descendentes colidem com linha seguinte | `line-height:1.1` |
-| `letter-spacing:0` em CTAs uppercase | Uppercase sem tracking é ilegível | `letter-spacing:0.08em` |
+| Tracking não testado em CTA uppercase | A leitura pode ficar comprimida ou dispersa conforme a família | Ajustar opticamente; `+0.06–0.10em` é ponto de partida para labels pequenas, não regra universal. |
 | Body text com `font-family:'Space Grotesk'` | Display font em body = ilegível em parágrafos | DM Sans (400) para body |
-| Gap hl→sub > 12cqw | Elementos parecem desconectados | Reduzir gap para 7-10cqw |
+| Gap hl→sub inadequado ao desenho dos glifos | Headline e apoio parecem desconectados ou colidem | Medir o espaço visível entre formas, não só a distância entre caixas. |
 | Mais de 2 famílias tipográficas | Poluição visual, parece amador | Max 2: 1 display + 1 body |
 | Justify sem hifenização | Rivers (espaços brancos verticais) | Flush left ou hifenização ativa |
 
