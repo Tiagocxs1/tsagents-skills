@@ -46,8 +46,13 @@ The collector runs one Lighthouse navigation for each URL. It does not authentic
 | SerpBear | Not installed as a service | Requires persistent app storage and a reliable SERP data source. Its README's historical free ScrapingRobot entry is marked as no longer working; do not silently replace it with paid scraping or proxy evasion. |
 | SEOnaut | Not installed as a service | Web application with MySQL database; no verified one-shot CI/CLI runner. Running it as containers in Actions would discard its history at job end. |
 | Google Lighthouse | Installed as reusable CI tooling | Runs on a GitHub-hosted runner and exports reports without a persistent service. |
+| SiteOne Crawler | Added as reusable CI tooling | Rust CLI release with verified SHA-256; bounded site crawl and HTML/JSON reports, respecting robots.txt. No VPS or persistent database. |
 
 Do not call these uninstalled projects "deployed". A repo, skill, container image, or workflow template is not a running service.
+
+## SiteOne Crawler runner
+
+See [siteone-crawler/SKILL.md](./siteone-crawler/SKILL.md) for its pinned v2.5.1 binary, conservative crawl settings, JSON summary and reusable workflow. SiteOne is the site-wide crawler; Lighthouse is the focused lab audit. Their scores are different scales and must remain separate.
 
 ## Complementary sources
 

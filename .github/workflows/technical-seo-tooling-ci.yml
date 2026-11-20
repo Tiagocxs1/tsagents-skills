@@ -5,12 +5,14 @@ on:
     paths:
       - "technical-seo-audit/**"
       - ".github/workflows/lighthouse-collect.yml"
+      - ".github/workflows/siteone-crawler-audit.yml"
       - ".github/workflows/technical-seo-tooling-ci.yml"
   push:
     branches: [main]
     paths:
       - "technical-seo-audit/**"
       - ".github/workflows/lighthouse-collect.yml"
+      - ".github/workflows/siteone-crawler-audit.yml"
       - ".github/workflows/technical-seo-tooling-ci.yml"
 
 permissions:
@@ -26,12 +28,48 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile runner
-        run: python -m py_compile technical-seo-audit/scripts/run_lighthouse.py
-      - name: Unit tests
+        run: |
+          python -m py_compile technical-seo-audit/scripts/run_lighthouse.py
+          python -m py_compile technical-seo-audit/siteone-crawler/scripts/run_siteone.py
+      - name: Test Lighthouse config and runner
         working-directory: technical-seo-audit/scripts
         run: python -m unittest -v
-      - name: Validate example config
+
+      - name: Test SiteOne config and runner
+        working-directory: technical-seo-audit/siteone-crawler/scripts
+        run: python -m unittest -v
+
+      - name: Smoke-test pinned SiteOne release binary
+        env:
+          SITEONE_SHA256: bd96b9502563aea2581fc248625871e69b60d7f1bb68a484f226c551c73706fd
+        run: |
+          set -euo pipefail
+          ARCHIVE="$RUNNER_TEMP/siteone-crawler-smoke.tar.gz"
+          curl --fail --location --retry 2 --retry-delay 2 \
+            "https://github.com/janreges/siteone-crawler/releases/download/v2.5.1/siteone-crawler-v2.5.1-linux-musl-x64.tar.gz" \
+            --output "$ARCHIVE"
+          echo "$SITEONE_SHA256  $ARCHIVE" | sha256sum --check -
+          mkdir -p "$RUNNER_TEMP/siteone-smoke"
+          tar -xzf "$ARCHIVE" -C "$RUNNER_TEMP/siteone-smoke"
+          BIN="$(find "$RUNNER_TEMP/siteone-smoke" -type f -name siteone-crawler -print -quit)"
+          test -n "$BIN"
+          chmod +x "$BIN"
+          # The upstream CLI intentionally exits with status 2 after printing help.
+          HELP_STATUS=0
+          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt" || HELP_STATUS=$?
+          test "$HELP_STATUS" -eq 2
+          grep -q -- "--max-visited-urls" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-html-report" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-json-file" "$RUNNER_TEMP/siteone-help.txt"
+
+      - name: Validate Lighthouse example config
         run: |
           python technical-seo-audit/scripts/run_lighthouse.py \
             --config technical-seo-audit/templates/config-lighthouse.json \
+            --validate-only
+
+      - name: Validate SiteOne example config
+        run: |
+          python technical-seo-audit/siteone-crawler/scripts/run_siteone.py \
+            --config technical-seo-audit/templates/config-siteone.json \
             --validate-only

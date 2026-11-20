@@ -7,11 +7,12 @@ Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são 
 | Skill / runtime | Uso |
 |---|---|
 | [Google Trends Research](./google-trends-research/SKILL.md) | Trendspyg 1.9.0 (MIT), compatibilidade para projetos Pytrends, comparação de interesse e tendências |
-| [Technical SEO Audit](./technical-seo-audit/SKILL.md) | Auditoria técnica com Lighthouse 13.6.0 (Apache-2.0), saída HTML/JSON e execução sem servidor permanente |
+| [Technical SEO Audit](./technical-seo-audit/SKILL.md) | Lighthouse 13.6.0 para lab de 1–5 URLs e SiteOne Crawler v2.5.1 para crawls limitados do site; relatórios HTML/JSON sem servidor permanente |
 | [Coletor Google Trends](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatório privado por projeto |
 | [Coletor Lighthouse](./.github/workflows/lighthouse-collect.yml) | GitHub Actions reutilizável, até cinco URLs por execução, mobile/desktop e relatórios na branch separada seo-reports |
+| [Coletor SiteOne](./.github/workflows/siteone-crawler-audit.yml) | GitHub Actions reutilizável, crawler Rust MIT com URL/depth/rate limits e relatório de site inteiro na branch separada seo-reports |
 
-Google Trends fornece índice relativo 0–100, não volume absoluto, CPC ou concorrência de anúncios. Lighthouse fornece medições de laboratório, não dados de campo nem garantia de ranking. Os workflows dos repositórios privados consomem minutos da cota incluída do GitHub Actions; não são execução ilimitada. O Pytrends original está arquivado; projetos novos devem usar Trendspyg e a camada de compatibilidade quando aplicável.
+Google Trends fornece índice relativo 0–100, não volume absoluto, CPC ou concorrência de anúncios. Lighthouse fornece medições de laboratório, não dados de campo nem garantia de ranking. SiteOne usa uma escala própria de qualidade de 0–10; não comparar diretamente com Lighthouse. Os workflows dos repositórios privados consomem minutos da cota incluída do GitHub Actions; não são execução ilimitada. O Pytrends original está arquivado; projetos novos devem usar Trendspyg e a camada de compatibilidade quando aplicável.
 
 ## UI, UX e qualidade de produto
 

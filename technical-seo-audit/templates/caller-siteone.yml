@@ -1,0 +1,20 @@
+name: SiteOne — monthly technical SEO crawl
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monthly, low frequency. UTC.
+    - cron: "47 12 8 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    uses: Tiagocxs1/tsagents-skills/.github/workflows/siteone-crawler-audit.yml@main
+    permissions:
+      contents: write
+    with:
+      config_path: .seo/siteone.json
+      report_branch: seo-reports
+      report_root: reports/seo/siteone

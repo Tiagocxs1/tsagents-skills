@@ -1,0 +1,171 @@
+name: SiteOne Crawler — reusable technical audit
+
+on:
+  workflow_call:
+    inputs:
+      config_path:
+        description: Private JSON file with the public HTTPS start URL and crawl limits.
+        required: false
+        type: string
+        default: .seo/siteone.json
+      report_branch:
+        description: Dedicated reports branch; must not be a production branch.
+        required: false
+        type: string
+        default: seo-reports
+      report_root:
+        description: Report directory in the reports branch.
+        required: false
+        type: string
+        default: reports/seo/siteone
+
+permissions:
+  contents: write
+
+concurrency:
+  group: siteone-${{ github.repository }}-${{ inputs.config_path }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - name: Check out caller project
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          persist-credentials: true
+          path: project
+
+      - name: Check out shared TS Digitais tooling
+        run: git clone --depth 1 https://github.com/Tiagocxs1/tsagents-skills.git tooling
+
+      - name: Validate paths and report branch
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+          REPORT_BRANCH: ${{ inputs.report_branch }}
+          REPORT_ROOT: ${{ inputs.report_root }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import PurePosixPath
+
+          for name in ("CONFIG_PATH", "REPORT_ROOT"):
+              value = os.environ[name]
+              path = PurePosixPath(value)
+              if not value or path.is_absolute() or any(part in ("", ".", "..") for part in path.parts):
+                  raise SystemExit(f"Unsafe relative path in {name}: {value!r}")
+
+          branch = os.environ["REPORT_BRANCH"]
+          if not re.fullmatch(r"[A-Za-z0-9._/-]+", branch) or ".." in branch or branch.startswith("/") or branch.endswith("/"):
+              raise SystemExit(f"Unsafe report branch: {branch!r}")
+          if branch in {"main", "master", "production"}:
+              raise SystemExit("Reports must not be written to a production branch.")
+          PY
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Validate private crawl configuration
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+        run: |
+          python tooling/technical-seo-audit/siteone-crawler/scripts/run_siteone.py \
+            --config "project/$CONFIG_PATH" \
+            --validate-only
+
+      - name: Download pinned SiteOne Crawler release
+        env:
+          SITEONE_SHA256: bd96b9502563aea2581fc248625871e69b60d7f1bb68a484f226c551c73706fd
+        run: |
+          set -euo pipefail
+          ARCHIVE="$RUNNER_TEMP/siteone-crawler-v2.5.1-linux-musl-x64.tar.gz"
+          URL="https://github.com/janreges/siteone-crawler/releases/download/v2.5.1/siteone-crawler-v2.5.1-linux-musl-x64.tar.gz"
+          curl --fail --location --retry 2 --retry-delay 2 "$URL" --output "$ARCHIVE"
+          echo "$SITEONE_SHA256  $ARCHIVE" | sha256sum --check -
+          mkdir -p "$RUNNER_TEMP/siteone-crawler"
+          tar -xzf "$ARCHIVE" -C "$RUNNER_TEMP/siteone-crawler"
+          BIN="$(find "$RUNNER_TEMP/siteone-crawler" -type f -name siteone-crawler -print -quit)"
+          if [ -z "$BIN" ]; then
+            echo "Could not find the SiteOne executable in the release archive." >&2
+            tar -tzf "$ARCHIVE" | head -n 50
+            exit 1
+          fi
+          chmod +x "$BIN"
+          # SiteOne intentionally exits with status 2 after printing help/version.
+          HELP_STATUS=0
+          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt" || HELP_STATUS=$?
+          if [ "$HELP_STATUS" -ne 2 ]; then
+            echo "SiteOne help returned unexpected exit code: $HELP_STATUS" >&2
+            exit 1
+          fi
+          grep -q -- "--max-visited-urls" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-html-report" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-json-file" "$RUNNER_TEMP/siteone-help.txt"
+          echo "SITEONE_BIN=$BIN" >> "$GITHUB_ENV"
+
+      - name: Run bounded SiteOne crawl
+        id: siteone
+        continue-on-error: true
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+        run: |
+          python tooling/technical-seo-audit/siteone-crawler/scripts/run_siteone.py \
+            --config "project/$CONFIG_PATH" \
+            --binary "$SITEONE_BIN" \
+            --output-dir "$RUNNER_TEMP/siteone-output"
+
+      - name: Upload HTML and JSON reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: siteone-${{ github.repository_id }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/siteone-output/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Persist reports to a separate branch
+        if: always()
+        working-directory: project
+        env:
+          REPORT_BRANCH: ${{ inputs.report_branch }}
+          REPORT_ROOT: ${{ inputs.report_root }}
+          SOURCE_DIR: ${{ runner.temp }}/siteone-output
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "No report directory was generated."
+            exit 0
+          fi
+          git fetch origin "$REPORT_BRANCH:refs/remotes/origin/$REPORT_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$REPORT_BRANCH"; then
+            git checkout -B "$REPORT_BRANCH" "refs/remotes/origin/$REPORT_BRANCH"
+          else
+            git checkout --orphan "$REPORT_BRANCH"
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          DEST="$REPORT_ROOT/run-$GITHUB_RUN_ID"
+          mkdir -p "$DEST"
+          cp -a "$SOURCE_DIR/." "$DEST/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "$DEST"
+          if git diff --cached --quiet; then
+            echo "No new report files to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): SiteOne audit run $GITHUB_RUN_ID"
+          git push origin "HEAD:$REPORT_BRANCH"
+
+      - name: Fail the workflow if SiteOne did not finish successfully
+        if: ${{ steps.siteone.outcome == 'failure' }}
+        run: |
+          echo "SiteOne audit failed or did not produce a valid HTML report. Check the artifact/logs."
+          exit 1

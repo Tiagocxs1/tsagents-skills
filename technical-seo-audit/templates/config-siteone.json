@@ -1,0 +1,10 @@
+{
+  "project_slug": "example-site",
+  "start_url": "https://example.com/",
+  "device": "mobile",
+  "max_visited_urls": 300,
+  "max_depth": 4,
+  "workers": 2,
+  "max_requests_per_second": 2,
+  "timeout_seconds": 10
+}
