@@ -11,6 +11,7 @@ O Vector Studio executa remotamente no GitHub Actions. Nenhuma dependência de P
 - PNG renderizado da versão vetorizada.
 - Foto de origem, legenda, alt text e relatório técnico/proveniência.
 - Upload temporário para Cloudflare R2, usando GitHub Actions OIDC (sem token Cloudflare estático no GitHub).
+- Verificação HTTP HEAD de cada URL publicada: status, Content-Type e Content-Length são conferidos antes do job concluir.
 
 **Regra de fidelidade:** para aparência fotográfica real, a fotografia original é preservada no SVG híbrido. A saída VTracer é uma interpretação por regiões/caminhos e não substitui a fotografia nem promete equivalência pixel a pixel.
 
@@ -30,7 +31,8 @@ Também é possível executar manualmente em Actions → workflow → Run workfl
 - O job não usa GPU, HF Jobs, APIs de imagem pagas nem credenciais persistentes.
 - Cloudflare Worker `ts-svg-assets` é apenas API de upload/download; vetorização continua no runner.
 - Código do Worker versionado em `vector-studio/cloudflare-worker.js`; deployment atual: `ts-svg-assets.tiagocxs-tdb.workers.dev`.
-- O Worker aceita uploads assinados com GitHub OIDC somente para o repositório `Tiagocxs1/tsagents-skills`, branch `main` e workflow `vector-studio.yml`. A assinatura RS256 é validada usando as chaves públicas do GitHub.
+- O Worker aceita uploads assinados com GitHub OIDC somente para o repositório `Tiagocxs1/tsagents-skills`, branch `main` e workflow `vector-studio.yml`. A assinatura RS256 é validada usando as chaves públicas do GitHub. A verificação usa o `sub` atual com IDs imutáveis de proprietário/repositório e mantém compatibilidade com o formato legado.
+- Os arquivos publicados podem ser consultados por `GET` e testados por `HEAD` em `/file/{run_id}/{filename}`.
 - O armazenamento é R2 privado servido pelo Worker em links temporários, sob `images/vector-studio/{run_id}/`.
 - A regra de lifecycle existente para o prefixo `images/` remove os objetos após 7 dias (a exclusão do R2 é assíncrona).
 - O artefato do GitHub Actions expira após 7 dias; faça download se precisar manter cópia.
