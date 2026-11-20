@@ -84,6 +84,36 @@ def main() -> int:
 
     if not uploaded:
         raise RuntimeError("No generated files were uploaded.")
+
+    # Verify that every published Worker URL is publicly reachable and has the expected metadata.
+    for item in uploaded:
+        head = requests.head(item["url"], timeout=(20, 60), allow_redirects=False)
+        if not head.ok:
+            raise RuntimeError(
+                "Public asset URL check failed for " + item["filename"]
+                + ": HTTP " + str(head.status_code) + " " + head.text[:500]
+            )
+        actual_length = int(head.headers.get("Content-Length", "-1"))
+        if actual_length != int(item["bytes"]):
+            raise RuntimeError(
+                "Public asset URL length mismatch for " + item["filename"]
+                + ": expected " + str(item["bytes"]) + ", received " + str(actual_length)
+            )
+        actual_type = head.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+        expected_type = item.get("content_type", "").split(";", 1)[0].strip().lower()
+        if actual_type != expected_type:
+            raise RuntimeError(
+                "Public asset URL MIME mismatch for " + item["filename"]
+                + ": expected " + expected_type + ", received " + actual_type
+            )
+        item["public_url_verification"] = {
+            "method": "HEAD",
+            "status_code": head.status_code,
+            "content_length": actual_length,
+            "content_type": head.headers.get("Content-Type")
+        }
+        print("Verified public URL", item["filename"], "HTTP", head.status_code, actual_length, "bytes")
+
     manifest = {
         "service": "ts-svg-assets",
         "storage": "Cloudflare R2 / ts-image-assets-temp",
