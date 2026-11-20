@@ -58,6 +58,20 @@ O workflow `.github/workflows/render-mcp-brasil-ci.yml` foi aprovado em 18/11/20
 | Marketing/UX Skills | Git submodule + skills CLI no agente/editor | São arquivos de instrução, não MCPs nem serviços persistentes. Não precisam de Worker. |
 | Superpowers | Plugin/skills no runtime de desenvolvimento | Metodologia de engenharia, não MCP. Não é executado como API remota. |
 
+## Runtime: Google Trends via Trendspyg — GitHub Actions
+
+O coletor compartilhado está em `google-trends-research/` e o workflow reutilizável em `.github/workflows/google-trends-collect.yml`.
+
+- **Natureza:** job Python temporário, não MCP remoto persistente. Instala `trendspyg==1.9.0` no runner, lê a configuração privada do repositório chamador e grava um JSON de relatório nesse mesmo repositório.
+- **Uso:** execução manual ou mensal; uma chamada Explore/comparison por execução; `engine="auto"`; `max_retries=1`; sem loops de retry.
+- **Segredos:** não usa OAuth, API key, PAT adicional nem cookie de sessão do Google. O checkout/push usa o `GITHUB_TOKEN` padrão do repositório chamador com `contents: write`.
+- **Privacidade:** mantenha `.seo/google-trends.json` e relatórios no repositório privado do projeto. O repositório público TS Agents Skills contém só código genérico e exemplos sem dados de clientes.
+- **Custo:** runners padrão de repositórios públicos têm política de uso gratuito; em repositórios privados, os minutos são debitados da cota incluída da conta e podem gerar cobrança após esgotamento se billing estiver habilitado. O job é mensal e tem timeout de 12 minutos; monitorar a cota da conta.
+- **Dados:** Trends entrega índice relativo 0–100, não volume absoluto, CPC ou competição Ads. Google pode bloquear consultas; em 403/429, encerrar e aguardar.
+- **Estado:** workflow reutilizável validado por CI sem chamadas ao Google. A primeira configuração privada da Guardian está em PR separado; não mesclar sem considerar que qualquer push à `main` da Guardian dispara deploy HostGator.
+
+O MCP opcional `trendspyg-mcp` é local por stdio e requer instalar `trendspyg[mcp]` em um cliente compatível. Não publicar esse processo em Cloudflare Workers nem confundir com o workflow de coleta.
+
 ## Como o ChatGPT poderá usar
 
 - Em clientes compatíveis com MCP remoto, configurar a URL HTTPS do servidor e o header Bearer.
