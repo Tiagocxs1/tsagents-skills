@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 import cairosvg
 import requests
 import vtracer
-from PIL import Image, ImageFont, ImageOps
+from PIL import Image, ImageEnhance, ImageFont, ImageOps
 
 from agency_campaign import build_guardian_campaign
 
@@ -242,7 +242,18 @@ def validate_hybrid(svg_path: Path, expected_jpeg_sha: str) -> dict:
 def vectorize_photo(photo_bytes: bytes, trace_request: dict, out_dir: Path, metadata: dict) -> None:
     with Image.open(io.BytesIO(photo_bytes)) as image:
         image = image.convert("RGB")
-        max_width = int(trace_request.get("max_width", 1400))
+        crop_box = trace_request.get("crop_box")
+        if crop_box:
+            if len(crop_box) != 4:
+                raise ValueError("trace.crop_box must contain left, top, right, bottom.")
+            left, top, right, bottom = [int(value) for value in crop_box]
+            if not (0 <= left < right <= image.width and 0 <= top < bottom <= image.height):
+                raise ValueError(f"trace.crop_box {crop_box} is outside source dimensions {image.size}.")
+            image = image.crop((left, top, right, bottom))
+        image = ImageEnhance.Brightness(image).enhance(float(trace_request.get("brightness", 1.06)))
+        image = ImageEnhance.Contrast(image).enhance(float(trace_request.get("contrast", 1.08)))
+        image = ImageEnhance.Color(image).enhance(float(trace_request.get("color", 1.08)))
+        max_width = int(trace_request.get("max_width", 1500))
         if image.width > max_width:
             new_height = round(image.height * max_width / image.width)
             image = image.resize((max_width, new_height), Image.Resampling.LANCZOS)
@@ -253,6 +264,7 @@ def vectorize_photo(photo_bytes: bytes, trace_request: dict, out_dir: Path, meta
         cfg.mode = "spline"
         cfg.hierarchical = "stacked"
         cfg.max_colors = int(trace_request.get("max_colors", 96))
+        cfg.color_precision = int(trace_request.get("color_precision", 8))
         cfg.filter_speckle = int(trace_request.get("filter_speckle", 2))
         cfg.simplify = float(trace_request.get("simplify", 0.8))
         cfg.path_precision = int(trace_request.get('path_precision', 2))
