@@ -5,7 +5,7 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 ## Consulta obrigatória antes de criar
 
 1. Ler visual-design/SKILL.md antes de iniciar qualquer trabalho visual.
-2. Para posts, stories, reels, carrosséis, thumbnails e materiais sociais, ler também social-media-creative/SKILL.md.
+2. Para posts, stories, reels, carrosséis, thumbnails e materiais sociais, ler também social-media-creative/SKILL.md e social-first-art-direction/SKILL.md.
 3. Para anúncios, tráfego pago, criativos de conversão e campanhas, ler também advertising-creative/SKILL.md.
 4. Para animações, vídeos e peças em movimento, ler também motion-design/SKILL.md.
 5. Antes de entregar, ler e aplicar visual-quality-review/SKILL.md.
@@ -17,6 +17,8 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 
 - Não começar diretamente pelo código ou pelo gerador de imagens. Definir primeiro objetivo, público, mensagem, formato, hierarquia e direção de arte.
 - Não aceitar o primeiro resultado sem crítica. Corrigir problemas concretos e reabrir o preview.
+- Um post social de impacto deve nascer de uma direção social-first, não de um layout de documento. Não entregar página de jornal, relatório, dashboard, ficha ou grade de cards repetidos quando o briefing pede um post de scroll-stop; densidade informativa deve ser resumida com precisão ou distribuída em carrossel.
+- Variar conceito, escala, ritmo, recorte e composição conforme a mensagem e a marca. Cards, grids e estética editorial são escolhas intencionais, não componentes automáticos.
 - Evitar estética genérica de IA: gradientes roxos sem contexto, cartões repetidos, glassmorphism automático, ícones emoji, fontes genéricas sem intenção, sombras excessivas e enfeites sem função.
 - Nunca inventar estatísticas, depoimentos, avaliações, selos, certificações, descontos, garantias, resultados ou alegações.
 - Preservar literalmente textos aprovados, nomes, números, preços, URLs, telefones, datas e acentos.
@@ -30,7 +32,8 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 
 ## Validação obrigatória
 
-Código válido não significa design aprovado. Uma peça em SVG, HTML, CSS ou JSON só está pronta depois de renderizada no formato de destino e inspecionada visualmente. Conferir composição, hierarquia, texto exato, legibilidade em tamanho real e em celular, margens, cortes, contraste, alinhamento, consistência de marca e exportação.
+Código válido não significa design aprovado. Uma peça em SVG, HTML, CSS ou JSON só está pronta depois de renderizada no formato de destino e inspecionada visualmente. Conferir composição, hierarquia, texto exato, legibilidade em tamanho real e em celular, margens, cortes, contraste, alinhamento, consistência de marca e exportação. Em posts sociais, avaliar também se parece uma peça de campanha/post ou se ficou com aparência de documento/template genérico.
+- Para SVG/HTML com imagens, conferir os bytes/assinatura real de cada asset, Base64/data URI, MIME, dimensões, referências undefined e quantidade esperada. Renderizar o arquivo final e verificar que cada imagem está visualmente visível, corretamente recortada e não escondida por clipping/máscaras. XML válido ou resposta HTTP 200 não bastam.
 
 Se não houver como renderizar ou testar, declarar a limitação e não afirmar que a peça foi aprovada.
 
@@ -64,6 +67,8 @@ Quando a plataforma permitir subagentes, consultar os perfis em agents/:
 Se não houver delegação real, executar esses papéis como etapas sequenciais. Não alegar paralelismo que não ocorreu.
 
 ## Módulos especializados adicionais
+
+- Para post único, Story, capa de Reel, thumbnail e criativo social estático, consultar obrigatoriamente `social-first-art-direction/SKILL.md`. É uma regra transversal e neutra de marca: direção visual, imagem dominante, anti-documento, direitos de imagem e inspeção real dos assets.
 
 - Para revistas digitais, magazines, e-books diagramados e flipbooks, consultar obrigatoriamente `editorial-magazine/SKILL.md` e o perfil `agents/editorial-art-director.md`. O fluxo inclui direção de arte, arquitetura página a página, copy dimensionada, sistema de margens/grid/tipografia, páginas-piloto e revisão visual completa antes da publicação.
 
