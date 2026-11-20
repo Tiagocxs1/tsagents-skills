@@ -1,7 +1,7 @@
 {
   "project": "guardian",
   "campaign": "guardian-social-hybrid-2026-11-premium",
-  "art_direction": "guardian_hybrid_photographic_campaign",
+  "art_direction": "guardian_hybrid_photo_posts",
   "logo": {
     "public_id": "guardianseg/images/logo-guardian",
     "url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1786481463/guardianseg/images/logo-guardian.png",

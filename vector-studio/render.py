@@ -311,7 +311,7 @@ def main() -> int:
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     request = json.loads(request_path.read_text(encoding="utf-8"))
-    if request.get("art_direction") == "guardian_pure_svg_posts":
+    if request.get("art_direction") in ("guardian_pure_svg_posts", "guardian_hybrid_photo_posts"):
         from guardian_vector_posts import render_guardian_vector_posts
         render_guardian_vector_posts(request, out_dir)
         return 0

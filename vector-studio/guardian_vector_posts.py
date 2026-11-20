@@ -233,14 +233,12 @@ def compose_svg(post: dict, logo: str, photo: str) -> str:
             '<path d="M570 0H690L610 1350H520Z" fill="#CB3033"/>',
             '<path d="M690 0H710L630 1350H610Z" fill="#FFFFFF" opacity=".13"/>',
             logo_plate(logo, 665, 64, 340, 82),
-            small_line(662, 274, "MANUTENÇÃO DE SISTEMAS", 19, "#D6E4E9", 700, 1.2),
+            small_line(662, 274, "MANUTENÇÃO PREVENTIVA E CORRETIVA", 15, "#D6E4E9", 700, .5),
             '<rect x="662" y="296" width="52" height="5" rx="2.5" fill="#CB3033"/>',
             title_line(658, 480, "CUIDAR", 94, 370, WHITE, -3),
-            title_line(658, 582, "DO SISTEMA", 76, 370, RED, -3),
-            title_line(658, 684, "É CUIDAR", 83, 370, WHITE, -3),
-            title_line(658, 786, "DA ROTINA.", 78, 370, WHITE, -3),
-            small_line(662, 916, "Preventiva e corretiva", 24, WHITE, 500),
-            small_line(662, 956, "em sistemas de segurança.", 24, WHITE, 500),
+            title_line(658, 600, "EM DIA.", 102, 390, RED, -4),
+            small_line(662, 730, "Preventiva e corretiva", 24, WHITE, 500),
+            small_line(662, 770, "em sistemas de segurança.", 24, WHITE, 500),
             small_line(662, 1185, "SOLICITE UMA AVALIAÇÃO", 19, WHITE, 800, .8),
             small_line(662, 1222, "TÉCNICA COM A GUARDIAN", 19, WHITE, 800, .8),
             '<path d="M662 1252H938" stroke="#00FFFF" stroke-width="3"/>',
@@ -272,7 +270,7 @@ def validate_svg(svg_path: Path, logo_uri: str, photo_uri: str) -> dict:
         "logo_sha256": sha256(logo_bytes), "photo_sha256": sha256(photo_bytes)
     }
 
-def render_posts(request: dict, out_dir: Path) -> dict:
+def render_guardian_vector_posts(request: dict, out_dir: Path) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     logo_uri, logo_meta = load_logo(request["logo"]["url"])
     report_posts = []
@@ -297,7 +295,7 @@ def render_posts(request: dict, out_dir: Path) -> dict:
             thumb = im.convert("RGB")
             thumb.thumbnail((270, 338), Image.Resampling.LANCZOS)
             preview_items.append((slug, thumb.copy()))
-        caption = post["caption"].strip()
+        caption = post["caption"].strip().replace("\\n", "\n")
         (out_dir / f"{slug}-caption.md").write_text(caption + "\n", encoding="utf-8")
         (out_dir / f"{slug}-alt.txt").write_text(post["alt_text"] + "\n", encoding="utf-8")
         report_posts.append({
@@ -341,7 +339,7 @@ def main() -> int:
     parser.add_argument("--out-dir", required=True)
     args = parser.parse_args()
     request = json.loads(Path(args.request).read_text(encoding="utf-8"))
-    report = render_posts(request, Path(args.out_dir))
+    report = render_guardian_vector_posts(request, Path(args.out_dir))
     print(json.dumps({
         "status": "success",
         "post_count": len(report["posts"]),
