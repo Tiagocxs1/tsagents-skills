@@ -1,0 +1,19 @@
+name: Google Trends — monthly research
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monthly, low-frequency collection. Times are UTC.
+    - cron: "17 12 5 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    uses: Tiagocxs1/tsagents-skills/.github/workflows/google-trends-collect.yml@main
+    permissions:
+      contents: write
+    with:
+      config_path: .seo/google-trends.json
+      output_dir: reports/seo/google-trends
