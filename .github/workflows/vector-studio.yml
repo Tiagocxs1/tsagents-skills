@@ -12,11 +12,13 @@ on:
     paths:
       - "vector-studio/requests/**"
       - "vector-studio/render.py"
+      - "vector-studio/upload_to_r2.py"
       - "vector-studio/requirements.txt"
       - ".github/workflows/vector-studio.yml"
 
 permissions:
   contents: read
+  id-token: write
 
 concurrency:
   group: vector-studio-${{ github.ref }}
@@ -54,7 +56,16 @@ jobs:
         run: |
           python vector-studio/render.py --request "$REQUEST_PATH" --out-dir output/vector-studio
 
-      - name: Upload generated files
+      - name: Store generated files in Cloudflare R2
+        env:
+          VECTOR_ASSET_UPLOAD_URL: https://ts-svg-assets.tiagocxs-tdb.workers.dev
+          ACTIONS_ID_TOKEN_REQUEST_URL: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |
+          python vector-studio/upload_to_r2.py output/vector-studio
+
+      - name: Upload generated files as GitHub artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: vector-studio-${{ github.run_number }}
