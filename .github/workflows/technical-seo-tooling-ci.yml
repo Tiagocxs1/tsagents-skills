@@ -5,6 +5,7 @@ on:
     paths:
       - "technical-seo-audit/**"
       - ".github/workflows/lighthouse-collect.yml"
+      - ".github/workflows/siteone-crawler-audit.yml"
       - ".github/workflows/technical-seo-tooling-ci.yml"
   push:
     branches: [main]
@@ -26,12 +27,28 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile runner
-        run: python -m py_compile technical-seo-audit/scripts/run_lighthouse.py
+        run: |
+          python -m py_compile technical-seo-audit/scripts/run_lighthouse.py
+          python -m py_compile technical-seo-audit/siteone-crawler/scripts/run_siteone.py
       - name: Unit tests
         working-directory: technical-seo-audit/scripts
         run: python -m unittest -v
-      - name: Validate example config
+      - name: Test Lighthouse config and runner
+        working-directory: technical-seo-audit/scripts
+        run: python -m unittest -v
+
+      - name: Test SiteOne config and runner
+        working-directory: technical-seo-audit/siteone-crawler/scripts
+        run: python -m unittest -v
+
+      - name: Validate Lighthouse example config
         run: |
           python technical-seo-audit/scripts/run_lighthouse.py \
             --config technical-seo-audit/templates/config-lighthouse.json \
+            --validate-only
+
+      - name: Validate SiteOne example config
+        run: |
+          python technical-seo-audit/siteone-crawler/scripts/run_siteone.py \
+            --config technical-seo-audit/templates/config-siteone.json \
             --validate-only
