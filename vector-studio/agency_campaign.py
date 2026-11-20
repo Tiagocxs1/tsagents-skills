@@ -18,12 +18,11 @@ def _trace_body(trace_svg: str) -> tuple[str, str, str, str]:
         width = root.attrib.get("width", "1200").replace("px", "")
         height = root.attrib.get("height", "1500").replace("px", "")
         view_box = f"0 0 {width} {height}"
-    match = re.match(r"^\s*<svg\b[^>]*>(.*)</svg>\s*$", trace_svg, re.S)
-    if not match:
-        raise ValueError("Could not extract the VTracer SVG body.")
-    body = match.group(1)
-    body = re.sub(r"<\?xml[^>]*\?>", "", body)
-    body = re.sub(r"<!--.*?-->", "", body, flags=re.S)
+    # Serialize child nodes instead of slicing the raw XML. VTracer may emit
+    # an XML declaration, namespace prefix or leading metadata before the root.
+    body = "".join(ET.tostring(child, encoding="unicode") for child in list(root))
+    if not body.strip():
+        raise ValueError("VTracer returned an empty SVG scene.")
     return body, view_box, root.attrib.get("width", "1200"), root.attrib.get("height", "1500")
 
 
