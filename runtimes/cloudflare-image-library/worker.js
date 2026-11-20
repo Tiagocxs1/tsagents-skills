@@ -127,7 +127,7 @@ function sniffImage(bytes) {
     const sig = String.fromCharCode(...bytes.slice(0, 6));
     if (sig === "GIF87a" || sig === "GIF89a") return "image/gif";
   }
-  if (bytes.length >= 12 && String.fromCharCode(...bytes.slice(4, 12)).includes("ftyp") === false) {
+  if (bytes.length >= 12 && String.fromCharCode(...bytes.slice(4, 8)) === "ftyp") {
     const brand = String.fromCharCode(...bytes.slice(8, 12));
     if (brand === "avif" || brand === "avis") return "image/avif";
   }
