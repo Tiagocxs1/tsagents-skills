@@ -8,8 +8,13 @@ on:
         required: false
         type: string
         default: .seo/google-trends.json
-      output_dir:
-        description: Report directory inside the caller repository.
+      report_branch:
+        description: Dedicated report branch; never the production branch.
+        required: false
+        type: string
+        default: seo-reports
+      report_root:
+        description: Report directory inside the report branch.
         required: false
         type: string
         default: reports/seo/google-trends
@@ -39,20 +44,28 @@ jobs:
       - name: Check out public TS Trends tooling
         run: git clone --depth 1 https://github.com/Tiagocxs1/tsagents-skills.git tooling
 
-      - name: Validate workflow paths
+      - name: Validate workflow paths and report branch
         env:
           CONFIG_PATH: ${{ inputs.config_path }}
-          OUTPUT_DIR: ${{ inputs.output_dir }}
+          REPORT_BRANCH: ${{ inputs.report_branch }}
+          REPORT_ROOT: ${{ inputs.report_root }}
         run: |
           python - <<'PY'
           import os
+          import re
           from pathlib import PurePosixPath
 
-          for name in ("CONFIG_PATH", "OUTPUT_DIR"):
+          for name in ("CONFIG_PATH", "REPORT_ROOT"):
               value = os.environ[name]
               path = PurePosixPath(value)
               if not value or path.is_absolute() or any(part in ("", ".", "..") for part in path.parts):
                   raise SystemExit(f"Unsafe relative path in {name}: {value!r}")
+
+          branch = os.environ["REPORT_BRANCH"]
+          if not re.fullmatch(r"[A-Za-z0-9._/-]+", branch) or ".." in branch or branch.startswith("/") or branch.endswith("/"):
+              raise SystemExit(f"Unsafe report branch: {branch!r}")
+          if branch in {"main", "master", "production"}:
+              raise SystemExit("Reports must not be written to a production branch.")
           PY
 
       - name: Set up Python
@@ -72,25 +85,59 @@ jobs:
             --validate-only
 
       - name: Collect one bounded Trends snapshot
+        id: collect
+        continue-on-error: true
         env:
           CONFIG_PATH: ${{ inputs.config_path }}
-          OUTPUT_DIR: ${{ inputs.output_dir }}
         run: |
           python tooling/google-trends-research/scripts/collect_google_trends.py \
             --config "project/$CONFIG_PATH" \
-            --output-dir "project/$OUTPUT_DIR"
+            --output-dir "$RUNNER_TEMP/google-trends-output"
 
-      - name: Commit report to caller repository
+      - name: Upload JSON report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: google-trends-${{ github.repository_id }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/google-trends-output/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Persist report to a separate branch
+        if: always()
         working-directory: project
         env:
-          OUTPUT_DIR: ${{ inputs.output_dir }}
+          REPORT_BRANCH: ${{ inputs.report_branch }}
+          REPORT_ROOT: ${{ inputs.report_root }}
+          SOURCE_DIR: ${{ runner.temp }}/google-trends-output
+          GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- "$OUTPUT_DIR"
-          if git diff --cached --quiet; then
-            echo "No report changes to commit."
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "No Trends report was generated."
             exit 0
           fi
-          git commit -m "chore(seo): monthly Google Trends snapshot"
-          git push
+          git fetch origin "$REPORT_BRANCH:refs/remotes/origin/$REPORT_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$REPORT_BRANCH"; then
+            git checkout -B "$REPORT_BRANCH" "refs/remotes/origin/$REPORT_BRANCH"
+          else
+            git checkout --orphan "$REPORT_BRANCH"
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          DEST="$REPORT_ROOT/run-$GITHUB_RUN_ID"
+          mkdir -p "$DEST"
+          cp -a "$SOURCE_DIR/." "$DEST/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "$DEST"
+          if git diff --cached --quiet; then
+            echo "No new report files to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): Google Trends snapshot $GITHUB_RUN_ID"
+          git push origin "HEAD:$REPORT_BRANCH"
+
+      - name: Fail the workflow if collection failed
+        if: ${{ steps.collect.outcome == 'failure' }}
+        run: |
+          echo "Google Trends collection failed or was throttled. Review the logs; do not retry in a loop."
+          exit 1
