@@ -20,7 +20,7 @@ def main() -> int:
     oidc_secret = os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]
     run_id = os.environ["GITHUB_RUN_ID"]
     parts = urlsplit(oidc_url)
-    query = parse_qsl(parts.query, keep_blank_values=True)
+    query = [(key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True) if key != "audience"]
     query.append(("audience", "ts-svg-assets"))
     token_url = urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
     token_response = requests.get(
@@ -32,6 +32,23 @@ def main() -> int:
     oidc_token = token_response.json().get("value")
     if not oidc_token:
         raise RuntimeError("GitHub did not return an OIDC token.")
+    # Print only non-secret JWT claims to make trust-policy mismatches diagnosable.
+    import base64
+    token_parts = oidc_token.split(".")
+    if len(token_parts) == 3:
+        payload = token_parts[1] + "=" * ((4 - len(token_parts[1]) % 4) % 4)
+        claims = json.loads(base64.urlsafe_b64decode(payload.encode("ascii")))
+        safe_names = (
+            "iss", "aud", "sub", "repository", "repository_id",
+            "repository_owner", "repository_owner_id", "ref",
+            "workflow", "workflow_ref", "job_workflow_ref",
+            "runner_environment", "event_name"
+        )
+        print("OIDC non-secret claims:", json.dumps(
+            {name: claims.get(name) for name in safe_names if name in claims},
+            ensure_ascii=False,
+            sort_keys=True
+        ))
 
     uploaded = []
     for path in sorted(out_dir.iterdir()):
