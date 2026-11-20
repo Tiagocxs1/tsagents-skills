@@ -1,0 +1,54 @@
+{
+  "project": "guardian",
+  "campaign": "guardian-social-svg-nov-2026",
+  "art_direction": "guardian_pure_svg_posts",
+  "logo": {
+    "public_id": "guardianseg/images/logo-guardian",
+    "url": "https://res.cloudinary.com/dhfek3urm/image/upload/v1786481463/guardianseg/images/logo-guardian.png",
+    "expected_format": "PNG",
+    "expected_dimensions": [
+      192,
+      50
+    ],
+    "policy": "Incorporar o arquivo original sem redesenhar, recolorir ou distorcer. Preservar proporção."
+  },
+  "brand": {
+    "name": "Guardian",
+    "colors": {
+      "red": "#CB3033",
+      "navy": "#04344C",
+      "slate": "#506A76",
+      "cyan": "#00FFFF",
+      "white": "#FFFFFF"
+    },
+    "no_green": true
+  },
+  "format": {
+    "platform": "Instagram Feed",
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5"
+  },
+  "posts": [
+    {
+      "slug": "guardian-portaria-remota-controle-acesso",
+      "name": "Portaria remota e controle de acesso",
+      "theme": "architecture"
+    },
+    {
+      "slug": "guardian-monitoramento-alarme-24h",
+      "name": "Monitoramento de alarme 24 horas",
+      "theme": "alarm"
+    },
+    {
+      "slug": "guardian-monitoramento-imagem-24h",
+      "name": "Monitoramento de imagem 24 horas",
+      "theme": "image"
+    },
+    {
+      "slug": "guardian-manutencao-sistemas-seguranca",
+      "name": "Manutenção preventiva e corretiva",
+      "theme": "maintenance"
+    }
+  ]
+}
