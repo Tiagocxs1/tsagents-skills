@@ -99,7 +99,16 @@ jobs:
             exit 1
           fi
           chmod +x "$BIN"
-          "$BIN" --help >/dev/null
+          # SiteOne intentionally exits with status 2 after printing help/version.
+          HELP_STATUS=0
+          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt" || HELP_STATUS=$?
+          if [ "$HELP_STATUS" -ne 2 ]; then
+            echo "SiteOne help returned unexpected exit code: $HELP_STATUS" >&2
+            exit 1
+          fi
+          grep -q -- "--max-visited-urls" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-html-report" "$RUNNER_TEMP/siteone-help.txt"
+          grep -q -- "--output-json-file" "$RUNNER_TEMP/siteone-help.txt"
           echo "SITEONE_BIN=$BIN" >> "$GITHUB_ENV"
 
       - name: Run bounded SiteOne crawl
