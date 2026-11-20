@@ -1,0 +1,64 @@
+{
+  "project": "guardian",
+  "campaign": "controle-de-acesso-condominios",
+  "source": {
+    "image_url": "https://images.pexels.com/photos/35557557/pexels-photo-35557557.jpeg?cs=srgb&dl=pexels-eeeat-35557557.jpg&fm=jpg",
+    "page_url": "https://www.pexels.com/photo/modern-building-entrance-at-night-with-warm-lighting-35557557/",
+    "photographer": "Siyuan Zhao",
+    "license": "Pexels License — Free; commercial use permitted; no attribution required",
+    "use_note": "Generic stock image only. Do not imply this is a Guardian customer installation or that depicted people/venue endorse Guardian."
+  },
+  "brand": {
+    "name": "Guardian",
+    "colors": {
+      "red": "#CB3033",
+      "navy": "#04344C",
+      "slate": "#506A76",
+      "cyan": "#00FFFF",
+      "white": "#FFFFFF"
+    },
+    "no_green": true,
+    "logo_policy": "No official logo asset is supplied in this request. Use text-only brand name, not an imitation of the logo."
+  },
+  "copy": {
+    "kicker": "PORTARIA E CONTROLE DE ACESSO",
+    "headline": [
+      "O acesso é diário.",
+      "O controle também."
+    ],
+    "support": [
+      "Portaria remota e controle de acesso",
+      "integrados à rotina do seu condomínio."
+    ],
+    "cta": "Fale com a Guardian",
+    "caption": "Em um condomínio, o fluxo de moradores, visitantes e prestadores faz parte da rotina. A portaria remota da Guardian integra comunicação, câmeras e controle de acesso, com apoio da central para acompanhar a operação do dia a dia. Quer avaliar uma solução adequada ao seu condomínio? Fale com a Guardian."
+  },
+  "outputs": [
+    {
+      "name": "guardian-controle-acesso-feed",
+      "width": 1080,
+      "height": 1350,
+      "layout": "feed"
+    },
+    {
+      "name": "guardian-controle-acesso-story",
+      "width": 1080,
+      "height": 1920,
+      "layout": "story"
+    },
+    {
+      "name": "guardian-controle-acesso-square",
+      "width": 1080,
+      "height": 1080,
+      "layout": "square"
+    }
+  ],
+  "trace": {
+    "enabled": true,
+    "max_width": 1400,
+    "max_colors": 96,
+    "filter_speckle": 2,
+    "simplify": 0.8,
+    "description": "Experimental raster-to-vector approximation. The hybrid photo SVG remains the faithful photographic master."
+  }
+}
