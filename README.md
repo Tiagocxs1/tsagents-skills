@@ -2,6 +2,15 @@
 
 Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são organizadas em pastas com um arquivo `SKILL.md` e referências/scripts quando aplicável. Os projetos originais avaliados ficam separados como Git submodules em `upstream/`; nossas adaptações permanecem na raiz.
 
+## SEO, pesquisa e tendências
+
+| Skill / runtime | Uso |
+|---|---|
+| [Google Trends Research](./google-trends-research/SKILL.md) | Trendspyg 1.9.0 (MIT), compatibilidade para projetos Pytrends, comparação de interesse, tendências e configuração por projeto |
+| [Coletor reutilizável](./.github/workflows/google-trends-collect.yml) | GitHub Actions reutilizável, execução mensal/manual e relatórios no repositório privado de cada projeto |
+
+A integração usa o índice relativo 0–100 do Google Trends; não produz volume absoluto de buscas, CPC ou concorrência de anúncios. Para projetos privados, o consumo de GitHub Actions pertence ao repositório chamador e deve respeitar a cota Free. O original Pytrends está arquivado; projetos novos devem usar Trendspyg e a camada `trendspyg.compat` para migrações compatíveis.
+
 ## UI, UX e qualidade de produto
 
 | Skill | Uso |
