@@ -86,6 +86,8 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 
 - Para posts com fotografias incorporadas em SVG, conversão raster→vetor ou vetorização fotorrealista/por camadas, consultar obrigatoriamente `image-to-vector-pipeline/SKILL.md`. Priorizar SVG híbrido com fotografia raster original incorporada quando a fidelidade fotográfica for essencial; vetorização integral de fotos é uma escolha estética deliberada, não o padrão.
 
+- Para retratos/cenas fotorrealistas, conversão de fotografia em paths, pipelines raster→SVG multicamada ou síntese ótica 3D em SVG puro, consultar também `vector-studio/PROMPT-MESTRE-VECTOR-REALISM-SVG-ENGINE.md`. Aplicar seu diagnóstico de modo (híbrido, vetorização ou SVG puro), mapa de camadas, critérios de transparência/segmentação, cuidados de performance e QA. Geração por IA não é automática: exige pedido ou autorização explícita.
+
 ## MCPs e runtimes
 
 - Antes de instalar ou publicar um MCP, consultar docs/MCP-RUNTIME-ARCHITECTURE.md e a documentação do upstream.
