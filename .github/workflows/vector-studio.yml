@@ -1,0 +1,63 @@
+name: Vector Studio — remote SVG pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_path:
+        description: JSON request file inside vector-studio/requests
+        required: true
+        default: vector-studio/requests/active.json
+        type: string
+  push:
+    paths:
+      - "vector-studio/requests/**"
+      - "vector-studio/render.py"
+      - "vector-studio/requirements.txt"
+      - ".github/workflows/vector-studio.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vector-studio-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    name: Build realistic photo + SVG assets
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: vector-studio/requirements.txt
+
+      - name: Install native SVG renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2
+
+      - name: Install vector pipeline
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r vector-studio/requirements.txt
+
+      - name: Render hybrid SVGs and vector trace
+        env:
+          REQUEST_PATH: ${{ github.event.inputs.request_path || 'vector-studio/requests/active.json' }}
+        run: |
+          python vector-studio/render.py --request "$REQUEST_PATH" --out-dir output/vector-studio
+
+      - name: Upload generated files
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: vector-studio-${{ github.run_number }}
+          path: output/vector-studio/
+          if-no-files-found: error
+          retention-days: 7
