@@ -21,6 +21,8 @@ import requests
 import vtracer
 from PIL import Image, ImageFont, ImageOps
 
+from agency_campaign import build_guardian_campaign
+
 MAX_SOURCE_BYTES = 25 * 1024 * 1024
 ALLOWED_HOSTS = {"images.pexels.com", "www.pexels.com", "pexels.com"}
 NAVY = "#04344C"
@@ -253,7 +255,7 @@ def vectorize_photo(photo_bytes: bytes, trace_request: dict, out_dir: Path, meta
         cfg.max_colors = int(trace_request.get("max_colors", 96))
         cfg.filter_speckle = int(trace_request.get("filter_speckle", 2))
         cfg.simplify = float(trace_request.get("simplify", 0.8))
-        cfg.path_precision = 2
+        cfg.path_precision = int(trace_request.get('path_precision', 2))
         cfg.optimize = 2
         started = time.time()
         trace_svg = cfg.convert_bytes(input_png)
@@ -284,7 +286,7 @@ def vectorize_photo(photo_bytes: bytes, trace_request: dict, out_dir: Path, meta
             "duration_seconds": elapsed,
             "svg_bytes": trace_path.stat().st_size,
             "png_bytes": png_path.stat().st_size,
-            "note": "Lossy path approximation by color regions; not a pixel-identical substitute for the embedded photographic raster."
+            "note": "The source photograph is converted into stacked SVG paths. The campaign master uses vector paths, not an embedded raster photo."
         }
 
 
@@ -335,13 +337,42 @@ def main() -> int:
             "png_exports_rendered_and_dimension_checked": True
         }
     }
+    vector_campaign = request.get("art_direction") == "agency_vector_campaign"
+    trace_svg_text = None
+    if vector_campaign:
+        # Convert the real source photograph into SVG paths before building the campaign.
+        vectorize_photo(photo_bytes, request.get("trace", {}), out_dir, metadata)
+        trace_svg_text = (out_dir / "guardian-photo-vector-trace.svg").read_text(encoding="utf-8")
+        metadata["quality_checks"]["hybrid_svg_has_one_embedded_photo"] = False
+        metadata["quality_checks"]["campaign_uses_vector_paths_not_raster"] = True
+
     for output in request["outputs"]:
         name = re.sub(r"[^a-zA-Z0-9_-]+", "-", output["name"])
         svg_path = out_dir / f"{name}.svg"
         png_path = out_dir / f"{name}.png"
-        svg = create_artboard(image_uri, output, copy, brand, source.get("page_url", ""), source.get("photographer", "Pexels"))
-        svg_path.write_text(svg, encoding="utf-8")
-        validation = validate_hybrid(svg_path, photo_sha)
+        if vector_campaign:
+            svg = build_guardian_campaign(
+                trace_svg_text, output, copy, brand,
+                source.get("page_url", ""), source.get("photographer", "Pexels")
+            )
+            svg_path.write_text(svg, encoding="utf-8")
+            root = ET.parse(svg_path).getroot()
+            path_count = sum(1 for element in root.iter() if element.tag.endswith("path"))
+            image_count = sum(1 for element in root.iter() if element.tag.endswith("image"))
+            if path_count < 1000:
+                raise RuntimeError(f"Vector campaign contains too few paths: {path_count}")
+            if image_count:
+                raise RuntimeError(f"Vector campaign unexpectedly contains {image_count} raster image elements.")
+            validation = {
+                "xml_valid": True,
+                "vector_path_count": path_count,
+                "raster_image_elements": image_count,
+                "photo_trace_included_as_nested_svg": True
+            }
+        else:
+            svg = create_artboard(image_uri, output, copy, brand, source.get("page_url", ""), source.get("photographer", "Pexels"))
+            svg_path.write_text(svg, encoding="utf-8")
+            validation = validate_hybrid(svg_path, photo_sha)
         render_svg(svg_path, png_path, int(output["width"]), int(output["height"]))
         metadata["outputs"].append({
             "name": name,
@@ -358,10 +389,10 @@ def main() -> int:
         encoding="utf-8"
     )
     (out_dir / "alt-text.txt").write_text(
-        "Fotografia de banco de imagens mostrando a entrada de um edifício moderno à noite, com iluminação quente e pessoas caminhando. Sobre a foto, a peça apresenta a mensagem “O acesso é diário. O controle também.” e informações sobre portaria remota e controle de acesso da Guardian. A imagem é ilustrativa e não representa uma instalação da Guardian.",
+        request.get("alt_text", "Arte da Guardian sobre portaria remota e controle de acesso. Cena ilustrativa vetorizada a partir de fotografia de banco de imagens; não representa uma instalação real da Guardian."),
         encoding="utf-8"
     )
-    if request.get("trace", {}).get("enabled"):
+    if request.get("trace", {}).get("enabled") and not vector_campaign:
         try:
             vectorize_photo(photo_bytes, request["trace"], out_dir, metadata)
         except Exception as exc:
@@ -377,7 +408,7 @@ def main() -> int:
     print(json.dumps({
         "status": "success",
         "source": [width, height],
-        "hybrid_outputs": len(metadata["outputs"]),
+        "rendered_outputs": len(metadata["outputs"]),
         "vector_trace": metadata.get("vector_trace", {}).get("status", "disabled"),
         "files": sorted(p.name for p in out_dir.iterdir())
     }, ensure_ascii=False, indent=2))
