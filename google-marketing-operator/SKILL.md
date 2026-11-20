@@ -121,11 +121,16 @@ Uma autorização para auditar ou criar o script não é autorização para exec
 O upstream oficial fica em https://github.com/google/skills, sob Apache-2.0. Instalar somente as skills que correspondem ao trabalho:
 
 ```bash
-npx skills add google/skills/skills/ads
-npx skills add google/skills/skills/analytics
+npx skills add google/skills
 ```
 
-Verificar os nomes/caminhos atuais no README upstream antes de executar, pois o catálogo pode mudar. Para consultar esta skill localmente, não é necessário executar servidor MCP nem instalar dependências.
+No seletor interativo, escolher somente as skills necessárias:
+- `google-ads-api-account-diagnostics`
+- `google-ads-api-mcp-setup`
+- `google-analytics-data-api-basics`
+- `google-analytics-admin-api-basics`
+
+O catálogo pode mudar; confirmar os nomes no README upstream antes de instalar. Para consultar esta skill localmente, não é necessário executar servidor MCP nem instalar dependências.
 
 ## Fontes oficiais
 
