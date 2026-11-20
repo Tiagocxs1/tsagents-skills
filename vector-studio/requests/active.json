@@ -49,7 +49,7 @@
     "filter_speckle": 1,
     "simplify": 0.24,
     "path_precision": 3,
-    "description": "Conversão da fotografia real em paths spline empilhados, sem bitmap incorporado no master final."
+    "description": "VTracer converts the real Pexels photograph into layered spline SVG paths; the final campaign embeds only vector geometry, with no raster photo."
   },
   "alt_text": "Arte vetorial da Guardian sobre portaria remota e controle de acesso. A imagem mostra uma pessoa de costas entrando em um edifício residencial por uma porta laranja, com a fotografia original convertida em caminhos vetoriais SVG e integrada a camadas gráficas azul-marinho, ciano e vermelho. Cena ilustrativa, não representa cliente nem instalação da Guardian."
 }
