@@ -93,7 +93,10 @@ def main() -> int:
                 "Public asset URL check failed for " + item["filename"]
                 + ": HTTP " + str(head.status_code) + " " + head.text[:500]
             )
-        actual_length = int(head.headers.get("Content-Length", "-1"))
+        size_header = head.headers.get("X-Asset-Size") or head.headers.get("Content-Length")
+        if size_header is None:
+            raise RuntimeError("Public asset URL did not return X-Asset-Size or Content-Length for " + item["filename"])
+        actual_length = int(size_header)
         if actual_length != int(item["bytes"]):
             raise RuntimeError(
                 "Public asset URL length mismatch for " + item["filename"]
