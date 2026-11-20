@@ -100,3 +100,26 @@ Informar o que foi criado, formato/proporção, ferramenta, arquivo editável e 
 ## Escolha consciente entre asset real e imagem gerada
 
 Antes de gerar uma imagem, consultar image-brief-and-routing/SKILL.md. Uma fotografia verdadeira, screenshot, imagem licenciada ou gráfico com dados reais pode ser melhor do que uma imagem criada por IA. A geração é uma opção quando cria um elemento inexistente ou uma série controlada, não a etapa automática de todo trabalho.
+
+## 8. Social-first não é documento editorial
+
+Quando a saída for um post social de impacto, projetar primeiro para interrupção do scroll e leitura em poucos segundos. Não assumir que uma composição em página, matéria, ficha, relatório ou dashboard serve como post apenas porque está em 9:16.
+
+- Definir um ponto focal dominante e uma ideia principal por arte.
+- Usar escala, contraste, recorte fotográfico, tipografia, camadas, assimetria e espaço negativo para criar ritmo quando isso servir ao conceito.
+- Evitar como padrão fileiras de cartões iguais, pequenas biografias, colunas de catálogo, divisórias e rodapés informativos. São válidos quando o objetivo realmente for consulta/comparação, não como solução automática.
+- Se há informação demais para uma tela, mover explicações para a legenda ou estruturar um carrossel; não reduzir a tipografia até perder impacto e legibilidade.
+- A composição pode ser ousada, mas margens, alinhamentos ópticos, hierarquia e safe zones continuam rigorosos.
+- A estética deve nascer da mensagem e da marca. Não transportar a mesma linguagem visual de uma empresa para outra.
+
+Consultar também `social-first-art-direction/SKILL.md` para o processo completo e a revisão anti-template.
+
+## 9. Prova visual de assets em SVG/HTML
+
+Quando uma arte tiver fotografias, logotipos ou ilustrações incorporados:
+- validar os bytes e a assinatura do arquivo, não apenas MIME/HTTP status;
+- em SVG autocontido, conferir cada data URI, Base64 decodificável, MIME coerente e ausência de href/src vazios ou `undefined`;
+- contabilizar os assets esperados e abrir/renderizar o arquivo final;
+- verificar visualmente que cada imagem aparece, tem o recorte correto e não foi escondida por clipping, máscara ou coordenadas erradas.
+
+A presença de uma tag `<image>` não prova que o retrato está aparecendo. Código válido não equivale a resultado visual aprovado.
