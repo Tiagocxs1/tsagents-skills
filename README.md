@@ -24,6 +24,15 @@ Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são 
 | [leis-mcp](https://github.com/mazulo/leis-mcp) | MCP opcional e local para consultar e citar legislação brasileira (inclui LGPD); requer configuração no cliente MCP |
 | [messaging-private-storage](./messaging-private-storage/SKILL.md) | Segurança de mensageria, isolamento de usuários, uploads, downloads e retenção |
 
+## Marketing, analytics e aquisição
+
+| Skill / recurso | Uso |
+|---|---|
+| [google-marketing-operator](./google-marketing-operator/SKILL.md) | Operação controlada de Search Console, GA4 e Google Ads, com foco em ferramentas oficiais, custo mínimo, leitura primeiro e autorização antes de qualquer escrita |
+| [Google Ads Manager Inventory](./google-marketing-operator/scripts/google-ads-manager-inventory.gs) | Script read-only para identificar contas cliente vinculadas a uma MCC; não altera campanhas nem orçamento |
+
+As skills oficiais do Google ficam no repositório upstream [google/skills](https://github.com/google/skills). A adaptação TS Digitais organiza o fluxo para nossos ambientes e não copia os arquivos originais. O inventário de contas é o primeiro passo antes de qualquer automação Ads.
+
 ## Instalação por projeto
 
 Use a CLI de skills para instalar somente o que o projeto precisa:

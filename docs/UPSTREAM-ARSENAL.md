@@ -1,6 +1,6 @@
 # Arsenal upstream — originais, skills e MCPs
 
-**Inventário verificado em 18/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
+**Inventário verificado em 20/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
 
 ## Como obter os originais completos
 
@@ -50,12 +50,15 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 - **UX/UI e site/app:** XIAS para sistema/tokens/controles, UI/UX Agent Skill System para orquestração e Jakub Krehel para crítica; combinar com ui-ux-pro-max e as ferramentas Figma/MagicPath já conectadas.
 - **Pesquisa de mercado brasileira:** MCP Brasil para dados públicos agregados e fontes permitidas, junto com source-backed-research e validação na fonte primária. Nunca tratar resultado de IA como dado oficial sem checagem.
 - **GA4:** Google Analytics MCP em modo de leitura primeiro; conferir propriedade, escopos e credenciais antes da configuração.
+- **Google Ads:** Google Agent Skills para diagnóstico e implementação; Google Ads Scripts para inventário e automação nativa no produto, começando por script read-only e Preview. Não usar scripts para contornar restrições da Google Ads API.
 - **Cobrança e vendas:** MCP Dev LATAM / Asaas / Hotmart somente para o sistema/conta que o usuário identificar e autorizar; leitura antes de escrita, sandbox antes de produção.
 
 ## 2. Referências avaliadas — não copiadas como submódulos
 
 | Projeto / link | Motivo para não copiar integralmente | Como aproveitar |
 |---|---|---|
+| [Google Agent Skills](https://github.com/google/skills) | Apache-2.0 | Repositório oficial do Google com skills para Google Ads e Analytics. Consultar e instalar seletivamente os módulos oficiais; a skill `google-marketing-operator` da TS Digitais é uma camada de orquestração própria e não redistribui o conteúdo upstream. |
+| [AminForou — MCP GSC](https://github.com/AminForou/mcp-gsc) | MIT | MCP comunitário com ferramentas de Search Console, incluindo consultas de desempenho, inspeção de URLs e sitemaps. Avaliado como referência funcional; não instalar um segundo servidor enquanto o bridge Cloudflare existente cobrir a necessidade. Verificar escopos, opções destrutivas e versão antes de qualquer adoção. |
 | [Kursku — Skills em PT-BR](https://github.com/kursku/skills) | Repositório declara milhares de skills e conteúdo em português, mas não apresenta licença de reuso identificável no metadado/arquivo consultado. | Consultar apenas como diretório de descoberta; não copiar nem redistribuir os arquivos até existir licença clara. Também avaliar origem e qualidade de cada skill. |
 | [Vercel Agent Skills](https://github.com/vercel-labs/agent-skills) | Coleção oficial útil para React/Next.js e performance, mas não foi encontrada licença no caminho `LICENSE` do repositório durante a verificação. | Link externo para consulta; não duplicar arquivos no nosso repositório sem esclarecer os termos. |
 | [AdKit Ads Skills](https://github.com/adkit/ads-skills) | O README declara MIT para o repositório, mas duas skills (`meta-ads-strategy` e `google-ads-strategy`) usam licença própria, sem redistribuição e sem uso em produto concorrente. O MCP de execução é um serviço externo. | Consultar apenas os módulos permitidos no upstream; não copiar as duas skills de licença especial. Estratégia pode ser lida sem o MCP; publicar campanhas exige autorização e pode depender de serviço pago. |
@@ -85,6 +88,7 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 ## 4. Histórico de versões
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
+- 2026-11-20 — adicionada a referência ao Google Agent Skills e ao MCP GSC comunitário; criada a skill própria `google-marketing-operator` e um script de inventário MCC read-only.
 
 ## 5. Runtime remoto MCP Brasil — Render Free
 
