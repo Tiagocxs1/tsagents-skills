@@ -1,6 +1,6 @@
 # Arsenal upstream — originais, skills e MCPs
 
-**Inventário verificado em 18/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
+**Inventário verificado em 20/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
 
 ## Como obter os originais completos
 
@@ -94,10 +94,22 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 - **Status:** skill, coletor e workflow compartilhado foram integrados à biblioteca TS Agents Skills; primeira configuração privada da Guardian está em PR separado, sem merge porque o repositório dispara deploy HostGator em qualquer push para `main`.
 - O extra `trendspyg[mcp]` disponibiliza MCP local por stdio. Não é serviço remoto HTTP, não foi instalado no computador do usuário e não fica conectado automaticamente ao ChatGPT.
 
+## 3.2 Google Lighthouse — auditoria técnica por GitHub Actions
+
+- Repositório: https://github.com/GoogleChrome/lighthouse
+- Licença: Apache-2.0.
+- Versão fixada: 13.6.0; Node.js 24 no runner.
+- Uso: auditoria lab de Performance, Accessibility, Best Practices e SEO; exporta relatórios HTML/JSON e resumo de métricas.
+- Runtime: workflow reutilizável `.github/workflows/lighthouse-collect.yml`, máximo de cinco URLs públicas HTTPS por execução, manual/mensal.
+- Relatórios: artifact de 30 dias e branch separada `seo-reports` no repositório chamador. Nunca fazer commit no ramo de produção que dispara deploy.
+- Segurança: rejeita HTTP, localhost, nomes locais, IPs não globais, credenciais embutidas, query strings e fragmentos. Não autentica em páginas privadas nem usa cookies.
+- Limitação: são medições de laboratório. Para Core Web Vitals de campo, usar CrUX/PageSpeed Insights e Search Console quando disponíveis.
+- **Status:** skill e runner implementados; CI de sintaxe/configuração/testes será validado antes do merge. O primeiro caller privado da Guardian será separado e não será integrado à main enquanto o deploy de produção for acionado por push nessa branch.
+
 ## 4. Histórico de versões
 
 - 2026-11-18 — primeira curadoria dos projetos de copywriting, estratégia, UX/UI, GA4, marketing brasileiro, dados públicos e comércio LATAM; submódulos fixados a commits específicos.
-- 2026-11-20 — adoção de Trendspyg 1.9.0 para Google Trends; coletor de baixa frequência em GitHub Actions e compatibilidade Pytrends documentados.
+- 2026-11-20 — adoção de Trendspyg 1.9.0 para Google Trends e Lighthouse 13.6.0 para auditoria técnica; workflows de baixa frequência em GitHub Actions e guardrails de relatório privado.
 
 ## 5. Runtime remoto MCP Brasil — Render Free
 
