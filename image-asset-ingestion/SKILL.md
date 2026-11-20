@@ -40,6 +40,12 @@ Use the shared TS Digitais image library instead of relying on the chat's file-d
 
 Use `Authorization: Bearer <ASSET_API_TOKEN>` for MCP and API calls. Never commit or log the token. Store it in the MCP client's secret/environment configuration.
 
+## Initial secret setup
+- Generate a token locally with `openssl rand -hex 32`.
+- In Cloudflare Dashboard, open Workers & Pages → ts-image-library → Settings → Variables and Secrets, then create/update the Secret `ASSET_API_TOKEN` and deploy the change.
+- Or use `npx wrangler secret put ASSET_API_TOKEN --name ts-image-library`.
+- Put the same value into the compatible MCP client's secret store as `TS_IMAGE_LIBRARY_TOKEN`. Never paste it into GitHub or a public client bundle.
+
 ## Limits and security
 - Only public HTTP/HTTPS sources; redirects are revalidated.
 - Maximum 15 MB per image; up to five images per batch.
