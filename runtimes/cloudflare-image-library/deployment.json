@@ -1,0 +1,44 @@
+{
+  "service": "ts-image-library",
+  "worker_script": "ts-image-library",
+  "worker_url": "https://ts-image-library.tiagocxs-tdb.workers.dev",
+  "mcp_endpoint": "https://ts-image-library.tiagocxs-tdb.workers.dev/mcp",
+  "http_api_base": "https://ts-image-library.tiagocxs-tdb.workers.dev",
+  "account_id": "a1fff33aeda623a5fc8f6b4f73b688fa",
+  "r2": {
+    "bucket": "ts-image-assets-temp",
+    "binding": "ASSETS",
+    "object_prefix": "images/",
+    "expiration_seconds": 604800,
+    "lifecycle_delete": {
+      "type": "Age",
+      "maxAge": 604800
+    },
+    "incomplete_multipart_upload_expiration_seconds": 86400
+  },
+  "d1": {
+    "database": "ts-image-assets-index",
+    "database_id": "ce69d71a-1dec-445b-9f68-e385e8f3bf9c",
+    "binding": "DB",
+    "retained_fields": [
+      "source_url",
+      "source_page_url",
+      "project",
+      "filename",
+      "content_type",
+      "size_bytes",
+      "license",
+      "attribution",
+      "created_at",
+      "expires_at",
+      "status"
+    ]
+  },
+  "secrets": ["ASSET_API_TOKEN"],
+  "cron": null,
+  "notes": [
+    "Cron was not added: the account already uses all 5 Cron triggers available on Workers Free.",
+    "R2 lifecycle is the authoritative expiry mechanism; deletion usually completes within 24 hours after the lifecycle expiration timestamp.",
+    "No Cloudinary duplicate is created by the default ingest path."
+  ]
+}
