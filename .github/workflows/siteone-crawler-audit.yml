@@ -156,7 +156,7 @@ jobs:
           git push origin "HEAD:$REPORT_BRANCH"
 
       - name: Fail the workflow if SiteOne did not finish successfully
-        if: ${{ steps.siteone.outcome }} == 'failure'
+        if: ${{ steps.siteone.outcome == 'failure' }}
         run: |
           echo "SiteOne audit failed or did not produce a valid HTML report. Check the artifact/logs."
           exit 1
