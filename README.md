@@ -71,6 +71,7 @@ O workflow OTTO é opcional e está em [templates/github-actions/otto-privacy-re
 |---|---|
 | [visual-design](./visual-design/SKILL.md) | Skill obrigatória antes de qualquer arte, SVG, HTML, CSS ou JSON visual |
 | [social-media-creative](./social-media-creative/SKILL.md) | Posts, stories, carrosséis, thumbnails, formatos e safe zones |
+| [social-first-art-direction](./social-first-art-direction/SKILL.md) | Direção de arte social-first transversal; composições de impacto, anti-documento, imagens licenciadas e validação visual real |
 | [advertising-creative](./advertising-creative/SKILL.md) | Criativos de anúncios, hooks, ofertas e testes A/B |
 | [motion-design](./motion-design/SKILL.md) | Vídeos, animações e motion graphics |
 | [visual-quality-review](./visual-quality-review/SKILL.md) | Revisão de qualidade antes da entrega |
@@ -86,7 +87,7 @@ Esses arquivos são perfis reutilizáveis para subagentes ou etapas sequenciais;
 
 ## Regras globais
 
-O arquivo [AGENTS.md](./AGENTS.md) exige consulta às skills visuais antes de qualquer criação e revisão do preview real antes da entrega.
+O arquivo [AGENTS.md](./AGENTS.md) exige consulta às skills visuais antes de qualquer criação e revisão do preview real antes da entrega. Para posts sociais, também exige [Social-First Art Direction](./social-first-art-direction/SKILL.md), uma regra transversal que impede que posts de impacto sejam tratados como documentos ou templates genéricos.
 
 ## Catálogos e fontes externas
 
