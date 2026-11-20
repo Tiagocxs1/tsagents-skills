@@ -53,3 +53,28 @@ Registrar problemas, priorizar os de maior impacto, aplicar correções direcion
 
 ## 6. Parecer
 Indicar aprovado ou precisa de ajustes, principais correções, o que foi realmente testado e limitações que permaneceram. Não usar elogios genéricos como evidência.
+
+
+## 7. Teste social-first / anti-documento
+
+Para posts únicos, Stories, capas e thumbnails, avaliar:
+- Em thumbnail, o assunto e a headline são reconhecidos de imediato?
+- Existe um único ponto focal dominante?
+- A peça tem ritmo visual e uma assinatura própria, ou é apenas um template de cards, colunas e rodapé?
+- Ela parece campanha/post social ou um documento/jornal/relatório comprimido em 9:16?
+- A quantidade de texto é compatível com uma tela única? Conteúdo denso deveria estar na legenda ou em carrossel?
+- A direção visual é própria da marca e da mensagem, sem copiar automaticamente o estilo de outro cliente?
+
+Quando a intenção era impacto social e o resultado parecer documento, nota de conceito/composição não deve passar: refazer a direção de arte, não apenas trocar cores ou ampliar fontes.
+
+## 8. Verificação real de imagens incorporadas
+
+Para cada SVG/HTML com fotografia, logo ou ilustração:
+- conferir a lista de assets esperados versus os encontrados;
+- decodificar Base64/data URI e validar assinatura binária coerente com o MIME e dimensões plausíveis;
+- detectar href/src vazios, undefined, URLs externas inesperadas e recursos que falham ao carregar;
+- abrir o arquivo final em navegador e confirmar visualmente, item por item, que cada imagem está realmente visível e com enquadramento correto;
+- verificar se clipPath, máscara, viewBox, dimensões e posicionamento não escondem ou deslocam a fotografia;
+- inspecionar a exportação efetivamente entregue, não só outra prévia/cache anterior.
+
+HTTP 200, Content-Type, XML válido ou uma tag de imagem presente não contam como prova visual. Se só a estrutura foi testada, declarar que a revisão visual não foi concluída.
