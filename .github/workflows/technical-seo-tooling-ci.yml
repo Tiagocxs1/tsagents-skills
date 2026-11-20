@@ -54,7 +54,10 @@ jobs:
           BIN="$(find "$RUNNER_TEMP/siteone-smoke" -type f -name siteone-crawler -print -quit)"
           test -n "$BIN"
           chmod +x "$BIN"
-          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt"
+          # The upstream CLI intentionally exits with status 2 after printing help.
+          HELP_STATUS=0
+          "$BIN" --help > "$RUNNER_TEMP/siteone-help.txt" || HELP_STATUS=$?
+          test "$HELP_STATUS" -eq 2
           grep -q -- "--max-visited-urls" "$RUNNER_TEMP/siteone-help.txt"
           grep -q -- "--output-html-report" "$RUNNER_TEMP/siteone-help.txt"
           grep -q -- "--output-json-file" "$RUNNER_TEMP/siteone-help.txt"
