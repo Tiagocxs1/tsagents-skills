@@ -311,6 +311,10 @@ def main() -> int:
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     request = json.loads(request_path.read_text(encoding="utf-8"))
+    if request.get("art_direction") == "guardian_pure_svg_posts":
+        from guardian_vector_posts import render_guardian_vector_posts
+        render_guardian_vector_posts(request, out_dir)
+        return 0
     source = request["source"]
     if not allowed_url(source["image_url"]):
         raise ValueError("Only a public Pexels image URL is accepted.")
