@@ -1,0 +1,13 @@
+{
+  "project_slug": "guardian",
+  "geo": "BR",
+  "timeframe": "today 12-m",
+  "keywords": [
+    "monitoramento de alarme",
+    "portaria remota",
+    "portaria autônoma",
+    "monitoramento de câmeras",
+    "segurança eletrônica para condomínios"
+  ],
+  "include_trending_now": false
+}
