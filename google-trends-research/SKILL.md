@@ -83,7 +83,7 @@ A monthly/manual GitHub Actions reusable workflow is provided at:
 - `templates/caller-workflow.yml` — caller workflow template.
 - `templates/config.example.json` — example configuration.
 
-The caller repository stores its own private `.seo/google-trends.json` configuration and receives reports under `reports/seo/google-trends/`. The central public repository stores only reusable tooling; do not put client domains, private keyword lists or access tokens in this public repository.
+The caller repository stores its own private `.seo/google-trends.json` configuration. The collector writes reports to a dedicated `seo-reports` branch under `reports/seo/google-trends/` and also uploads a 30-day Actions artifact. It never commits report data to the caller's production branch. The central public repository stores only reusable tooling; do not put client domains, private keyword lists or access tokens in this public repository.
 
 GitHub Actions usage from private caller repositories is subject to the owner's included minutes and billing settings. This is not unlimited compute. The template is intentionally monthly and short-running.
 
