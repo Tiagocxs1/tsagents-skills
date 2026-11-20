@@ -1,0 +1,168 @@
+name: Lighthouse — reusable technical audit
+
+on:
+  workflow_call:
+    inputs:
+      config_path:
+        description: Private JSON file containing public HTTPS URLs to audit.
+        required: false
+        type: string
+        default: .seo/lighthouse.json
+      report_branch:
+        description: Dedicated branch for audit reports; never the production branch.
+        required: false
+        type: string
+        default: seo-reports
+      report_root:
+        description: Directory in the reports branch.
+        required: false
+        type: string
+        default: reports/seo/lighthouse
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lighthouse-\${{ github.repository }}-\${{ inputs.config_path }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the caller project
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: \${{ github.repository }}
+          ref: \${{ github.ref }}
+          persist-credentials: true
+          path: project
+
+      - name: Check out shared TS Digitais tooling
+        run: git clone --depth 1 https://github.com/Tiagocxs1/tsagents-skills.git tooling
+
+      - name: Validate workflow paths and report branch
+        env:
+          CONFIG_PATH: \${{ inputs.config_path }}
+          REPORT_BRANCH: \${{ inputs.report_branch }}
+          REPORT_ROOT: \${{ inputs.report_root }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import PurePosixPath
+
+          for name in ("CONFIG_PATH", "REPORT_ROOT"):
+              value = os.environ[name]
+              path = PurePosixPath(value)
+              if not value or path.is_absolute() or any(part in ("", ".", "..") for part in path.parts):
+                  raise SystemExit(f"Unsafe relative path in {name}: {value!r}")
+
+          branch = os.environ["REPORT_BRANCH"]
+          if not re.fullmatch(r"[A-Za-z0-9._/-]+", branch) or ".." in branch or branch.startswith("/") or branch.endswith("/"):
+              raise SystemExit(f"Unsafe report branch: {branch!r}")
+          if branch in {"main", "master", "production"}:
+              raise SystemExit("Reports must not be written to a production branch.")
+          PY
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Validate private audit configuration
+        env:
+          CONFIG_PATH: \${{ inputs.config_path }}
+        run: |
+          python tooling/technical-seo-audit/scripts/run_lighthouse.py \
+            --config "project/$CONFIG_PATH" \
+            --validate-only
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: "24"
+          cache: false
+
+      - name: Detect or install headless Chrome
+        run: |
+          CHROME_BIN=""
+          for candidate in google-chrome google-chrome-stable chromium chromium-browser; do
+            if command -v "$candidate" >/dev/null 2>&1; then
+              CHROME_BIN="$(command -v "$candidate")"
+              break
+            fi
+          done
+          if [ -z "$CHROME_BIN" ]; then
+            npx --yes @puppeteer/browsers install chrome@stable --path "$RUNNER_TEMP/chrome"
+            CHROME_BIN="$(find "$RUNNER_TEMP/chrome" -type f -name chrome -perm /111 -print -quit)"
+          fi
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            echo "A usable Chrome binary could not be installed or located." >&2
+            exit 1
+          fi
+          echo "CHROME_PATH=$CHROME_BIN" >> "$GITHUB_ENV"
+          "$CHROME_BIN" --version
+
+      - name: Run Lighthouse
+        id: lighthouse
+        continue-on-error: true
+        env:
+          CONFIG_PATH: \${{ inputs.config_path }}
+          NPM_CONFIG_FUND: "false"
+          NPM_CONFIG_AUDIT: "false"
+        run: |
+          python tooling/technical-seo-audit/scripts/run_lighthouse.py \
+            --config "project/$CONFIG_PATH" \
+            --output-dir "$RUNNER_TEMP/lighthouse-output"
+
+      - name: Upload HTML and JSON reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse-\${{ github.repository_id }}-\${{ github.run_id }}
+          path: \${{ runner.temp }}/lighthouse-output/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Persist reports to a separate branch
+        if: always()
+        working-directory: project
+        env:
+          REPORT_BRANCH: \${{ inputs.report_branch }}
+          REPORT_ROOT: \${{ inputs.report_root }}
+          SOURCE_DIR: \${{ runner.temp }}/lighthouse-output
+          GITHUB_RUN_ID: \${{ github.run_id }}
+        run: |
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "No report directory was generated."
+            exit 0
+          fi
+          git fetch origin "$REPORT_BRANCH:refs/remotes/origin/$REPORT_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$REPORT_BRANCH"; then
+            git checkout -B "$REPORT_BRANCH" "refs/remotes/origin/$REPORT_BRANCH"
+          else
+            git checkout --orphan "$REPORT_BRANCH"
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          DEST="$REPORT_ROOT/run-$GITHUB_RUN_ID"
+          mkdir -p "$DEST"
+          cp -a "$SOURCE_DIR/." "$DEST/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "$DEST"
+          if git diff --cached --quiet; then
+            echo "No new report files to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): Lighthouse audit run $GITHUB_RUN_ID"
+          git push origin "HEAD:$REPORT_BRANCH"
+
+      - name: Fail the workflow if any URL audit failed
+        if: steps.lighthouse.outcome == 'failure'
+        run: |
+          echo "At least one URL failed Lighthouse. Check the uploaded artifact and report branch for partial diagnostics."
+          exit 1

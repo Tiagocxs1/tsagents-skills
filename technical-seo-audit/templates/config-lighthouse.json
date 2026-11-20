@@ -1,0 +1,8 @@
+{
+  "project_slug": "example-site",
+  "preset": "mobile",
+  "urls": [
+    "https://example.com/",
+    "https://example.com/services/"
+  ]
+}

@@ -1,0 +1,20 @@
+name: Lighthouse — monthly technical audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monthly, low frequency. UTC.
+    - cron: "31 12 8 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    uses: Tiagocxs1/tsagents-skills/.github/workflows/lighthouse-collect.yml@main
+    permissions:
+      contents: write
+    with:
+      config_path: .seo/lighthouse.json
+      report_branch: seo-reports
+      report_root: reports/seo/lighthouse
