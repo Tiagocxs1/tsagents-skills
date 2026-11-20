@@ -144,3 +144,9 @@ Upstreams adicionados: Frontend Slides, Guizang PPT Skill e pptx-tools. O PPT Ma
 - [Guardian Seg — Diretrizes de conteúdo social](./brands/guardianseg/SOCIAL-CONTENT-GUIDELINES.md): pilares editoriais e guardrails para calendário/postagens.
 
 As fichas da marca são a fonte única antes de criar conteúdo. Os números internos recebidos da equipe estão marcados como pendentes de validação de data/base. Nunca versionar tokens, chaves ou credenciais.
+
+
+## Biblioteca temporária de imagens
+- [Image Asset Ingestion](./image-asset-ingestion/SKILL.md): regra universal para importar, usar, recuperar e expirar fotografias de terceiros.
+- [Cloudflare Image Library](./runtimes/cloudflare-image-library/README.md): Worker/MCP remoto, API, bucket R2, catálogo D1 e retenção temporária.
+- Regra padrão: os binários em R2 expiram após sete dias (com processamento de exclusão normalmente concluído até 24h depois). O catálogo mantém somente metadados e URLs de origem para tentar baixar novamente — não garante recuperação se a fonte sair do ar ou exigir URL temporária.
