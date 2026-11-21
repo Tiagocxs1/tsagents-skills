@@ -83,3 +83,25 @@ Before delivering:
 - confirm the voice matches the supplied examples
 - ensure every section adds new information
 - check formatting for the intended platform
+
+## Universal Article Structure Standard
+
+Before drafting, revising, auditing, or implementing an article or a reusable article-page template, read `references/estrutura-de-artigo.md` in full. This is the shared editorial and page-structure standard for all TS Digitais projects, websites, and clients.
+
+### Apply the priority levels correctly
+
+- **Essential:** baseline for every article. If an item cannot be met, record the limitation instead of silently ignoring it.
+- **Recommended:** apply when the article is strategic, competitive, a pillar, or tied to revenue, provided the feature fits the project.
+- **Optional / experimental:** use only when the niche, audience, maintenance capacity, and budget justify testing it. Do not turn optional items into default requirements.
+
+### Workflow
+
+1. Identify search intent, reader, purpose, format, and the article's role in its content cluster.
+2. Adapt the checklist to the client and niche. Record items as applicable / not applicable; respect specialist-review needs for YMYL and content-type-specific requirements such as product schema for e-commerce.
+3. Plan the complete article hierarchy and page components before writing or implementing the template.
+4. Keep content requirements distinct from optional interface features. An index, audio player, reading-progress bar, comments, share bar, or downloadable PDF must not be forced into every page simply because it appears in the checklist.
+5. Use only verified sources, real author credentials, actual first-hand experience, and authorized proof. Never invent an author, reviewer, test, metric, testimonial, certification, result, or citation.
+6. Validate copy, links, semantic HTML, metadata, structured data, mobile readability, accessibility, SSR/initial HTML, and technical performance against the reference before delivery. Do not promise rankings, rich results, or AI citations.
+
+Keep the supplied checklist intact as the canonical reference. Improve or extend it only through an explicit, versioned update; do not silently rewrite its priorities or notes.
+
