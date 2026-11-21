@@ -85,3 +85,47 @@ Quando o conteúdo for da Guardian:
 - Dar preferência a demonstrações reais autorizadas, gráficos explicativos e processos efetivamente praticados pela empresa.
 
 Observação: o brief antigo `docs/guardian-video-graphics-brief.md` contém exemplos ilustrativos de números como “98% eficácia” e “12 seg resposta”, além de uma sugestão de verde em comparação. Não reutilizar tais números como fatos nem a cor verde como elemento de marca sem revisão/aprovação.
+
+
+## Padrões e ferramentas já descritos no pipeline de vídeo da .ia-config
+
+O documento versionado \`ia-config/docs/video-pipeline.md\` contém também referências práticas que não devem ser perdidas. Elas ampliam o catálogo acima, mas são tratadas como **configuração histórica documentada**, não como prova de que a pasta local ou os MCPs continuam ativos. O diretório ainda precisa ser inspecionado diretamente no PC.
+
+### Estilos técnicos adicionais para testar
+
+| ID | Padrão | Uso | Cuidados |
+|---|---|---|---|
+| V18 | Face-tracked presenter / portrait overlay | Apresentador em recorte/overlay, com acompanhamento facial, para vídeo vertical | Manter rosto natural e máscara limpa; não inventar tracking se o rosto não estiver visível |
+| V19 | Ken Burns vertical slideshow | Fotografias e imagens documentais com movimento lento, pan e zoom | Usar fotos licenciadas/autorizações; movimentos não devem mudar o sentido da imagem |
+| V20 | Split-screen / stacked comparison | Comparar etapas, dois cenários ou A/B com a mesma escala visual | Só comparar cenas compatíveis; identificar quando datas/contextos são diferentes |
+| V21 | Presenter cutout / person overlay | Apresentador recortado sobre ambiente, screenshot ou infográfico | Não fabricar aparência de pessoas reais; revisar cabelo, bordas, sombras e recortes |
+| V22 | Speech-aware jump-cut / silence edit | Conteúdo falado gravado, tutoriais, depoimentos e aulas | Não cortar pausas que alteram intenção/clareza; rever o áudio completo |
+
+Esses estilos se relacionam aos templates descritos no pipeline: \`track_faces\`, \`render_mask\`, \`bg_slideshow\`, \`split_screen\` e \`person_overlay\`. O documento registra um projeto vertical GuardianPromo de 1080×1920, 30fps, cerca de 65 s e 10 cenas como referência histórica de composição; verificar se os arquivos de projeto continuam disponíveis antes de clonar.
+
+### Stack de vídeo referenciada pela .ia-config
+
+| Camada | Recursos documentados | Aplicação no pacote |
+|---|---|---|
+| Composição/render | Remotion, FFmpeg, FFprobe | Criar cenas, exportar MP4 e verificar streams, resolução, duração e áudio |
+| Motion/roteiro visual | \`animatic-mcp\`, templates de Remotion, GSAP/animações web | Brief → storyboard → animatic → cenas e motion |
+| Edição de vídeo/áudio | \`mcp-video\`, MoviePy, PySceneDetect, auto-editor, trimmy | Cortes, montagem, detecção de cenas e pós |
+| Imagem/vídeo/áudio com IA | \`artificer-mcp\` | Gerar assets quando houver justificativa e créditos/custo aprovados |
+| Voz e transcrição | Edge TTS, Kokoro TTS, Whisper/faster-whisper | Narração PT-BR, legendas, transcrição e revisão |
+| Som | Freesound, sfx-bfxr | Efeitos e ambientação; validar licença e credencial antes de usar |
+| Captura e assets | Kap, MediaPipe, rembg | Captura de tela, tracking e remoção de fundo |
+| Automação/pipelines | SwiftClip, AutoCast | Storyboard JSON e slideshow vertical/automação |
+
+A tabela representa recursos registrados em \`docs/video-pipeline.md\`. Antes de uso, consultar runtime real, arquivo de configuração local e repositório/commit; não assumir que um status “ativo” de documento antigo continua correto. Serviços de geração de IA podem consumir créditos e não são automaticamente gratuitos. Preferir render local com FFmpeg/Remotion enquanto o hardware permitir; Lambda ou outros serviços cloud são opção, não padrão.
+
+### Princípios de seleção por artigo
+
+- **Definições/conceitos:** V01 kinetic typography ou V16 technical animation.
+- **Reportagem/localidade:** V02/V10 + V11 mapa.
+- **Demonstração de site ou procedimento:** V04 e, se apresentar pessoa, V03/V18/V21.
+- **Dados e comparação:** V05/V06/V20.
+- **História, memória e acervo fotográfico:** V08/V19.
+- **Conteúdo falado gravado:** V03/V15 com V22 apenas quando a edição ajudar.
+- **Assunto técnico:** V16, eventualmente com V07.
+
+Para o arquivo final: além de still previews, assistir a exportação completa e executar FFprobe. Renderização em nuvem depende de credenciais e custos; não selecionar automaticamente.
