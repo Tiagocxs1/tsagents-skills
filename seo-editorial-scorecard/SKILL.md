@@ -7,16 +7,16 @@ description: Avalie conteúdo web com um scorecard editorial e técnico contextu
 
 ## Objetivo
 
-Reaproveitar e modernizar os critérios que já existem nos motores SEO do projeto \`dashboard\` (26 critérios para WP) e no avaliador de Web Stories, removendo regras arbitrárias e falsos positivos. O score deve orientar melhorias, não simular um algoritmo de Google.
+Reaproveitar e modernizar os critérios que já existem nos motores SEO do projeto `dashboard` (26 critérios para WP) e no avaliador de Web Stories, removendo regras arbitrárias e falsos positivos. O score deve orientar melhorias, não simular um algoritmo de Google.
 
 A referência principal é conteúdo útil, confiável e feito para pessoas. O próprio Google recomenda conteúdo people-first e uso natural de termos que as pessoas pesquisam; não define densidade de keyword ou contagem universal de palavras como requisito de ranking.
 
 ## Como pontuar
 
 - Usar perfil adequado: artigo, notícia, receita, vaga, produto ou landing page. Não transportar os mesmos pesos para formatos diferentes.
-- Cada critério recebe estado \`pass\`, \`warning\`, \`fail\`, \`unknown\` ou \`not_applicable\`.
+- Cada critério recebe estado `pass`, `warning`, `fail`, `unknown` ou `not_applicable`.
 - Anexar evidência: elemento medido, URL/fonte, trecho, ferramenta e data quando possível.
-- Dados não disponíveis são \`unknown\`, não zero.
+- Dados não disponíveis são `unknown`, não zero.
 - Critérios não aplicáveis saem do denominador.
 - Exibir cobertura e confiança junto ao resultado. Um score de 95 com 40% de cobertura não é “95% aprovado”.
 - Calcular a nota normalizada apenas sobre pesos aplicáveis e avaliados. Informar quais pesos ficaram desconhecidos/não avaliados.
@@ -46,7 +46,7 @@ Os pesos são uma referência de QA editorial, não fatores oficiais de ranking.
 5. **H1:** verificar o documento renderizado; não penalizar só porque o conteúdo bruto do WordPress não contém o H1 que o tema adiciona pelo título.
 6. **Links:** avaliar pertinência, texto âncora, confiabilidade e relação com o tópico; não exigir quotas fixas de links internos/externos.
 7. **Alt text:** descrever a imagem para quem não a vê; não inserir keyword sem necessidade. Imagens decorativas podem ter alt vazio de forma correta.
-8. **Schema:** validar JSON-LD, tipo adequado e propriedades aplicáveis. A simples existência de \`<script type="application/ld+json">\` não prova validade. Não adicionar FAQ/HowTo/Review/Product markup sem conteúdo real e requisitos específicos.
+8. **Schema:** validar JSON-LD, tipo adequado e propriedades aplicáveis. A simples existência de `<script type="application/ld+json">` não prova validade. Não adicionar FAQ/HowTo/Review/Product markup sem conteúdo real e requisitos específicos.
 9. **FAQ:** só criar quando houver perguntas genuínas da audiência. Não exigir FAQPage nem prometer rich results.
 10. **E-E-A-T:** avaliar sinais reais de experiência, expertise, autoria, fonte e responsabilidade editorial; não exigir LinkedIn como única prova.
 11. **Core Web Vitals:** separar LCP, INP e CLS de campo do score Lighthouse/PageSpeed. Não chamar um score PSI isolado de Core Web Vitals.
@@ -73,22 +73,22 @@ Não usar o SEO score do artigo como se fosse score de Story ou vídeo. Criar sc
 
 ## Migração dos engines existentes
 
-Na revisão de \`dashboard/src/lib/seo-score-engine.ts\`:
+Na revisão de `dashboard/src/lib/seo-score-engine.ts`:
 - Manter detecção de tipo de conteúdo como ponto de partida, mas validar manualmente categorias ambíguas.
 - Remover densidade fixa e thresholds universais de tamanho como alvos de score.
-- Corrigir extração de links para não contar \`mailto:\`, \`tel:\`, \`javascript:\` e fragmentos como links internos.
+- Corrigir extração de links para não contar `mailto:`, `tel:`, `javascript:` e fragmentos como links internos.
 - Não usar URL editável do autor como atalho de validação de identidade/credenciais.
 - Validar schema parseável, tipo e propriedades, preferencialmente com validador compatível.
 - Analisar dados de Core Web Vitals separados de PSI/Lighthouse score.
 - Evitar pontuar FAQ, TOC, tabelas, blockquote ou negrito só pela presença.
-- Não inferir freshness apenas de \`post.modified\`.
+- Não inferir freshness apenas de `post.modified`.
 - Incluir target editorial do briefing e avaliação de cobertura/informação original.
 - Tratar valores não fornecidos como unknown; nunca atribuir zero ou pontuação máxima por default.
 
-No avaliador \`dashboard/src/lib/webstories-seo-score.ts\`:
+No avaliador `dashboard/src/lib/webstories-seo-score.ts`:
 - Corrigir keyword-title para usar a palavra-chave real em vez de score fixo 0.
 - Remover a pontuação automática de publisher-name quando não há dado de entrada validado.
-- Não presumir \`textToImageRatio = 0.5\` nem categoria alta/média sem análise; usar unknown.
+- Não presumir `textToImageRatio = 0.5` nem categoria alta/média sem análise; usar unknown.
 - Validar de fato o total de páginas, dimensões, alt, poster, logo, metadados e implementação técnica.
 - Tratar o alvo de 13 slides como requisito deste workflow, não como exigência universal de SEO.
 
