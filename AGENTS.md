@@ -112,6 +112,6 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 
 ## Conteúdo editorial multiplataforma e score
 
-- Quando o pedido envolver transformar uma pauta/artigo em múltiplos formatos, consultar obrigatoriamente \`editorial-multipack/SKILL.md\`. O artigo é a fonte de verdade e as derivações devem ser nativas para cada canal.
-- Para auditorias editoriais/SEO, consultar \`seo-editorial-scorecard/SKILL.md\`. Distinguir critérios verificáveis, julgamento editorial, dados desconhecidos e critérios não aplicáveis. Score não é previsão de ranking.
+- Quando o pedido envolver transformar uma pauta/artigo em múltiplos formatos, consultar obrigatoriamente `editorial-multipack/SKILL.md`. O artigo é a fonte de verdade e as derivações devem ser nativas para cada canal.
+- Para auditorias editoriais/SEO, consultar `seo-editorial-scorecard/SKILL.md`. Distinguir critérios verificáveis, julgamento editorial, dados desconhecidos e critérios não aplicáveis. Score não é previsão de ranking.
 - Manter a regra de aprovação do briefing/outline antes da redação completa e autorização explícita antes de publicar/agendar.
