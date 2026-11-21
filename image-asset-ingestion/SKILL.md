@@ -64,7 +64,7 @@ If the MCP endpoint is not connected in a particular runtime, do not pretend the
 
 ## Discovery and selection of images
 
-Image discovery happens before this ingestion stage. Consult `docs/visual-tool-registry.md` and `docs/image-discovery-ecosystem.md` for the current tool inventory, eligibility and smoke-test status.
+Image discovery happens before this ingestion stage. Consult `docs/visual-tool-registry.md` and [the detailed image-discovery ecosystem guide in ia-config](https://github.com/Tiagocxs1/ia-config/blob/feat/image-discovery-editorial-multipack/docs/image-discovery-ecosystem.md) for the current tool inventory, eligibility and smoke-test status.
 
 Recommended routing:
 1. Prefer owned or client-authorized media, official product assets with permission and the already approved client library.
