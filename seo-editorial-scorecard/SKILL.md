@@ -93,3 +93,8 @@ No avaliador \`dashboard/src/lib/webstories-seo-score.ts\`:
 - Tratar o alvo de 13 slides como requisito deste workflow, não como exigência universal de SEO.
 
 A integração no dashboard deve manter os motores legados até a nova versão ser comparada com fixtures reais e testes. Não migrar/mesclar componentes nem alterar a interface sem testes e validação visual próprios.
+
+
+## Auditoria dos motores existentes
+
+Consultar `references/legacy-engine-review.md` para a análise concreta dos motores principal, client-cms e Web Stories no repositório dashboard. O documento é um plano de migração, não uma alteração de código; manter engines legados até fixtures, testes de regressão e validação visual aprovarem a nova implementação.
