@@ -108,3 +108,10 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Não duplicar arquivos automaticamente no Cloudinary, Git, repositórios, diretórios permanentes ou outros buckets. Qualquer cópia adicional exige uma política própria de retenção equivalente.
 - Registrar licença/atribuição somente quando verificadas; usar `unknown` quando a licença for incerta. Baixar não concede direito de uso/publicação. Nunca contornar login, paywall, controles anti-bot, bloqueios ou restrições de acesso.
 - Se a biblioteca/MCP não estiver disponível no ambiente atual, informar o bloqueio e usar alternativa autorizada; nunca declarar que um arquivo foi importado sem confirmação.
+
+
+## Conteúdo editorial multiplataforma e score
+
+- Quando o pedido envolver transformar uma pauta/artigo em múltiplos formatos, consultar obrigatoriamente `editorial-multipack/SKILL.md`. O artigo é a fonte de verdade e as derivações devem ser nativas para cada canal.
+- Para auditorias editoriais/SEO, consultar `seo-editorial-scorecard/SKILL.md`. Distinguir critérios verificáveis, julgamento editorial, dados desconhecidos e critérios não aplicáveis. Score não é previsão de ranking.
+- Manter a regra de aprovação do briefing/outline antes da redação completa e autorização explícita antes de publicar/agendar.

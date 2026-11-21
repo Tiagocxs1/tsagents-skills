@@ -163,3 +163,13 @@ As fichas da marca são a fonte única antes de criar conteúdo. Os números int
 - [Image Asset Ingestion](./image-asset-ingestion/SKILL.md): regra universal para importar, usar, recuperar e expirar fotografias de terceiros.
 - [Cloudflare Image Library](./runtimes/cloudflare-image-library/README.md): Worker/MCP remoto, API, bucket R2, catálogo D1 e retenção temporária.
 - Regra padrão: os binários em R2 expiram após sete dias (com processamento de exclusão normalmente concluído até 24h depois). O catálogo mantém somente metadados e URLs de origem para tentar baixar novamente — não garante recuperação se a fonte sair do ar ou exigir URL temporária.
+
+
+## Conteúdo editorial e reaproveitamento
+
+| Skill | Uso |
+|---|---|
+| [editorial-multipack](./editorial-multipack/SKILL.md) | Pipeline de artigo + Web Story (13 slides) + vídeo + carrossel (7 slides) + post estático, com manifesto de fontes/assets e gates de aprovação |
+| [seo-editorial-scorecard](./seo-editorial-scorecard/SKILL.md) | Scorecard contextual de qualidade editorial, on-page e elegibilidade técnica, com evidência, cobertura e estados unknown/N/A |
+
+O scorecard substitui metas artificiais de densidade/palavras e critérios presumidos; não promete posições no Google. O pacote editorial mantém o artigo como fonte de verdade e adapta cada peça ao canal.
