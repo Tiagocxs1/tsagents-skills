@@ -144,6 +144,9 @@ A revisão de `/home/tiago/Documentos/Estilos de Vídeos/` e das skills locais r
 | V27 | **Animated documentary map** | Localização, geografia, deslocamentos, cobertura territorial, infraestrutura e acontecimentos com dimensão espacial | Dados geográficos reais (World Atlas/TopoJSON/D3 Geo), outlines, rotas e câmera contínua; transições entre cenas devem casar no mesmo frame | Mapa amplo → foco na região → movimento/rota → consequência espacial → volta ao contexto |
 | V28 | **VOX paper-chart data storytelling** | Indicadores, tendências, eleições, finanças, pesquisas e comparações quantitativas | Base de papel, contornos marker, textura/grain, barras, assentos em lattice e linhas animadas; ruído determinístico por frame, eixo/texto sempre legíveis | Pergunta → dado citado → comparação → mudança ao longo do tempo → leitura |
 | V29 | **Paper-collage stop-motion** | Narrativas editoriais, processos, campanhas sazonais e histórias que combinam fotos/objetos com uma linguagem artesanal | Recortes PNG com bordas rasgadas, textura de fibra, camadas de papel, parallax, movimento stepped e holds assimétricos; personagem pode ficar entre duas partes do mesmo objeto (sandwich) | Storyboard em painéis → contact sheet de assets → cena em camadas → foley sincronizado |
+| V30 | **Chronixel cinematic UI motion graphics** | Explicar conceitos de software, workflows, automações, IA e processos complexos sem transformar a narração em legendas animadas | Fundo dark cinematográfico, grid sutil, UI de vidro, cards/painéis flutuantes, destaques em gradiente laranja, tipografia off-white premium; headings Poppins ExtraBold tight tracking; metáforas visuais e timelines em vez de transcrever o roteiro | Conceito → metáfora visual → UI/diagrama → transformação de estado → insight final |
+
+**V30 foi extraído do material local `CLAUDE REMOTION BLUEPRINT/Resources/2. Scene Compositon..docx` e `1. Text Style.docx`.** A regra editorial mais importante desse kit é traduzir o significado do roteiro em imagens, UI, metáforas, timelines e elementos de sistema; não reproduzir cada frase na tela. O material `4. CREATIVE_UNLOCK_RULE_SIMPLE.docx` reforça liberdade criativa controlada: melhorar ideias visuais sem distorcer fatos, hierarquia ou mensagem. As regras são princípios de direção visual, não obrigação de usar Poppins ou laranja em toda marca; identidade do cliente prevalece.
 
 ### Métodos de produção e kits de motion (não são estilos editoriais)
 
@@ -169,7 +172,7 @@ A revisão de `/home/tiago/Documentos/Estilos de Vídeos/` e das skills locais r
 - **Notícia factual com dados:** V17 + V28; mapa V27 apenas se a localização for central.
 - **História / investigação:** V02 + V24 ou V25, conforme a necessidade de fontes visuais e reconstrução.
 - **História de marca / caso de negócio:** V23 ou V24; V13 se houver evidência verificável de resultado.
-- **Produto digital / software:** V04 + V26; V23 só quando houver narrativa de transformação.
+- **Produto digital / software:** V04 + V26 ou V30; V23 só quando houver narrativa de transformação.
 - **Explicação territorial:** V11 + V27.
 - **Campanha ou história artesanal:** V29, com assets de uso autorizado.
 - **Artigo com indicadores:** V05 + V28; manter eixo, escala, recorte temporal e fonte visíveis.
