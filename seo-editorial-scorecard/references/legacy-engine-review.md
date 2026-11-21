@@ -4,10 +4,10 @@
 
 ## Onde estão
 
-1. \`dashboard/src/components/contents/WpEditorModal.tsx\` importa \`dashboard/src/lib/seo-score-engine.ts\`. É o score exibido no modal WordPress da interface principal.
-2. \`dashboard/client-cms/src/lib/seo-score-engine.ts\` contém uma segunda implementação de score para o CMS cliente, com pesos e regras em parte diferentes.
-3. \`dashboard/src/lib/webstories-seo-score.ts\` tem avaliador específico de Web Stories.
-4. Há testes Vitest para \`src/lib/seo-score-engine.ts\` em \`src/__tests__/lib/seo-score-engine.test.ts\`. A árvore consultada não apresentou suíte equivalente para \`webstories-seo-score.ts\`.
+1. `dashboard/src/components/contents/WpEditorModal.tsx` importa `dashboard/src/lib/seo-score-engine.ts`. É o score exibido no modal WordPress da interface principal.
+2. `dashboard/client-cms/src/lib/seo-score-engine.ts` contém uma segunda implementação de score para o CMS cliente, com pesos e regras em parte diferentes.
+3. `dashboard/src/lib/webstories-seo-score.ts` tem avaliador específico de Web Stories.
+4. Há testes Vitest para `src/lib/seo-score-engine.ts` em `src/__tests__/lib/seo-score-engine.test.ts`. A árvore consultada não apresentou suíte equivalente para `webstories-seo-score.ts`.
 
 ## Pontos aproveitáveis
 
@@ -44,30 +44,30 @@
 | Bold definitions / GEO | Premia frases artificiais em negrito com padrão fixo | Remover pontuação; usar definições claras apenas quando úteis |
 | Freshness | Premia data recente de modificação sem verificar o que mudou | Avaliar se fatos mudaram e se a revisão foi substancial, registrada e correta |
 
-Também revisar \`extractLinks\`: URLs relativas, \`mailto:\`, \`tel:\`, \`javascript:\` e fragmentos não podem ser todos contados como links internos; normalizar domínio, subdomínios e links absolutos/relativos.
+Também revisar `extractLinks`: URLs relativas, `mailto:`, `tel:`, `javascript:` e fragmentos não podem ser todos contados como links internos; normalizar domínio, subdomínios e links absolutos/relativos.
 
-A entrada do modal principal não fornece \`pageSpeedScore\`; por isso o critério de PageSpeed fica sem dado, mas é tratado como zero no score total. A nova implementação deve separar \`unknown\` de falha e exibir cobertura/confiança.
+A entrada do modal principal não fornece `pageSpeedScore`; por isso o critério de PageSpeed fica sem dado, mas é tratado como zero no score total. A nova implementação deve separar `unknown` de falha e exibir cobertura/confiança.
 
 ## Problemas no avaliador Web Stories
 
-O motor \`webstories-seo-score.ts\` contém campos que não são avaliados ou recebem defaults presumidos:
+O motor `webstories-seo-score.ts` contém campos que não são avaliados ou recebem defaults presumidos:
 - Critério “Título com Keyword” tem score fixo 0; não recebe keyword de entrada.
 - “Publisher Name consistente” recebe pontuação total assumida, sem validar o nome.
-- \`textToImageRatio\` assume 0,5 quando não informado.
+- `textToImageRatio` assume 0,5 quando não informado.
 - Categoria desconhecida recebe pontuação mínima positiva sem evidência.
 - Schema VideoObject é pontuado como requisito fixo sem verificar se há vídeo.
 - O alvo de 13 páginas é pontuado como SEO universal, quando na realidade é requisito deste pacote editorial específico.
 
 Direção:
 - Passar os campos reais e validar o resultado.
-- Quando dado não existir, marcar \`unknown\` e remover o peso do denominador.
+- Quando dado não existir, marcar `unknown` e remover o peso do denominador.
 - Manter 13 slides como requisito do workflow solicitado, não como fator de ranking.
 - Separar conformidade técnica, qualidade narrativa, legibilidade, acessibilidade e direitos.
 
 ## Plano de refatoração
 
 ### Fase 1 — Especificação e fixtures
-- Adotar \`seo-editorial-scorecard/SKILL.md\` como rubric geral.
+- Adotar `seo-editorial-scorecard/SKILL.md` como rubric geral.
 - Definir perfis por conteúdo: article, news, recipe, job, product, page e Web Story.
 - Criar fixtures reais anonimizadas/representativas para cada perfil.
 - Definir critérios automáticos, manuais, unknown e N/A.
@@ -87,7 +87,7 @@ Direção:
 
 ### Fase 4 — Validação
 - Unit tests para todos os critérios.
-- Casos de multiword keyword, idiomas com acentos, URL com query/trailing slash, H1 externo ao conteúdo, schema JSON-LD com \`@graph\`, imagens decorativas, imagem sem alt, links tel/mailto e conteúdo sem PageSpeed.
+- Casos de multiword keyword, idiomas com acentos, URL com query/trailing slash, H1 externo ao conteúdo, schema JSON-LD com `@graph`, imagens decorativas, imagem sem alt, links tel/mailto e conteúdo sem PageSpeed.
 - Comparar scores legado/novo e documentar diferenças.
 - Testar o modal no navegador, desktop/mobile, antes de substituir o motor antigo.
 
