@@ -9,7 +9,7 @@ description: Transforme um artigo aprovado em um pacote editorial multiplataform
 
 O artigo é a fonte de verdade factual; as demais peças são adaptações nativas, não cópias resumidas. O pacote padrão contém cinco entregáveis: artigo, Web Story com 13 slides, vídeo, carrossel com 7 slides e post estático.
 
-Antes de começar, consultar \`resource-discovery\`, perfil de marca e as skills adequadas a cada formato. Não excluir skills do registro permanentemente: classificar como obrigatórias, condicionais ou não necessárias para o trabalho atual, com justificativa.
+Antes de começar, consultar `resource-discovery`, perfil de marca e as skills adequadas a cada formato. Não excluir skills do registro permanentemente: classificar como obrigatórias, condicionais ou não necessárias para o trabalho atual, com justificativa.
 
 ## Gates
 
@@ -40,9 +40,9 @@ Uma mensagem central, headline específica, imagem dominante, apoio mínimo e um
 
 ## Direitos e proveniência
 
-Priorizar imagens próprias/autorizadas, acervo existente e licenças abertas verificadas. Resultado de Google Images não é licença. Registrar autor, página de origem, URL original, licença, atribuição, data de verificação, permissões comerciais/modificações e direitos adicionais relativos a pessoas/marcas. Quando algo for incerto, marcar \`unknown\` e não publicar o asset.
+Priorizar imagens próprias/autorizadas, acervo existente e licenças abertas verificadas. Resultado de Google Images não é licença. Registrar autor, página de origem, URL original, licença, atribuição, data de verificação, permissões comerciais/modificações e direitos adicionais relativos a pessoas/marcas. Quando algo for incerto, marcar `unknown` e não publicar o asset.
 
-Consultar \`image-asset-ingestion\` e usar a TS Image Library quando disponível. Não declarar importação sem confirmação do ID/resultado retornado.
+Consultar `image-asset-ingestion` e usar a TS Image Library quando disponível. Não declarar importação sem confirmação do ID/resultado retornado.
 
 ## Qualidade e entrega
 
