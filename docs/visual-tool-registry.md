@@ -218,14 +218,14 @@ Não confundir ferramenta open-source com pipeline leve: DiffVG, PyTorch-SVGRend
 
 | Recurso | Status / custo conhecido | Melhor aplicação | Decisão |
 |---|---|---|---|
-| \`image-search\` (MCP Python em \`.ia-config\`) | Código existente; runtime local precisa de handshake | Pexels, Unsplash, Pixabay, Freepik | Reutilizar primeiro quando os providers estiverem configurados |
-| \`visual-search\` (CLIP + ChromaDB) | Código existente; requer dependências e modelo local | Buscar no acervo e achar duplicatas | Reutilizar; controlar uso de RAM/disco |
+| `image-search` (MCP Python em `.ia-config`) | Código existente; runtime local precisa de handshake | Pexels, Unsplash, Pixabay, Freepik | Reutilizar primeiro quando os providers estiverem configurados |
+| `visual-search` (CLIP + ChromaDB) | Código existente; requer dependências e modelo local | Buscar no acervo e achar duplicatas | Reutilizar; controlar uso de RAM/disco |
 | [image-finder](https://github.com/arnoldkouya/image-finder) | MIT; Node 18+; providers abertos sem key; smoke test live pendente | Openverse, Wikimedia, NASA, além de stock providers opcionais; filtra licença/dimensão/orientação | Prioridade para integrar como descoberta rights-aware. Verificar licença na fonte; Openverse não garante licença/atribuição perfeita |
-| [HasData Google Images](https://hasdata.com/mcp/google-images) | Remoto, OAuth/API key; free tier documentado com 1.000 créditos/mês e 5 créditos/call | Pesquisa visual, origem de fotos e benchmarking de concorrentes | Usar só como descoberta/referência. Não presumir direito de reutilização |
+| [HasData Google Images](https://hasdata.com/mcp/google-images) | Remoto; API key `x-api-key`; endpoint `https://mcp.hasdata.com/mcp?apis=google_images`; free tier documentado com 1.000 créditos/mês e 5 créditos/call | Pesquisa visual, origem de fotos e benchmarking de concorrentes | Usar só como descoberta/referência. Não presumir direito de reutilização |
 | [Serbyte Image Search MCP](https://github.com/Serbyte-Development/image-search-mcp) | MIT; local stdio/HTTP; API keys dos bancos | Stock search/download normalizado em Pexels, Unsplash e Pixabay | Alternativa redundante ao MCP existente; evitar buscas duplicadas. Não expor exemplo HTTP sem autenticação |
 | TS Image Library | Worker/MCP já existente; R2 com retenção temporária documentada | Importar, rastrear e servir assets aprovados | Ingestão/proveniência, não mecanismo de descoberta |
-| \`exif-mcp\` | Código em \`.ia-config\`; runtime por confirmar | EXIF/GPS e remoção de metadados privados | QA de privacidade antes da publicação |
+| `exif-mcp` | Código em `.ia-config`; runtime por confirmar | EXIF/GPS e remoção de metadados privados | QA de privacidade antes da publicação |
 
 **Fluxo de uso:** buscar → abrir fonte original → confirmar titular/licença/atribuição/direitos de pessoas e marcas → inspecionar visualmente e dimensões → registrar manifesto → importar na TS Image Library → compor e validar no formato real.
 
-Não publicar hotlinks de NewsAPI/MediaStack ou resultados do Google Images só porque retornaram uma imagem. Consultar \`docs/image-discovery-ecosystem.md\` para critérios completos e smoke tests.
+Não publicar hotlinks de NewsAPI/MediaStack ou resultados do Google Images só porque retornaram uma imagem. Consultar [o guia completo em ia-config](https://github.com/Tiagocxs1/ia-config/blob/feat/image-discovery-editorial-multipack/docs/image-discovery-ecosystem.md) para critérios completos e smoke tests.
