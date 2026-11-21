@@ -60,3 +60,18 @@ Use `Authorization: Bearer <ASSET_API_TOKEN>` for MCP and API calls. Never commi
 
 ## Fallback
 If the MCP endpoint is not connected in a particular runtime, do not pretend the image has been stored. Use the HTTP API with the secret only in an authenticated server-side client, or provide the user with the source links and explain the integration blocker. Never place the API token in a public URL, HTML, SVG, GitHub, prompt, log or browser bundle.
+
+
+## Discovery and selection of images
+
+Image discovery happens before this ingestion stage. Consult `docs/visual-tool-registry.md` and `docs/image-discovery-ecosystem.md` for the current tool inventory, eligibility and smoke-test status.
+
+Recommended routing:
+1. Prefer owned or client-authorized media, official product assets with permission and the already approved client library.
+2. Use local `visual-search` to reuse the client's indexed library and avoid duplicates.
+3. Use `image-finder` first for Openverse/Wikimedia and other sources where its license-aware filters help narrow candidates; still open the original source page and confirm the actual license and attribution.
+4. Use the existing `image-search` MCP for configured stock providers (Unsplash, Pexels, Pixabay, Freepik), with visual inspection after the text/tag filter.
+5. Use HasData Google Images for research, finding original source pages and competitor visual references only. Google Images results do not grant reuse rights.
+6. Keep Serbyte as an optional fallback only when the existing image-search MCP is unavailable or a distinct tool capability is needed; do not query duplicate providers automatically.
+
+NewsAPI/MediaStack image URLs extracted from articles are editorial references, not permission to republish the embedded photos. A provider name or a tool's license field is not sufficient proof by itself. Record unknown rights as `unknown` and do not publish assets without permission appropriate to the intended use.
