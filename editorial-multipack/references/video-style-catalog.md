@@ -1,6 +1,6 @@
 # Catálogo inicial de estilos de vídeo editorial
 
-> Status: catálogo provisório. Foi elaborado a partir das skills e referências versionadas de `.ia-config`, incluindo o pipeline Remotion, mcp-video, artificer-mcp, animatic-mcp, Kokoro/Edge TTS, A12 (roteiros), A13 (motion) e A14 (edição). Ainda precisa ser comparado aos projetos locais em `/home/tiago/Documentos/Estilos de Vídeos/`, que não estavam acessíveis durante esta revisão.
+> Status: revisão local concluída em 21-11-2026. Foram inspecionadas as pastas e referências em `/home/tiago/Documentos/Estilos de Vídeos/` e as skills correspondentes em `~/.ia-config`. A existência dos arquivos foi confirmada; a disponibilidade dos renderers, MCPs, licenças de assets e APIs deve ser verificada por tarefa.
 
 ## Como escolher o estilo
 
@@ -129,3 +129,49 @@ A tabela representa recursos registrados em `docs/video-pipeline.md`. Antes de u
 - **Assunto técnico:** V16, eventualmente com V07.
 
 Para o arquivo final: além de still previews, assistir a exportação completa e executar FFprobe. Renderização em nuvem depende de credenciais e custos; não selecionar automaticamente.
+
+
+## Estilos confirmados na biblioteca local (21-11-2026)
+
+A revisão de `/home/tiago/Documentos/Estilos de Vídeos/` e das skills locais revelou estilos visuais adicionais. Eles devem ser selecionados pelo assunto e pelo material disponível, não transformados em preset obrigatório para todo artigo.
+
+| ID | Estilo local | Melhor uso | DNA visual e recursos técnicos | Estrutura sugerida |
+|---|---|---|---|---|
+| V23 | **Netflix / Blockbuster cinematic reel** | Histórias de marcas, negócios, mudanças de mercado e narrativas de virada em vídeo vertical | Seis cenas, portal zoom, personagens e cenários em cut-outs, parallax, sombras que viram personagens/objetos, brilho de luminária, film grain, scanlines e posterize/stop-motion irregular | Cold open → oferta/situação → oposição → queda → payoff → conclusão |
+| V24 | **VOX / Fern paper-collage documentary** | História, investigações, fatos e explicações documentais com fontes | Newsprint e mapas de arquivo, fotos halftone P&B recortadas, fita, carimbos, barbante vermelho, pins e um acento vermelho/mustarda; composição editorial matte com espaço negativo | Narração contínua → beats visuais → montagem de recortes → pôster editorial final |
+| V25 | **3D documentary mannequin** | Explicar papéis, organizações, relações institucionais e reconstruções não gráficas quando atores reais não forem necessários | Figuras 3D sem rosto em branco, vermelho e preto; void branco ou cenário realista esparso; luz volumétrica, profundidade de campo e props realistas | Cold open → contexto → ação por beats → consequência; travar identidade das figuras em character sheets |
+| V26 | **Glass SaaS / 3D product showcase** | Demonstração de plataformas, dashboards, funcionalidades, apps e lançamentos de produto | Cards translúcidos com frost, bordas iluminadas, travelling light, cursor-esfera refrativo, widgets com dados sincronizados e foley de interação | Ação de entrada → interface se revela → funcionalidades → interação → zoom no benefício |
+| V27 | **Animated documentary map** | Localização, geografia, deslocamentos, cobertura territorial, infraestrutura e acontecimentos com dimensão espacial | Dados geográficos reais (World Atlas/TopoJSON/D3 Geo), outlines, rotas e câmera contínua; transições entre cenas devem casar no mesmo frame | Mapa amplo → foco na região → movimento/rota → consequência espacial → volta ao contexto |
+| V28 | **VOX paper-chart data storytelling** | Indicadores, tendências, eleições, finanças, pesquisas e comparações quantitativas | Base de papel, contornos marker, textura/grain, barras, assentos em lattice e linhas animadas; ruído determinístico por frame, eixo/texto sempre legíveis | Pergunta → dado citado → comparação → mudança ao longo do tempo → leitura |
+| V29 | **Paper-collage stop-motion** | Narrativas editoriais, processos, campanhas sazonais e histórias que combinam fotos/objetos com uma linguagem artesanal | Recortes PNG com bordas rasgadas, textura de fibra, camadas de papel, parallax, movimento stepped e holds assimétricos; personagem pode ficar entre duas partes do mesmo objeto (sandwich) | Storyboard em painéis → contact sheet de assets → cena em camadas → foley sincronizado |
+
+### Métodos de produção e kits de motion (não são estilos editoriais)
+
+| Método / kit | Quando usar | Princípios reaproveitáveis |
+|---|---|---|
+| **Starter Kit Overlays (Remotion)** | Quando o vídeo precisa de títulos, lower thirds, callouts, kinetic type, badges ou gráficos com transparência para montar no editor | Toda peça deve ter entrada e saída completas, props/schema reutilizáveis, stagger, antecipação/overshoot/settle, safe zones e export MP4/ProRes alpha/PNG sequence |
+| **Build Guide Motion Explainer (9 fases)** | Explainer complexo que exige consistência e várias cenas | Setup → direção de arte → roteiro/timeline → inventário de assets → SVG → motion primitives → arquitetura → código → montagem; testar cena a cena antes de ampliar |
+| **CopyVideoStile / reverse-engineering de referência** | Quando o usuário fornece um vídeo para analisar e replicar sua gramática visual, sem copiar conteúdo | Decompor cada corte por timecode, fala, enquadramento, crop, ritmo, transição e SFX; extrair regras reutilizáveis e validar com material próprio |
+| **Video Director Pipeline** | Vídeos com geração de imagem/vídeo por IA | Verificar custo/créditos primeiro; criar character/motif sheets; aprovar frames do storyboard antes de gerar takes; montar e revisar áudio separadamente |
+
+### Salvaguardas específicas para as referências locais
+
+- **Não tratar assets incluídos nos practice kits como banco de imagens liberado para uso comercial.** O kit de mapa informa expressamente que as imagens, clipes e áudios fornecidos são para prática pessoal; recriações publicáveis devem usar mídia própria ou licenciada.
+- Não copiar prompts, roteiros, branding ou identidade de canais de terceiros como se fossem nossos. Reaproveitar técnicas e gramática visual, criando roteiro, dados, assets e composições originais.
+- Para o estilo mannequin, personagens sem rosto são uma escolha estética; não usar para insinuar que pessoas reais cometeram atos ou participaram de eventos sem evidência.
+- Mapas e gráficos devem usar dados reais, rastreáveis e com fonte. Não usar números ilustrativos do tutorial como estatísticas editoriais.
+- Glassmorphism e efeitos 3D devem servir à clareza do produto; se o efeito prejudicar texto ou interface, reduzir blur, glow e movimento.
+- O áudio dos kits, músicas e efeitos precisa de verificação independente de licença/atribuição. Um arquivo presente localmente não prova autorização de publicação.
+- Esses kits foram produzidos com Remotion/Claude e algumas referências mencionam serviços pagos (por exemplo, ElevenLabs, Magnific, Replicate ou Seedance). Isso não torna a produção dependente desses serviços: preferir assets próprios/licenciados, FFmpeg/Remotion local, Edge TTS/Kokoro e efeitos livres quando a qualidade for adequada.
+
+### Mapeamento inicial por assunto
+
+- **Notícia factual com dados:** V17 + V28; mapa V27 apenas se a localização for central.
+- **História / investigação:** V02 + V24 ou V25, conforme a necessidade de fontes visuais e reconstrução.
+- **História de marca / caso de negócio:** V23 ou V24; V13 se houver evidência verificável de resultado.
+- **Produto digital / software:** V04 + V26; V23 só quando houver narrativa de transformação.
+- **Explicação territorial:** V11 + V27.
+- **Campanha ou história artesanal:** V29, com assets de uso autorizado.
+- **Artigo com indicadores:** V05 + V28; manter eixo, escala, recorte temporal e fonte visíveis.
+
+A seleção final deve considerar também o canal: WebStory 13 telas, vídeo, carrossel 7 telas e post estático terão versões adaptadas da mesma tese, não cópias literais do mesmo layout.
