@@ -1,6 +1,6 @@
 # Catálogo inicial de estilos de vídeo editorial
 
-> Status: catálogo provisório. Foi elaborado a partir das skills e referências versionadas de \`.ia-config\`, incluindo o pipeline Remotion, mcp-video, artificer-mcp, animatic-mcp, Kokoro/Edge TTS, A12 (roteiros), A13 (motion) e A14 (edição). Ainda precisa ser comparado aos projetos locais em \`/home/tiago/Documentos/Estilos de Vídeos/\`, que não estavam acessíveis durante esta revisão.
+> Status: catálogo provisório. Foi elaborado a partir das skills e referências versionadas de `.ia-config`, incluindo o pipeline Remotion, mcp-video, artificer-mcp, animatic-mcp, Kokoro/Edge TTS, A12 (roteiros), A13 (motion) e A14 (edição). Ainda precisa ser comparado aos projetos locais em `/home/tiago/Documentos/Estilos de Vídeos/`, que não estavam acessíveis durante esta revisão.
 
 ## Como escolher o estilo
 
@@ -84,4 +84,4 @@ Quando o conteúdo for da Guardian:
 - Não prometer segurança absoluta ou resultado garantido.
 - Dar preferência a demonstrações reais autorizadas, gráficos explicativos e processos efetivamente praticados pela empresa.
 
-Observação: o brief antigo \`docs/guardian-video-graphics-brief.md\` contém exemplos ilustrativos de números como “98% eficácia” e “12 seg resposta”, além de uma sugestão de verde em comparação. Não reutilizar tais números como fatos nem a cor verde como elemento de marca sem revisão/aprovação.
+Observação: o brief antigo `docs/guardian-video-graphics-brief.md` contém exemplos ilustrativos de números como “98% eficácia” e “12 seg resposta”, além de uma sugestão de verde em comparação. Não reutilizar tais números como fatos nem a cor verde como elemento de marca sem revisão/aprovação.
