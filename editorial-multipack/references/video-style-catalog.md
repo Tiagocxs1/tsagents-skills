@@ -89,7 +89,7 @@ Observação: o brief antigo `docs/guardian-video-graphics-brief.md` contém exe
 
 ## Padrões e ferramentas já descritos no pipeline de vídeo da .ia-config
 
-O documento versionado \`ia-config/docs/video-pipeline.md\` contém também referências práticas que não devem ser perdidas. Elas ampliam o catálogo acima, mas são tratadas como **configuração histórica documentada**, não como prova de que a pasta local ou os MCPs continuam ativos. O diretório ainda precisa ser inspecionado diretamente no PC.
+O documento versionado `ia-config/docs/video-pipeline.md` contém também referências práticas que não devem ser perdidas. Elas ampliam o catálogo acima, mas são tratadas como **configuração histórica documentada**, não como prova de que a pasta local ou os MCPs continuam ativos. O diretório ainda precisa ser inspecionado diretamente no PC.
 
 ### Estilos técnicos adicionais para testar
 
@@ -101,22 +101,22 @@ O documento versionado \`ia-config/docs/video-pipeline.md\` contém também refe
 | V21 | Presenter cutout / person overlay | Apresentador recortado sobre ambiente, screenshot ou infográfico | Não fabricar aparência de pessoas reais; revisar cabelo, bordas, sombras e recortes |
 | V22 | Speech-aware jump-cut / silence edit | Conteúdo falado gravado, tutoriais, depoimentos e aulas | Não cortar pausas que alteram intenção/clareza; rever o áudio completo |
 
-Esses estilos se relacionam aos templates descritos no pipeline: \`track_faces\`, \`render_mask\`, \`bg_slideshow\`, \`split_screen\` e \`person_overlay\`. O documento registra um projeto vertical GuardianPromo de 1080×1920, 30fps, cerca de 65 s e 10 cenas como referência histórica de composição; verificar se os arquivos de projeto continuam disponíveis antes de clonar.
+Esses estilos se relacionam aos templates descritos no pipeline: `track_faces`, `render_mask`, `bg_slideshow`, `split_screen` e `person_overlay`. O documento registra um projeto vertical GuardianPromo de 1080×1920, 30fps, cerca de 65 s e 10 cenas como referência histórica de composição; verificar se os arquivos de projeto continuam disponíveis antes de clonar.
 
 ### Stack de vídeo referenciada pela .ia-config
 
 | Camada | Recursos documentados | Aplicação no pacote |
 |---|---|---|
 | Composição/render | Remotion, FFmpeg, FFprobe | Criar cenas, exportar MP4 e verificar streams, resolução, duração e áudio |
-| Motion/roteiro visual | \`animatic-mcp\`, templates de Remotion, GSAP/animações web | Brief → storyboard → animatic → cenas e motion |
-| Edição de vídeo/áudio | \`mcp-video\`, MoviePy, PySceneDetect, auto-editor, trimmy | Cortes, montagem, detecção de cenas e pós |
-| Imagem/vídeo/áudio com IA | \`artificer-mcp\` | Gerar assets quando houver justificativa e créditos/custo aprovados |
+| Motion/roteiro visual | `animatic-mcp`, templates de Remotion, GSAP/animações web | Brief → storyboard → animatic → cenas e motion |
+| Edição de vídeo/áudio | `mcp-video`, MoviePy, PySceneDetect, auto-editor, trimmy | Cortes, montagem, detecção de cenas e pós |
+| Imagem/vídeo/áudio com IA | `artificer-mcp` | Gerar assets quando houver justificativa e créditos/custo aprovados |
 | Voz e transcrição | Edge TTS, Kokoro TTS, Whisper/faster-whisper | Narração PT-BR, legendas, transcrição e revisão |
 | Som | Freesound, sfx-bfxr | Efeitos e ambientação; validar licença e credencial antes de usar |
 | Captura e assets | Kap, MediaPipe, rembg | Captura de tela, tracking e remoção de fundo |
 | Automação/pipelines | SwiftClip, AutoCast | Storyboard JSON e slideshow vertical/automação |
 
-A tabela representa recursos registrados em \`docs/video-pipeline.md\`. Antes de uso, consultar runtime real, arquivo de configuração local e repositório/commit; não assumir que um status “ativo” de documento antigo continua correto. Serviços de geração de IA podem consumir créditos e não são automaticamente gratuitos. Preferir render local com FFmpeg/Remotion enquanto o hardware permitir; Lambda ou outros serviços cloud são opção, não padrão.
+A tabela representa recursos registrados em `docs/video-pipeline.md`. Antes de uso, consultar runtime real, arquivo de configuração local e repositório/commit; não assumir que um status “ativo” de documento antigo continua correto. Serviços de geração de IA podem consumir créditos e não são automaticamente gratuitos. Preferir render local com FFmpeg/Remotion enquanto o hardware permitir; Lambda ou outros serviços cloud são opção, não padrão.
 
 ### Princípios de seleção por artigo
 
