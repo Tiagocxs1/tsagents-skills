@@ -2,6 +2,15 @@
 
 Biblioteca reutilizável de skills para os projetos TS Digitais. As skills são organizadas em pastas com um arquivo `SKILL.md` e referências/scripts quando aplicável. Os projetos originais avaliados ficam separados como Git submodules em `upstream/`; nossas adaptações permanecem na raiz.
 
+## Conteúdo editorial e artigos
+
+| Recurso | Uso |
+|---|---|
+| [Article Writing](./article-writing/SKILL.md) | Skill de redação, revisão e arquitetura de conteúdo longo |
+| [Estrutura de Artigo](./article-writing/references/estrutura-de-artigo.md) | Checklist compartilhado de estrutura, SEO, GEO, UX, confiança e camada técnica; mantém prioridades essencial, recomendado e opcional/experimental |
+
+A **Estrutura de Artigo** é a referência transversal para todos os artigos e templates de páginas de artigos dos projetos TS Digitais, próprios ou de clientes. A aplicação deve ser adaptada ao nicho e à capacidade de cada projeto.
+
 ## SEO, pesquisa e auditoria técnica
 
 | Skill / runtime | Uso |
