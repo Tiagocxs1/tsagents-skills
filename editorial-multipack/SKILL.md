@@ -47,3 +47,8 @@ Consultar \`image-asset-ingestion\` e usar a TS Image Library quando disponível
 ## Qualidade e entrega
 
 Revisar cada peça separadamente para precisão, adequação ao canal, visual em tamanho real e mobile, direitos, acessibilidade, links, números, datas, acentos, safe zones e render/export real. Entregar fontes editáveis, manifestos de mídia, roteiro/storyboard, créditos e QA. Registrar métricas reais depois da publicação, sem publicar por conta própria.
+
+
+## Seleção de estilos de vídeo
+
+Antes de escolher o formato, consultar `references/video-style-catalog.md`. O catálogo é inicial e ainda deve ser comparado aos projetos reais em `/home/tiago/Documentos/Estilos de Vídeos/`; não tratá-lo como inventário local completo até essa inspeção. Registrar o estilo escolhido, por que ele se adequa ao conteúdo e quais alternativas foram descartadas.
