@@ -38,6 +38,15 @@ Código válido não significa design aprovado. Uma peça em SVG, HTML, CSS ou J
 
 Se não houver como renderizar ou testar, declarar a limitação e não afirmar que a peça foi aprovada.
 
+## Conteúdo editorial e páginas de artigos
+
+- Para qualquer tarefa de criar, redigir, revisar, auditar ou implementar artigos e templates de páginas de artigos — em qualquer projeto, site ou cliente — consultar obrigatoriamente `article-writing/SKILL.md` e `article-writing/references/estrutura-de-artigo.md` antes de começar. Essa referência é o padrão transversal de estrutura editorial da TS Digitais.
+- Preservar a hierarquia do checklist: essencial é a base de todo artigo; recomendado depende da estratégia e do contexto; opcional/experimental só entra quando houver justificativa, capacidade de manutenção e orçamento.
+- Adaptar a lista ao nicho e ao cliente, registrando itens aplicáveis e não aplicáveis. Em temas YMYL, exigir revisão técnica qualificada quando pertinente; em e-commerce, avaliar schema de produto conforme o tipo de página.
+- Ao desenvolver templates e componentes de artigo, separar a estrutura editorial do texto dos recursos de interface. Não adicionar automaticamente áudio, barra de progresso, comentários, compartilhamento, PDF ou outros recursos opcionais em todo site.
+- Nunca inventar fontes, dados, credenciais, revisores, experiência de primeira mão, depoimentos, resultados ou certificações. Marcar lacunas e limitações para revisão.
+- O checklist não garante posições no Google, rich results ou citações por sistemas de IA. Validar tecnicamente cada implementação e conferir o conteúdo real renderizado.
+
 ## Pesquisa, copy, UX e integrações
 
 - Para campanhas e textos, cruzar a estratégia com o briefing, a identidade de marca, as exigências reais da plataforma e as skills upstream escolhidas; Hedgehog é um verificador auxiliar, não árbitro definitivo de português.
