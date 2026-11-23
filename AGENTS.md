@@ -12,6 +12,7 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 6. Quando existir uma marca, consultar os arquivos de marca em `brands/<marca>/`, Brand Kit, logotipo, fontes, cores, fotos e peças anteriores disponíveis. A ficha da marca é a fonte única para identidade, serviços, claims e restrições; não reentrevistar sobre dados já registrados.
 7. Consultar docs/visual-tool-registry.md para escolher o fluxo e a ferramenta adequados.
 8. Para copywriting, estratégia, UX/UI, SEO, analytics, dados brasileiros ou integrações comerciais, consultar docs/UPSTREAM-ARSENAL.md e abrir a skill/README original pertinente antes de iniciar. Não carregar coleções inteiras sem necessidade; selecionar os módulos relevantes.
+9. Para qualquer pauta, calendário, pesquisa de audiência/concorrentes, copy orgânica, Stories, carrossel ou campanha social, consultar obrigatoriamente `social-content-system/SKILL.md`. Essa skill coordena pesquisa, estratégia, copy e mensuração para qualquer marca; abrir os módulos upstream exatos indicados nela e os perfis de agentes correspondentes. Usar `templates/brand-social-foundation.md` como base neutra e manter fatos específicos em `brands/<slug>/`.
 
 ## Regras inegociáveis
 
@@ -75,6 +76,10 @@ Quando a plataforma permitir subagentes, consultar os perfis em agents/:
 - brand-guardian.md: identidade visual e ativos oficiais.
 - ad-creative-strategist.md: estratégia criativa e anúncios.
 - visual-critic.md: revisão independente.
+- social-intelligence-researcher.md: pesquisa de audiência, concorrentes, fontes e oportunidades editoriais para qualquer marca.
+- social-content-strategist.md: estratégia social, pilares, calendário e briefs.
+- social-copywriter.md: hooks, legendas, carrosséis e Stories com copy completa.
+- social-performance-analyst.md: análise de métricas e aprendizado editorial.
 - editorial-art-director.md: direção e arquitetura de revistas, magazines, e-books e flipbooks.
 
 Se não houver delegação real, executar esses papéis como etapas sequenciais. Não alegar paralelismo que não ocorreu.
