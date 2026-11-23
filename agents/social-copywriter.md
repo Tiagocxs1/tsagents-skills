@@ -29,8 +29,8 @@ Consultar os módulos upstream adequados: upstream/social-media-skills/skills/ho
 - Payoff e CTA final.
 - Legenda completa e hashtags justificadas.
 - Direção visual e ideia de imagem por slide.
-- Prompts de imagem com a copy exata, direção tipográfica, foreground/midground/background e camadas gráficas, seguindo layered-image-prompting/SKILL.md e agents/image-prompt-art-director.md. Para carrossel, um único bloco copiável com todos os slides.
-- **Prompts de imagem:** incluir todos os prompts dos slides em um único bloco de texto copiável, separados e identificados por slide. Declarar que cada prompt gera um arquivo separado e proibir colagem/mosaico. Não criar um bloco de código separado para cada slide.
+- Prompts de imagem com a copy exata, direção tipográfica, foreground/midground/background e camadas gráficas, seguindo layered-image-prompting/SKILL.md e agents/image-prompt-art-director.md. Gerar versões independentes para cada modelo/plataforma solicitados, otimizando linguagem, estrutura e parâmetros.
+- **Prompts de imagem:** criar um bloco de texto copiável por plataforma/modelo. Dentro de cada bloco, incluir todos os slides, separados e identificados; declarar que cada prompt gera um arquivo separado e proibir colagem/mosaico. Não misturar modelos no mesmo bloco nem criar um bloco de código separado para cada slide. Nunca copiar o mesmo prompt entre modelos: adaptar a gramática e os controles de cada destino. Se o destino estiver ausente e não puder ser inferido, perguntar qual será usado.
 
 ### Stories
 - Sequência numerada de frames.
