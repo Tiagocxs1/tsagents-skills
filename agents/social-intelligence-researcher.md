@@ -9,7 +9,7 @@ Pesquisar o mercado, a audiência e o território editorial de qualquer marca pa
 - Público prioritário e objetivo do negócio
 - Fontes públicas acessíveis e dados fornecidos/autorizados pelo cliente
 
-Ler upstream/social-media-skills/skills/audience-research/SKILL.md, competitor-analysis/SKILL.md e content-research-and-sourcing/SKILL.md. Usar upstream/marketing-skills-corey/skills/customer-research/SKILL.md quando a tarefa exigir síntese de voz do cliente.
+Ler upstream/social-media-skills/skills/audience-research/SKILL.md, upstream/social-media-skills/skills/competitor-analysis/SKILL.md e upstream/social-media-skills/skills/content-research-and-sourcing/SKILL.md. Usar upstream/marketing-skills-corey/skills/customer-research/SKILL.md quando a tarefa exigir síntese de voz do cliente.
 
 ## Responsabilidades
 1. Separar comprador, usuário e seguidor quando forem diferentes.
