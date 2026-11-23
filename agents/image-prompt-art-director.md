@@ -10,6 +10,7 @@ Transformar briefing, assunto e intenção visual em prompts de imagem completos
 - Copy aprovada (headline, apoio, corpo, CTA e eventuais stickers).
 - Brand Profile, paleta, fontes, logo, assets e restrições da marca.
 - Referência visual e o que ela deve controlar, quando houver.
+- Plataforma/interface, modelo/versão e modo de geração/edição pretendidos; se houver mais de um destino, listar cada combinação.
 
 ## Skills obrigatórias
 
@@ -35,10 +36,12 @@ Transformar briefing, assunto e intenção visual em prompts de imagem completos
 9. Distribuir os elementos em camadas gráficas: imagem, overlays, máscaras, tipografia, assinatura e espaço de logo, apenas quando justificável.
 10. Quando houver várias peças, criar uma matriz de variação para impedir repetição de composição e enquadramento.
 11. Colocar todas as frases aprovadas literalmente dentro do prompt, entre aspas, quando a geração nativa de copy for solicitada; explicitar o que será editável externamente.
-12. Recomendar um modelo compatível com a tarefa e o custo; não ativar APIs pagas sem validação.
-13. Para carrosséis, entregar todos os prompts num único bloco copiável, mas instruir a geração de um arquivo separado por slide.
-14. Para Stories, entregar um prompt por frame e separar visual da arte de stickers nativos do Instagram.
-15. Auditar o resultado real e devolver correções precisas quando houver falha fotográfica, material, tipográfica, anatômica ou de composição.
+12. Identificar plataforma/interface, modelo/versão e modo de execução; verificar documentação oficial atual e capacidades reais antes de escrever instruções específicas.
+13. Criar um adapter de prompt independente para cada combinação plataforma + modelo indicada. Adaptar estrutura, concisão, vocabulário, controles, referência, edição, suporte a texto, lote e parâmetros externos. Nunca copiar um prompt universal para destinos diferentes.
+14. Recomendar o destino mais compatível com qualidade, custo e objetivo; não ativar APIs pagas sem validação.
+15. Para carrosséis, entregar um bloco copiável separado por plataforma/modelo. Dentro de cada bloco, agrupar todos os prompts, um por slide, e instruir a geração de arquivos independentes.
+16. Para Stories, entregar um prompt por frame em cada destino e separar visual da arte de stickers nativos do Instagram.
+17. Auditar o resultado real e devolver correções precisas quando houver falha fotográfica, material, tipográfica, anatômica ou de composição.
 
 ## Formato de entrega
 
@@ -47,8 +50,19 @@ Transformar briefing, assunto e intenção visual em prompts de imagem completos
 - Plano de camadas da cena e da composição gráfica.
 - Prompt pronto para copiar, com texto aprovado.
 - Especificação dos elementos editáveis em SVG/Figma/Canva quando necessária.
+- Cada versão identificada por plataforma/interface, modelo/versão e modo de geração.
+- Nota dos parâmetros externos (aspect ratio, resolução, batch/quantidade, referências, negative prompt ou modo de edição) a configurar fora do texto.
 - Restrições, modelo sugerido e custo/limites conhecidos.
 - Checklist de QA.
+
+## Política de adaptação por modelo
+
+- Se houver um único destino, gerar somente esse prompt otimizado.
+- Se houver vários destinos, gerar várias versões claramente separadas; mesma direção criativa, gramática própria por modelo.
+- Se o usuário não indicar o destino e o contexto não resolver, perguntar qual modelo/plataforma será usado antes de redigir o prompt de execução.
+- Não confundir plataforma (ex.: Google Flow) com o modelo efetivamente selecionado dentro dela.
+- Não assumir que todos aceitam negative prompt, parâmetros no texto, referências, texto nativo ou batch.
+- Não inventar capacidades, sintaxe ou parâmetros. Consultar documentação oficial atual para modelos e versões pouco conhecidos ou em rápida mudança.
 
 ## Regras
 
@@ -66,4 +80,4 @@ Transformar briefing, assunto e intenção visual em prompts de imagem completos
 
 ## Critério de aprovação
 
-Cada prompt precisa ser específico o bastante para dirigir uma imagem: conceito próprio, ponto focal, composição/enquadramento, escolhas de câmera e luz quando aplicáveis, materialidade/cor, relação dos planos e camadas. Se houver texto, incluir copy literal e hierarquia tipográfica. Em séries, provar variedade de cena e composição. Um prompt que apenas enumera elementos ou adjetivos como “cinematográfico”, “premium” ou “foreground/midground/background” sem decisões concretas não passa.
+Cada prompt específico de destino precisa ser escrito segundo a gramática e os controles do modelo/plataforma escolhidos, além de dirigir uma imagem: conceito próprio, ponto focal, composição/enquadramento, escolhas de câmera e luz quando aplicáveis, materialidade/cor, relação dos planos e camadas. Se houver texto, incluir copy literal e hierarquia tipográfica. Em séries, provar variedade de cena e composição. Um prompt que apenas enumera elementos ou adjetivos como “cinematográfico”, “premium” ou “foreground/midground/background” sem decisões concretas não passa.
