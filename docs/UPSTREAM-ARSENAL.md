@@ -1,6 +1,6 @@
 # Arsenal upstream — originais, skills e MCPs
 
-**Inventário verificado em 20/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
+**Inventário verificado em 23/11/2026.** Este documento separa projetos originais, adaptações TS Digitais, ferramentas conectadas e referências externas. A biblioteca guarda os projetos completos como **Git submodules**: os repositórios de origem não são copiados nem modificados. Cada submódulo fica fixado em um commit específico no repositório principal.
 
 ## Como obter os originais completos
 
@@ -51,6 +51,17 @@ O arquivo `.gitmodules` lista os endereços originais. O commit gravado em cada 
 - **Pesquisa de mercado brasileira:** MCP Brasil para dados públicos agregados e fontes permitidas, junto com source-backed-research e validação na fonte primária. Nunca tratar resultado de IA como dado oficial sem checagem.
 - **GA4:** Google Analytics MCP em modo de leitura primeiro; conferir propriedade, escopos e credenciais antes da configuração.
 - **Cobrança e vendas:** MCP Dev LATAM / Asaas / Hotmart somente para o sistema/conta que o usuário identificar e autorizar; leitura antes de escrita, sandbox antes de produção.
+
+### Skills sociais ativadas pelo Social Content System
+
+O submódulo Social Media Skills já estava presente no repositório e está fixado no commit `f28cef2b7067ec64e79c9d85421c022c06659e03`. O submódulo Corey Haines já estava presente e está fixado no commit `73573e94a06a39965978b3fa1f9c1eace8cebc7c`. A alteração de 23/11/2026 não duplicou esses originais: adicionou um roteador local e agentes multi-marca que convocam os módulos corretos.
+
+Módulos selecionados para o fluxo social:
+
+- Social Media Skills: `audience-research`, `competitor-analysis`, `content-research-and-sourcing`, `social-strategy`, `content-pillars`, `content-calendar`, `batch-content-plan`, `seasonal-and-moment-marketing`, `educational-content-and-how-to`, `storytelling-and-narrative`, `hook-writer`, `caption-writer`, `carousel-writer` e `story-writer`.
+- Corey Haines Marketing Skills: `content-strategy`, `customer-research`, `copywriting` e `social`.
+
+Os caminhos completos são listados em `social-content-system/SKILL.md`. Para carregá-los em outro clone, inicializar os submódulos. A existência do submódulo não significa que todas as skills estejam permanentemente carregadas em todo runtime; o roteador instrui o agente a abrir cada arquivo no momento da tarefa.
 
 ## 2. Referências avaliadas — não copiadas como submódulos
 
