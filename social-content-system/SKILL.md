@@ -61,6 +61,8 @@ Selecionar pautas que respondam a uma tensão, pergunta ou tarefa concreta de um
 ### D. Copy
 O agente social-copywriter.md trabalha hooks por mecanismos diferentes, escolhe o melhor, escreve todos os textos por frame/slide e a legenda, adapta o CTA ao objetivo e remove frases genéricas/automatizadas. A copy deve ser específica, natural e verificável.
 
+**Formato obrigatório dos prompts de imagem:** quando a peça for um carrossel, entregar todos os prompts dos slides dentro de um único bloco de texto copiável, com separadores e identificação `SLIDE 01`, `SLIDE 02` etc. Explicitar que devem ser geradas imagens independentes, não uma colagem/prancha única. Em Stories ou posts avulsos, manter um prompt por imagem quando isso facilitar a geração individual.
+
 ### E. Direção visual
 Executar visual-design/SKILL.md, social-media-creative/SKILL.md, social-first-art-direction/SKILL.md e typography-master/SKILL.md quando houver texto visual. Para carrosséis, seguir carousel-writer. Para Stories, seguir story-writer. Preservar o Brand Profile da marca. Produzir previews reais e revisar com visual-quality-review/SKILL.md e agents/visual-critic.md.
 
