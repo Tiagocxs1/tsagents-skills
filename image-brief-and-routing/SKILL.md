@@ -14,13 +14,22 @@ Antes de usar IA, avaliar se uma foto real do produto/local/equipe, screenshot, 
 Definir em linguagem natural:
 - Função: hero, produto, lifestyle, fundo, ilustração, thumbnail, ad, ícone ou textura.
 - Assunto e ação principal.
-- Composição, enquadramento, perspectiva e espaço negativo para texto.
-- Luz, paleta, materialidade, textura, estilo e clima.
+- Conceito visual/metáfora, assunto focal, ação e ponto de vista.
+- Composição, escala, enquadramento, altura/ângulo de câmera, perspectiva, foco, profundidade e espaço negativo.
+- Linguagem óptica: distância focal aproximada e profundidade de campo quando mudarem a perspectiva ou a narrativa.
+- Desenho de luz: direção, fonte, qualidade, contraste, temperatura, preenchimento, recorte e reflexos, conforme a cena.
+- Materiais e microtexturas específicas, com comportamento físico plausível.
+- Paleta e tratamento tonal: sombras, highlights, saturação, relação quente/frio e efeitos opcionais.
+- Estilo, clima, acabamento e elemento visual distintivo.
 - Proporção/resolução e destino.
 - Restrições: sem texto, sem logo inventado, sem marca d'água, sem deformações ou elementos não desejados.
 - Referências fornecidas e o que cada uma controla.
 
-Evitar prompts recheados de tokens como masterpiece/8k. Descrever cena, linguagem, enquadramento e condições específicas.
+Evitar prompts recheados de tokens como masterpiece/8k ou listas de câmera sem função. Descrever escolhas visuais que controlem concretamente o resultado: ponto de vista, plano, perspectiva, foco, iluminação, materialidade, cor e acabamento conforme a finalidade.
+
+Para séries, carrosséis e campanhas, definir uma matriz visual por peça: papel narrativo, assunto focal, enquadramento, composição, luz/cor e variação em relação às outras peças. A unidade vem da direção comum e da marca; não de repetir a mesma estrutura de layout. Quando houver referências, indicar exatamente quais atributos devem ser aproveitados e quais devem permanecer diferentes.
+
+Consultar `layered-image-prompting/SKILL.md` como padrão universal de engenharia do prompt. Especificar apenas parâmetros relevantes: não forçar lente, sensor, efeitos, foreground ou grafismos em toda imagem.
 
 ## Roteamento
 - Texto tipográfico dentro da imagem: só usar modelo comprovadamente confiável para texto curto; revisar cada caractere. Caso contrário, gerar o fundo/arte e compor texto separadamente.
