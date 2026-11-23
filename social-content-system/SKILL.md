@@ -37,6 +37,7 @@ Os originais estão preservados no submódulo MIT upstream/social-media-skills/,
 | Plano de período e briefs | upstream/social-media-skills/skills/batch-content-plan/SKILL.md |
 | Datas e momentos relevantes | upstream/social-media-skills/skills/seasonal-and-moment-marketing/SKILL.md |
 | Conteúdo educativo | upstream/social-media-skills/skills/educational-content-and-how-to/SKILL.md |
+| Prompt visual social | upstream/social-media-skills/skills/image-prompt/SKILL.md e layered-image-prompting/SKILL.md |
 | Narrativa | upstream/social-media-skills/skills/storytelling-and-narrative/SKILL.md |
 | Hooks | upstream/social-media-skills/skills/hook-writer/SKILL.md |
 | Legendas | upstream/social-media-skills/skills/caption-writer/SKILL.md |
@@ -62,6 +63,9 @@ Selecionar pautas que respondam a uma tensão, pergunta ou tarefa concreta de um
 O agente social-copywriter.md trabalha hooks por mecanismos diferentes, escolhe o melhor, escreve todos os textos por frame/slide e a legenda, adapta o CTA ao objetivo e remove frases genéricas/automatizadas. A copy deve ser específica, natural e verificável.
 
 **Formato obrigatório dos prompts de imagem:** quando a peça for um carrossel, entregar todos os prompts dos slides dentro de um único bloco de texto copiável, com separadores e identificação `SLIDE 01`, `SLIDE 02` etc. Explicitar que devem ser geradas imagens independentes, não uma colagem/prancha única. Em Stories ou posts avulsos, manter um prompt por imagem quando isso facilitar a geração individual.
+
+### E. Prompt de imagem e direção tipográfica
+Quando uma pauta precisar de imagem gerada, consultar layered-image-prompting/SKILL.md e o agente agents/image-prompt-art-director.md. Incluir a copy aprovada integralmente no prompt, definir se o texto será renderizado pelo modelo ou sobreposto como elemento editável e detalhar foreground, midground, background e hierarquia tipográfica. Em carrosséis, todos os prompts ficam em um único bloco copiável, com um prompt autossuficiente por slide e arquivos separados.
 
 ### E. Direção visual
 Executar visual-design/SKILL.md, social-media-creative/SKILL.md, social-first-art-direction/SKILL.md e typography-master/SKILL.md quando houver texto visual. Para carrosséis, seguir carousel-writer. Para Stories, seguir story-writer. Preservar o Brand Profile da marca. Produzir previews reais e revisar com visual-quality-review/SKILL.md e agents/visual-critic.md.
