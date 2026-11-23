@@ -424,12 +424,14 @@ No camera or sensor close-up, no monitors, dashboards, maps, apps, graphs, scree
 
 ## Aplicação e conferência
 
-1. Gerar cada asset separadamente na proporção indicada; não pedir ao gerador para compor o carrossel inteiro em uma única imagem.
-2. Para manter unidade, usar o resultado do Slide 1 como referência visual de estilo para os outros cinco slides do carrossel, sem copiar a mesma composição.
-3. Para Stories, usar o Story 1 como referência de tratamento fotográfico, mas variar os enquadramentos de acordo com cada frame.
-4. Inserir título, parágrafos, checklist, enquete, CTA e logo oficial posteriormente como elementos editáveis no SVG/Canva.
-5. Inspecionar cada imagem em tamanho real e no recorte final. Rejeitar imagens que introduzam equipamentos não aprovados, telas fictícias, textos acidentais, pessoas deformadas ou elementos fora da área segura.
-6. As imagens geradas são ilustrações de contexto, não evidência de instalações, clientes ou operações reais da Guardian Seg. Se o post precisar demonstrar um equipamento ou instalação específica, substituir o asset gerado por fotografia autorizada do produto Intelbras/instalação real.
+1. Gerar cada asset separadamente na proporção indicada. O bloco do carrossel contém seis prompts numa única área copiável, mas cada seção gera um arquivo independente.
+2. Para o carrossel, usar o Slide 1 como referência visual de estilo nos outros slides, sem copiar enquadramento ou composição.
+3. Para Stories, usar o Story 1 como referência de tratamento fotográfico, variando enquadramentos de acordo com cada frame.
+4. Estes prompts estão no modo de tipografia nativa: o gerador deve renderizar a copy exata na imagem. Conferir cada acento, palavra, pontuação, quebra de linha e repetição. Se o texto sair errado ou ilegível, gerar novamente com instrução localizada ou reconstruir os blocos de texto como elementos editáveis em SVG/Canva/Figma.
+5. No Story 4, renderizar apenas a pergunta. Adicionar as duas opções da enquete como sticker nativo do Instagram, não como texto rasterizado na imagem.
+6. Conferir foreground, midground e background, a hierarquia tipográfica, safe zones, contraste e leitura em tela de celular. Rejeitar imagens com texto acidental, pseudo-letras, pessoas deformadas, equipamentos não aprovados, telas fictícias ou elementos fora da área segura.
+7. As imagens geradas são ilustrações de contexto, não evidência de instalações, clientes ou operações reais da Guardian Seg. Se o post precisar demonstrar um equipamento ou instalação específica, substituir o asset gerado por fotografia autorizada do produto Intelbras/instalação real.
+8. Embora a copy esteja dentro do prompt, manter uma versão master editável do texto (SVG/Canva/Figma) quando a peça exigir correção literal ou reutilização futura.
 
 
 ---
