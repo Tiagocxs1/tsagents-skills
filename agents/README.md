@@ -6,6 +6,7 @@ Estes arquivos são briefs de papel reutilizáveis para subagentes ou etapas esp
 - brand-guardian.md — ativos e consistência da marca.
 - ad-creative-strategist.md — mensagem, hooks, oferta e experimentos criativos.
 - visual-critic.md — crítica independente e controle de qualidade.
+- image-prompt-art-director.md — direção de cena, tipografia, camadas e prompts com copy literal, neutro de marca.
 - editorial-art-director.md — direção de arte e arquitetura de revistas, e-books e flipbooks.
 - social-intelligence-researcher.md — pesquisa de público, concorrentes, fontes e lacunas editoriais; neutro de marca.
 - social-content-strategist.md — posicionamento editorial, pilares, mix e calendário; neutro de marca.
