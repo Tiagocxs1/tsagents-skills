@@ -178,6 +178,8 @@ Usar os campos abaixo como plano de construção. O prompt final pode ser escrit
 - Typography: família/categoria, peso, hierarquia, escala, alinhamento, leading, tracking, quebras e posicionamento.
 - Exact copy: cada bloco literal entre aspas, com instrução “render exactly, once”.
 - Graphic layers: overlays, shapes, masks e logo placeholder.
+- Target adapter: plataforma/interface, modelo/versão, modo de geração/edição e documentação consultada.
+- External controls: proporção, resolução, batch, referências e campos dedicados que devem ser configurados fora do prompt.
 - Constraints: itens proibidos, claims, assets e marca.
 
 Usar inglês para descrever a cena se isso ajudar o modelo escolhido, mas preservar a copy em seu idioma original, literalmente e entre aspas. Não traduzir frases da arte.
@@ -203,7 +205,51 @@ Usar inglês para descrever a cena se isso ajudar o modelo escolhido, mas preser
 - Variar direção visual de acordo com a mensagem, não usar template automático.
 - Confirmar preço, condições e claims antes de incluí-los.
 
-## 9. Roteamento do gerador
+## 9. Adaptar o prompt a cada modelo e plataforma — obrigatório
+
+**Não existe um prompt universal que deva ser copiado sem alterações para todos os geradores.** O briefing visual master é a fonte comum de verdade, mas cada destino recebe uma versão de prompt própria, otimizada para seu modelo e sua interface/API.
+
+### Identificar o destino exato
+
+Antes de escrever o prompt de execução, identificar:
+- Plataforma/interface de uso (por exemplo, Google Flow, ChatGPT Images, ComfyUI, fal.ai ou API direta).
+- Modelo e, quando disponível, versão/ID exato selecionado dentro da plataforma.
+- Modo de operação: geração do zero, edição com referência, variação, inpainting/outpainting ou lote.
+- Formato e parâmetros que a interface aceita fora do texto do prompt.
+
+Não confundir plataforma com modelo: Google Flow é uma interface que pode oferecer diferentes modelos; o prompt deve refletir o motor efetivamente selecionado. Se o usuário disser apenas "Flow" e não for possível determinar o modelo selecionado, não inventar. Consultar a seleção atual quando acessível ou perguntar qual modelo está ativo.
+
+### Criar um adapter independente por destino
+
+Para cada combinação plataforma + modelo:
+1. Consultar documentação oficial atual e/ou referências confiáveis do modelo. Não presumir que recursos, sintaxe, limites ou parâmetros sejam iguais entre versões.
+2. Adaptar a ordem das instruções, nível de detalhe, idioma, extensão e vocabulário ao modo como aquele modelo responde melhor.
+3. Identificar suporte real a texto na imagem, idioma/acentos, uso de imagem de referência, preservação de identidade/objeto, edição localizada, proporções, resolução, batch/quantidade, seed e controles negativos.
+4. Usar campos/controles dedicados da interface/API quando existirem. Não escrever no prompt parâmetros que pertencem a campos externos, nem inventar parâmetros não documentados.
+5. Distinguir restrições que o modelo realmente interpreta de simples listas de "negative prompt". Se o campo negative prompt não existir ou não for suportado, converter as restrições em instruções claras no corpo do prompt.
+6. Ajustar o prompt à tarefa específica: geração de imagens independentes em lote, edição de referência, variações consistentes, texto tipográfico ou imagem base sem texto.
+7. Definir proporção, resolução, número de imagens e demais opções nos controles oficiais do destino quando disponíveis, documentando o que precisa ser configurado fora do prompt.
+8. Fazer um pequeno teste de aderência antes de um lote grande quando houver incerteza relevante, principalmente para copy nativa, marca/produto e consistência.
+
+### Regra de entrega multi-modelo
+
+- Se o usuário indicar um único modelo/plataforma, entregar somente a versão otimizada para esse destino.
+- Se indicar vários, entregar uma versão independente para cada combinação plataforma + modelo. Não reutilizar o mesmo texto com apenas o título trocado.
+- Cada versão deve conter a mesma direção criativa e a mesma copy aprovada, mas pode mudar ordem, concisão, vocabulário, formato e instruções técnicas conforme o destino.
+- Em carrosséis, dentro de cada versão de plataforma/modelo, agrupar todos os slides em um único bloco copiável; não misturar modelos diferentes no mesmo bloco. Cada slide continua sendo uma imagem independente.
+- Identificar cada seção com o nome da plataforma, o modelo e, quando conhecido, sua versão/ID.
+- Incluir uma nota curta de parâmetros externos que precisam ser selecionados na interface/API (proporção, tamanho, quantidade, referência, modo de edição ou batch).
+- Se um modelo não suportar uma exigência crítica — por exemplo, texto longo exato — indicar a limitação e adaptar para hybrid/editable typography em vez de fingir suporte equivalente.
+
+### Quando o destino não foi informado
+
+Primeiro usar o destino explicitamente solicitado ou já estabelecido no contexto da tarefa. Caso continue ambíguo e a diferença altere materialmente o prompt, fazer uma única pergunta objetiva sobre a plataforma/modelo alvo. Não gerar versões para dezenas de plataformas por padrão e não entregar um único prompt genérico como se fosse otimizado para todas.
+
+### Briefing master versus prompt de execução
+
+Manter internamente um briefing master neutro com conceito, sujeito, enquadramento, iluminação, materiais, paleta, copy, camadas e restrições. Não entregar esse briefing como se fosse o prompt final multiuso. Derivar dele os adapters específicos de execução. Assim, a campanha permanece consistente, sem forçar a mesma gramática em modelos diferentes.
+
+## 10. Roteamento do gerador
 
 - Verificar ferramentas já disponíveis e o registro docs/visual-tool-registry.md.
 - Para texto dentro da imagem, preferir modelos com capacidade demonstrada de composição tipográfica e texto no idioma desejado; fazer teste pequeno antes de lote.
@@ -211,7 +257,7 @@ Usar inglês para descrever a cena se isso ajudar o modelo escolhido, mas preser
 - mcp-image tem uma skill de prompt independente de seu servidor, mas o MCP de geração exige chave de API de um provedor externo. Não instalar nem chamar o servidor sem validar credenciais, preços, Node e custo do modelo.
 - Midjourney MCPs de terceiros não devem ser usados como integração automatizada: verificar API oficial e termos do serviço antes de qualquer sugestão.
 
-## 10. QA obrigatório do resultado
+## 11. QA obrigatório do resultado
 
 Após gerar:
 1. Conferir cada palavra, acento, pontuação e repetição da copy.
@@ -238,7 +284,7 @@ Antes de aprovar o prompt e a imagem, verificar:
 
 Rejeitar prompts que só acumulam adjetivos ou parâmetros de câmera sem uma decisão visual clara. Preferir menos instruções, mas específicas e verificáveis.
 
-## 11. Multi-marca
+## 12. Multi-marca
 
 Esta skill não contém paleta, fontes, serviços ou tom de uma marca específica. Sempre recebe esses dados de brands/<slug>/. Não transportar identidade, cenários ou equipamentos de um cliente para outro.
 
