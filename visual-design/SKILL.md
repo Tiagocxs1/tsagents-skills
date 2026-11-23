@@ -43,8 +43,21 @@ Planejar:
 5. Paleta: função das cores, contraste e vínculo com a marca.
 6. Imagem: fotografia, ilustração, vetor, textura, recorte, luz e tratamento.
 7. Um elemento distintivo memorável, em vez de vários enfeites.
+8. Se houver imagem fotográfica ou gerada, direção de fotografia coerente com o conceito: ponto de vista, enquadramento, perspectiva, foco/profundidade, iluminação, materialidade, cor e acabamento.
+9. Em campanhas/séries, sistema visual comum com variação deliberada de cena, escala, recorte, composição e ritmo por peça.
 
 Selecionar uma linguagem adequada: editorial, tipográfica, geométrica, fotográfica, minimalista, brutalista, premium, retrô, lúdica ou outra que faça sentido. Não usar sempre a mesma estética.
+
+### Direção de imagem e acabamento fotográfico
+
+Quando a imagem for protagonista, não aceitar apenas uma descrição do assunto. Consultar `layered-image-prompting/SKILL.md` e definir os controles que realmente importam:
+- câmera/ponto de vista, escala do plano, ângulo, perspectiva e foco;
+- luz principal, preenchimento/recorte, fontes do ambiente, contraste e temperatura;
+- comportamento realista de materiais, superfícies, pele e reflexos;
+- tratamento de cor, distribuição de sombras/highlights e efeitos com intensidade controlada;
+- integração da fotografia com tipografia e grafismos, quando a peça contiver texto.
+
+Não preencher o prompt com jargão técnico irrelevante, valores aleatórios de lente ou efeitos da moda. Parâmetros devem resolver problemas reais de composição, realismo ou narrativa.
 
 ## 4. Padrões de acabamento
 
