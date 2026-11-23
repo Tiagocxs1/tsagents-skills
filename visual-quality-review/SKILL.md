@@ -80,7 +80,23 @@ Para cada SVG/HTML com fotografia, logo ou ilustração:
 HTTP 200, Content-Type, XML válido ou uma tag de imagem presente não contam como prova visual. Se só a estrutura foi testada, declarar que a revisão visual não foi concluída.
 
 
-## 9. Gate específico de tipografia publicitária
+## 9. Gate de direção fotográfica e imagem gerada
+
+Quando houver fotografia, imagem gerada ou produto/ambiente realista, avaliar:
+- O conceito tem uma ideia e um protagonista visual claros, além de simplesmente representar o tema?
+- O ponto de vista, escala do plano, ângulo, perspectiva e distância focal escolhida (quando declarada) favorecem a cena ou geram distorções?
+- O plano de foco e a profundidade de campo guiam o olhar sem apagar o contexto necessário?
+- A iluminação tem direção e lógica? Luz principal, preenchimento, recorte, luz ambiente, contraste e temperatura são coerentes entre os objetos?
+- Materiais, superfícies, pele, vidro, metal, madeira, água e reflexos parecem fisicamente plausíveis?
+- Cor, sombras, highlights, saturação e atmosfera formam um tratamento tonal intencional?
+- Efeitos como grain, bloom, haze, flare, glow ou vinheta são controlados e justificáveis, ou apenas decorativos?
+- A interação entre pessoas e objetos é natural e anatomicamente/fisicamente coerente?
+- Produtos, modelos, logotipos, interfaces e instalações respeitam as referências reais disponíveis?
+- Em uma série, há variedade planejada de enquadramento, escala, ponto focal e composição, sem perder a unidade da marca?
+
+Não aprovar descrições que dependam apenas de palavras como “cinematográfico”, “realista” ou “premium”. A revisão deve apontar escolhas visuais observáveis e problemas concretos. Não exigir lente, sensor ou esquema de luz específico quando a peça não depende disso.
+
+## 10. Gate específico de tipografia publicitária
 
 Para posts, anúncios e pôsteres, a nota de tipografia não pode passar apenas por legibilidade. Avaliar também desenho e direção de arte:
 - A família display foi escolhida por personalidade ou é fallback de sistema/documento?
