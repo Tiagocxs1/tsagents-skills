@@ -1,11 +1,11 @@
 ---
 name: layered-image-prompting
-description: Engenharia de prompts visuais para imagens com copy, direção tipográfica e profundidade em camadas. Use antes de gerar qualquer arte social, anúncio, capa, cartaz, thumbnail ou peça gráfica com texto.
+description: Engenharia universal de prompts para fotografia, imagens de produto, ilustração e artes com ou sem copy. Define conceito, cinematografia, iluminação, materialidade, composição, tipografia, camadas e QA para qualquer fluxo de geração visual.
 ---
 
 # Layered Image Prompting — TS Digitais
 
-Skill neutra de marca para transformar uma copy aprovada e uma direção visual em prompts prontos para modelos de imagem. Combina direção de arte, planos de profundidade, composição tipográfica, integração imagem-texto, camadas gráficas e revisão de saída.
+Skill universal e neutra de marca para transformar briefing, assunto e intenção visual em prompts prontos para modelos de imagem — com ou sem texto. Abrange fotografia, lifestyle, retrato, produto, arquitetura, ilustração, pôster, publicidade, conteúdo social e séries visuais. Combina conceito, direção cinematográfica, óptica, iluminação, materialidade, cor, planos espaciais, composição tipográfica, camadas gráficas e revisão de saída. Não é uma lista de efeitos obrigatórios: cada parâmetro deve ser escolhido por sua função no resultado.
 
 ## 1. Consultar as fontes corretas
 
@@ -93,6 +93,37 @@ Antes do prompt final, decidir:
 - Ritmo entre peças de uma série: manter paleta, contraste e tratamento coerentes, mas variar enquadramentos e composições.
 
 Não criar uma grade de cards, molduras, badges, gradientes ou glassmorphism apenas para cumprir um checklist. Uma técnica só entra quando sustenta a mensagem.
+
+### 4.1 Direção cinematográfica, óptica e fotografia
+
+Para fotografias, cenas realistas, imagens de produto e publicidade, não parar em adjetivos como “cinematográfico”, “premium” ou “realista”. Traduzir a intenção em escolhas visuais observáveis, quando relevantes:
+
+- **Ponto de vista:** altura e posição da câmera, ângulo, distância do assunto e relação do observador com a cena.
+- **Enquadramento:** plano geral/médio/close/detalhe, orientação, perspectiva, linhas de fuga, regra ou quebra deliberada de eixo, espaço negativo, recorte e silhueta.
+- **Lente e perspectiva:** distância focal aproximada apenas quando ajudar a controlar perspectiva, compressão, escala e distorção. Não despejar marcas e números de câmera sem finalidade.
+- **Foco e profundidade:** sujeito que deve estar nítido, planos que podem desfocar, profundidade de campo coerente com a narrativa e leitura da imagem.
+- **Movimento:** congelamento, rastro ou sensação de movimento quando a ação exigir; não adicionar motion blur automaticamente.
+- **Luz:** declarar direção e qualidade da luz principal; considerar preenchimento, recorte/contra-luz, luz ambiente e fontes práticas da própria cena. Indicar contraste, dureza/difusão, temperatura e interação com superfícies. Usar Rembrandt, split, softbox, rim light ou outros esquemas só quando servirem ao assunto.
+- **Materialidade:** descrever superfícies específicas — vidro, metal escovado, plástico, concreto, madeira, tecido, pele, água — com reflexos, rugosidade, translucidez, desgaste e microtextura plausíveis. Evitar “textura premium” sem dizer onde e como ela aparece.
+- **Cor e finalização:** estabelecer relação entre sombras, meios-tons e highlights; cores quentes/frias; saturação; contraste; roll-off de altas luzes e atmosfera. Grain, halation, bloom, haze, flare, vinheta ou aberração cromática são opcionais e devem ter intensidade e função controladas.
+- **Realismo físico:** manter proporções, anatomia, gravidade, perspectiva, contato e interação coerentes. Em produto, respeitar a referência disponível, dimensões e detalhes reais; não inventar marca, modelo, botões, sensores ou interfaces.
+- **Direção de arte:** definir o elemento visual distintivo que dá personalidade à peça — ação, metáfora, escala, recorte, cor, silhueta ou contraste — em vez de acumular efeitos.
+
+Não é obrigatório especificar todos os itens em toda imagem. Uma still life minimalista pode dispensar lente precisa; uma imagem vetorial não precisa de parâmetros de sensor; um fundo abstrato pode não ter assunto humano. A regra é escolher os controles que mudam materialmente o resultado e descrevê-los de modo concreto.
+
+### 4.2 Referências visuais e variedade entre peças
+
+Quando houver uma ou mais referências:
+- Identificar o que cada referência controla: conceito, enquadramento, escala, iluminação, paleta, material, tipografia, ritmo ou acabamento.
+- Extrair princípios específicos sem copiar automaticamente a peça inteira, seu texto, logo, personagens ou elementos protegidos.
+- Não tratar várias referências diferentes como uma mistura indiscriminada; atribuir a cada uma uma função.
+- Dizer explicitamente o que deve permanecer e o que deve mudar.
+
+Em séries, campanhas e carrosséis, montar antes uma pequena matriz visual por peça/slide: papel narrativo, assunto focal, tipo de plano, ângulo, linguagem fotográfica, estrutura de composição, tratamento de luz/cor e papel da tipografia. Manter um sistema reconhecível de marca, mas variar enquadramento, escala, ponto focal, recorte e ritmo. Não repetir automaticamente “texto à esquerda + foto à direita”, nem reutilizar a mesma fachada/cena em todas as telas. A repetição só é válida quando intencional e funcional.
+
+### 4.3 Composição gráfica integrada
+
+Quando a imagem for uma peça publicitária completa, definir a relação entre fotografia e grafismos: linhas, molduras, contornos, faixas, placas, selos, divisores, máscaras, tipografia ou áreas de logo. Especificar posição, espessura, escala, contraste e função. Usar poucos elementos com propósito; não aplicar estética HUD, neon, glassmorphism, badges ou rodapés tecnológicos por padrão.
 
 ## 5. Direção tipográfica
 
@@ -190,6 +221,22 @@ Após gerar:
 5. Conferir formato, safe zones, cortes e legibilidade em tamanho real/mobile.
 6. Se o texto estiver errado ou ilegível, não declarar aprovado. Corrigir com geração orientada ou reconstruir os blocos como texto vetorial/editável.
 7. Para peças finais com texto comercial exato, preferir master editável em SVG/Figma/Canva mesmo que a geração inicial já traga a copy.
+
+### Gate adicional de direção visual
+
+Antes de aprovar o prompt e a imagem, verificar:
+- O conceito visual traduz uma ideia específica ou é apenas uma cena genérica?
+- O ponto focal é dominante e tem escala suficiente?
+- Enquadramento, perspectiva, lente aproximada e profundidade de campo são coerentes com a intenção?
+- A iluminação tem direção, lógica, contraste e continuidade entre os planos?
+- Materiais e superfícies possuem textura/reflexos plausíveis, sem aspecto plástico genérico?
+- O tratamento de cor e os efeitos têm intenção e não mascaram o assunto?
+- A fotografia tem uma assinatura visual própria, sem sacrificar naturalidade?
+- Em série, a composição deste item é distinta das demais sem perder a unidade da campanha?
+- A referência foi usada apenas nos aspectos autorizados e indicados?
+- O produto, pessoa, local, dispositivo e marca foram representados com fidelidade ao material fornecido?
+
+Rejeitar prompts que só acumulam adjetivos ou parâmetros de câmera sem uma decisão visual clara. Preferir menos instruções, mas específicas e verificáveis.
 
 ## 11. Multi-marca
 
