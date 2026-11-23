@@ -59,6 +59,21 @@ Para posts e criativos de impacto, a direção tipográfica deve ser definida no
 
 As faixas métricas e o workflow estão em `typography-master/SKILL.md` e no capítulo “Tipografia publicitária como direção de arte” do Prompt Mestre.
 
+### 3.2 Direção de fotografia e assinatura visual
+
+Quando a peça usar fotografia ou imagem gerada, definir o tratamento visual junto ao conceito — não apenas o tema da foto:
+- Escolher um assunto focal e uma ação/gesto que expliquem a mensagem sem depender do texto.
+- Determinar ponto de vista, plano, ângulo, perspectiva, distância e foco. Lente aproximada só quando controlar perspectiva ou compressão de forma útil.
+- Especificar a lógica da luz: direção, qualidade, contraste, temperatura, fontes práticas, reflexos e recorte quando necessários.
+- Dar materialidade às superfícies que realmente aparecem; evitar descrições vagas como “visual premium”.
+- Definir contraste e tratamento tonal (sombras, highlights, calor/frieza, saturação e atmosfera) coerentes com a marca.
+- Usar um elemento visual distintivo e memorável; não confundir acabamento com quantidade de efeitos.
+- Em imagens com pessoas, dirigir a interação e a linguagem corporal naturalmente; em produtos, respeitar referências verificadas e não inventar detalhes.
+
+Para carrosséis e campanhas, planejar a variação antes de escrever prompts: cada tela deve ter função narrativa e composição própria. Alternar, quando apropriado, produto hero, close/interação, cena humana, arquitetura, still life, metáfora visual e slide tipográfico. Preservar paleta e linguagem de marca sem repetir o mesmo enquadramento ou a mesma distribuição texto/foto em todas as telas.
+
+Os prompts devem seguir `layered-image-prompting/SKILL.md`, que é o padrão transversal para câmera/óptica, iluminação, materialidade, cor, copy e camadas gráficas. Não transformar essas decisões em checklist mecânico: só incluir o que melhora a ideia.
+
 ## 4. Anti-template e anti-documento
 
 São sinais de alerta — não proibições absolutas:
