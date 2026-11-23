@@ -59,6 +59,7 @@ O submódulo Social Media Skills já estava presente no repositório e está fix
 Módulos selecionados para o fluxo social:
 
 - Social Media Skills: `audience-research`, `competitor-analysis`, `content-research-and-sourcing`, `social-strategy`, `content-pillars`, `content-calendar`, `batch-content-plan`, `seasonal-and-moment-marketing`, `educational-content-and-how-to`, `storytelling-and-narrative`, `hook-writer`, `caption-writer`, `carousel-writer` e `story-writer`.
+- Social Media Skills — imagem: `image-prompt/SKILL.md` e `image-prompt/references/prompt-anatomy.md`, roteadas por `layered-image-prompting/SKILL.md` para copy literal, camadas de profundidade e hierarquia tipográfica.
 - Corey Haines Marketing Skills: `content-strategy`, `customer-research`, `copywriting` e `social`.
 
 Os caminhos completos são listados em `social-content-system/SKILL.md`. Para carregá-los em outro clone, inicializar os submódulos. A existência do submódulo não significa que todas as skills estejam permanentemente carregadas em todo runtime; o roteador instrui o agente a abrir cada arquivo no momento da tarefa.
