@@ -9,7 +9,7 @@
 - **350 slides** com headline, apoio e direção de imagem.
 - **70 legendas** completas.
 - **70 Stories** de um frame, com copy e interação sugerida.
-- **840 prompts de imagem:** 420 adaptados para ChatGPT Images e 420 para Google Flow / Nano Banana Pro. São duas rotas alternativas para gerar o mesmo conjunto de peças; não é necessário gerar duas versões de cada imagem.
+- **700 prompts de carrossel em blocos copiáveis:** 350 blocos para ChatGPT Images e 350 para Google Flow / Nano Banana Pro. Cada carrossel tem exatamente dois campos de prompt: um único bloco contendo os cinco slides para ChatGPT e outro único bloco contendo os mesmos cinco slides para Flow. Os prompts dos 70 Stories permanecem em campos separados por modelo (140 blocos). São rotas alternativas; escolha apenas um gerador por peça.
 - Arquivos divididos em **10 lotes semanais**, para facilitar a execução, revisão e substituição de peças.
 
 ## Arquivos por semana
@@ -35,7 +35,7 @@ A ideia é interromper o scroll com uma headline curta e dominante, ponto focal 
 
 ## Como produzir
 
-1. Abra o lote da semana e use o prompt correspondente ao gerador escolhido.
+1. Abra o lote da semana. Em cada carrossel, copie **o bloco inteiro** do modelo escolhido: todos os cinco slides já estão no mesmo campo, separados pelos marcadores `SLIDE 1/5` a `SLIDE 5/5`. Não copie slide por slide. Para Stories, copie o bloco individual do gerador escolhido.
 2. Gere **um arquivo por prompt**, sem pedir um mosaico ou uma folha de contato.
 3. Para carrossel, exporte todos os slides em **4:5 (referência de layout: 1080 × 1350)**. Para Story, use **9:16 (1080 × 1920)**.
 4. No Google Flow, selecione manualmente o modo de imagem e **Nano Banana Pro** para estes prompts; não deixe o Agent encaminhar para outro modelo. Confira a proporção e a quantidade na interface.
