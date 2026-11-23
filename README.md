@@ -146,6 +146,7 @@ Os submódulos preservam o código e os arquivos originais sem modificações. O
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-design
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill social-media-creative
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill advertising-creative
+npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill social-content-system
     npx skills add https://github.com/Tiagocxs1/tsagents-skills --skill visual-quality-review
 
 Instalar os módulos adicionais apenas quando necessários. O AGENTS.md é lido automaticamente apenas por agentes/ambientes que adotem esse padrão; o ChatGPT também precisa consultar os arquivos pelo conector GitHub quando iniciar uma tarefa visual.
