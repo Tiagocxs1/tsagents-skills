@@ -2,7 +2,7 @@
 
 Framework de composição arquitetônica para design visual em camadas, com profundidade, assets 3D, fotografia, glassmorfismo e componentes funcionais.
 
-**Carregue esta skill PARA QUALQUER design que precise de qualidade premium.** Deve ser usada EM CONJUNTO com a skill de output (social-posts-html, banner-design, etc.).
+**Escopo:** esta skill é voltada principalmente a composições codificadas (HTML/CSS/SVG), interfaces, peças com camadas z-index, cards e assets gráficos. Para prompts fotográficos e profundidade espacial da cena, use também layered-image-prompting/SKILL.md; não trate z-index como sinônimo de foreground/midground/background.
 
 ---
 
@@ -52,8 +52,8 @@ CTA:   [gradiente com glow? outline? pill?]
 - [ ] Tem foto real? (Unsplash, Pexels)
 - [ ] Precisa de ícone? (Phosphor)
 
-### 3. Técnicas Selecionadas (mínimo 5-6)
-Marque quais vai usar antes de começar e NÃO ABRA MÃO:
+### 3. Técnicas Selecionadas (apenas as justificadas)
+Marque somente as técnicas que servem ao conceito. Não existe quantidade mínima obrigatória; não force gradientes, 3D, glassmorphism, cards ou efeitos em peças fotográficas ou marcas cujas diretrizes não os comportem:
 - [ ] Gradiente atmosférico múltiplo (2-3 radiais)
 - [ ] Grid estrutural (linhas verticais ou guias)
 - [ ] 3D asset real (não CSS sphere)
@@ -66,6 +66,10 @@ Marque quais vai usar antes de começar e NÃO ABRA MÃO:
 - [ ] Badge premium com dot glow
 
 ---
+
+## Roteamento para fotografia e prompts
+
+Esta skill não substitui direção de cena. Quando o objetivo for gerar uma fotografia, ilustração ou imagem publicitária, planeje foreground, midground, background, foco, perspectiva e espaço negativo em layered-image-prompting/SKILL.md. Use esta skill apenas para as camadas gráficas que serão compostas em HTML/SVG/Figma/Canva, e selecione só as técnicas compatíveis com a marca.
 
 ## Técnicas (com código)
 
