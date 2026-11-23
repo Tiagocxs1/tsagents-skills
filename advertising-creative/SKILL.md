@@ -30,6 +30,8 @@ Escolher formato adequado: demonstração, produto em uso, comparação honesta,
 
 Para cada conceito, definir uma ideia visual específica e seu protagonista: produto, pessoa em ação, ambiente, metáfora ou tipografia. Quando usar fotografia/geração, aplicar `layered-image-prompting/SKILL.md`: enquadramento e perspectiva, câmera/lente quando úteis, foco, luz, materialidade, cor e acabamento. Conceitos do mesmo lote precisam explorar caminhos visuais realmente distintos, não apenas trocar headline ou cor. Não inventar produto, interface, instalação, cliente ou prova visual.
 
+**Adaptação por gerador:** antes de entregar prompts executáveis, identificar plataforma/interface, modelo/versão e modo. Criar um prompt específico por destino solicitado, com a mesma ideia/copy/prova mas gramática, extensão, suporte a texto, uso de referência, edição, negative prompt e parâmetros externos adaptados ao modelo. Não presumir que a mesma descrição será igualmente eficaz em Flow, GPT Image, ComfyUI, fal.ai ou outras plataformas. Consultar documentação oficial atual e não inventar controles. Se o destino for ambíguo e isso mudar o prompt, perguntar qual será usado.
+
 ## 3. Criativos testáveis
 Quando fizer sentido, desenvolver:
 - Três conceitos visualmente distintos para explorar caminhos.
