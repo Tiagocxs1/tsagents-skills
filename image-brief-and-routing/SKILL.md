@@ -22,7 +22,7 @@ Definir em linguagem natural:
 - Paleta e tratamento tonal: sombras, highlights, saturação, relação quente/frio e efeitos opcionais.
 - Estilo, clima, acabamento e elemento visual distintivo.
 - Proporção/resolução e destino.
-- Restrições: sem texto, sem logo inventado, sem marca d'água, sem deformações ou elementos não desejados.
+- Restrições: definir se a imagem deve conter texto ou permanecer sem texto conforme o modo escolhido; não inventar logos, marcas d'água, deformações, produtos, interfaces ou outros elementos não desejados.
 - Referências fornecidas e o que cada uma controla.
 
 Evitar prompts recheados de tokens como masterpiece/8k ou listas de câmera sem função. Descrever escolhas visuais que controlem concretamente o resultado: ponto de vista, plano, perspectiva, foco, iluminação, materialidade, cor e acabamento conforme a finalidade.
