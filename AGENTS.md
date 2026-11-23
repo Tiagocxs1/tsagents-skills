@@ -13,6 +13,7 @@ Estas regras são obrigatórias para qualquer tarefa que produza, edite, convert
 7. Consultar docs/visual-tool-registry.md para escolher o fluxo e a ferramenta adequados.
 8. Para copywriting, estratégia, UX/UI, SEO, analytics, dados brasileiros ou integrações comerciais, consultar docs/UPSTREAM-ARSENAL.md e abrir a skill/README original pertinente antes de iniciar. Não carregar coleções inteiras sem necessidade; selecionar os módulos relevantes.
 9. Para qualquer pauta, calendário, pesquisa de audiência/concorrentes, copy orgânica, Stories, carrossel ou campanha social, consultar obrigatoriamente `social-content-system/SKILL.md`. Essa skill coordena pesquisa, estratégia, copy e mensuração para qualquer marca; abrir os módulos upstream exatos indicados nela e os perfis de agentes correspondentes. Usar `templates/brand-social-foundation.md` como base neutra e manter fatos específicos em `brands/<slug>/`.
+10. Para prompts de imagem com copy, anúncios, capas, cartazes, thumbnails ou qualquer cena visual gerada, consultar `layered-image-prompting/SKILL.md`, `image-brief-and-routing/SKILL.md` e o perfil `agents/image-prompt-art-director.md`. Para conteúdo social, abrir também `upstream/social-media-skills/skills/image-prompt/SKILL.md`. O prompt deve incluir a copy aprovada e definir planos foreground/midground/background, tipografia, composição e camadas gráficas. Em carrosséis, todos os prompts ficam em um único bloco copiável, um prompt completo por slide.
 
 ## Regras inegociáveis
 
@@ -80,6 +81,7 @@ Quando a plataforma permitir subagentes, consultar os perfis em agents/:
 - social-content-strategist.md: estratégia social, pilares, calendário e briefs.
 - social-copywriter.md: hooks, legendas, carrosséis e Stories com copy completa.
 - social-performance-analyst.md: análise de métricas e aprendizado editorial.
+- image-prompt-art-director.md: direção de cena, tipografia, camadas e prompts com copy literal.
 - editorial-art-director.md: direção e arquitetura de revistas, magazines, e-books e flipbooks.
 
 Se não houver delegação real, executar esses papéis como etapas sequenciais. Não alegar paralelismo que não ocorreu.
@@ -87,6 +89,8 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 ## Módulos especializados adicionais
 
 - Para post único, Story, capa de Reel, thumbnail e criativo social estático, consultar obrigatoriamente `social-first-art-direction/SKILL.md`. É uma regra transversal e neutra de marca: direção visual, imagem dominante, anti-documento, direitos de imagem e inspeção real dos assets.
+
+- Para prompts de imagem com texto, consultar `layered-image-prompting/SKILL.md`. Distinguir planos espaciais (foreground, midground, background) de camadas gráficas (imagem, overlays, tipografia e logo). Incluir a copy literal, definir modo native/editable/hybrid e conferir o texto renderizado. Não forçar técnicas de UI/HTML em fotografia.
 
 - Para revistas digitais, magazines, e-books diagramados e flipbooks, consultar obrigatoriamente `editorial-magazine/SKILL.md` e o perfil `agents/editorial-art-director.md`. O fluxo inclui direção de arte, arquitetura página a página, copy dimensionada, sistema de margens/grid/tipografia, páginas-piloto e revisão visual completa antes da publicação.
 
