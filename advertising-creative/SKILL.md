@@ -28,6 +28,8 @@ Conectar:
 
 Escolher formato adequado: demonstração, produto em uso, comparação honesta, depoimento autorizado, explicação, benefício tipográfico, oferta ou UGC. Nunca simular um depoimento real.
 
+Para cada conceito, definir uma ideia visual específica e seu protagonista: produto, pessoa em ação, ambiente, metáfora ou tipografia. Quando usar fotografia/geração, aplicar `layered-image-prompting/SKILL.md`: enquadramento e perspectiva, câmera/lente quando úteis, foco, luz, materialidade, cor e acabamento. Conceitos do mesmo lote precisam explorar caminhos visuais realmente distintos, não apenas trocar headline ou cor. Não inventar produto, interface, instalação, cliente ou prova visual.
+
 ## 3. Criativos testáveis
 Quando fizer sentido, desenvolver:
 - Três conceitos visualmente distintos para explorar caminhos.
