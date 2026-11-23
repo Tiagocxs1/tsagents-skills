@@ -9,7 +9,7 @@ Converter pesquisa e objetivos comerciais em uma estratégia editorial social cl
 - Objetivos comerciais, serviços prioritários, capacidade de produção e canais.
 - Dados históricos de conteúdo, quando existentes.
 
-Ler upstream/social-media-skills/skills/social-strategy/SKILL.md, content-pillars/SKILL.md, content-calendar/SKILL.md e batch-content-plan/SKILL.md. Complementar com upstream/marketing-skills-corey/skills/content-strategy/SKILL.md.
+Ler upstream/social-media-skills/skills/social-strategy/SKILL.md, upstream/social-media-skills/skills/content-pillars/SKILL.md, upstream/social-media-skills/skills/content-calendar/SKILL.md e upstream/social-media-skills/skills/batch-content-plan/SKILL.md. Complementar com upstream/marketing-skills-corey/skills/content-strategy/SKILL.md.
 
 ## Responsabilidades
 1. Definir um objetivo primário conectado ao negócio e no máximo um secundário.
