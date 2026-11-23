@@ -97,6 +97,17 @@ O workflow OTTO é opcional e está em [templates/github-actions/otto-privacy-re
 | [motion-design](./motion-design/SKILL.md) | Vídeos, animações e motion graphics |
 | [visual-quality-review](./visual-quality-review/SKILL.md) | Revisão de qualidade antes da entrega |
 
+## Sistema de conteúdo social multi-marca
+
+| Recurso | Uso |
+|---|---|
+| [Social Content System](./social-content-system/SKILL.md) | Orquestra pesquisa, estratégia, copy, calendário, direção visual e análise para qualquer marca |
+| [Brand Social Foundation](./templates/brand-social-foundation.md) | Modelo neutro para registrar públicos, posicionamento, pilares, voz, ativos e métricas de cada cliente |
+| [Social Post Brief](./templates/social-post-brief.md) | Brief obrigatório por publicação: evidência, público, hook, copy completa, visual e QA |
+| [Métricas no Google Sheets](./docs/SOCIAL-METRICS-GOOGLE-SHEETS.md) | Arquitetura direta via Apps Script e APIs oficiais Google; conexão depende de autorização da conta proprietária |
+
+Agentes reutilizáveis: [Social Intelligence Researcher](./agents/social-intelligence-researcher.md), [Social Content Strategist](./agents/social-content-strategist.md), [Social Copywriter](./agents/social-copywriter.md) e [Social Performance Analyst](./agents/social-performance-analyst.md). Os agentes não carregam identidade de cliente: leem o Brand Profile específico em brands/<slug>/.
+
 ## Perfis de agentes criativos
 
 - [Creative Director](./agents/creative-director.md)
