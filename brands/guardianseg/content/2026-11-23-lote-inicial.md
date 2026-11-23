@@ -124,41 +124,153 @@ Manter a mesma linguagem em todo o lote: fotografia comercial fotorrealista, con
 
 ## PEÇA 01 — CARROSSEL (4:5 vertical, 1080 × 1350)
 
-### Prompt único — carrossel completo (6 imagens independentes)
+### Prompt único — carrossel completo com copy e tipografia (6 imagens independentes)
 
-Copie este bloco inteiro. Gere **6 arquivos de imagem separados**, um para cada slide abaixo, mantendo a mesma direção fotográfica. Não monte uma colagem, mosaico, prancha ou imagem única com seis quadros. Cada item é um prompt completo para uma imagem individual.
+Copie este bloco inteiro. Cada seção gera um arquivo de imagem separado. Não criar colagem, mosaico, storyboard ou imagem única com seis quadros. Os textos entre aspas devem ser renderizados exatamente uma vez, em português brasileiro. Não desenhar o logo Guardian Seg; ele será aplicado manualmente depois.
 
 ```text
-========== SLIDE 1 / CAPA ==========
+========== SLIDE 01 — CAPA ==========
 
-Fotografia publicitária fotorrealista vertical 4:5, 1080x1350, para a capa de um carrossel profissional sobre soluções de portaria para condomínios no Brasil. Mostrar a entrada de um condomínio residencial contemporâneo de Florianópolis, arquitetura elegante de vidro, concreto e madeira, perspectiva em três quartos a partir da calçada, acesso principal claramente reconhecível e iluminação natural de fim de tarde. A cena transmite organização, cuidado e confiança, sem parecer luxuosa demais ou artificial. Composição editorial com o edifício e a entrada ocupando principalmente o lado direito e a região inferior; reservar área negativa ampla, escura e relativamente uniforme no lado esquerdo/superior para receber headline posteriormente. Profundidade realista, linhas arquitetônicas limpas, fotografia de campanha corporativa premium, contraste moderado, tons neutros e sombras azul-marinho sutis. A imagem deve funcionar como fundo de design; não inserir nenhum elemento gráfico nem texto.
-Sem pessoas em primeiro plano, sem porteiro em guarita, sem câmeras ou leitores em close, sem telas, sem equipamentos identificáveis, sem logos, sem texto, sem watermark, sem verde saturado, sem estética futurista.
+One standalone 4:5 vertical social carousel cover, 1080x1350, for a Brazilian electronic-security company. Visual concept: a contemporary residential condominium entrance in Florianópolis at late afternoon, photographed with calm, organized and trustworthy atmosphere. Premium editorial advertising photography, realistic glass, concrete and wood, natural proportions and restrained contrast.
 
-========== SLIDE 2 / PORTARIA REMOTA ==========
+SCENE DEPTH:
+Foreground: one subtle, softly defocused architectural edge near the lower-right, giving the viewer a sense of standing outside the entrance; it must not cross the text area.
+Midground: the condominium entrance and glass access doors, the main visual subject, positioned on the right half.
+Background: the depth of the residential building and a quiet, softly lit sky, less detailed and lower contrast than the entrance.
 
-Fotografia publicitária fotorrealista vertical 4:5, 1080x1350, mostrando uma situação cotidiana de acesso em um condomínio residencial brasileiro contemporâneo: um visitante adulto aguarda de forma tranquila na área externa coberta da entrada, enquanto um morador se aproxima pelo lado interno de uma porta de vidro para recebê-lo. A arquitetura deve comunicar um acesso organizado e bem cuidado. Enquadramento em plano médio aberto, perspectiva lateral, pessoas posicionadas mais à direita, espaço negativo limpo à esquerda para texto editável. Luz natural suave, materiais reais de vidro, concreto e madeira, atmosfera profissional e acolhedora. A cena é apenas contextual e não deve representar um procedimento técnico específico nem afirmar que pessoas foram identificadas ou liberadas por um sistema. Fotografia corporativa premium, cores naturais, sombras azul-marinho discretas.
-Não mostrar guarita com funcionário, telas, interfone, leitor, catraca, câmera em close, interface digital, logotipos, marcas, texto ou watermark. Sem dramatização, sem segurança armada, sem invasão, sem verde saturado.
+COMPOSITION: asymmetrical editorial poster. Building occupies the right 55% and lower half. Reserve a broad, uninterrupted dark navy-toned negative-space area on the upper-left for typography. Keep all type inside generous mobile safe margins. No object may overlap the text.
 
-========== SLIDE 3 / PORTARIA AUTÔNOMA ==========
+TYPOGRAPHY: bold condensed grotesk display style for the headline, with strong vertical rhythm and deliberate line breaks; clean geometric sans-serif for supporting line. Headline dominant, large white letters, heavy weight, tight but readable leading, neutral-to-slightly-negative tracking. Supporting line smaller but clearly readable on a phone. Use Guardian red #CB3033 for one small underline or geometric accent and #00FFFF only as a tiny secondary accent. Main brand palette: #04344C, #CB3033, #506A76, #00FFFF and white. No green as a brand graphic color.
 
-Fotografia publicitária fotorrealista vertical 4:5, 1080x1350, de moradores adultos entrando naturalmente em um condomínio residencial brasileiro por um acesso arquitetônico amplo, limpo e bem organizado. Mostrar a área de entrada e a circulação de maneira clara, com duas pessoas em movimento natural e sem pose para a câmera. A composição deve ser diferente da imagem anterior: câmera em perspectiva frontal mais ampla, linhas de arquitetura conduzindo o olhar para o interior do edifício, pessoas mais ao fundo e área negativa no topo esquerdo para texto. Luz clara e difusa de manhã, materiais contemporâneos de vidro, concreto e madeira, sensação de praticidade e rotina tranquila. Fotografia corporativa premium e realista, sem representar um modelo específico de controle de acesso nem sugerir equipamento ou procedimento não confirmado.
-Sem catracas, leitores, fechaduras eletrônicas, interfones ou câmeras em destaque; sem telas, UI, logotipos, marcas, texto, watermark, uniformes identificáveis ou verde saturado.
+EXACT COPY TO RENDER:
+Headline: "Portaria remota e portaria autônoma: qual é a diferença?"
+Supporting line: "Entenda o que cada solução contempla antes de comparar propostas."
 
-========== SLIDE 4 / POR QUE ISSO IMPORTA? ==========
+Render each quoted text exactly once, including accents and punctuation. Do not paraphrase or add any other text. Do not create a logo; keep a clean empty area in the lower-right for the official logo to be inserted later.
 
-Fotografia editorial corporativa fotorrealista vertical 4:5, 1080x1350, mostrando uma reunião pequena e realista entre uma síndica e um administrador de condomínio analisando documentos impressos e uma planta arquitetônica sobre uma mesa de reunião. Enquadramento em plano médio visto de um ângulo lateral ligeiramente elevado; mãos apontam para a planta de forma natural, rostos discretos e sem pose. A planta deve conter apenas linhas arquitetônicas abstratas sem nomes, números ou informações legíveis. Ambiente profissional contemporâneo, luz natural suave, paleta neutra com sombras azul-marinho, composição com pessoas e documentos concentrados no lado direito e espaço negativo no alto esquerdo para receber texto. Transmitir análise cuidadosa e tomada de decisão responsável, sem parecer reunião de crise.
-Sem texto legível, dados pessoais, nomes, endereços, logotipos, telas, marcas, watermark, apertos de mão posados, ícones de escudo/cadeado ou verde saturado.
+Graphic layer order: photo background and distant building first, main entrance second, subtle foreground edge third, optional dark contrast gradient behind text fourth, typography fifth, small red accent sixth. Keep the image visually integrated, not like a dashboard or a stack of cards.
 
-========== SLIDE 5 / O QUE AVALIAR ==========
+No fake security equipment, no visible camera close-ups, no screens, dashboards, intercom UI, invented signs, invented brands, watermarks, badges, shields, padlocks, police imagery, crime scenes, weapons or futuristic effects. Do not use tiny text or illegible pseudo-lettering.
 
-Fotografia publicitária fotorrealista vertical 4:5, 1080x1350, close editorial de uma mesa de trabalho organizada onde uma pessoa responsável pela gestão condominial analisa uma planta arquitetônica impressa sem palavras ou números legíveis, com uma caneta e um caderno totalmente sem escrita. Mostrar uma das mãos acompanhando a planta, sem dedos deformados; não mostrar rostos. Composição vista de cima em ângulo de 30 graus, planta ocupando a metade inferior e direita, grande área de respiro escura e discreta no topo esquerdo para título e checklist que serão adicionados depois. Luz lateral suave, textura real de papel e mesa, visual preciso, organizado e contemporâneo. Fotografia corporativa premium, tons naturais e azul-marinho muito discreto nas sombras.
-Não incluir checkmarks, bullets, letras, números, mapas reais, endereços, dados de moradores, telas, dispositivos de segurança, logotipos, marcas, watermark ou verde saturado. Os itens do checklist serão adicionados na diagramação.
+========== SLIDE 02 — PORTARIA REMOTA ==========
 
-========== SLIDE 6 / CTA ==========
+One standalone 4:5 vertical carousel slide, 1080x1350, visually consistent with Slide 01 but with distinct composition. Show an ordinary, calm access moment at a contemporary Brazilian condominium: an adult visitor waits respectfully near the external entrance while a resident approaches from inside the glass lobby. Contextual lifestyle photography only; do not imply a specific identification, authorization or security procedure.
 
-Fotografia publicitária fotorrealista vertical 4:5, 1080x1350, mostrando a fachada e entrada acolhedora de um condomínio residencial contemporâneo em Florianópolis no início da noite, com iluminação arquitetônica quente e discreta, paisagismo moderado e linhas elegantes de vidro e concreto. A entrada deve estar visível e ser o ponto focal, transmitindo organização e cuidado. Enquadramento amplo em perspectiva de três quartos, sem pessoas em primeiro plano. Reservar espaço negativo amplo e relativamente escuro na região superior esquerda para a chamada final e área limpa no canto inferior para aplicação manual do logo oficial. Fotografia comercial premium, natural, sem brilho exagerado, sombras azul-marinho sutis e cores equilibradas.
-Sem logotipo, texto, placa com nome, número de endereço, marcas d'água, câmeras/leitores em close, interface, escudos, cadeados, efeitos de luz futuristas ou verde saturado.
+SCENE DEPTH:
+Foreground: a softly defocused vertical glass-door edge near the lower-right, subtle and secondary.
+Midground: visitor and resident in a natural, respectful interaction near the entrance, positioned on the right half; nobody poses for the camera.
+Background: condominium lobby extending into depth, glass, concrete and wood, slightly softer and lower contrast.
+
+COMPOSITION: left 43% is a clean low-detail navy shadow region for typography; people and architectural subject occupy the right half. Eye-level medium-wide shot, natural perspective, 35mm documentary-commercial photography, soft daylight from the entrance. Generous margins and clear separation between image and copy.
+
+TYPOGRAPHY: large bold condensed grotesk headline, white, broken into two or three intentional lines; body copy in a clean sans-serif with open counters and generous leading. Headline approximately three times the apparent size of body. Use a thin Guardian-red divider. White body text on a darkened but photographic background; no tiny lettering or dense cards.
+
+EXACT COPY TO RENDER:
+Headline: "Integração de sistemas e atendimento"
+Body: "A portaria remota integra comunicação, câmeras, alarme e controle de acesso. A liberação de moradores, visitantes e prestadores segue os procedimentos definidos para o condomínio."
+
+Render the two text blocks exactly once, preserving accents, commas and final period. No other wording. Reserve a small clean lower-right area for the official logo to be placed later; do not invent or render a logo.
+
+Graphic layer order: condominium background, people in the midground, subtle glass foreground, restrained navy contrast treatment behind type, headline, body, red divider. Keep the scene photographic and typography part of one deliberate poster composition.
+
+No visible security screens, monitors, UI, invented access devices, invented uniforms, badges, shields, padlocks, weapons, crime scenes, watermarks, logos or additional text. Avoid artificial smiles, staged handshakes, distorted faces or hands.
+
+========== SLIDE 03 — PORTARIA AUTÔNOMA ==========
+
+One standalone 4:5 vertical carousel slide, 1080x1350, from the same visual campaign but with a different camera position and visual rhythm. Show two adult residents entering a well-designed Brazilian condominium through a broad, orderly architectural entrance. The scene communicates everyday movement and organization, not a particular access-control device or an unverified procedure.
+
+SCENE DEPTH:
+Foreground: a near-side architectural door frame, softly blurred along the far-right edge only, adding depth without covering the subject.
+Midground: two residents walking naturally into the entrance, seen in a three-quarter rear/side view, positioned on the right side.
+Background: the lobby and interior circulation extending toward the back of the building, soft daylight and realistic architectural depth.
+
+COMPOSITION: wider frontal perspective than the previous slide. Main visual activity on the right 55%; reserve the upper-left and left-center as a calm, low-detail dark navy text zone. Natural morning light, realistic architecture, no dramatic shadows. Empty type area should feel intentional, not like a blank panel pasted over the photo.
+
+TYPOGRAPHY: heavy condensed sans-serif display headline in white, three clear lines if needed; clean sans-serif supporting text below, with comfortable line spacing. Use a restrained red accent bar and a tiny cyan detail only if it improves hierarchy. No all-caps body. Keep contrast high and type legible at phone size.
+
+EXACT COPY TO RENDER:
+Headline: "Controle de acesso com apoio remoto"
+Body: "A portaria autônoma é uma solução de controle de acesso para condomínios, com apoio remoto da central."
+
+Render each phrase exactly once, without adding any explanation or extra words. Keep a clean space near the lower-right for manual placement of the official logo. Do not generate the logo.
+
+Graphic layer order: background lobby and architecture, residents as midground subject, subtle foreground door edge, restrained shadow/overlay behind type, headline, body, one red accent. The photo and typography should read as one designed editorial poster.
+
+No turnstiles, card readers, biometric readers, locks, intercoms, cameras in close-up, screens, invented interfaces, invented procedures, logos, badges, signs, watermarks or extra text. No green graphic accents or futuristic styling.
+
+========== SLIDE 04 — POR QUE ISSO IMPORTA? ==========
+
+One standalone 4:5 vertical carousel slide, 1080x1350, within the same Guardian visual campaign. Show a realistic small meeting between a condominium manager and an administrator reviewing a printed architectural floor plan on a table. The image represents careful evaluation of a proposal, not a crisis or sales pitch.
+
+SCENE DEPTH:
+Foreground: near edge of the printed plan and a pen in soft focus, cropped at the lower edge.
+Midground: the two people reviewing the plan, with hands naturally indicating different areas; faces visible only as secondary context, not posed.
+Background: a quiet contemporary meeting room with a glass partition and softly lit architecture, low detail and lower contrast.
+
+COMPOSITION: slightly elevated three-quarter camera angle, 50mm editorial corporate photography. Place people and plan mainly on the right 60%. Reserve the upper-left quadrant as a dark navy low-detail zone for the headline and supporting paragraph. The plan contains only abstract architectural lines, no legible addresses, names, numbers or personal information.
+
+TYPOGRAPHY: strong white display headline, condensed grotesk, bold, with deliberate line breaks. Supporting paragraph in a neutral sans-serif, medium weight and readable size. Headline first, body second; separate with generous spacing and a fine red rule. Keep text away from faces and the plan.
+
+EXACT COPY TO RENDER:
+Headline: "O nome não deve ser o único critério."
+Body: "As modalidades têm escopos diferentes. Para comparar propostas, é importante entender como cada serviço atende à rotina e à estrutura do condomínio."
+
+Render every word exactly once in Brazilian Portuguese, preserving accents and punctuation. Do not add any other text. Leave a small blank logo area near the lower-right, with no invented mark.
+
+Graphic layer order: architectural background, people and table in midground, close plan edge and pen in foreground, restrained shadow behind text, headline, supporting paragraph, red divider. Natural reflections and consistent lighting across every plane.
+
+No readable documents, private data, logos, computer screens, dashboards, watermarks, shield/lock icons, staged handshake, crisis expressions, police imagery, equipment close-ups or additional text.
+
+========== SLIDE 05 — O QUE AVALIAR ==========
+
+One standalone 4:5 vertical carousel slide, 1080x1350, designed as a premium editorial checklist for condominium decision-makers. This is a text-led poster with a realistic photographic subject, not a dashboard or a grid of repeated cards.
+
+SCENE DEPTH:
+Foreground: corner of a printed architectural floor plan and a pen near the bottom-right edge, in crisp but secondary focus.
+Midground: one manager's hand reviewing the plan at a work table; no face required. The main photo subject stays on the right third.
+Background: softly defocused contemporary office/meeting environment with dark navy and neutral tones, minimal detail.
+
+COMPOSITION: strong split composition. Left 62% is a dark navy typography field with clear vertical rhythm; right 38% contains the photographed hand and plan. Keep the text field uncluttered, with enough contrast for four list items. Use consistent left alignment and generous spacing. The four bullets form one readable vertical checklist, not four separate cards.
+
+TYPOGRAPHY: large bold condensed grotesk headline in white. Under it, four checklist lines in a clear sans-serif, medium weight, large enough for mobile reading. Use small red markers only as bullets; do not create check marks or additional symbols. Comfortable line spacing; each item on one or two balanced lines. Do not shrink body text to fit.
+
+EXACT COPY TO RENDER:
+Headline: "Comece pela realidade do condomínio."
+Checklist item 1: "Fluxo de moradores, visitantes e prestadores."
+Checklist item 2: "Necessidades de comunicação e controle de acesso."
+Checklist item 3: "Sistemas já instalados e possibilidades de integração."
+Checklist item 4: "Manutenção e suporte previstos na solução."
+
+Render all five text blocks exactly as written, once each. Preserve accents, periods and punctuation. Do not invent any other text, title, number or label. Reserve a clean lower-right logo space without drawing a logo.
+
+Graphic layer order: dark navy base and restrained texture, background office scene, midground hand and plan, tiny foreground plan edge, headline, four checklist lines with small red bullets, empty logo area. No decorative cards or unnecessary glass effects.
+
+No readable plan data, addresses, names, screens, invented devices, dashboards, logos, watermarks, extra labels, shields, padlocks or green graphic accents.
+
+========== SLIDE 06 — CTA ==========
+
+One standalone 4:5 vertical carousel closing slide, 1080x1350, visually consistent with the same Guardian campaign. Show the illuminated entrance of a contemporary residential condominium in Florianópolis at early evening, with warm interior lighting and realistic glass/concrete architecture. The message is calm evaluation and a useful next step, not fear or urgency.
+
+SCENE DEPTH:
+Foreground: one subtle, softly defocused architectural edge along the lower-right margin, framing the entrance without competing with text.
+Midground: the main illuminated entrance, the clearest visual point, positioned on the right half.
+Background: the rest of the residential façade extending into the distance, softly illuminated and lower in detail.
+
+COMPOSITION: wide three-quarter architectural view. The entrance occupies the lower-right and right-center; reserve the left half and upper-left for a bold text block. Build a subtle dark navy photographic gradient behind type, not an opaque generic card. Maintain generous mobile safe margins and an empty lower-right signature area.
+
+TYPOGRAPHY: large white condensed grotesk headline, balanced across three or four deliberate lines; supporting CTA in a smaller but prominent geometric sans-serif, with clear separation and generous line spacing. Use Guardian red #CB3033 for a single CTA accent or short rule; use #00FFFF sparingly. No tiny text.
+
+EXACT COPY TO RENDER:
+Headline: "A solução precisa fazer sentido para o seu condomínio."
+CTA: "Converse com a Guardian Seg e solicite uma avaliação."
+
+Render both blocks exactly once, including accents and final punctuation. Do not add any urgency, claims, phone numbers or extra wording. Do not create the Guardian logo; leave a clear empty area for the official logo to be inserted manually.
+
+Graphic layer order: background façade, illuminated entrance as midground subject, subtle foreground architecture, restrained navy atmospheric overlay, headline, CTA and one red accent. Photographic and typographic layers must feel art-directed together.
+
+No visible residents, security personnel, close-up cameras or readers, fake screens, dashboards, invented signs, invented brands, watermarks, shields, padlocks, crime imagery, dramatic siren lighting, extra text or green graphic accents.
 ```
+
 ## PEÇA 02 — STORIES (9:16 vertical, 1080 × 1920)
 
 ### Prompt — Story 1 / Abertura
