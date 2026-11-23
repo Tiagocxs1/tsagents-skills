@@ -46,7 +46,7 @@ A ideia é interromper o scroll com uma headline curta e dominante, ponto focal 
 
 ## Custo e ritmo de geração
 
-A rota Google Flow pode ser a opção gratuita mais prática quando a conta tem a cota informada pelo Google: a documentação consultada indica até **20 gerações diárias com Nano Banana Pro sem plano Google AI**, sujeitas às condições/cotas exibidas na conta. Para 420 imagens finais, isso representa pelo menos 21 dias se a cota estiver disponível continuamente. O pacote não exige gerar ambas as alternativas; escolha um modelo por peça e mantenha o outro como rota de contingência. Consulte os limites atuais antes de iniciar, pois cotas e disponibilidade podem mudar.
+A rota Google Flow pode ser a opção gratuita mais prática quando a conta tem a cota informada pelo Google: a documentação consultada indica até **20 gerações diárias com Nano Banana Pro sem plano Google AI**, sujeitas às condições/cotas exibidas na conta. Para 420 imagens finais, isso representa pelo menos 21 dias se a cota estiver disponível continuamente. O pacote não exige gerar ambas as alternativas; escolha um modelo por peça e mantenha o outro como rota de contingência. Como a cadência é diária, cada dia exige 6 imagens finais (5 slides + 1 Story), abaixo do limite diário citado quando a cota está disponível. Consulte os limites atuais antes de iniciar, pois cotas e disponibilidade podem mudar.
 
 Referências oficiais:
 - [Google Flow — criar e editar imagens](https://support.google.com/flow/answer/16729550?hl=pt-br)
