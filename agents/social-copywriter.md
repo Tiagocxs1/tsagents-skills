@@ -29,6 +29,7 @@ Consultar os módulos upstream adequados: upstream/social-media-skills/skills/ho
 - Payoff e CTA final.
 - Legenda completa e hashtags justificadas.
 - Direção visual e ideia de imagem por slide.
+- **Prompts de imagem:** incluir todos os prompts dos slides em um único bloco de texto copiável, separados e identificados por slide. Declarar que cada prompt gera um arquivo separado e proibir colagem/mosaico. Não criar um bloco de código separado para cada slide.
 
 ### Stories
 - Sequência numerada de frames.
