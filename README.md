@@ -96,6 +96,7 @@ O workflow OTTO é opcional e está em [templates/github-actions/otto-privacy-re
 | [advertising-creative](./advertising-creative/SKILL.md) | Criativos de anúncios, hooks, ofertas e testes A/B |
 | [motion-design](./motion-design/SKILL.md) | Vídeos, animações e motion graphics |
 | [visual-quality-review](./visual-quality-review/SKILL.md) | Revisão de qualidade antes da entrega |
+| [layered-image-prompting](./layered-image-prompting/SKILL.md) | Prompts com copy literal, foreground/midground/background, direção tipográfica e camadas gráficas |
 
 ## Sistema de conteúdo social multi-marca
 
@@ -114,6 +115,7 @@ Agentes reutilizáveis: [Social Intelligence Researcher](./agents/social-intelli
 - [Brand Guardian](./agents/brand-guardian.md)
 - [Ad Creative Strategist](./agents/ad-creative-strategist.md)
 - [Visual Critic](./agents/visual-critic.md)
+- [Image Prompt Art Director](./agents/image-prompt-art-director.md)
 
 Esses arquivos são perfis reutilizáveis para subagentes ou etapas sequenciais; não representam agentes autônomos implantados.
 
