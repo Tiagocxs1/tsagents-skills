@@ -32,6 +32,7 @@ Pesquisa e inventário inicial em 17/11/2026. “Conectado” significa que o co
 | Projeto | Uso | Licença / popularidade | Recomendação |
 |---|---|---|---|
 | https://github.com/social-media-skills/skills | Estratégia social, identidade, carrossel, thumbnail, infográfico, prompts de imagem, vídeo, planejamento e analytics | MIT; catálogo com 106 skills no snapshot consultado | Prioridade máxima para produção de conteúdo social. Instalar módulos seletivos. |
+| https://github.com/shinpr/mcp-image | Prompt enhancement e servidor de geração/edição; skill de prompt independente do servidor | MIT; geração exige chave e uso de API Gemini/OpenAI/Seedream | Usar a skill como referência; não instalar o servidor por enquanto, pois já existem geradores conectados e o serviço externo pode cobrar por geração. |
 | https://github.com/coreyhaines31/marketingskills | Copy, psicologia, anúncios, social content e CRO | Catálogo popular; skills de ads e ad-creative têm alto uso no skills.sh | Prioridade máxima para estratégia/copy de anúncios; não é gerador de layout. |
 | https://github.com/adkit/ads-skills | Estratégia e skills de execução para Meta, Google e outros canais; estratégia standalone, MCP opcional para criar/publicar | Repositório MIT, mas `meta-ads-strategy` e `google-ads-strategy` têm licença própria sem redistribuição; MCP AdKit é externo | Manter link externo. Não copiar as duas skills com licença especial; não ativar serviço de execução sem avaliar custo e autorização de publicação. |
 
@@ -43,6 +44,8 @@ Pesquisa e inventário inicial em 17/11/2026. “Conectado” significa que o co
 - HeyGen tem skill de carousel e motion; fluxos de geração usam créditos e devem ser validados antes de começar.
 
 ## 3. MCPs externos — não conectados atualmente
+
+Avaliação específica para engenharia de prompts: mcp-image (MIT) tem uma skill independente de prompt e é referência para texto literal e relações espaciais; RunAPI MCP (Apache-2.0) oferece catálogo e preços públicos, mas geração requer conta/saldo; z23cc/MJ-MCP e z23cc/midjourney-mcp são wrappers de terceiros, dependem de AICloud/GPTNB e não são uma API oficial Midjourney. Ver docs/IMAGE-PROMPT-RESEARCH.md. Não adicionar esses MCPs sem uma lacuna real, autorização e custo comprovado.
 
 | Recurso | O que oferece | Decisão |
 |---|---|---|
