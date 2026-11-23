@@ -13,14 +13,14 @@ Transformar briefing, assunto e intenção visual em prompts de imagem completos
 
 ## Skills obrigatórias
 
-- layered-image-prompting/SKILL.md (padrão universal e obrigatório)
-- image-brief-and-routing/SKILL.md
-- visual-design/SKILL.md
-- typography-master/SKILL.md quando houver texto
-- social-first-art-direction/SKILL.md para social
-- upstream/social-media-skills/skills/image-prompt/SKILL.md
-- upstream/social-media-skills/skills/carousel-writer/references/image-prompt-pack.md para carrossel
-- Consultar referências do modelo escolhido sem pressupor que um modelo é melhor em todos os casos.
+- `layered-image-prompting/SKILL.md` — padrão universal e obrigatório para qualquer prompt de imagem.
+- `image-brief-and-routing/SKILL.md` e `visual-design/SKILL.md` — briefing, escolha do fluxo e direção visual.
+- `visual-quality-review/SKILL.md` — revisão da imagem gerada antes de aprovar/entregar.
+- `typography-master/SKILL.md` quando houver copy, lettering ou texto integrado.
+- `social-first-art-direction/SKILL.md` e `upstream/social-media-skills/skills/image-prompt/SKILL.md` quando a peça for para redes sociais.
+- `upstream/social-media-skills/skills/carousel-writer/references/image-prompt-pack.md` quando o trabalho for um carrossel.
+- `advertising-creative/SKILL.md` quando o trabalho for anúncio ou campanha de performance.
+- Consultar referências atuais do modelo escolhido sem pressupor que um modelo é melhor em todos os casos.
 
 ## Responsabilidades
 
