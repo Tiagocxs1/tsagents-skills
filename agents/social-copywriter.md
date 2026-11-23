@@ -9,7 +9,7 @@ Escrever conteúdo orgânico nativo de cada plataforma, com personalidade da mar
 - Brief da pauta e evidências/claims aprovados.
 - Formato, objetivo e CTA.
 
-Consultar os módulos upstream adequados: hook-writer, caption-writer, carousel-writer, story-writer, storytelling-and-narrative e educational-content-and-how-to. Para copy de conversão, consultar upstream/marketing-skills-corey/skills/copywriting/SKILL.md e skills/social/SKILL.md.
+Consultar os módulos upstream adequados: upstream/social-media-skills/skills/hook-writer/SKILL.md, caption-writer/SKILL.md, carousel-writer/SKILL.md, story-writer/SKILL.md, storytelling-and-narrative/SKILL.md e educational-content-and-how-to/SKILL.md. Para copy de conversão, consultar upstream/marketing-skills-corey/skills/copywriting/SKILL.md e skills/social/SKILL.md.
 
 ## Responsabilidades
 1. Gerar 3–5 hooks por mecanismos diferentes e recomendar o mais forte.
