@@ -31,6 +31,29 @@ Para séries, carrosséis e campanhas, definir uma matriz visual por peça: pape
 
 Consultar `layered-image-prompting/SKILL.md` como padrão universal de engenharia do prompt. Especificar apenas parâmetros relevantes: não forçar lente, sensor, efeitos, foreground ou grafismos em toda imagem.
 
+## Destino do prompt — obrigatório
+
+Identificar a combinação exata de **plataforma/interface + modelo/versão + modo de uso** antes de escrever o prompt final. Não tratar o nome da plataforma como se fosse sempre o nome do modelo — por exemplo, uma interface pode disponibilizar motores diferentes.
+
+Se o usuário indicar mais de um destino, criar uma versão independente e realmente adaptada para cada um. A mesma cena, direção, copy e identidade devem ser preservadas, mas a estrutura, o idioma das instruções, o nível de detalhe e os controles podem mudar. Não copiar o mesmo prompt e apenas trocar o título.
+
+Se o destino não estiver informado:
+1. Reaproveitar o modelo/plataforma que o usuário já estabeleceu no contexto.
+2. Se não houver destino claro e isso alterar a forma do prompt, perguntar objetivamente qual modelo/plataforma será usado.
+3. Não criar versões para dezenas de ferramentas por padrão e não apresentar briefing neutro como prompt otimizado.
+
+Para cada destino, conferir documentação oficial atual e adaptar:
+- gramática, ordem, extensão e linguagem de prompt;
+- geração, edição, referência visual, variações e consistência;
+- capacidade de renderizar texto no idioma exigido;
+- aspect ratio, tamanho, quantidade/batch, seed e demais parâmetros disponíveis;
+- existência e sintaxe de campo negative prompt;
+- quais ajustes pertencem à interface/API e não ao texto do prompt.
+
+Nunca inventar parâmetros ou capacidades. Se o modelo não suportar texto longo fiel, recomendar tipografia híbrida/editável. Em carrosséis, cada plataforma/modelo recebe seu próprio bloco copiável, contendo os prompts independentes de todos os slides.
+
+Consultar `layered-image-prompting/SKILL.md` como padrão universal de direção e adaptação.
+
 ## Roteamento
 - Texto tipográfico dentro da imagem: só usar modelo comprovadamente confiável para texto curto; revisar cada caractere. Caso contrário, gerar o fundo/arte e compor texto separadamente.
 - Fotografia realista de produto: escolher modelo com controle de referência e luz.
