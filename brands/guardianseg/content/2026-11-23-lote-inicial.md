@@ -271,45 +271,156 @@ Graphic layer order: background façade, illuminated entrance as midground subje
 No visible residents, security personnel, close-up cameras or readers, fake screens, dashboards, invented signs, invented brands, watermarks, shields, padlocks, crime imagery, dramatic siren lighting, extra text or green graphic accents.
 ```
 
-## PEÇA 02 — STORIES (9:16 vertical, 1080 × 1920)
+## PEÇA 02 — STORIES COM COPY E TIPOGRAFIA (9:16 vertical, 1080 × 1920)
+
+Cada frame deve ser gerado como uma imagem independente. Os textos entre aspas devem ser renderizados literalmente, uma única vez. Preservar as áreas seguras superiores e inferiores do Instagram. Não desenhar logotipo; ele será inserido manualmente.
 
 ### Prompt — Story 1 / Abertura
+
 ```text
-Fotografia publicitária fotorrealista vertical 9:16, 1080x1920, de uma entrada de condomínio residencial contemporâneo brasileiro vista da calçada, em perspectiva vertical que valorize a altura da fachada e o acesso principal. Luz natural de fim de tarde, arquitetura de vidro e concreto, paisagismo discreto, atmosfera organizada e tranquila. O ponto focal fica na metade inferior e ligeiramente à direita; reservar espaço negativo amplo na região superior central e esquerda para headline. Composição vertical pensada para Story, com a área mais importante dentro da zona segura central e sem detalhes essenciais junto às bordas superior e inferior. Fotografia corporativa premium, cores naturais, sombras azul-marinho sutis.
-Sem texto, números, logotipos, placas, marcas d'água, equipamentos de segurança em close, telas, guarita com funcionário, invasão, medo ou verde saturado.
+One standalone 9:16 vertical Instagram Story image, 1080x1920. Scene concept: a contemporary Brazilian condominium entrance in Florianópolis at late afternoon, photographed with calm commercial light and an organized residential atmosphere.
+
+SCENE DEPTH:
+Foreground: subtle out-of-focus architectural edge at the extreme right, framing the view without covering text.
+Midground: condominium entrance and glass doors, positioned in the lower-right half as the main visual subject.
+Background: upper façade and softly lit sky, low detail and lower contrast.
+
+COMPOSITION AND TYPOGRAPHY: reserve the upper 38% for a large bold condensed-grotesk headline in white, with deliberate line breaks; place the supporting line directly below in a clean geometric sans-serif with generous leading. Keep text inside the central Instagram safe area. Use a restrained red #CB3033 underline; #00FFFF only as a tiny accent. No official logo is to be generated.
+
+EXACT COPY TO RENDER:
+Headline: "Seu condomínio está avaliando uma solução de portaria?"
+Supporting line: "Alguns pontos merecem atenção antes de comparar propostas."
+
+Render both phrases exactly once, preserving accents and punctuation. Do not add any other words. Keep a clear lower-right area for the official logo to be inserted manually.
+
+Layer order: distant façade, entryway, subtle foreground edge, restrained navy contrast behind text, headline, supporting line, small red accent.
+
+No additional text, logos, signs, watermarks, invented devices, close-up cameras, screens, security dashboards, shields, padlocks, crime imagery or green graphic accents.
 ```
 
 ### Prompt — Story 2 / Entenda a necessidade
+
 ```text
-Fotografia documental publicitária fotorrealista vertical 9:16, 1080x1920, mostrando dois moradores adultos conversando tranquilamente na área de entrada de um condomínio brasileiro, com um visitante chegando ao fundo. A cena transmite uma rotina de acesso cotidiana, respeitosa e bem organizada, sem sugerir um incidente ou procedimento específico. Plano médio vertical, pessoas distribuídas na metade inferior, arquitetura de vidro e concreto visível ao fundo, luz natural difusa. Deixar a metade superior relativamente simples e com fundo escuro/neutro para inserir texto depois. Expressões naturais, roupas casuais discretas, fotografia premium e não posada.
-Sem guarita com porteiro, dispositivos de acesso em destaque, câmeras em close, telas, interface, texto, logotipos, marcas, watermark ou verde saturado.
+One standalone 9:16 vertical Instagram Story image, 1080x1920, part of the same Guardian campaign. Show two adult condominium residents talking naturally near a contemporary Brazilian condominium entrance; a visitor is visible in the far background. Calm contextual lifestyle photography, not a depiction of a specific access procedure.
+
+SCENE DEPTH:
+Foreground: softly blurred lower edge of a glass door, minimal and unobtrusive.
+Midground: two residents in a natural conversation, placed in the lower-right half.
+Background: quiet lobby and arrival area, slightly defocused, establishing spatial depth.
+
+COMPOSITION AND TYPOGRAPHY: strong white headline in a condensed display sans, occupying the upper third; supporting line below in a clean sans-serif. Reserve dark low-detail space behind the text; keep it inside Instagram safe zones. One small red accent rule. No logo.
+
+EXACT COPY TO RENDER:
+Headline: "Primeiro: entenda a necessidade."
+Supporting line: "O que precisa ser atendido na rotina de moradores, visitantes e prestadores?"
+
+Render the two phrases exactly once, with the colon, accents and question mark intact. Do not add words, captions or labels. Leave a clear lower-right logo area for manual placement.
+
+Layer order: background lobby, people as midground subject, slight foreground glass edge, subtle dark contrast overlay, headline, supporting text and red accent.
+
+No uniforms, fake access readers, cameras in close-up, screens, interface graphics, logos, watermark, weapons, crime scene, shields, padlocks, extra text or green graphic accents.
 ```
 
 ### Prompt — Story 3 / Conheça o escopo
+
 ```text
-Fotografia publicitária fotorrealista vertical 9:16, 1080x1920, de um hall de entrada de condomínio contemporâneo observado de dentro para fora, com uma porta de vidro aberta e a área externa visível. Linhas arquitetônicas e profundidade de campo criam uma composição limpa que sugere organização de fluxo e integração dos espaços, sem representar equipamento ou tecnologia específica. Luz suave de manhã, tons neutros, concreto e vidro com reflexos naturais. Posicionar o detalhe arquitetônico principal na metade inferior direita e deixar área negativa ampla na parte superior esquerda para texto. Imagem vertical elegante, profissional e realista.
-Sem pessoas olhando para a câmera, catracas, leitores, interfones, monitores, UI, texto, logotipos, marcas, watermark, elementos de ficção científica ou verde saturado.
+One standalone 9:16 vertical Instagram Story image, 1080x1920. Show a contemporary condominium lobby observed from inside toward the glass entrance, with natural morning light and a clear view into the outdoor area. Use architectural lines to create perspective and a calm sense of flow.
+
+SCENE DEPTH:
+Foreground: soft-focus interior door frame at the far-left edge.
+Midground: open glass entrance and circulation area, occupying the center-right.
+Background: outdoor architecture and a distant portion of the lobby, less detailed and softly lit.
+
+COMPOSITION AND TYPOGRAPHY: large bold condensed-grotesk headline in the upper-left safe zone, followed by the supporting line in a clean sans-serif. White type over a controlled dark navy tonal area, not an opaque generic card. Use a small Guardian-red accent. Keep text legible over the photograph.
+
+EXACT COPY TO RENDER:
+Headline: "Depois: conheça o escopo."
+Supporting line: "Portaria remota e portaria autônoma têm características diferentes."
+
+Render both phrases exactly once, including colon and period. No additional wording or invented labels. Leave a clean logo area near the lower-right for manual insertion.
+
+Layer order: distant exterior, lobby and glass doors as midground, near door frame as foreground, subtle shadow behind typography, headline, supporting line and accent.
+
+No readers, turnstiles, lock hardware close-ups, cameras in close-up, screens, UI, logos, watermarks, extra text, shields, padlocks or green graphic accents.
 ```
 
-### Prompt — Story 4 / Fundo para enquete
+### Prompt — Story 4 / Enquete
+
 ```text
-Fotografia de fundo fotorrealista vertical 9:16, 1080x1920, de um hall de condomínio moderno e bem iluminado, visto em plano amplo, com profundidade suave e poucos elementos visuais. A arquitetura aparece levemente desfocada, com porta de vidro e área de circulação ao fundo; não há pessoas nem equipamentos em destaque. Criar contraste suave e uniforme na região central para que uma caixa de enquete nativa do Instagram possa ser inserida depois, com áreas seguras livres no topo e na base. Estética corporativa premium, calma, natural e discreta, tons neutros com sombras azul-marinho suaves.
-Sem texto, números, ícones, caixas, botões, stickers gerados, logotipos, marcas, telas, watermark, verde saturado ou elementos que disputem atenção com a enquete.
+One standalone 9:16 vertical Instagram Story background, 1080x1920. Show a softly lit contemporary condominium hall with a glass entrance and quiet circulation area. The image is deliberately minimal, with moderate depth of field and a calm professional mood.
+
+SCENE DEPTH:
+Foreground: no deliberate foreground object; preserve visual cleanliness.
+Midground: entrance and hall, softly focused and positioned low in the frame.
+Background: architectural depth and soft daylight, neutral and low contrast.
+
+COMPOSITION AND TYPOGRAPHY: render only the question in large bold white condensed-grotesk type in the upper third. Below it, leave a large clear, low-detail zone for the native Instagram poll sticker. The two poll answers must be added later using Instagram's native poll sticker, not rendered by the image model. Keep the lower interface safe area clear. Use a small red accent and subtle navy contrast for readability.
+
+EXACT QUESTION TO RENDER:
+"Você já conhecia essa diferença?"
+
+NATIVE POLL STICKER COPY TO ADD LATER, NOT TO RENDER IN THE IMAGE:
+Option 1: "Sim, já conhecia."
+Option 2: "Ainda tinha dúvidas."
+
+Render only the question, exactly once. Do not render the poll answers, buttons, checkbox shapes, sticker, or any other text. Do not create a logo.
+
+Layer order: calm hall background, subtle midground entrance, dark translucent contrast wash, headline question, reserved blank poll area.
+
+No logos, watermarks, extra text, UI mockups, fake poll buttons, fake app interface, screens, equipment close-ups, shields, padlocks or green graphic accents.
 ```
 
 ### Prompt — Story 5 / Encerramento e contato
+
 ```text
-Fotografia publicitária fotorrealista vertical 9:16, 1080x1920, da entrada iluminada de um condomínio residencial contemporâneo ao entardecer, vista em perspectiva de três quartos. A fachada ocupa a metade inferior e o lado direito, com iluminação interna acolhedora e arquitetura de vidro e concreto. Deixar a região superior esquerda ampla, escura e limpa para headline; manter o canto inferior direito livre para aplicação manual do logo oficial e a área central dentro das zonas seguras. Sem pessoas em primeiro plano. Fotografia de campanha premium, sensação de organização e confiança, sem dramatização e sem filtros exagerados.
-Sem texto, logos, placas, marcas d'água, equipamentos em close, telas, guarita com porteiro, escudos, cadeados, efeitos futuristas ou verde saturado.
+One standalone 9:16 vertical Instagram Story closing image, 1080x1920. Show the illuminated entrance of a contemporary residential condominium in Florianópolis at dusk, seen from a three-quarter perspective. Warm interior light contrasts gently with the darkening exterior; architecture remains natural and realistic.
+
+SCENE DEPTH:
+Foreground: subtle out-of-focus architectural edge at the lower-right, framing the scene without covering the type.
+Midground: entrance and glass doors, clearly visible in the lower half and right side.
+Background: façade receding into depth, softer and lower contrast.
+
+COMPOSITION AND TYPOGRAPHY: large white condensed-grotesk headline in the upper-left safe zone; supporting CTA beneath in a clear geometric sans-serif, medium-bold, with generous leading. Place one short red CTA accent near the text. Reserve a clean empty area near the lower-right for the official logo to be added manually. Keep all copy inside the central safe area.
+
+EXACT COPY TO RENDER:
+Headline: "Cada condomínio tem uma realidade."
+Supporting line: "Converse com a Guardian Seg para avaliar as soluções disponíveis."
+
+Render both text blocks exactly once, preserving accents and punctuation. Do not invent a phone number, address, offer, additional wording or logo.
+
+Layer order: distant façade, illuminated entrance, subtle foreground architecture, restrained navy contrast behind text, headline, supporting line, small red accent, reserved logo space.
+
+No people in close-up, security screens, fake equipment, signage, logo, watermark, extra text, shields, padlocks, crime imagery or green graphic accents.
 ```
 
-## PEÇA 03 — POST ESTÁTICO (4:5 vertical, 1080 × 1350)
+## PEÇA 03 — POST ESTÁTICO COM COPY E TIPOGRAFIA (4:5 vertical, 1080 × 1350)
 
-### Prompt — Monitoramento de imagem 24h
+### Prompt — Post estático / Monitoramento de imagem 24h
+
 ```text
-Imagem publicitária conceitual fotorrealista vertical 4:5, 1080x1350, para uma comunicação corporativa sobre integração entre monitoramento de alarme e imagens de câmeras. Mostrar a fachada envidraçada de um pequeno edifício comercial/residencial contemporâneo no início da noite, com interior iluminado de forma acolhedora e reflexos naturais no vidro. A composição deve sugerir visualmente a conexão entre o ambiente físico e a observação cuidadosa, usando reflexos e profundidade de campo — sem mostrar uma central de monitoramento, interface ou equipamento específico. Enquadramento em três quartos, fachada como protagonista no lado direito e espaço negativo amplo, escuro e limpo no lado esquerdo para headline e texto editáveis. Fotografia corporativa premium, realista e sóbria; tons naturais, sombras azul-marinho discretas e contraste suficiente para receber elementos gráficos posteriormente.
-Não mostrar câmera, alarme ou sensor em close; não mostrar monitores, telas, mapas, aplicativos, gráficos ou interfaces; sem equipamentos de marca desconhecida, logotipos, marcas d'água, texto, pessoas identificáveis, cenário de crime, sirenes, escudos, cadeados ou verde saturado.
+One standalone 4:5 vertical social poster, 1080x1350, for a Brazilian electronic-security company. The image communicates the integration of alarm events and camera images in a monitored property. Use restrained, realistic corporate advertising photography, not a science-fiction security scene.
+
+SCENE DEPTH:
+Foreground: soft-focus vertical glass mullion near the right edge, adding depth without blocking the subject.
+Midground: glass façade and warmly lit interior of a small contemporary residential/commercial building at early evening; architecture is the main subject.
+Background: distant façade and nightfall atmosphere, with lower contrast and subtle atmospheric depth.
+
+COMPOSITION: three-quarter architectural view. Place the building and illuminated interior on the right 58%; reserve a broad, quiet dark navy region on the left for typography. The image should suggest a well-observed environment through careful framing and reflections, without depicting a camera or monitoring workstation. Calm, credible atmosphere.
+
+TYPOGRAPHY: headline in bold condensed grotesk display style, large white letters, deliberately broken into two or three lines. Body copy in a clean sans-serif, regular/medium weight, clearly readable and not reduced to tiny text. CTA in medium-bold sans-serif with a restrained red #CB3033 accent. Use Guardian palette #04344C, #CB3033, #506A76, #00FFFF and white; cyan only as a small accent, no green as brand graphic color. High contrast and generous safe margins.
+
+EXACT COPY TO RENDER:
+Headline: "Alarme e câmeras podem trabalhar integrados."
+Body: "No monitoramento de imagem 24h, eventos de alarme e imagens das câmeras são analisados pela central."
+CTA: "Entenda essa solução."
+
+Render all three blocks exactly once in Brazilian Portuguese. Keep accents, number 24h and punctuation correct. Do not add claims, phone numbers, prices, service guarantees or additional text. Do not generate the Guardian logo; keep an empty lower-right signature area for the official logo to be inserted manually.
+
+Graphic layer order: distant façade, building/interior as midground, subtle foreground glass edge, restrained dark navy contrast treatment, headline, body copy, CTA accent, reserved logo space. Make photograph and typography feel like one intentionally art-directed poster.
+
+No camera or sensor close-up, no monitors, dashboards, maps, apps, graphs, screens, invented equipment, fake control-room interface, security guards, identifiable people, crime scenes, sirens, shields, padlocks, logos, watermarks, extra text or green graphic accents.
 ```
+
 
 ## Aplicação e conferência
 
