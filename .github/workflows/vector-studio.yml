@@ -63,7 +63,6 @@ jobs:
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
           python vector-studio/upload_to_r2.py output/vector-studio
-        continue-on-error: true
 
       - name: Upload generated files as GitHub artifact
         if: always()
@@ -72,4 +71,4 @@ jobs:
           name: vector-studio-${{ github.run_number }}
           path: output/vector-studio/
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 90
