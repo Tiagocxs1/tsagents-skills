@@ -15,7 +15,9 @@ OIDC_AUDIENCE = "ts-visual-library"
 KITBITZ_REPO = "https://github.com/CaptExcellent/kits-library-assets.git"
 KITBITZ_COMMIT = "c67532ddf21cef61827de203344282cc9c2cecae"
 IRA_ZIP = "https://raw.githubusercontent.com/ira-design/ira-illustrations/SVG/SVG.zip"
+IRA_ZIP_SHA256 = "8da78c4d4671b8f440781114ea82149f9c32c903e7b22c702bfb8b9ff1efccc1"
 OPEN_DOODLES_ZIP = "https://www.dropbox.com/sh/egmjlot3o8787sr/AABbIT7a1-3zWvF7HQ8R21_ta?dl=1"
+OPEN_DOODLES_ZIP_SHA256 = "e8c9cd23349eeb096fbc55e17a219ca6f1696907468147a4606d474befd4c11b"
 ASSET_POLISH_CATALOG = "https://www.assetpolish.com/catalog.json"
 ASSET_POLISH_PACKS = {
     "online-safety", "campaign-studio", "creator-desk",
@@ -277,6 +279,8 @@ def download_assetpolish() -> None:
 def download_ira() -> None:
     print("3/6 · Downloading official IRA Design MIT archive…", flush=True)
     archive = http_download(IRA_ZIP, WORK/"ira-design.zip", max_bytes=30*1024*1024)
+    if sha256_file(archive) != IRA_ZIP_SHA256:
+        raise RuntimeError("IRA Design source ZIP hash changed; stop for license/source review.")
     col = collection("ira-design", "IRA Design / Creative Tim", "MIT",
         "https://github.com/ira-design/ira-illustrations/blob/master/LICENSE.md",
         ["gradient", "outline"], "Hand-drawn character poses, objects, backgrounds and examples.")
@@ -318,6 +322,8 @@ def download_ira() -> None:
 def download_open_doodles() -> None:
     print("4/6 · Downloading official Open Doodles CC0 source pack…", flush=True)
     archive = http_download(OPEN_DOODLES_ZIP, WORK/"open-doodles.zip", max_bytes=150*1024*1024)
+    if sha256_file(archive) != OPEN_DOODLES_ZIP_SHA256:
+        raise RuntimeError("Open Doodles source ZIP hash changed; stop for source review.")
     col = collection("open-doodles", "Open Doodles", "CC0-1.0",
         "https://creativecommons.org/publicdomain/zero/1.0/", ["hand-drawn", "sketch"],
         "Hand-drawn characters, compositions and editorial scenes.")
