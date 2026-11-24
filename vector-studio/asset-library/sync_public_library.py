@@ -572,6 +572,7 @@ Private Creative Market content, fonts, archives and assets with licence-pending
         "private_creative_market_excluded":True,"license_pending_files_uploaded":0
     }
     (WORK/"sync-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+    (ROOT/"sync-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
 
 if __name__=="__main__":
