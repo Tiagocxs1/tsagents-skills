@@ -48,7 +48,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: visual-library-sync-report-\${{ github.run_number }}
+          name: visual-library-sync-report
           path: vector-studio/asset-library/sync-report.json
           if-no-files-found: ignore
           retention-days: 30
