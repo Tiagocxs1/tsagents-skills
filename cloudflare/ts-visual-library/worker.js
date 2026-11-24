@@ -6,10 +6,6 @@ const OWNER = "Tiagocxs1";
 const OWNER_ID = "17513166";
 const ALLOWED_WORKFLOWS = [
   {
-    ref: "refs/heads/feat/online-visual-library-sync-2026-11-24",
-    workflow: "Tiagocxs1/tsagents-skills/.github/workflows/visual-library-sync.yml@refs/heads/feat/online-visual-library-sync-2026-11-24"
-  },
-  {
     ref: "refs/heads/main",
     workflow: "Tiagocxs1/tsagents-skills/.github/workflows/visual-library-sync.yml@refs/heads/main"
   }
