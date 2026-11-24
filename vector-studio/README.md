@@ -18,7 +18,7 @@ O prompt diferencia SVG híbrido, vetorização raster→SVG e síntese ótica 3
 - Vetorização experimental da fotografia com VTracer, separada do master fotográfico.
 - PNG renderizado da versão vetorizada.
 - Foto de origem, legenda, alt text e relatório técnico/proveniência.
-- Upload temporário para Cloudflare R2, usando GitHub Actions OIDC (sem token Cloudflare estático no GitHub).
+- Upload temporário para Cloudflare R2, usando GitHub Actions OIDC (sem token Cloudflare estático no GitHub). O job agora falha se o upload/verificação HEAD falhar; o artefato de fallback do GitHub fica retido por até 90 dias.
 - Verificação HTTP HEAD de cada URL publicada: status, Content-Type e Content-Length são conferidos antes do job concluir.
 
 **Regra de fidelidade:** para aparência fotográfica real, a fotografia original é preservada no SVG híbrido. A saída VTracer é uma interpretação por regiões/caminhos e não substitui a fotografia nem promete equivalência pixel a pixel.
@@ -43,7 +43,7 @@ Também é possível executar manualmente em Actions → workflow → Run workfl
 - Os arquivos publicados podem ser consultados por `GET` e testados por `HEAD` em `/file/{run_id}/{filename}`.
 - O armazenamento é R2 privado servido pelo Worker em links temporários, sob `images/vector-studio/{run_id}/`.
 - A regra de lifecycle existente para o prefixo `images/` remove os objetos após 7 dias (a exclusão do R2 é assíncrona).
-- O artefato do GitHub Actions expira após 7 dias; faça download se precisar manter cópia.
+- O artefato do GitHub Actions fica retido por até 90 dias; os links do Worker e objetos no R2 continuam temporários por 7 dias. Baixe/exporte antes do prazo. Para arquivo privado permanente será necessária uma camada dedicada de autenticação e retenção; não tratar esses links temporários como arquivo permanente.
 
 ## Segurança e direitos
 
