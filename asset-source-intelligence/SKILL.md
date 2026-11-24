@@ -62,3 +62,7 @@ Local files are a fallback, not a requirement for cloud agents. The online Worke
 - Do not scrape Creative Market, Creative Fabrica, unDraw or ManyPixels. Claim account freebies manually where necessary and verify the individual product licence.
 - Never bypass login, Cloudflare, CAPTCHA, rate limits or anti-bot protections.
 - Do not assume that permission to use an individual asset permits automated scraping or building a mirrored library.
+
+
+## Cloud source monitor (no desktop dependency)
+The GitHub Actions workflow `.github/workflows/visual-source-watch.yml` checks the six approved repositories and Poly Haven public API daily at 09:00 São Paulo time (12:00 UTC). It writes a report to the Actions job summary and a 30-day artifact, and commits the source baseline only when a release/commit/catalog change is detected. It never scrapes or downloads marketplace freebies. The local systemd watcher is an optional duplicate; cloud monitoring continues when the user's PC is off.
