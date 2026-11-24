@@ -7,10 +7,9 @@ on:
       - feat/online-visual-library-sync-2026-11-24
     paths:
       - "vector-studio/asset-library/**"
-      - ".github/workflows/visual-library-sync.yml"
   workflow_dispatch:
   schedule:
-    - cron: "17 9 * * 1"
+    - cron: "17 12 * * 1"
 
 permissions:
   contents: read
