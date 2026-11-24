@@ -1,0 +1,64 @@
+name: Watch Visual Asset Sources
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "asset-source-intelligence/watch_sources.py"
+      - ".github/workflows/visual-source-watch.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: visual-source-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    name: Check approved public asset APIs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - name: Check upstream releases and API catalogue
+        id: watch
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python asset-source-intelligence/watch_sources.py
+
+      - name: Commit source baseline only when it changes
+        if: steps.watch.outputs.state_changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/source-watch/state.json
+          if git diff --cached --quiet; then
+            echo "No baseline changes to commit."
+          else
+            git commit -m "chore: update visual source watch baseline"
+            git push origin HEAD:main
+          fi
+
+      - name: Preserve source watch report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: visual-source-watch-report-\${{ github.run_number }}
+          path: \${{ runner.temp }}/visual-source-watch/latest.md
+          if-no-files-found: ignore
+          retention-days: 30
