@@ -24,3 +24,11 @@ The daily GitHub Actions workflow watches approved repositories and Poly Haven m
 
 ## Incident response
 If /health or the MCP stops responding, inspect the GitHub Actions sync run and Cloudflare Worker/R2 status. Do not create a second library or overwrite other existing Workers. The main public Worker is ts-visual-library with R2 bucket ts-visual-library.
+
+
+## Cloud watcher (canonical)
+- GitHub Actions workflow: .github/workflows/visual-source-watch.yml
+- Script: asset-source-intelligence/watch_sources.py
+- Schedule: daily at 12:00 UTC (09:00 America/Sao_Paulo)
+- It checks public GitHub APIs for Remix Icon/MCP, Tabler, Iconoir, IRA Design and Kitbitz, plus Poly Haven texture metadata. Reports are in job summaries and 30-day artifacts; state is committed only when it changes.
+- No desktop, Cloudflare API token, scraper or marketplace login is required. Freebie marketplaces remain manual-only.
