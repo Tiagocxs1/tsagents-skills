@@ -461,11 +461,6 @@ def upload_one(item: dict, provider: OidcTokenProvider) -> dict:
 def main():
     if not os.environ.get("ACTIONS_ID_TOKEN_REQUEST_URL") or not os.environ.get("ACTIONS_ID_TOKEN_REQUEST_TOKEN"):
         raise RuntimeError("GitHub Actions OIDC is required; this script must run in the authorized workflow.")
-    kitbitz = WORK/"kitbitz"
-    archive = http_download(
-        f"https://codeload.github.com/CaptExcellent/kits-library-assets/zip/{KITBITZ_COMMIT}",
-        WORK/"kitbitz-source.zip", max_bytes=950*1024*1024)
-    print("Kitbitz source archive downloaded:", archive.stat().st_size, "bytes", flush=True)
     download_kitbitz()
     download_assetpolish()
     download_ira()
