@@ -17,7 +17,6 @@ on:
       - "vector-studio/render.py"
       - "vector-studio/upload_to_r2.py"
       - "vector-studio/requirements.txt"
-      - ".github/workflows/vector-studio.yml"
 
 permissions:
   contents: read
