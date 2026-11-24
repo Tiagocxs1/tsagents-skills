@@ -133,3 +133,14 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Não duplicar arquivos automaticamente no Cloudinary, Git, repositórios, diretórios permanentes ou outros buckets. Qualquer cópia adicional exige uma política própria de retenção equivalente.
 - Registrar licença/atribuição somente quando verificadas; usar `unknown` quando a licença for incerta. Baixar não concede direito de uso/publicação. Nunca contornar login, paywall, controles anti-bot, bloqueios ou restrições de acesso.
 - Se a biblioteca/MCP não estiver disponível no ambiente atual, informar o bloqueio e usar alternativa autorizada; nunca declarar que um arquivo foi importado sem confirmação.
+
+
+## Catálogo externo de Design, Conteúdo e Agents
+
+- Antes de selecionar ferramentas/skills para uma tarefa visual, consultar `external-design-library-router/SKILL.md` e o manifesto `external/design-library/registry.json`.
+- Escolher no máximo duas Skills externas por briefing, apenas entre os entrypoints com checkout local e status permitido. O TS Brain faz essa seleção automaticamente na etapa de direção visual.
+- Consultar `docs/EXTERNAL-DESIGN-ARSENAL.md` para licenças, dependências, telemetria, permissões e diferenças entre Skill, app, biblioteca de código e MCP.
+- Preservar integralmente os submodules upstream e seus commits fixados. Não copiar imagens de referência ou materiais de terceiros sem confirmar os direitos. 350 Layouts exige atribuição CC BY 4.0; Mono Color possui termos separados para imagens; Yingzao continua link-only por licença não encontrada.
+- OpenDesign, AiToEarn, Open Carrusel e DSh não são Skills invocáveis pelo LangGraph e não foram iniciados. AiToEarn tem poderes de escrita/publicação; seu MCP continua desativado. Agent Reach é somente leitura e a instalação/autenticação de canais não é automática.
+- O NVIDIA Nemotron ativo recebe somente papéis genéricos e briefings públicos/sintéticos. Nunca enviar a esse provider conteúdo de Skills, perfis de agentes, referências privadas ou memória Obsidian. O código deve manter esta barreira mesmo que Skills sejam selecionadas localmente.
+- Ao clonar o arsenal, não usar `git submodule update --init --recursive` indiscriminadamente: os ponteiros OpenDesign/AiToEarn/350 imagens são grandes. Inicializar só paths necessários.

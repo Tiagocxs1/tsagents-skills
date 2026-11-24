@@ -57,3 +57,55 @@
 [submodule "upstream/pptx-tools"]
 	path = upstream/pptx-tools
 	url = https://github.com/jongalloway/pptx-tools.git
+[submodule "upstream/guizang-social-card-skill"]
+	path = upstream/guizang-social-card-skill
+	url = https://github.com/op7418/guizang-social-card-skill.git
+	shallow = true
+[submodule "upstream/open-design"]
+	path = upstream/open-design
+	url = https://github.com/nexu-io/open-design.git
+	shallow = true
+[submodule "upstream/langchain-design-agent"]
+	path = upstream/langchain-design-agent
+	url = https://github.com/langchain-ai/design-agent.git
+	shallow = true
+[submodule "upstream/huashu-design"]
+	path = upstream/huashu-design
+	url = https://github.com/alchaincyf/huashu-design.git
+	shallow = true
+[submodule "upstream/ogimagecn"]
+	path = upstream/ogimagecn
+	url = https://github.com/shadcn-labs/ogimagecn.git
+	shallow = true
+[submodule "upstream/open-carrusel"]
+	path = upstream/open-carrusel
+	url = https://github.com/Hainrixz/open-carrusel.git
+	shallow = true
+[submodule "upstream/humanizer-zh"]
+	path = upstream/humanizer-zh
+	url = https://github.com/op7418/Humanizer-zh.git
+	shallow = true
+[submodule "upstream/dsh-guizang-design"]
+	path = upstream/dsh-guizang-design
+	url = https://github.com/op7418/dsh-guizang-design.git
+	shallow = true
+[submodule "upstream/agent-reach"]
+	path = upstream/agent-reach
+	url = https://github.com/Panniantong/Agent-Reach.git
+	shallow = true
+[submodule "upstream/aitoearn"]
+	path = upstream/aitoearn
+	url = https://github.com/yikart/AiToEarn.git
+	shallow = true
+[submodule "upstream/mono-color-skill"]
+	path = upstream/mono-color-skill
+	url = https://github.com/yanliudesign/mono-color-skill.git
+	shallow = true
+[submodule "upstream/diagram-design"]
+	path = upstream/diagram-design
+	url = https://github.com/cathrynlavery/diagram-design.git
+	shallow = true
+[submodule "upstream/350-layout-compositions"]
+	path = upstream/350-layout-compositions
+	url = https://github.com/nevertoday/350-layout-compositions.git
+	shallow = true

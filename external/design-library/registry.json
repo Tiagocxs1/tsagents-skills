@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-24",
+  "description": "Curated index of 15 external design, content and agent repositories. Upstream source code stays separate from first-party adaptations.",
+  "defaults": {
+    "auto_install_apps": false,
+    "auto_enable_mcp": false,
+    "allow_external_publication": false,
+    "load_only_relevant_skill_text": true,
+    "max_external_skills_per_task": 2,
+    "nvidia_prompt_policy": "Never send third-party Skill files, submodule content, private agents, references or Obsidian notes to NVIDIA. NVIDIA receives only generic role descriptions and public/synthetic task text."
+  },
+  "sources": [
+    {
+      "id": "guizang-social-card",
+      "name": "Guizang Social Card Skill",
+      "repository": "op7418/guizang-social-card-skill",
+      "url": "https://github.com/op7418/guizang-social-card-skill",
+      "ref": "main",
+      "commit": "64d02d435fb092d3b403455a875e842fc8f29b8b",
+      "license": "AGPL-3.0",
+      "license_file": "LICENSE",
+      "kind": "agent-skill",
+      "status": "available_local",
+      "local_path": "upstream/guizang-social-card-skill",
+      "entrypoints": [
+        {
+          "id": "ext-guizang-social-card",
+          "name": "guizang-social-card-skill",
+          "path": "upstream/guizang-social-card-skill/SKILL.md",
+          "triggers": [
+            "carrossel",
+            "carousel",
+            "social card",
+            "xhs",
+            "xiaohongshu",
+            "rednote",
+            "小红书",
+            "live photo",
+            "weixin cover",
+            "capa social",
+            "post instagram",
+            "instagram post",
+            "social media post",
+            "criativo social"
+          ],
+          "max_chars": 6000
+        }
+      ],
+      "capabilities": [
+        "social-carousel",
+        "weixin-covers",
+        "live-photo-cards",
+        "editorial-layout",
+        "swiss-layout"
+      ],
+      "notes": [
+        "AGPL-3.0: preserve license/notices for distribution and modifications.",
+        "HTML+Playwright render flow; use user-authorized or properly licensed image assets."
+      ]
+    },
+    {
+      "id": "open-design",
+      "name": "OpenDesign",
+      "repository": "nexu-io/open-design",
+      "url": "https://github.com/nexu-io/open-design",
+      "ref": "main",
+      "commit": "5fdcc3db1e31bd4fa70f673041b78e87977507c3",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE",
+      "kind": "full-application",
+      "status": "reference_only_not_initialized",
+      "local_path": "upstream/open-design",
+      "approx_repo_size_mb": 3575,
+      "capabilities": [
+        "collaborative-design-workspace",
+        "design-systems",
+        "plugins",
+        "templates",
+        "agent-workspace"
+      ],
+      "runtime": {
+        "langgraph": "not_a_drop_in_skill",
+        "mcp": "not_configured",
+        "install": "manual_only"
+      },
+      "notes": [
+        "Large repository; intentionally not downloaded locally.",
+        "Local-first desktop workflow, but optional product analytics and conversation/tool-content telemetry are enabled by default unless disabled in Settings → Privacy; a scrubbed safety/reliability channel may remain enabled.",
+        "Cloud Go plans advertise paid credits; do not rely on paid/cloud features.",
+        "Review PRIVACY.md before running the app."
+      ]
+    },
+    {
+      "id": "langchain-design-agent",
+      "name": "LangChain Design Agent / Content Studio",
+      "repository": "langchain-ai/design-agent",
+      "url": "https://github.com/langchain-ai/design-agent",
+      "ref": "main",
+      "commit": "86d8f667796890eb6d3612dbd1b9e941782fe03f",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE",
+      "notices_file": "NOTICE.md",
+      "kind": "agent-skill-collection-and-application",
+      "status": "available_local_selected_skills",
+      "local_path": "upstream/langchain-design-agent",
+      "entrypoints": [
+        {
+          "id": "ext-design-agent-brand-design",
+          "name": "brand-design",
+          "path": "upstream/langchain-design-agent/skills/brand-design/SKILL.md",
+          "triggers": [
+            "brand direction",
+            "brand identity",
+            "marca",
+            "brand design"
+          ],
+          "max_chars": 5200
+        },
+        {
+          "id": "ext-design-agent-content-brief",
+          "name": "content-brief",
+          "path": "upstream/langchain-design-agent/skills/content-brief/SKILL.md",
+          "triggers": [
+            "creative brief",
+            "content brief",
+            "briefing criativo"
+          ],
+          "max_chars": 4500
+        },
+        {
+          "id": "ext-design-agent-data-viz",
+          "name": "data-viz",
+          "path": "upstream/langchain-design-agent/skills/data-viz/SKILL.md",
+          "triggers": [
+            "data visualization",
+            "chart",
+            "dashboard chart",
+            "gráfico",
+            "visualização de dados"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-design-agent-design-wiki",
+          "name": "design-wiki",
+          "path": "upstream/langchain-design-agent/skills/design-wiki/SKILL.md",
+          "triggers": [
+            "design principles",
+            "typography",
+            "design craft",
+            "tipografia",
+            "composição visual"
+          ],
+          "max_chars": 4500
+        },
+        {
+          "id": "ext-design-agent-image-ops",
+          "name": "image-ops",
+          "path": "upstream/langchain-design-agent/skills/image-ops/SKILL.md",
+          "triggers": [
+            "image editing",
+            "photo edit",
+            "tratamento de imagem",
+            "recorte de imagem"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-design-agent-image-generation",
+          "name": "image-generation",
+          "path": "upstream/langchain-design-agent/skills/image-generation/SKILL.md",
+          "triggers": [
+            "image generation",
+            "gerar imagem",
+            "imagem com ia"
+          ],
+          "max_chars": 4500
+        },
+        {
+          "id": "ext-design-agent-motion-direction",
+          "name": "motion-direction",
+          "path": "upstream/langchain-design-agent/skills/motion-direction/SKILL.md",
+          "triggers": [
+            "motion design",
+            "animação",
+            "motion",
+            "vídeo animado"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-design-agent-storyboard",
+          "name": "storyboard",
+          "path": "upstream/langchain-design-agent/skills/storyboard/SKILL.md",
+          "triggers": [
+            "storyboard",
+            "roteiro visual",
+            "cenas",
+            "storyboard de vídeo"
+          ],
+          "max_chars": 4500
+        },
+        {
+          "id": "ext-design-agent-slideshow",
+          "name": "slideshow",
+          "path": "upstream/langchain-design-agent/skills/slideshow/SKILL.md",
+          "triggers": [
+            "slides",
+            "slideshow",
+            "apresentação",
+            "deck",
+            "palestra"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-design-agent-visual-verify",
+          "name": "visual-verify",
+          "path": "upstream/langchain-design-agent/skills/visual-verify/SKILL.md",
+          "triggers": [
+            "visual qa",
+            "visual check",
+            "validar visualmente",
+            "revisão visual"
+          ],
+          "max_chars": 4500
+        }
+      ],
+      "runtime": {
+        "langgraph": "Skill text may be loaded by the TS Brain registry when selected and provider policy allows it.",
+        "full_agent": "Managed Deep Agents, LangSmith sandboxes/tracing and optional Slack integrations are not installed or assumed free."
+      },
+      "notes": [
+        "Preserve NOTICE.md and third-party license files; not every nested file inherits Apache-2.0.",
+        "Use local Skills selectively; do not deploy the complete Content Studio stack."
+      ]
+    },
+    {
+      "id": "huashu-design",
+      "name": "Huashu Design",
+      "repository": "alchaincyf/huashu-design",
+      "url": "https://github.com/alchaincyf/huashu-design",
+      "ref": "master",
+      "commit": "59065698ad63f87ea1532c126c87f488d4f93fd6",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "agent-skill",
+      "status": "available_local",
+      "local_path": "upstream/huashu-design",
+      "entrypoints": [
+        {
+          "id": "ext-huashu-design",
+          "name": "huashu-design",
+          "path": "upstream/huashu-design/SKILL.md",
+          "triggers": [
+            "direção de arte",
+            "protótipo",
+            "app prototype",
+            "ui prototype",
+            "high fidelity",
+            "animation",
+            "animação",
+            "html visual",
+            "visualização",
+            "arte",
+            "arte visual",
+            "peça visual",
+            "design gráfico",
+            "direção de arte",
+            "creative direction",
+            "advertising creative"
+          ],
+          "max_chars": 6500
+        }
+      ],
+      "capabilities": [
+        "high-fidelity-html",
+        "app-prototypes",
+        "slides",
+        "motion",
+        "infographics",
+        "multi-direction-exploration",
+        "design-critique"
+      ],
+      "runtime": {
+        "requirements": [
+          "Python 3.10+",
+          "Pillow",
+          "NumPy",
+          "OpenCV",
+          "fontTools",
+          "browser/Playwright where required",
+          "image-generation provider for image synthesis"
+        ]
+      },
+      "notes": [
+        "MIT applies to source, Skill instructions and scripts; keep original MIT notice.",
+        "The repository has 430+ referenced assets/scripts in the full Skill. Verify dependencies before use.",
+        "Image-generation provider/API costs are not bundled and must not be presumed free."
+      ]
+    },
+    {
+      "id": "ogimagecn",
+      "name": "ogimagecn",
+      "repository": "shadcn-labs/ogimagecn",
+      "url": "https://github.com/shadcn-labs/ogimagecn",
+      "ref": "main",
+      "commit": "e0d748d1bbe1a60d4b9e5357cede30c0d34fc4a3",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "react-satori-component-library",
+      "status": "code_reference_local",
+      "local_path": "upstream/ogimagecn",
+      "capabilities": [
+        "open-graph-image",
+        "social-preview-image",
+        "satori",
+        "react-components"
+      ],
+      "runtime": {
+        "langgraph": "not_an_agent_skill; use as a code-generation/reference library",
+        "mcp": "not_configured"
+      },
+      "notes": [
+        "Built on Satori and shadcn-style components. Not directly callable as a LangGraph tool until wrapped in a local render adapter.",
+        "MIT notice must accompany copied code."
+      ],
+      "entrypoints": [
+        {
+          "id": "ext-ogimagecn-code",
+          "name": "ogimagecn-code",
+          "path": "external/design-library/ogimagecn-code/SKILL.md",
+          "triggers": [
+            "og image",
+            "open graph",
+            "social preview",
+            "meta image",
+            "seo image",
+            "imagem de compartilhamento"
+          ],
+          "max_chars": 4200
+        }
+      ]
+    },
+    {
+      "id": "open-carrusel",
+      "name": "Open Carrusel",
+      "repository": "Hainrixz/open-carrusel",
+      "url": "https://github.com/Hainrixz/open-carrusel",
+      "ref": "main",
+      "commit": "27ea3cd3975c29ab4bcd8d7c8bfa475f5c1e1d69",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "local-application",
+      "status": "reference_only_not_initialized",
+      "local_path": "upstream/open-carrusel",
+      "capabilities": [
+        "instagram-carousel",
+        "html-css-slides",
+        "png-export",
+        "visual-editor"
+      ],
+      "runtime": {
+        "requirements": [
+          "Node.js >=20",
+          "Next.js 16",
+          "React 19",
+          "Puppeteer",
+          "Claude Code/model authentication"
+        ],
+        "mcp": "not_configured"
+      },
+      "notes": [
+        "Separate local application, not a native Skill or LangGraph graph.",
+        "Requires user-selected model authentication; keep local and do not add model keys to repository."
+      ]
+    },
+    {
+      "id": "guizang-ppt",
+      "name": "Guizang PPT Skill",
+      "repository": "op7418/guizang-ppt-skill",
+      "url": "https://github.com/op7418/guizang-ppt-skill",
+      "ref": "main",
+      "commit": "93d21bf4a73a851907a6eb00acbf30618236667a",
+      "license": "AGPL-3.0",
+      "license_file": "LICENSE",
+      "kind": "agent-skill",
+      "status": "available_local",
+      "local_path": "upstream/guizang-ppt-skill",
+      "entrypoints": [
+        {
+          "id": "ext-guizang-ppt",
+          "name": "guizang-ppt-skill",
+          "path": "upstream/guizang-ppt-skill/SKILL.md",
+          "triggers": [
+            "ppt",
+            "powerpoint",
+            "presentation",
+            "slides",
+            "deck",
+            "apresentação",
+            "palestra",
+            "pitch deck"
+          ],
+          "max_chars": 6000
+        }
+      ],
+      "capabilities": [
+        "html-slide-deck",
+        "presenter-mode",
+        "editorial-style",
+        "swiss-style"
+      ],
+      "notes": [
+        "AGPL-3.0: retain copyright/license and comply with source availability for network use or redistributed modifications."
+      ]
+    },
+    {
+      "id": "humanizer-zh",
+      "name": "Humanizer-zh",
+      "repository": "op7418/Humanizer-zh",
+      "url": "https://github.com/op7418/Humanizer-zh",
+      "ref": "main",
+      "commit": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "agent-skill",
+      "status": "available_local_language_limited",
+      "local_path": "upstream/humanizer-zh",
+      "entrypoints": [
+        {
+          "id": "ext-humanizer-zh",
+          "name": "humanizer-zh",
+          "path": "upstream/humanizer-zh/SKILL.md",
+          "triggers": [
+            "中文润色",
+            "Chinese copy edit",
+            "chinese text humanize"
+          ],
+          "max_chars": 4200
+        }
+      ],
+      "capabilities": [
+        "chinese-copy-editing",
+        "remove-cliche",
+        "preserve-author-voice"
+      ],
+      "notes": [
+        "Chinese-language editorial guide only; do not route Portuguese or Spanish copy into it.",
+        "Guidance only; it is not an AI-detection tool and cannot prove authorship."
+      ]
+    },
+    {
+      "id": "dsh-guizang-design",
+      "name": "DSh Guizang Design",
+      "repository": "op7418/dsh-guizang-design",
+      "url": "https://github.com/op7418/dsh-guizang-design",
+      "ref": "main",
+      "commit": "e275f1e4d4a81bd4875c251d33c643c242a8a8fd",
+      "license": "AGPL-3.0",
+      "license_file": "LICENSE",
+      "kind": "deepseek-harness-plugin-and-bundled-skills",
+      "status": "reference_only_not_initialized",
+      "local_path": "upstream/dsh-guizang-design",
+      "capabilities": [
+        "design-plugin-ui",
+        "bundled-ppt-skill",
+        "bundled-social-card-skill",
+        "page-layout",
+        "humanizer",
+        "voice-profile"
+      ],
+      "runtime": {
+        "langgraph": "not_directly_compatible; DSH plugin API",
+        "langchain": "no native tool adapter"
+      },
+      "notes": [
+        "Bundles snapshots of standalone Guizang Skills; prefer standalone Skill submodules to avoid duplicate/out-of-sync copies.",
+        "Voice-profile feature reads local DSH conversation records; do not enable without a separate privacy review."
+      ]
+    },
+    {
+      "id": "agent-reach",
+      "name": "Agent Reach",
+      "repository": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "ref": "main",
+      "commit": "8d9ecc1f5521fe7d223cde782aaa4005695e2671",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "read-only-research-cli-and-skill",
+      "status": "available_local_not_setup",
+      "local_path": "upstream/agent-reach",
+      "entrypoints": [
+        {
+          "id": "ext-agent-reach",
+          "name": "agent-reach",
+          "path": "upstream/agent-reach/agent_reach/skill/SKILL.md",
+          "triggers": [
+            "search reddit",
+            "search x",
+            "youtube transcript",
+            "read social link",
+            "pesquisar redes sociais",
+            "ler link",
+            "search github",
+            "buscar vagas",
+            "buscar tendências"
+          ],
+          "max_chars": 5200
+        }
+      ],
+      "capabilities": [
+        "read-only-web-search",
+        "social-platform-reading",
+        "youtube-transcripts",
+        "github-research",
+        "jobs-and-market-data"
+      ],
+      "runtime": {
+        "install": "manual and user-approved only",
+        "command": "uv tool install https://github.com/Panniantong/Agent-Reach/releases/latest/download/agent-reach.zip",
+        "mcp": "check for existing MCP; not configured by this project",
+        "writes": false
+      },
+      "notes": [
+        "Do NOT install the PyPI package named agent-reach; it is not this project.",
+        "Read-only: no posting, commenting, likes or DMs. Do not import cookies, login or configure channels automatically.",
+        "Stop on NEED_LOGIN, RATE_LIMITED or PLATFORM_BLOCKED. User must perform any login."
+      ]
+    },
+    {
+      "id": "aitoearn",
+      "name": "AiToEarn",
+      "repository": "yikart/AiToEarn",
+      "url": "https://github.com/yikart/AiToEarn",
+      "ref": "main",
+      "commit": "f740b23ef213b2821c171eb1f1a7d6d0376a35e0",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "kind": "content-marketing-platform-and-remote-mcp",
+      "status": "reference_only_not_initialized",
+      "local_path": "upstream/aitoearn",
+      "approx_repo_size_mb": 368,
+      "capabilities": [
+        "content-creation",
+        "publishing",
+        "engagement",
+        "monetization",
+        "remote-mcp"
+      ],
+      "runtime": {
+        "mcp": "requires API key and endpoint choice; disabled",
+        "writes": true,
+        "publication": "blocked until user authorizes each account and operation",
+        "self_host": "Docker with JWT_SECRET and required service configuration"
+      },
+      "notes": [
+        "No API key stored or configured. Do not connect its remote MCP or allow publishing without separate review and explicit approval.",
+        "Potential service/account costs and terms must be checked before use."
+      ]
+    },
+    {
+      "id": "mono-color-skill",
+      "name": "Monocolor Editorial Print",
+      "repository": "yanliudesign/mono-color-skill",
+      "url": "https://github.com/yanliudesign/mono-color-skill",
+      "ref": "main",
+      "commit": "c8ff70597ddedcd65f21a0b528f6a70c35690b0a",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "assets_license_file": "ASSET-LICENSE.md",
+      "kind": "agent-skill",
+      "status": "available_local",
+      "local_path": "upstream/mono-color-skill",
+      "entrypoints": [
+        {
+          "id": "ext-mono-color",
+          "name": "mono-color-skill",
+          "path": "upstream/mono-color-skill/SKILL.md",
+          "triggers": [
+            "monochrome",
+            "monocolor",
+            "one-ink",
+            "two-ink",
+            "poster",
+            "zine",
+            "editorial print",
+            "cartaz monocromático",
+            "serigrafia editorial"
+          ],
+          "max_chars": 5200
+        }
+      ],
+      "capabilities": [
+        "one-ink",
+        "two-ink",
+        "editorial-poster",
+        "zine",
+        "print-portrait",
+        "packaging"
+      ],
+      "notes": [
+        "MIT applies to code/Skill/scripts. Original examples are © Yan Liu and excluded from MIT.",
+        "Third-party reference images are research/attribution-only, some source attribution is unresolved; never redistribute or reproduce them as templates."
+      ]
+    },
+    {
+      "id": "diagram-design",
+      "name": "Diagram Design",
+      "repository": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "ref": "main",
+      "commit": "1acb8776bab34f5055399fbac96a693c8d5cf7b3",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "privacy_file": "PRIVACY.md",
+      "kind": "agent-skill",
+      "status": "available_local",
+      "local_path": "upstream/diagram-design",
+      "entrypoints": [
+        {
+          "id": "ext-diagram-design",
+          "name": "diagram-design",
+          "path": "upstream/diagram-design/skills/diagram-design/SKILL.md",
+          "triggers": [
+            "diagram",
+            "flowchart",
+            "architecture diagram",
+            "sequence diagram",
+            "mermaid",
+            "excalidraw",
+            "plantuml",
+            "diagrama",
+            "fluxograma",
+            "arquitetura"
+          ],
+          "max_chars": 6000
+        }
+      ],
+      "capabilities": [
+        "52-diagram-types",
+        "html-svg",
+        "png-svg-pdf-export",
+        "drawio-import",
+        "mermaid-import",
+        "excalidraw-import",
+        "plantuml-import"
+      ],
+      "notes": [
+        "MIT; no local server/accounts/analytics/telemetry per PRIVACY.md.",
+        "Templates load Google Fonts by default; replace with system fonts/remove external font import for offline/privacy-sensitive rendering.",
+        "Use local brand profiles only with user-approved brand assets."
+      ]
+    },
+    {
+      "id": "layout-compositions-350",
+      "name": "350 Layout Compositions",
+      "repository": "nevertoday/350-layout-compositions",
+      "url": "https://github.com/nevertoday/350-layout-compositions",
+      "ref": "main",
+      "commit": "0017228c1b0a992fc84cf933a001ec71d02ddabb",
+      "license": "CC-BY-4.0",
+      "license_file": "LICENSE",
+      "kind": "visual-layout-reference-library",
+      "status": "catalog_available_local_reference_only",
+      "local_path": "upstream/350-layout-compositions",
+      "approx_repo_size_mb": 728,
+      "capabilities": [
+        "350-layout-patterns",
+        "8-categories",
+        "33-subcategories",
+        "composition-reference"
+      ],
+      "runtime": {
+        "langgraph": "catalog may be searched; source images only on demand",
+        "mcp": "not_configured"
+      },
+      "notes": [
+        "Attribution required; link CC BY 4.0 and indicate modifications.",
+        "Reference collection only. Do not use associated paid offers/Skills/services.",
+        "Repository includes hundreds of large images; submodule pointer is present but content not downloaded."
+      ],
+      "entrypoints": [
+        {
+          "id": "ext-350-layout-reference",
+          "name": "layout-composition-reference",
+          "path": "external/design-library/layout-composition-reference/SKILL.md",
+          "triggers": [
+            "layout",
+            "composition",
+            "composição",
+            "grid",
+            "editorial layout",
+            "poster layout",
+            "layout de post",
+            "layout de carrossel"
+          ],
+          "max_chars": 5000
+        }
+      ]
+    },
+    {
+      "id": "yingzao",
+      "name": "Yingzao · 营造",
+      "repository": "op7418/guizang-yingzao-skill",
+      "url": "https://github.com/op7418/guizang-yingzao-skill",
+      "ref": "main",
+      "commit": "58c9b8738858bae0ab2c669d0a0fead90d4a80c9",
+      "license": "not_found",
+      "kind": "photo-to-editorial-poster-skill",
+      "status": "link_only_license_unverified",
+      "local_path": null,
+      "entrypoints": [],
+      "capabilities": [
+        "architecture-editorial-posters",
+        "photo-compositing",
+        "chinese-display-type"
+      ],
+      "runtime": {
+        "requirements": [
+          "Python 3.10+",
+          "Pillow",
+          "NumPy",
+          "OpenCV",
+          "fontTools",
+          "image-generation-capable agent"
+        ]
+      },
+      "notes": [
+        "No LICENSE file was found at the repository root; treat content as all-rights-reserved. Listed for discovery only. Do not copy, vendor, redistribute or load its SKILL.md into prompts until licensing is clarified."
+      ]
+    }
+  ]
+}

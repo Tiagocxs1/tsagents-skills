@@ -186,3 +186,14 @@ As fichas da marca são a fonte única antes de criar conteúdo. Os números int
 - [Image Asset Ingestion](./image-asset-ingestion/SKILL.md): regra universal para importar, usar, recuperar e expirar fotografias de terceiros.
 - [Cloudflare Image Library](./runtimes/cloudflare-image-library/README.md): Worker/MCP remoto, API, bucket R2, catálogo D1 e retenção temporária.
 - Regra padrão: os binários em R2 expiram após sete dias (com processamento de exclusão normalmente concluído até 24h depois). O catálogo mantém somente metadados e URLs de origem para tentar baixar novamente — não garante recuperação se a fonte sair do ar ou exigir URL temporária.
+
+
+## Arsenal externo de Design, Conteúdo e Agents
+
+Os 15 repositórios estudados estão registrados com commits e licenças em [`external/design-library/registry.json`](./external/design-library/registry.json). O índice de uso está em [`docs/EXTERNAL-DESIGN-ARSENAL.md`](./docs/EXTERNAL-DESIGN-ARSENAL.md) e o roteador de tarefas em [`external-design-library-router/SKILL.md`](./external-design-library-router/SKILL.md).
+
+O TS Brain/LangGraph lê até duas Skills locais relevantes por briefing a partir de `upstream/`, sem sincronização de rede durante a execução. O catálogo de 350 composições tem CSV de metadados local; as imagens originais não foram baixadas. O wrapper ogimagecn fornece instruções para adaptação React/Satori; não é um MCP.
+
+Para inventário e teste local: `ts-brain skills --sources`, `ts-brain skills --all` e `ts-brain skills --name <id>`. O conteúdo das Skills não é enviado ao provider NVIDIA atual.
+
+**Recuperação seletiva:** não inicialize todos os submodules novos com `--recursive`. OpenDesign, AiToEarn e 350 Layout Compositions contêm arquivos muito grandes. Use `git submodule update --init <path>` somente para o projeto necessário. Yingzao está documentado apenas como link até que a licença seja esclarecida.
