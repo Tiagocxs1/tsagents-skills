@@ -9,6 +9,8 @@ on:
         default: vector-studio/requests/guardian-typography-tests-2026-11.json
         type: string
   push:
+    branches:
+      - main
     paths:
       - "vector-studio/requests/**"
       - "vector-studio/guardian_vector_posts.py"
