@@ -66,3 +66,7 @@ Local files are a fallback, not a requirement for cloud agents. The online Worke
 
 ## Cloud source monitor (no desktop dependency)
 The GitHub Actions workflow `.github/workflows/visual-source-watch.yml` checks the six approved repositories and Poly Haven public API daily at 09:00 São Paulo time (12:00 UTC). It writes a report to the Actions job summary and a 30-day artifact, and commits the source baseline only when a release/commit/catalog change is detected. It never scrapes or downloads marketplace freebies. The local systemd watcher is an optional duplicate; cloud monitoring continues when the user's PC is off.
+
+
+## Gate obrigatório — contexto do cliente, território e protagonista em primeiro plano
+Antes de selecionar imagens, consultar `client-contextual-visual-assets/SKILL.md`: estudar nicho, público, produtos/serviços, catálogo oficial e regiões atendidas; construir mapa de contexto visual; pesquisar assets locais com licença adequada; não usar fotografia estrangeira/genérica para representar campanha regional. Planejar protagonista real em foreground (produto autêntico, pessoa, objeto ou cena isolada em PNG/foto/3D) quando o conceito comportar. Definir background/midground/foreground e integrar perspectiva, escala, luz, foco, oclusão e sombras. Registrar proveniência e direitos. Reprovar wallpaper fotográfico + texto quando a narrativa exigir presença visual, produto falso, localidade errada ou asset sem permissão.
