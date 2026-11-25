@@ -145,6 +145,16 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - O NVIDIA Nemotron ativo recebe somente papéis genéricos e briefings públicos/sintéticos. Nunca enviar a esse provider conteúdo de Skills, perfis de agentes, referências privadas ou memória Obsidian. O código deve manter esta barreira mesmo que Skills sejam selecionadas localmente.
 - Ao clonar o arsenal, não usar `git submodule update --init --recursive` indiscriminadamente: os ponteiros OpenDesign/AiToEarn/350 imagens são grandes. Inicializar só paths necessários.
 
+## WebGL, WebGPU, shaders e UI cinematográfica
+
+- Para tarefas com shaders, WebGL/WebGPU, efeitos GPU, componentes React cinematográficos, glass, refração, metal líquido, halftone, partículas ou referências de sites experimentais, consultar external/design-library/visual-webgl-shader-library/SKILL.md e docs/SHADER-WEBGL-UI-REFERENCE-CATALOG.md.
+- Classificar cada fonte como engine, biblioteca de componentes, demo, ferramenta SaaS, catálogo de referência ou MCP. Não tratar sites de inspiração como bibliotecas instaláveis.
+- Verificar licença por código e asset, distinguir conteúdo gratuito e Pro, registrar notices e não importar bibliotecas inteiras sem necessidade.
+- Priorizar Shaders.com MIT (runtime WebGPU-only), Three.js, Codrops demos (MIT salvo exceções e com notices), Magic UI MIT, Vanta.js MIT e componentes free de Aceternity. React Bits usa MIT + Commons Clause; 21st.dev tem licenças por componente.
+- Unicorn Studio Free é pessoal/não comercial: não usar em publicidade de clientes sem licença comercial. Repositório layerframe/react-three-shader-library está arquivado e é apenas referência.
+- MCPs oficiais de Shaders.com e Magic UI são candidatos a avaliação, não estão automaticamente instalados ou conectados. Não ativar sem auditoria de schema, permissões, telemetria e custo.
+- Em posts estáticos, renderizar o frame e integrar à arte com texto editável; não entregar uma página animada como se fosse PNG final. Manter fallback para navegadores sem WebGPU.
+
 ## Cenas 3D reais, renderização PBR e ilustração técnica
 
 Para qualquer pedido de modelagem, renderização, personagem/objeto 3D, Blender, Three.js, WebGPU/TSL, PBR, HDRI, GLB/GLTF/VRM ou render com transparência:

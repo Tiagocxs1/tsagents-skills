@@ -78,3 +78,16 @@ Use the CLI output to check whether a Skill is genuinely loadable. A submodule p
 - Existing UI/website/dashboard critique or polish: ext-impeccable (guidance and references only; no hooks/CLI/live engine installed).
 
 No diffusion image generation and no paid mesh-generation services in the TS Digitais 3D route. A Skill's presence does not mean Blender/WebGPU renderer, MCP handshake, runtime dependencies or rendering have been verified. Current host status is documented in AGENTS.md and docs/EXTERNAL-DESIGN-ARSENAL.md.
+
+
+## Shader/WebGL e bibliotecas de UI cinematográfica — 25/11/2026
+
+Nova Skill local: `ext-shader-webgl-ui-reference` em `external/design-library/shader-webgl-ui-reference/SKILL.md`. O registro machine-readable passou a conter 25 fontes e 51 entrypoints carregáveis. O catálogo detalhado está em `docs/SHADER-WEBGL-UI-REFERENCE-CATALOG.md`.
+
+Rotas principais: Shaders engine (MIT, WebGPU; presets Pro pagos), Paper Shaders (validar licença do pacote), Magic UI (MIT), Aceternity (gratuitos + pagos), Skiper (atribuição nos gratuitos), React Bits (MIT + Commons Clause), Vanta.js (MIT) e demos Codrops (MIT por padrão nas demos baixáveis, salvo aviso específico; preservar notices). O repositório layerframe/react-three-shader-library está arquivado desde 2023 e fica como referência educacional.
+
+Integrações candidatas: Shaders MCP/CLI (engine/CLI básicos gratuitos; catálogo Pro pago), 21st.dev MCP (busca grátis; Free 2 instalações/dia), Magic UI MCP (MIT), Mobbin MCP (Pro/Team) e Unicorn Studio MCP (Free 250 alterações/mês, mas uso comercial exige Legend). Nenhum MCP foi ativado.
+
+Galerias como HorizonX, Mobbin, Refero, Gogly, Vanta Supply, Movin, 60fps, Jiro, Landdding e Scrolltide são classificadas como referências visuais ou comerciais, não como bibliotecas de assets livres. Unicorn Studio é editor/renderer WebGL; self-host JSON depende do plano e não equivale a um projeto Three.js. Subframe é ferramenta de design/build comercial. A licença de cada asset/código deve ser verificada na origem.
+
+Para detalhes, custos, licenças, links e fluxo obrigatório, consultar `docs/SHADER-WEBGL-UI-REFERENCE-CATALOG.md` e a Skill acima.

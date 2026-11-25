@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-24",
   "description": "Curated index of external design, content, agent, 3D scene-production and technical illustration repositories.",
   "defaults": {
     "auto_install_apps": false,
@@ -1589,6 +1589,62 @@
         "Skill first-party, criada independentemente; não copia arquivos de projetos externos.",
         "ALIGN é citado como referência metodológica MIT; os arquivos e ferramentas upstream não são incorporados.",
         "O skill descreve a política de decisão; o runtime local renderiza HTML/SVG e só executa VLM quando houver opt-in explícito."
+      ]
+    },
+    {
+      "id": "shader-webgl-ui-reference",
+      "name": "TS Digitais Shader, WebGL and Cinematic UI Reference Catalog",
+      "repository": "TS Digitais curated reference catalog",
+      "url": "https://github.com/Tiagocxs1/tsagents-skills",
+      "ref": "working-tree",
+      "license": "mixed-upstream; per-source license required",
+      "kind": "curated-reference-skill",
+      "status": "available_local",
+      "local_path": "external/design-library/shader-webgl-ui-reference",
+      "entrypoints": [
+        {
+          "id": "ext-shader-webgl-ui-reference",
+          "name": "shader-webgl-ui-reference",
+          "path": "external/design-library/shader-webgl-ui-reference/SKILL.md",
+          "triggers": [
+            "liquid metal",
+            "fluted glass",
+            "liquid glass",
+            "shader background",
+            "custom shader",
+            "GLSL shader",
+            "WGSL shader",
+            "refraction shader",
+            "halftone shader",
+            "WebGL effect",
+            "WebGPU effect",
+            "cinematic ui",
+            "motion ui",
+            "landing page inspiration",
+            "21st.dev",
+            "shaders.com MCP"
+          ],
+          "max_chars": 9000
+        }
+      ],
+      "capabilities": [
+        "webgl",
+        "webgpu",
+        "glsl",
+        "wgsl",
+        "shader-components",
+        "react-ui",
+        "motion-design",
+        "design-inspiration",
+        "mcp-discovery"
+      ],
+      "notes": [
+        "Catálogo curado; não prova que sites estão conectados nem que assets são reutilizáveis.",
+        "Conferir licença por repositório e direitos por asset.",
+        "Shaders engine/components MIT; runtime WebGPU-only e conteúdo Pro separado.",
+        "Codrops demos baixáveis MIT salvo aviso diferente; preservar notices e respeitar termos.",
+        "21st.dev tem busca gratuita e limite de recuperação de código por conta; autenticação e limites mudam.",
+        "MCPs não são ativados automaticamente."
       ]
     }
   ]

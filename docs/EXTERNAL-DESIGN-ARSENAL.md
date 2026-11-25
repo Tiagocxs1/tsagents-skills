@@ -129,3 +129,11 @@ Não usar diffusion nem serviços pagos de geração de malha. Blender MCP permi
 Verificação em 25/11/2026: Blender ausente; Python 3.12.3; Node.js do sistema 18.19.1 (Anatomy pede >=20.10; starter da arquitetura Three.js pede >=22.13); Chrome presente; disco 99% ocupado (~2.2 GB livres), pouca RAM disponível. Portanto nenhum renderizador está ativo/conectado e nenhum render foi executado nesta etapa. Não instalar nem inicializar render pesado antes de liberar espaço e preparar host compatível.
 
 O catálogo atual passa a incluir 23 fontes e 49 entrypoints. O seletor local limita tarefas 3D a até três Skills e tarefas normais a duas. Para NVIDIA, a barreira permanece: conteúdo de Skill externo, perfis e memória Obsidian não são enviados ao provider; a execução usa somente briefing público/sintético e papéis genéricos.
+
+## WebGL, shaders e UI cinematográfica — 24/11/2026
+
+Novo módulo local visual-webgl-shader-library/SKILL.md, registrado como ext-visual-webgl-shader-library. O catálogo completo está em docs/WEBGL-SHADERS-3D-UI-LIBRARY.md.
+
+Prioridades: Shaders.com (engine/components MIT, WebGPU-only; biblioteca Pro separada), Three.js, Codrops demos (MIT salvo exceções; preservar notices), Magic UI (MIT; MCP oficial), Vanta.js (MIT), componentes gratuitos Aceternity. React Bits é MIT + Commons Clause; 21st.dev varia por autor/componente. Shadeon precisa de licença upstream confirmada. layerframe/react-three-shader-library está arquivado.
+
+Scrolltide, HorizonX, Mobbin, Refero, Gogly, Vanta.supply, Motionin, 60fps, Jiro e Landdding são fontes de referência, não bibliotecas de código. Subframe é ferramenta design-to-code com plano gratuito limitado. Unicorn Studio Free é pessoal/não comercial e não deve ser usado em peças publicitárias de clientes; export JSON e licença comercial são pagos. MCPs oficiais Shaders e Magic UI ficam como candidatos a avaliação, não conectados automaticamente.
