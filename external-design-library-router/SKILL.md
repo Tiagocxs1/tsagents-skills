@@ -91,3 +91,13 @@ Integrações candidatas: Shaders MCP/CLI (engine/CLI básicos gratuitos; catál
 Galerias como HorizonX, Mobbin, Refero, Gogly, Vanta Supply, Movin, 60fps, Jiro, Landdding e Scrolltide são classificadas como referências visuais ou comerciais, não como bibliotecas de assets livres. Unicorn Studio é editor/renderer WebGL; self-host JSON depende do plano e não equivale a um projeto Three.js. Subframe é ferramenta de design/build comercial. A licença de cada asset/código deve ser verificada na origem.
 
 Para detalhes, custos, licenças, links e fluxo obrigatório, consultar `docs/SHADER-WEBGL-UI-REFERENCE-CATALOG.md` e a Skill acima.
+
+
+## Rotas de motores 3D e renderização remota — 25/11/2026
+
+- Qualquer tarefa com cena 3D, produto 3D, PBR ou render offline: carregar ext-tsdigitais-3d-scene-production.
+- Brief com shader WebGL/GLSL/WGSL, distorção, metal líquido, vidro, WebGPU, OGL, Curtains.js ou efeitos em landing page: carregar também ext-shader-webgl-ui-reference. Reconhecer expressamente os termos "shaders WebGL", "shader WebGL" e "efeito WebGL".
+- Se citar Three.js, adicionar o módulo core apropriado (fundamentals/materials/lighting/shaders/loaders/performance) conforme a necessidade, respeitando o limite total de três Skills para tarefas 3D.
+- Escolha: Three.js padrão; Babylon.js/PlayCanvas para engine completa; OGL para shaders leves; Curtains.js para DOM + WebGL; R3F/Drei em React; TresJS em Vue; Threlte em Svelte; model-viewer para GLB pronto; ThreePipe para produto/estúdio web (beta); Filament para integração PBR avançada.
+- Blender sem hardware local adequado pode ser executado via GitHub Actions headless em CPU. Isso é arquitetura planejada, não integração existente. Workflow, token, polling, artifacts e revisão visual precisam ser implementados e testados antes de marcar render remoto como operacional.
+- Não tratar runners padrão como GPU; não enviar assets/briefings privados a repositório público. Repo privado usa franquia Actions do plano e pode gerar custo excedente.
