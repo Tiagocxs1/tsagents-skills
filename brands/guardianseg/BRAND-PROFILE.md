@@ -148,3 +148,7 @@ Para ilustrações geradas, manter coerência de equipamento e não criar modelo
 - https://portaria.guardianseg.com.br/
 
 As páginas públicas sustentam a descrição dos serviços e parte dos claims institucionais. A paleta, a proibição de verde e os números internos foram informados pela equipe em conversas anteriores. A ficha deve ser revista quando recebermos logo vetorial, fontes, Brand Kit, fotos aprovadas e atualização oficial dos indicadores.
+
+
+## Pesquisa visual contextual — regra permanente (25/11/2026)
+Estudar o site Guardian, o nicho, o público, a área atendida e os produtos/serviços antes de escolher assets. Para campanhas regionais, preferir cenários reais de Florianópolis e Grande Florianópolis, incluindo São José, Palhoça e Biguaçu quando a imagem realmente representar o local. Não usar foto estrangeira genérica. A Guardian informa atuação em portaria remota/autônoma, controle de acesso (senha, TAG, biometria, facial e chave virtual), monitoramento de alarme e imagem 24h, manutenção, monitoramento colaborativo e plataforma Condomínio na Mão; a campanha deve refletir o serviço específico. A Guardian se apresenta como revendedora autorizada Intelbras; usar equipamentos reais do catálogo Intelbras, sem associar modelos a instalações efetivas sem comprovação. Protagonista real em foreground é obrigatório quando o conceito comportar; integrar produto/pessoa ao cenário. Imagens de fabricante só podem ir para publicação quando a permissão de uso estiver confirmada. Consultar `client-contextual-visual-assets/SKILL.md`.
