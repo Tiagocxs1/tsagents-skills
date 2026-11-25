@@ -100,3 +100,7 @@ Em post único, story, capa e criativo publicitário, headline não é texto cor
 - Distinguir tracking de display em caixa alta de tracking de labels; não abrir automaticamente as letras da headline.
 - Nunca comprimir ou esticar texto para caber. Corrigir copy, fonte, quebra ou composição.
 - Validar o bloco isolado e depois integrado, em thumbnail e em tamanho integral.
+
+
+## Gate obrigatório — contexto do cliente, território e protagonista em primeiro plano
+Antes de selecionar imagens, consultar `client-contextual-visual-assets/SKILL.md`: estudar nicho, público, produtos/serviços, catálogo oficial e regiões atendidas; construir mapa de contexto visual; pesquisar assets locais com licença adequada; não usar fotografia estrangeira/genérica para representar campanha regional. Planejar protagonista real em foreground (produto autêntico, pessoa, objeto ou cena isolada em PNG/foto/3D) quando o conceito comportar. Definir background/midground/foreground e integrar perspectiva, escala, luz, foco, oclusão e sombras. Registrar proveniência e direitos. Reprovar wallpaper fotográfico + texto quando a narrativa exigir presença visual, produto falso, localidade errada ou asset sem permissão.
