@@ -168,3 +168,16 @@ A cena deve definir unidades/escala, geometria/silhueta, câmera/lente/DOF, mate
 - A última verificação encontrou disco em 99% de uso, cerca de 2.2 GB livres, e pouca RAM disponível. Não instalar Blender, baixar grandes pacotes nem iniciar render pesado neste host.
 - Skills e fontes catalogadas não significam renderer/MCP ativo. O estado só muda após instalar, fazer handshake, criar cena de prova, renderizar e inspecionar a saída.
 - O provider NVIDIA não recebe textos de Skills externas, perfis privados ou notas Obsidian. Não contornar essa barreira: o fluxo NVIDIA recebe briefing público/sintético e instruções funcionais genéricas.
+
+
+## Loop criativo adaptativo — render, observar e revisar
+
+Para trabalhos gráficos, posts de produto, ilustrações, outdoors e impressos, usar a Skill first-party no catálogo external/design-library/creative-visual-loop/SKILL.md. A criação não é uma sequência visual rígida: o agente escolhe abordagem, ferramenta, número de alternativas e profundidade de revisão conforme objetivo, marca, meio, ativos e custo.
+
+A validação deve observar a renderização real. Quando houver avaliador multimodal independente, ele recebe o preview e o briefing, não o código gerador; a crítica precisa apontar localização, evidência, impacto e correção. Sem preview ou VLM, declarar exatamente o que não foi verificado — não emitir aprovação estética simulada.
+
+Revisões devem ser direcionadas: manter o que funciona, corrigir o que falha, substituir a construção quando parâmetros não resolvem, comparar versões e reverter regressões. Parar quando os gates essenciais passam, não há melhoria relevante ou o limite de tentativas/custo é alcançado. Não gerar múltiplas opções em toda tarefa só por obrigação.
+
+Para anúncios, analisar a execução em função do objetivo, público, mensagem e canal. Beleza isolada não comprova eficácia; não prever CTR, ROI ou conversão sem dados apropriados.
+
+Em mídia impressa, separar proporção, área segura, sangria, resolução raster efetiva, perfil de cor e preflight. Preview HTML/PNG não equivale a arte certificada para gráfica.

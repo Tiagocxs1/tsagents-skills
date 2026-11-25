@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-25",
   "description": "Curated index of external design, content, agent, 3D scene-production and technical illustration repositories.",
   "defaults": {
     "auto_install_apps": false,
@@ -1533,6 +1533,62 @@
         "Optional community publishing is never automatic; no publish command without user request.",
         "MIT; keep upstream copyright/license notice.",
         "TS Brain uses a first-party routing adapter at external/design-library/anatomy/SKILL.md; full upstream Skill, kit and examples remain available under upstream/anatomy/."
+      ]
+    },
+    {
+      "id": "tsdigitais-adaptive-creative-loop",
+      "name": "TS Digitais Adaptive Creative & Visual Loop",
+      "repository": "Tiagocxs1/tsagents-skills",
+      "url": "https://github.com/Tiagocxs1/tsagents-skills",
+      "ref": "main",
+      "commit": "first-party",
+      "license": "first-party",
+      "kind": "adaptive-creative-direction-and-visual-feedback-skill",
+      "status": "available_local",
+      "local_path": "external/design-library/creative-visual-loop",
+      "capabilities": [
+        "adaptive-art-direction",
+        "media-aware-tool-selection",
+        "render-observe-revise",
+        "blind-visual-review",
+        "evidence-based-critique",
+        "advertising-effectiveness-context",
+        "print-limitations-awareness",
+        "stop-on-plateau"
+      ],
+      "entrypoints": [
+        {
+          "id": "ext-tsdigitais-creative-visual-loop",
+          "name": "tsdigitais-creative-visual-loop",
+          "path": "external/design-library/creative-visual-loop/SKILL.md",
+          "triggers": [
+            "direção de arte",
+            "direcao de arte",
+            "peça gráfica",
+            "peca grafica",
+            "arte publicitária",
+            "arte publicitaria",
+            "post de produto",
+            "anúncio gráfico",
+            "anuncio grafico",
+            "outdoor",
+            "impressão gráfica",
+            "impressao grafica",
+            "creative loop",
+            "visual feedback loop",
+            "renderizar e revisar",
+            "arte final",
+            "criação de arte",
+            "criacao de arte"
+          ],
+          "max_chars": 9000,
+          "priority": 20
+        }
+      ],
+      "notes": [
+        "Skill first-party, criada independentemente; não copia arquivos de projetos externos.",
+        "ALIGN é citado como referência metodológica MIT; os arquivos e ferramentas upstream não são incorporados.",
+        "O skill descreve a política de decisão; o runtime local renderiza HTML/SVG e só executa VLM quando houver opt-in explícito."
       ]
     }
   ]
