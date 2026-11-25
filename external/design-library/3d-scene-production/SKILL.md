@@ -8,6 +8,27 @@ description: "Roteia e especifica cenas 3D reais por código, com geometria, câ
 ## Contrato
 Produza 3D real, não uma imagem 2D simulando volume. O caminho padrão é geometria e materiais em Blender ou Three.js; **não use geradores de imagem por difusão**. Não chame serviços pagos de geração de malha.
 
+## Resumo operacional — selecione antes de codificar
+
+- **Three.js:** padrão para cenas customizadas no navegador, GLTF, materiais, câmera, luz, shaders e WebGL/WebGPU.
+- **Babylon.js / PlayCanvas:** engines completas quando PBR, física, editor ou sistemas integrados justificarem a estrutura maior.
+- **OGL:** shader GLSL e efeito WebGL autoral com baixo overhead; exige código mais manual.
+- **Curtains.js:** aplicar shaders a imagens/vídeos/elementos DOM preservando layout CSS.
+- **React Three Fiber + Drei:** somente em stack React; **TresJS** para Vue; **Threlte** para Svelte.
+- **model-viewer:** primeira escolha para simplesmente apresentar um GLB/GLTF pronto.
+- **ThreePipe:** avaliar em visualização de produto web; projeto em beta, auditar plugins.
+- **Filament:** renderer PBR avançado com build WebAssembly; somente quando a integração e o peso forem justificáveis.
+- Não carregar várias engines na mesma peça. Em notebook limitado, lazy-load, DPR inicial 1, texturas/geom. enxutas, pausar fora da viewport e reduzir pós-processamento.
+
+### Fallback Blender headless em nuvem
+
+- Blender pode renderizar sem UI via `blender --background cena.blend --python scripts/render.py`.
+- GitHub Actions padrão é CPU; runner Linux de referência tem 4 CPUs, 16 GB RAM e 14 GB SSD, sem GPU dedicada presumida. Bom para smoke test/stills moderados/animações curtas, não promessa de render pesado rápido.
+- Runners padrão são gratuitos em repositórios públicos; privados consomem franquia mensal e podem gerar cobrança excedente. Nunca enviar arquivos/briefings de clientes a repositórios públicos ou artifacts públicos.
+- Pipeline futuro: job tipado → workflow_dispatch → Blender fixo/verificado → validar imagem → artifact → TS Brain baixa → preview real → QA visual. Sem artifact válido e revisão por pixels, não há aprovação.
+- Blender não renderiza DOM/Three.js/WebGL. Para HTML e cenas web usar Chromium/Playwright para capturar DOM/canvas.
+- **Status:** backend Actions não está implementado nem conectado. Não afirmar que um job foi enviado ou render concluído até validar ponta a ponta com cena pública/sintética.
+
 ## Escolha do motor
 - **Imagem final estática, fotografia de produto, cena cinematográfica, PNG com alpha, render offline:** Blender + Python `bpy`; prefira Cycles para ray tracing/fidelidade final e Eevee para prévias rápidas. Só execute quando Blender estiver instalado e o hardware tiver memória/armazenamento suficientes.
 - **Cena interativa, configurador, produto navegável, web 3D ou animação em tempo real:** Three.js. Use `WebGPURenderer` + TSL quando o browser/GPU inicializar WebGPU; valide backend após `await renderer.init()`. WebGL2 é uma rota alternativa somente quando o alvo não suporta WebGPU ou o usuário aceitar fallback.
