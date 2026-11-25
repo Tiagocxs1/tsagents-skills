@@ -191,3 +191,10 @@ Revisões devem ser direcionadas: manter o que funciona, corrigir o que falha, s
 Para anúncios, analisar a execução em função do objetivo, público, mensagem e canal. Beleza isolada não comprova eficácia; não prever CTR, ROI ou conversão sem dados apropriados.
 
 Em mídia impressa, separar proporção, área segura, sangria, resolução raster efetiva, perfil de cor e preflight. Preview HTML/PNG não equivale a arte certificada para gráfica.
+
+
+## Contexto visual do cliente, geografia e protagonista em primeiro plano
+
+Antes de selecionar fotografias, imagens ou produtos para qualquer cliente, consultar obrigatoriamente `client-contextual-visual-assets/SKILL.md`. Estudar Brand Profile, nicho, público, site, catálogo de produtos/serviços e território atendido; construir mapa de contexto visual e pesquisar assets locais/licenciados. Não usar foto estrangeira genérica para representar operação regional brasileira.
+
+Em peças sociais/campanhas, planejar protagonista real em primeiro plano (produto, pessoa, objeto ou elemento contextual em PNG/recorte/foto isolada/3D verdadeiro) quando o conceito comportar. Background não pode ser automaticamente a única imagem. Definir background/midground/foreground e integrar perspectiva, escala, luz, foco, oclusão e sombras. Reprovar composições apenas wallpaper fotográfico + texto quando a narrativa exigir presença de produto/pessoa.
