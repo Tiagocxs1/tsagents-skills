@@ -16,6 +16,33 @@ Inspirado por: frontend-design (vipulgupta2048), social-media-graphic-designer (
 
 > **IMPORTANTE:** Antes de gerar qualquer design, carregue a skill `composition-framework` para o modelo de camadas, planejamento de composição e biblioteca de técnicas premium.
 
+## Pergunta obrigatória por elemento — efeito e blend mode
+
+**A pergunta é feita individualmente, no momento em que cada elemento é colocado no frame.** Não basta escolher efeitos uma vez para a peça inteira nem revisar somente no final.
+
+Para cada elemento novo — texto, fotografia, objeto 3D, recorte, forma, linha, ícone, textura, logo, sombra ou overlay — interrompa a composição por um instante e pergunte:
+
+> **“Este elemento, neste ponto do frame, se beneficiaria de algum efeito, estilo de camada ou modo de mesclagem disponível nas referências de Figma, Pixso ou Penpot? Qual efeito melhoraria sua função, materialidade, hierarquia ou integração — e por quê? Se nenhum ajudar, devo mantê-lo limpo?”**
+
+Faça uma avaliação rápida, não uma aplicação automática. Considere quando pertinente:
+- sombra projetada ou interna, ambient occlusion, glow e rim light;
+- blur, background blur, depth of field e foco;
+- stroke, borda, gradient overlay, color overlay e highlight;
+- máscara, clip, blend/compositing mode e transparência;
+- correção de cor, saturação, contraste, luminosidade e filtros;
+- textura, grain, noise, refração, reflexão, bevel ou sensação de profundidade 3D.
+
+Escolha apenas efeitos que apoiem o papel daquele elemento. Para modos de mesclagem, compare o resultado com o modo normal e teste opções como `normal`, `multiply`, `screen`, `overlay`, `soft-light`, `hard-light`, `color`, `luminosity`, `difference` e `exclusion` quando o renderer suportar. Não presumir que todos os recursos de Figma, Pixso e Penpot tenham equivalência direta em CSS/Canvas/Three.js; usar uma implementação compatível e conferir o render real.
+
+Registre a decisão de cada elemento no plano de composição:
+`elemento → função → efeito candidato → aplicar/não aplicar → motivo → intensidade/blend mode`.
+
+**“Sem efeito” é uma decisão válida e frequentemente melhor.** Evite acumular efeitos, aplicar o mesmo preset a todos os elementos ou sacrificar legibilidade, contraste, fidelidade da marca e desempenho. Ao terminar o frame, faça uma conferência curta para confirmar que todos os elementos passaram pela pergunta individual e que os efeitos funcionam em conjunto.
+
+---
+
+
+
 ---
 
 ## External Asset Sources
