@@ -109,3 +109,12 @@
 	path = upstream/350-layout-compositions
 	url = https://github.com/nevertoday/350-layout-compositions.git
 	shallow = true
+[submodule "upstream/mcp-for-blender"]
+	path = upstream/mcp-for-blender
+	url = https://github.com/ahujasid/mcp-for-blender.git
+[submodule "upstream/threejs-skills"]
+	path = upstream/threejs-skills
+	url = https://github.com/CloudAI-X/threejs-skills.git
+[submodule "upstream/anatomy"]
+	path = upstream/anatomy
+	url = https://github.com/wheresryan22/anatomy.git

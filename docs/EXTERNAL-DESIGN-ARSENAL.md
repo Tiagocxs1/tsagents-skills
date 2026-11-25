@@ -98,3 +98,34 @@ O registry contém 15 fontes e agora disponibiliza **19 IDs carregáveis**: as S
 Os testes finais do runtime passaram: 11/11, incluindo roteamento social/PPT/OG/layout, busca do catálogo 350, carregamento local e garantia de que nem Skills privadas nem memória aparecem no prompt NVIDIA. `pip check` sem dependências quebradas.
 
 A integração não autentica sites, não ativa MCP de publicação e não instala serviços externos. NVIDIA permanece com a política de não receber texto das Skills externas.
+
+## Especialização 3D e revisão de interface — 25/11/2026
+
+Foram acrescentadas oito fontes/coleções ao registro: quatro fontes para produção 3D, Anatomy, Impeccable e duas coleções técnicas (core Three.js e avançada). Os originais preservados por submodule e as adaptações compactas continuam separados.
+
+| Projeto | Licença | Escopo | Estado real |
+|---|---|---|---|
+| [MCP for Blender](https://github.com/ahujasid/mcp-for-blender) | MIT | Blender Python, cena, materiais, câmera/luz, inspeção e exportação | Fonte local; Blender/addon/MCP não instalados nem conectados |
+| [Blender MCP headless](https://github.com/sandraschi/blender-mcp) | MIT | Referências para batch/headless, exports e automação | Duas Skills selecionadas; sem servidor instalado; requer Python 3.13+ no README atual |
+| [CloudAI-X Three.js Skills](https://github.com/CloudAI-X/threejs-skills) | MIT | Fundamentos r186, PBR, luz, texturas, rigging, GLTF, TSL, pós e performance | Submodule fonte + 13 wrappers locais de roteamento |
+| [Three.js Complete Set](https://github.com/linegel/threejs-complete-set-of-skill) | ISC | WebGPU/TSL avançado, materiais PBR, geometria, criaturas, arquitetura, sombras e validação | 10 Skills selecionadas e referências; upstream documenta r185, confirmar compatibilidade |
+| [Three.js Architecture Effects](https://github.com/lhlGitHub/threejs-architecture-effects) | MIT | Arquitetura procedural interativa e animação de montagem | Skill, references e scaffold copiados; aplicação não iniciada |
+| [Anatomy](https://github.com/wheresryan22/anatomy) | MIT | Ilustração técnica isométrica densa, SVG, WebGL e peças móveis 3D | Submodule local e Skill completa disponível; Node compatível ainda não disponível no host |
+| [Impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | Direção/revisão de UI, critique, audit, polish, responsividade e detector | Skill + 16 referências selecionadas; repo integral (~933 MB), CLI, hooks, Live mode e engine não instalados |
+| [TS Digitais 3D Scene Production](../external/design-library/3d-scene-production/SKILL.md) | Guia first-party | Roteia Blender/Three.js, PBR, licenças, QA e política sem diffusion | Local e roteável pelo TS Brain |
+
+### Rotas práticas
+
+- Still cinematográfico/produto transparente → Blender + bpy/Cycles quando houver host apto.
+- Cena interativa/configurador/arquitetura web → Three.js WebGPU/TSL, validando o backend real após inicialização.
+- Ilustração técnica isométrica de máquinas/equipamentos → Anatomy; não é render PBR geral nem ferramenta para retratos humanos.
+- Revisão de site/landing/dashboard → Impeccable; não é uma skill de render 3D.
+- Peça publicitária com protagonista 3D → render com alpha + composição e tipografia HTML/SVG em camadas separadas.
+
+### Restrições e situação do host
+
+Não usar diffusion nem serviços pagos de geração de malha. Blender MCP permite execução de Python arbitrário: requer scripts revisados, arquivo de trabalho isolado e localhost. Desativar telemetria do MCP se instalado, conforme a política e a decisão do usuário.
+
+Verificação em 25/11/2026: Blender ausente; Python 3.12.3; Node.js do sistema 18.19.1 (Anatomy pede >=20.10; starter da arquitetura Three.js pede >=22.13); Chrome presente; disco 99% ocupado (~2.2 GB livres), pouca RAM disponível. Portanto nenhum renderizador está ativo/conectado e nenhum render foi executado nesta etapa. Não instalar nem inicializar render pesado antes de liberar espaço e preparar host compatível.
+
+O catálogo atual passa a incluir 23 fontes e 49 entrypoints. O seletor local limita tarefas 3D a até três Skills e tarefas normais a duas. Para NVIDIA, a barreira permanece: conteúdo de Skill externo, perfis e memória Obsidian não são enviados ao provider; a execução usa somente briefing público/sintético e papéis genéricos.

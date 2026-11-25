@@ -1,14 +1,16 @@
 {
   "schema_version": 1,
   "updated_at": "2026-11-24",
-  "description": "Curated index of 15 external design, content and agent repositories. Upstream source code stays separate from first-party adaptations.",
+  "description": "Curated index of external design, content, agent, 3D scene-production and technical illustration repositories.",
   "defaults": {
     "auto_install_apps": false,
     "auto_enable_mcp": false,
     "allow_external_publication": false,
     "load_only_relevant_skill_text": true,
     "max_external_skills_per_task": 2,
-    "nvidia_prompt_policy": "Never send third-party Skill files, submodule content, private agents, references or Obsidian notes to NVIDIA. NVIDIA receives only generic role descriptions and public/synthetic task text."
+    "nvidia_prompt_policy": "Never send third-party Skill files, submodule content, private agents, references or Obsidian notes to NVIDIA. NVIDIA receives only generic role descriptions and public/synthetic task text.",
+    "max_external_skills_per_3d_task": 3,
+    "three_d_policy": "No diffusion image generation or paid mesh-generation APIs. Blender/Three.js tools are not active until installation, connection and visual smoke tests succeed."
   },
   "sources": [
     {
@@ -730,6 +732,807 @@
       },
       "notes": [
         "No LICENSE file was found at the repository root; treat content as all-rights-reserved. Listed for discovery only. Do not copy, vendor, redistribute or load its SKILL.md into prompts until licensing is clarified."
+      ]
+    },
+    {
+      "id": "tsdigitais-3d-scene-production",
+      "name": "TS Digitais 3D Scene Production Guide",
+      "repository": "Tiagocxs1/tsagents-skills",
+      "url": "https://github.com/Tiagocxs1/tsagents-skills",
+      "ref": "feat/3d-scene-rendering-pipeline",
+      "commit": "working-tree-pending",
+      "license": "first-party; no repository-level license declaration",
+      "kind": "first-party-3d-routing-and-production-skill",
+      "status": "available_local",
+      "local_path": "external/design-library/3d-scene-production",
+      "capabilities": [
+        "3d-scene-routing",
+        "photorealistic-render-planning",
+        "pbr-materials",
+        "physical-lighting",
+        "asset-licensing",
+        "transparent-render-compositing",
+        "visual-validation",
+        "no-diffusion"
+      ],
+      "entrypoints": [
+        {
+          "id": "ext-tsdigitais-3d-scene-production",
+          "name": "tsdigitais-3d-scene-production",
+          "path": "external/design-library/3d-scene-production/SKILL.md",
+          "triggers": [
+            "3d",
+            "cena 3d",
+            "cenas 3d",
+            "objeto 3d",
+            "personagem 3d",
+            "render 3d",
+            "render fotorrealista",
+            "fotorrealismo 3d",
+            "blender",
+            "three.js",
+            "threejs",
+            "webgpu",
+            "cycles",
+            "bpy",
+            "pbr",
+            "material pbr",
+            "hdri",
+            "iluminação física",
+            "modelagem 3d",
+            "glb",
+            "gltf",
+            "vrm"
+          ],
+          "max_chars": 6500,
+          "priority": 40
+        }
+      ],
+      "notes": [
+        "Guia de integração first-party da TS Digitais; não é uma ferramenta de renderização.",
+        "Não usar geradores por difusão, nem APIs pagas de geração de malha.",
+        "Exige motor de render realmente instalado/conectado antes de qualquer afirmação de render executado."
+      ]
+    },
+    {
+      "id": "mcp-for-blender",
+      "name": "MCP for Blender",
+      "repository": "ahujasid/mcp-for-blender",
+      "url": "https://github.com/ahujasid/mcp-for-blender",
+      "ref": "main",
+      "commit": "a5a8acf2c6ae44a73670e0caf34663f16456d645",
+      "license": "MIT",
+      "license_file": "upstream/mcp-for-blender/LICENSE",
+      "kind": "blender-mcp-server-and-addon",
+      "status": "available_local_not_setup",
+      "local_path": "upstream/mcp-for-blender",
+      "capabilities": [
+        "blender-python-bpy",
+        "scene-object-material-control",
+        "camera-lighting",
+        "visual-inspection",
+        "cycles-eevee-render",
+        "poly-haven-assets",
+        "glb-model-import"
+      ],
+      "runtime": {
+        "blender": "not installed on current host",
+        "mcp": "source checked out; not configured or connected",
+        "execution": "arbitrary Python inside Blender; require reviewed scripts and saved project",
+        "telemetry": "minimal anonymous metrics by default; DISABLE_TELEMETRY=true disables all telemetry"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-blender-mcp",
+          "name": "tsdigitais-blender-mcp",
+          "path": "external/design-library/blender-mcp/SKILL.md",
+          "triggers": [
+            "blender mcp",
+            "mcp blender",
+            "blender",
+            "bpy",
+            "cycles",
+            "eevee",
+            "render offline",
+            "render fotorrealista",
+            "cena cinematográfica",
+            "png transparente",
+            "alpha blender",
+            "material cycles",
+            "renderizar no blender"
+          ],
+          "max_chars": 5800,
+          "priority": 22
+        }
+      ],
+      "notes": [
+        "MCP upstream uses arbitrary Python execution in Blender; use isolated project, save before execution and review scripts.",
+        "Keep server bound to localhost; never expose unauthenticated socket publicly.",
+        "Premium generation routes (Meshy/Tripo/Hyper3D/Hunyuan/World Labs) are excluded; no API keys.",
+        "Poly Haven CC0 content is suitable for free use subject to any bundled third-party conditions."
+      ]
+    },
+    {
+      "id": "blender-mcp-headless",
+      "name": "Sandraschi Blender MCP — Headless Skills",
+      "repository": "sandraschi/blender-mcp",
+      "url": "https://github.com/sandraschi/blender-mcp",
+      "ref": "main",
+      "commit": "4def4ed3fd8b357137a7f74b55fc44b76098c0ef",
+      "license": "MIT",
+      "license_file": "external/design-library/blender-headless/LICENSE",
+      "kind": "headless-blender-mcp-skill-reference",
+      "status": "available_local_selected_skills",
+      "local_path": "external/design-library/blender-headless",
+      "capabilities": [
+        "headless-blender",
+        "batch-render",
+        "glb-gltf-fbx-obj-usd-export",
+        "vrm-export",
+        "scene-scripting",
+        "live-viewport-optional"
+      ],
+      "runtime": {
+        "blender": "not installed",
+        "mcp": "Skill reference only; server code not installed",
+        "python": "upstream README requires Python 3.13+; current host Python is 3.12.3; compatibility not established"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-blender-headless",
+          "name": "blender-mcp-headless",
+          "path": "external/design-library/blender-headless/SKILL.md",
+          "triggers": [
+            "headless blender",
+            "blender background",
+            "blender --background",
+            "render batch",
+            "batch render",
+            "render em lote",
+            "renderização headless",
+            "automação blender",
+            "exportar glb blender",
+            "vrm blender"
+          ],
+          "max_chars": 5000,
+          "priority": 19
+        },
+        {
+          "id": "ext-blender-expert",
+          "name": "blender-expert",
+          "path": "external/design-library/blender-headless/blender-expert.md",
+          "triggers": [
+            "blender expert",
+            "bpy script",
+            "modelagem no blender",
+            "mesh blender",
+            "geonodes",
+            "geometry nodes",
+            "blender python"
+          ],
+          "max_chars": 4500
+        }
+      ],
+      "notes": [
+        "Somente Skills/documentação selecionadas copiadas; aplicação MCP completa não instalada.",
+        "Python 3.13+ indicado no README atual; não instalar no Python 3.12 global.",
+        "Não presumir que os números de ferramentas/operações estejam testados no runtime TS Brain."
+      ]
+    },
+    {
+      "id": "threejs-skills-core",
+      "name": "CloudAI-X Three.js Skills",
+      "repository": "CloudAI-X/threejs-skills",
+      "url": "https://github.com/CloudAI-X/threejs-skills",
+      "ref": "main",
+      "commit": "0e181866f095b5f06d005133876e926515390d95",
+      "license": "MIT",
+      "license_file": "upstream/threejs-skills/LICENSE",
+      "kind": "threejs-agent-skill-collection",
+      "status": "available_local_selected_skills",
+      "local_path": "upstream/threejs-skills",
+      "capabilities": [
+        "threejs-r186",
+        "webgpu-tsl",
+        "pbr-materials",
+        "lighting-hdr-shadows",
+        "textures",
+        "animation-rigging",
+        "gltf-loaders",
+        "shaders",
+        "postprocessing",
+        "interaction",
+        "performance",
+        "react-three-fiber",
+        "asset-pipeline"
+      ],
+      "runtime": {
+        "threejs_target": "r186",
+        "mcp": "not an MCP server; Skills/reference only",
+        "renderer": "WebGPURenderer must initialize and actual backend must be checked; WebGLRenderer examples are not WebGPU proof"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-threejs-fundamentals",
+          "name": "threejs-fundamentals",
+          "path": "external/design-library/threejs-core/threejs-fundamentals/SKILL.md",
+          "triggers": [
+            "three.js",
+            "threejs",
+            "cena interativa 3d",
+            "web 3d",
+            "threejs scene",
+            "webgpu renderer",
+            "scene camera renderer"
+          ],
+          "max_chars": 3500,
+          "priority": 1
+        },
+        {
+          "id": "ext-threejs-geometry",
+          "name": "threejs-geometry",
+          "path": "external/design-library/threejs-core/threejs-geometry/SKILL.md",
+          "triggers": [
+            "geometria threejs",
+            "buffergeometry",
+            "mesh procedural",
+            "malha 3d",
+            "procedural geometry",
+            "geometria",
+            "geometria procedural",
+            "procedural mesh",
+            "malha procedural"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-materials",
+          "name": "threejs-materials",
+          "path": "external/design-library/threejs-core/threejs-materials/SKILL.md",
+          "triggers": [
+            "threejs pbr",
+            "materiais pbr threejs",
+            "meshphysicalmaterial",
+            "material metal roughness",
+            "node material",
+            "pbr",
+            "materiais fisicamente baseados",
+            "material PBR",
+            "metalness",
+            "roughness",
+            "materiais threejs"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-lighting",
+          "name": "threejs-lighting",
+          "path": "external/design-library/threejs-core/threejs-lighting/SKILL.md",
+          "triggers": [
+            "threejs lighting",
+            "luz threejs",
+            "sombras threejs",
+            "hdri threejs",
+            "iluminação física threejs",
+            "luz",
+            "lighting",
+            "iluminação física",
+            "sombras",
+            "shadows",
+            "hdr"
+          ],
+          "max_chars": 3500,
+          "priority": 14
+        },
+        {
+          "id": "ext-threejs-textures",
+          "name": "threejs-textures",
+          "path": "external/design-library/threejs-core/threejs-textures/SKILL.md",
+          "triggers": [
+            "textura pbr",
+            "normal map threejs",
+            "roughness map",
+            "metalness map",
+            "uv mapping",
+            "texturas 3d"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-animation",
+          "name": "threejs-animation",
+          "path": "external/design-library/threejs-core/threejs-animation/SKILL.md",
+          "triggers": [
+            "personagem 3d threejs",
+            "rig threejs",
+            "skeletal animation",
+            "blendshape",
+            "morph target",
+            "animation mixer",
+            "criaturas",
+            "creatures",
+            "personagens",
+            "animação 3d"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-loaders",
+          "name": "threejs-loaders",
+          "path": "external/design-library/threejs-core/threejs-loaders/SKILL.md",
+          "triggers": [
+            "carregar glb",
+            "importar gltf",
+            "loader gltf",
+            "vrm threejs",
+            "asset 3d"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-shaders",
+          "name": "threejs-shaders",
+          "path": "external/design-library/threejs-core/threejs-shaders/SKILL.md",
+          "triggers": [
+            "threejs tsl",
+            "tsl shader",
+            "shader webgpu",
+            "node materials",
+            "shader material"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-postprocessing",
+          "name": "threejs-postprocessing",
+          "path": "external/design-library/threejs-core/threejs-postprocessing/SKILL.md",
+          "triggers": [
+            "bloom threejs",
+            "postprocessing threejs",
+            "ambient occlusion",
+            "render pipeline",
+            "color grading threejs"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-interaction",
+          "name": "threejs-interaction",
+          "path": "external/design-library/threejs-core/threejs-interaction/SKILL.md",
+          "triggers": [
+            "interação 3d web",
+            "raycasting threejs",
+            "orbit controls",
+            "transform controls"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-performance",
+          "name": "threejs-performance",
+          "path": "external/design-library/threejs-core/threejs-performance/SKILL.md",
+          "triggers": [
+            "otimizar threejs",
+            "performance threejs",
+            "fps threejs",
+            "memória gpu"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-react-three-fiber",
+          "name": "threejs-react-three-fiber",
+          "path": "external/design-library/threejs-core/threejs-react-three-fiber/SKILL.md",
+          "triggers": [
+            "react three fiber",
+            "r3f",
+            "drei threejs"
+          ],
+          "max_chars": 3500
+        },
+        {
+          "id": "ext-threejs-asset-pipeline",
+          "name": "threejs-asset-pipeline",
+          "path": "external/design-library/threejs-core/threejs-asset-pipeline/SKILL.md",
+          "triggers": [
+            "gltf transform",
+            "otimizar glb",
+            "draco meshopt ktx2",
+            "compressão gltf"
+          ],
+          "max_chars": 3500
+        }
+      ],
+      "notes": [
+        "README declara Three.js r186; core skill wrappers resumidos foram criados para roteamento, originais completos permanecem no submodule.",
+        "Não marcar WebGPU como ativo sem inicialização real do renderer e identificação do backend.",
+        "Adaptadores concisos de roteamento foram copiados para external/design-library/threejs-core; a coleção completa continua no submodule."
+      ]
+    },
+    {
+      "id": "threejs-webgpu-advanced",
+      "name": "Three.js Complete Set of Skills — Advanced WebGPU/TSL",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "url": "https://github.com/linegel/threejs-complete-set-of-skill",
+      "ref": "main",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "license": "ISC",
+      "license_file": "external/design-library/threejs-advanced/LICENSE",
+      "kind": "selected-advanced-threejs-agent-skills",
+      "status": "available_local_selected_skills",
+      "local_path": "external/design-library/threejs-advanced",
+      "capabilities": [
+        "webgpu-tsl-routing",
+        "advanced-pbr",
+        "procedural-materials",
+        "procedural-geometry",
+        "procedural-creatures",
+        "procedural-buildings-cities",
+        "advanced-shadowing",
+        "exposure-color-grading",
+        "camera-rigs",
+        "visual-validation",
+        "object-sculpting"
+      ],
+      "runtime": {
+        "threejs_target": "README/SKILL docs target r185; selected skills must be checked against installed release r186 before execution",
+        "mcp": "Skill files only, no rendering service"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-threejs-webgpu-router",
+          "name": "threejs-choose-skills",
+          "path": "external/design-library/threejs-advanced/threejs-choose-skills/SKILL.md",
+          "triggers": [
+            "rotear cena threejs",
+            "webgpu tsl",
+            "threejs complex scene",
+            "composed webgpu render",
+            "webgpu scene architecture"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-threejs-pbr-procedural-materials",
+          "name": "threejs-procedural-materials",
+          "path": "external/design-library/threejs-advanced/threejs-procedural-materials/SKILL.md",
+          "triggers": [
+            "pbr procedural",
+            "materiais procedurais",
+            "shader procedural",
+            "pbr microdetail",
+            "brdf",
+            "pbr",
+            "materiais",
+            "roughness",
+            "metalness",
+            "textura procedural"
+          ],
+          "max_chars": 5000,
+          "priority": 24
+        },
+        {
+          "id": "ext-threejs-procedural-geometry",
+          "name": "threejs-procedural-geometry",
+          "path": "external/design-library/threejs-advanced/threejs-procedural-geometry/SKILL.md",
+          "triggers": [
+            "procedural mesh",
+            "mesh writer",
+            "sweep geometry",
+            "topologia procedural",
+            "geometry procedural threejs",
+            "geometria",
+            "geometria procedural",
+            "malha procedural"
+          ],
+          "max_chars": 5000,
+          "priority": 20
+        },
+        {
+          "id": "ext-threejs-procedural-creatures",
+          "name": "threejs-procedural-creatures",
+          "path": "external/design-library/threejs-advanced/threejs-procedural-creatures/SKILL.md",
+          "triggers": [
+            "criatura 3d",
+            "personagem procedural",
+            "procedural creature",
+            "rig locomotion",
+            "multidão 3d",
+            "criaturas",
+            "creatures",
+            "personagens",
+            "procedural creature"
+          ],
+          "max_chars": 5000,
+          "priority": 25
+        },
+        {
+          "id": "ext-threejs-procedural-buildings",
+          "name": "threejs-procedural-buildings-and-cities",
+          "path": "external/design-library/threejs-advanced/threejs-procedural-buildings-and-cities/SKILL.md",
+          "triggers": [
+            "arquitetura procedural",
+            "edifício 3d procedural",
+            "cidade procedural",
+            "fachada 3d",
+            "procedural buildings"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-threejs-scalable-shadows",
+          "name": "threejs-scalable-real-time-shadows",
+          "path": "external/design-library/threejs-advanced/threejs-scalable-real-time-shadows/SKILL.md",
+          "triggers": [
+            "sombras avançadas threejs",
+            "cascaded shadows",
+            "shadow clipmap",
+            "cached shadows",
+            "shadow coverage",
+            "sombras",
+            "shadows",
+            "shadow",
+            "sombra real"
+          ],
+          "max_chars": 5000,
+          "priority": 23
+        },
+        {
+          "id": "ext-threejs-exposure-color-grading",
+          "name": "threejs-exposure-color-grading",
+          "path": "external/design-library/threejs-advanced/threejs-exposure-color-grading/SKILL.md",
+          "triggers": [
+            "exposure color grading",
+            "tone mapping",
+            "cinematic grading",
+            "luts webgpu",
+            "exposição render"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-threejs-visual-validation",
+          "name": "threejs-visual-validation",
+          "path": "external/design-library/threejs-advanced/threejs-visual-validation/SKILL.md",
+          "triggers": [
+            "validar render threejs",
+            "visual validation webgpu",
+            "diagnóstico render",
+            "gpu timing evidence",
+            "screenshot threejs qa"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-threejs-camera-rigs",
+          "name": "threejs-camera-controls-and-rigs",
+          "path": "external/design-library/threejs-advanced/threejs-camera-controls-and-rigs/SKILL.md",
+          "triggers": [
+            "cinematic camera rig",
+            "camera rig threejs",
+            "câmera cinematográfica 3d",
+            "depth of field threejs"
+          ],
+          "max_chars": 5000
+        },
+        {
+          "id": "ext-threejs-object-sculptor",
+          "name": "threejs-object-sculptor",
+          "path": "external/design-library/threejs-advanced/threejs-object-sculptor/SKILL.md",
+          "triggers": [
+            "reconstruir objeto 3d",
+            "object sculptor",
+            "modelar objeto de referência",
+            "reference object geometry"
+          ],
+          "max_chars": 5000
+        }
+      ],
+      "notes": [
+        "README informa 27 skills, porém a árvore Git inspecionada contém 26 diretórios em skills/. Somente 10 foram selecionadas para evitar copiar a coleção completa.",
+        "Os documentos desta coleção são orientados a r185; verificar imports, classes e TSL contra a versão realmente instalada antes de executar.",
+        "Licença ISC; manter avisos correspondentes.",
+        "Atribuição original e LICENSE ISC são preservadas por Skill nos diretórios selecionados."
+      ]
+    },
+    {
+      "id": "threejs-architecture-effects",
+      "name": "Three.js Architecture Effects",
+      "repository": "lhlGitHub/threejs-architecture-effects",
+      "url": "https://github.com/lhlGitHub/threejs-architecture-effects",
+      "ref": "main",
+      "commit": "693ca2ec1193e7355054f14d7deb1427439a24d0",
+      "license": "MIT",
+      "license_file": "external/design-library/threejs-architecture-effects/LICENSE",
+      "kind": "procedural-interactive-architecture-skill",
+      "status": "available_local_selected_skills",
+      "local_path": "external/design-library/threejs-architecture-effects",
+      "capabilities": [
+        "procedural-architecture",
+        "pbr-brick-wood-stone-metal",
+        "assembly-animation",
+        "orbit-camera",
+        "closeup-cameras",
+        "interactive-threejs-site"
+      ],
+      "runtime": {
+        "requirements": [
+          "Node.js 22.13+",
+          "npm",
+          "WebGL2 browser"
+        ],
+        "mcp": "Skill only, no MCP",
+        "video_export": "not included"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-threejs-architecture-effects",
+          "name": "threejs-architecture-effects",
+          "path": "external/design-library/threejs-architecture-effects/SKILL.md",
+          "triggers": [
+            "arquitetura procedural threejs",
+            "miniatura 3d",
+            "maquete 3d interativa",
+            "building assembly threejs",
+            "estrutura arquitetônica 3d",
+            "construção procedural em 3d"
+          ],
+          "max_chars": 4800
+        }
+      ],
+      "notes": [
+        "Gera site 3D interativo procedural, não uma imagem fotorrealista offline; não inclui exportação de vídeo.",
+        "Template não é reconstrução histórica fidedigna; não alegar precisão ou 60 FPS sem teste.",
+        "Starter demo não foi importado, somente Skill, references e scaffold; npm dependencies não instaladas."
+      ]
+    },
+    {
+      "id": "impeccable",
+      "name": "Impeccable Design Skill",
+      "repository": "pbakaus/impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "ref": "main",
+      "commit": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+      "license": "Apache-2.0",
+      "license_file": "external/design-library/impeccable/LICENSE",
+      "kind": "frontend-design-skill-and-quality-detector",
+      "status": "available_local_selected_skills",
+      "local_path": "external/design-library/impeccable",
+      "capabilities": [
+        "frontend-design-direction",
+        "ui-critique",
+        "accessibility-audit-guidance",
+        "responsive-audit-guidance",
+        "design-system-documentation",
+        "typography-layout-motion",
+        "deterministic-anti-slop-rules"
+      ],
+      "entrypoints": [
+        {
+          "id": "ext-impeccable",
+          "name": "impeccable",
+          "path": "external/design-library/impeccable/SKILL.md",
+          "triggers": [
+            "impeccable",
+            "design frontend",
+            "design de interface",
+            "critique interface",
+            "auditar interface",
+            "polish interface",
+            "polir site",
+            "melhorar landing page",
+            "melhorar dashboard",
+            "design system",
+            "tipografia de interface",
+            "layout de site",
+            "acessibilidade visual",
+            "responsive ui",
+            "ux critique",
+            "revisão de interface",
+            "revisão visual ui",
+            "auditoria visual de interface",
+            "auditoria de landing page",
+            "auditoria de dashboard",
+            "revisar design",
+            "critique ui",
+            "critique the interface",
+            "review interface",
+            "frontend ui",
+            "melhorar ui",
+            "melhorar ux",
+            "refinar interface",
+            "refino de interface",
+            "polish site",
+            "polish landing page",
+            "responsividade da interface",
+            "landing page",
+            "site",
+            "dashboard",
+            "interface",
+            "frontend",
+            "auditoria",
+            "critique",
+            "criticar",
+            "revisão de ui"
+          ],
+          "max_chars": 6500,
+          "priority": 25
+        }
+      ],
+      "notes": [
+        "Skill e referências selecionadas copiadas do upstream; repo integral (~933 MB) não baixado.",
+        "Hooks, CLI, scripts, browser live mode e engine binário não instalados nem ativados.",
+        "Não executar os comandos impeccable install/live nem hooks sem revisão e consentimento: alguns caminhos do Live podem invocar CLI local com sandbox/approval bypass.",
+        "O detector determinístico verifica padrões técnicos/estruturais; não substitui crítica estética humana nem revisão do contexto da marca.",
+        "Apache-2.0; preservar licença e avisos.",
+        "TS Brain loads a first-party safe adapter at external/design-library/impeccable/SKILL.md; original upstream Skill is preserved as UPSTREAM-SKILL.md and selected reference Markdown files are local."
+      ]
+    },
+    {
+      "id": "anatomy",
+      "name": "Anatomy — Crafted Technical Figures",
+      "repository": "wheresryan22/anatomy",
+      "url": "https://github.com/wheresryan22/anatomy",
+      "ref": "main",
+      "commit": "1482e8469b0a9e0d8cc18ea2740a01423d29ae80",
+      "license": "MIT",
+      "license_file": "upstream/anatomy/LICENSE",
+      "kind": "technical-illustration-agent-skill-and-procedural-figure-kit",
+      "status": "available_local",
+      "local_path": "upstream/anatomy",
+      "capabilities": [
+        "detailed-isometric-svg",
+        "technical-explainer-figures",
+        "procedural-solid-parts",
+        "svg-depth-order",
+        "webgl-shaders",
+        "animated-diagrams",
+        "experimental-3d-moving-parts",
+        "a4-printable-pdf"
+      ],
+      "runtime": {
+        "requirements": [
+          "Node.js >=20.10",
+          "Chrome/Chromium for visual checks"
+        ],
+        "dependencies": "README declares no npm dependencies",
+        "mcp": "not an MCP server; local Agent Skill and code kit",
+        "three_d_mode": "beta; not a general PBR renderer"
+      },
+      "entrypoints": [
+        {
+          "id": "ext-anatomy",
+          "name": "anatomy",
+          "path": "external/design-library/anatomy/SKILL.md",
+          "triggers": [
+            "anatomy",
+            "ilustração isométrica",
+            "isometric illustration",
+            "ilustração técnica",
+            "diagrama técnico",
+            "figura técnica",
+            "explainer visual",
+            "explainer interativo",
+            "máquina ilustrada",
+            "mecanismo ilustrado",
+            "desenho isométrico",
+            "objeto explicativo",
+            "figura 3d explicativa",
+            "animação técnica",
+            "technical figure",
+            "technical explainer"
+          ],
+          "max_chars": 9500,
+          "priority": 18
+        }
+      ],
+      "notes": [
+        "Excellent for detailed technical machines/instruments/equipment, not a charting library and not a people/character generator.",
+        "Core output is SVG with layered WebGL effects; true 3D turning groups are beta and not general purpose PBR.",
+        "Run local audits and screenshot checks before delivery; Chrome/Chromium needed for checks.",
+        "Optional community publishing is never automatic; no publish command without user request.",
+        "MIT; keep upstream copyright/license notice.",
+        "TS Brain uses a first-party routing adapter at external/design-library/anatomy/SKILL.md; full upstream Skill, kit and examples remain available under upstream/anatomy/."
       ]
     }
   ]

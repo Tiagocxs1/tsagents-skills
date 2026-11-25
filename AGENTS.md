@@ -144,3 +144,27 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - OpenDesign, AiToEarn, Open Carrusel e DSh não são Skills invocáveis pelo LangGraph e não foram iniciados. AiToEarn tem poderes de escrita/publicação; seu MCP continua desativado. Agent Reach é somente leitura e a instalação/autenticação de canais não é automática.
 - O NVIDIA Nemotron ativo recebe somente papéis genéricos e briefings públicos/sintéticos. Nunca enviar a esse provider conteúdo de Skills, perfis de agentes, referências privadas ou memória Obsidian. O código deve manter esta barreira mesmo que Skills sejam selecionadas localmente.
 - Ao clonar o arsenal, não usar `git submodule update --init --recursive` indiscriminadamente: os ponteiros OpenDesign/AiToEarn/350 imagens são grandes. Inicializar só paths necessários.
+
+## Cenas 3D reais, renderização PBR e ilustração técnica
+
+Para qualquer pedido de modelagem, renderização, personagem/objeto 3D, Blender, Three.js, WebGPU/TSL, PBR, HDRI, GLB/GLTF/VRM ou render com transparência:
+1. Ler obrigatoriamente `external/design-library/3d-scene-production/SKILL.md` e escolher o motor pelo destino: Blender para still/offline/Cycles; Three.js para cena interativa/web.
+2. Para Blender/MCP, abrir também `external/design-library/blender-mcp/SKILL.md`; o MCP for Blender executa Python arbitrário em Blender. Salvar antes, revisar scripts e manter bridge em localhost. Nunca expor socket sem autenticação à internet.
+3. Para cenas Three.js, usar as Skills selecionadas de `external/design-library/threejs-core/` e os módulos avançados relevantes em `external/design-library/threejs-advanced/`. Conferir a versão instalada: CloudAI-X documenta r186; a coleção avançada Linegel documenta r185 e não deve ser copiada sem conferir migração/API.
+4. Para objetos explicativos, equipamentos, mecanismos e ilustrações isométricas detalhadas, consultar `upstream/anatomy/SKILL.md`. Anatomy produz principalmente SVG procedural e efeitos WebGL; o módulo de peças móveis em 3D está em beta. Não o tratar como motor de render fotorrealista PBR nem como gerador de pessoas.
+5. Para UI, landing page, dashboard e componentes web já implementados, consultar `external/design-library/impeccable/SKILL.md` e a referência de comando necessária. O detector pode apoiar a auditoria, mas hooks, CLI, Live mode e binários não estão instalados por padrão. Não executar instaladores/hook nem caminhos que retirem sandbox/aprovação sem revisão.
+6. Para criativos sociais, integrar o render 3D como camada de imagem/fonte e finalizar copy, tipografia e identidade em HTML/SVG conforme as skills de design/social já existentes.
+
+A cena deve definir unidades/escala, geometria/silhueta, câmera/lente/DOF, materiais PBR (albedo, roughness, metalness, normal/AO/height quando aplicável), HDRI, key/fill/rim, exposição, sombras e origem/licença dos assets. Fazer preview, inspecionar o render de verdade e corrigir antes da exportação. Registrar motor, versão, backend, dimensões, assets/licenças e arquivos de saída.
+
+**Não usar geração de imagem por difusão nem APIs pagas de geração de malha neste fluxo.** Priorizar geometria procedural, código e assets licenciados gratuitos, como Poly Haven CC0. Mixamo, Ready Player Me e Sketchfab exigem verificação dos termos do asset/uso específico.
+
+### Estado dos motores no host TS Brain — 25/11/2026
+
+- Blender não está instalado; MCP for Blender está catalogado e o repositório-fonte está versionado, mas o addon/servidor não está instalado, configurado nem conectado.
+- O servidor headless alternativo é somente referência/Skills; seu README exige Python 3.13+, enquanto o host verificado usa Python 3.12.3.
+- Node.js do sistema é v18.19.1, abaixo de Node 20.10 exigido por Anatomy e abaixo de Node 22.13 exigido pelo starter de Three.js Architecture Effects. O comando `node` resolve para Bun; compatibilidade com os scripts não foi validada.
+- Google Chrome está presente, mas não basta sem runtime Node compatível.
+- A última verificação encontrou disco em 99% de uso, cerca de 2.2 GB livres, e pouca RAM disponível. Não instalar Blender, baixar grandes pacotes nem iniciar render pesado neste host.
+- Skills e fontes catalogadas não significam renderer/MCP ativo. O estado só muda após instalar, fazer handshake, criar cena de prova, renderizar e inspecionar a saída.
+- O provider NVIDIA não recebe textos de Skills externas, perfis privados ou notas Obsidian. Não contornar essa barreira: o fluxo NVIDIA recebe briefing público/sintético e instruções funcionais genéricas.
