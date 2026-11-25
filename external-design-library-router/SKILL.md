@@ -32,7 +32,7 @@ A Skill is loadable only when its entrypoint is present, the resolved local file
 - Public read-only social/web research: `ext-agent-reach` (Skill instructions are available; CLI and site channels are not installed or authenticated)
 - Chinese copy editing only: `ext-humanizer-zh`
 
-The TS Brain currently chooses at most two external Skills from trigger matches. Prefer those two most closely matched to the concrete deliverable. Do not load the entire LangChain Design Agent bundle.
+The TS Brain chooses at most two external Skills for ordinary tasks and at most three for 3D tasks. Ranking considers trigger matches and task-specific priority; prefer specialist modules over generic fundamentals when the brief names a concrete system. Do not load entire bundles.
 
 ## Upstream projects that are not directly callable Skills
 
@@ -66,3 +66,15 @@ ts-brain skills --name ext-huashu-design
 ```
 
 Use the CLI output to check whether a Skill is genuinely loadable. A submodule pointer or a registry record alone does not prove the corresponding checkout, dependencies, MCP or service is operational.
+
+
+## Specialized 3D and interface routes — 25/11/2026
+
+- Any real 3D scene/model/render request: ext-tsdigitais-3d-scene-production.
+- Blender/Cycles/bpy: ext-blender-mcp; batch/headless automation reference: ext-blender-headless.
+- Three.js/WebGPU/TSL: ext-threejs-fundamentals plus the smallest cause-specific owner (PBR materials, lighting, procedural geometry/creatures, shadows, shaders, loaders, post-processing, validation).
+- Procedural architecture: ext-threejs-architecture-effects (interactive web architecture, not offline PBR photorealism or video export).
+- Technical isometric machine/instrument/equipment illustration: ext-anatomy (SVG procedural + WebGL effects; optional moving 3D parts are beta; not people or a general PBR renderer).
+- Existing UI/website/dashboard critique or polish: ext-impeccable (guidance and references only; no hooks/CLI/live engine installed).
+
+No diffusion image generation and no paid mesh-generation services in the TS Digitais 3D route. A Skill's presence does not mean Blender/WebGPU renderer, MCP handshake, runtime dependencies or rendering have been verified. Current host status is documented in AGENTS.md and docs/EXTERNAL-DESIGN-ARSENAL.md.
