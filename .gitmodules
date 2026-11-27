@@ -118,3 +118,43 @@
 [submodule "upstream/anatomy"]
 	path = upstream/anatomy
 	url = https://github.com/wheresryan22/anatomy.git
+
+[submodule "upstream/claude-saas-eval-skills"]
+	path = upstream/claude-saas-eval-skills
+	url = https://github.com/kirillpolevoy/claude-saas-eval-skills.git
+	shallow = true
+
+[submodule "upstream/solo-founder-skills"]
+	path = upstream/solo-founder-skills
+	url = https://github.com/whawkinsiv/solo-founder-skills.git
+	shallow = true
+
+[submodule "upstream/ultimate-product-discovery"]
+	path = upstream/ultimate-product-discovery
+	url = https://github.com/ipavelm/ultimate-product-discovery-skill.git
+	shallow = true
+
+[submodule "upstream/claude-marketing-research"]
+	path = upstream/claude-marketing-research
+	url = https://github.com/ishwarjha/claude-marketing-research-skill.git
+	shallow = true
+
+[submodule "upstream/addyosmani-agent-skills"]
+	path = upstream/addyosmani-agent-skills
+	url = https://github.com/addyosmani/agent-skills.git
+	shallow = true
+
+[submodule "upstream/NVIDIA-SkillSpector"]
+	path = upstream/NVIDIA-SkillSpector
+	url = https://github.com/NVIDIA/SkillSpector.git
+	shallow = true
+
+[submodule "upstream/strix"]
+	path = upstream/strix
+	url = https://github.com/usestrix/strix.git
+	shallow = true
+
+[submodule "upstream/mcpserver-audit"]
+	path = upstream/mcpserver-audit
+	url = https://github.com/ModelContextProtocol-Security/mcpserver-audit.git
+	shallow = true

@@ -155,3 +155,36 @@ O experimento Cloudflare Python Worker permanece em `runtimes/cloudflare-mcp-bra
 - **Asaas MCP:** presente como submódulo, não conectado; precisa de credencial própria, sandbox e política de confirmação para cobranças, assinaturas e estornos.
 - **Hotmart MCP:** presente como submódulo, não conectado; precisa de credenciais OAuth e política de confirmação para cancelamento, estorno, cupons e alterações.
 - **Skills de social/marketing/UX e Superpowers:** são fontes de instruções e não exigem servidor MCP permanente. Devem ser carregadas seletivamente no runtime que executa o trabalho.
+
+## 7. Product Discovery, SaaS Validation e Security
+
+### Upstreams adicionados em 27/11/2026
+
+| Fonte | Commit fixado | Licença | Entrypoints / uso |
+|---|---|---|---|
+| [Claude SaaS Eval Skills](https://github.com/kirillpolevoy/claude-saas-eval-skills) | 6feca4f7ea3eefb687acce51da95d8ca50ef6472 | MIT | ideação de nicho, first-pass e scorecard; não pontuar sem evidência |
+| [Solo Founder Skills](https://github.com/whawkinsiv/solo-founder-skills) | 01bd10f79a4b6a741be78e3184612a90ecbd54ef | MIT | validate, secure e pricing; demanda exige comportamento/pagamento |
+| [Ultimate Product Discovery](https://github.com/ipavelm/ultimate-product-discovery-skill) | aa26c2e0d56ce2eb1939561345b230b86c5da7ba | MIT | JTBD, entrevistas, OST, Lean Canvas e 18 tarefas |
+| [Claude Marketing Research](https://github.com/ishwarjha/claude-marketing-research-skill) | 0b31cbde9a51c4a0a1d2ceca68fd39db00f5c558 | Apache-2.0 | concorrentes, avatar, posicionamento e proposta de valor |
+| [Addy Osmani Agent Skills](https://github.com/addyosmani/agent-skills) | e997ac5b9a74eab332d5e9793bb38a38c8cfdd74 | MIT | security-and-hardening, OWASP/STRIDE e hardening |
+| [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) | 02894ec5b8a0a70637df5a6b45763de92940cedd | Apache-2.0 | static scanner para Agent Skills; upstream Alpha, execução isolada |
+| [Strix](https://github.com/usestrix/strix) | 9ed84f99c8f13fc921baebc59e0c696108cfab3e | Apache-2.0 | pentest dinâmico, apenas staging autorizado, Docker + LLM key |
+| [MCP Server Audit](https://github.com/ModelContextProtocol-Security/mcpserver-audit) | f53c1e13691a1fb35555e883b455f7129b9a7cf2 | Apache-2.0 | checks e orientação de segurança MCP; cobertura limitada |
+
+As fontes foram fixadas em commits. Skills e ferramentas não são instaladas nem executadas automaticamente. A autoria e as licenças permanecem nos respectivos upstreams.
+
+### Itens deliberadamente não importados
+
+- agentnode-dev/skills-security-audit: não foi localizada licença explícita; não redistribuir.
+- anthropics/claude-code-security-review: origem oficial não verificada para esta inclusão; forks não são tratados como ferramenta oficial.
+- MCP Market SaaS Market Research Skill: repositório exato não verificado; não inventar URL nem importar cópia.
+- Best Agent Kits / Eyadkelleh Awesome Skills Security: origem exata não confirmada; manter fora até validação.
+- Corey Haines Marketing Skills: já estava em upstream/marketing-skills-corey; não duplicar.
+
+### Processo de atualização
+
+1. Comparar commits.
+2. Verificar LICENSE, notices, dependências, install scripts e ações de rede.
+3. Executar SkillSpector isolado e rever achados.
+4. Atualizar submodule/registry em PR.
+5. Validar a skill com casos sintéticos e sem credenciais reais.
