@@ -216,3 +216,22 @@ Para posts comerciais com fotografia fotorrealista, preferir SVG híbrido: foto 
 | [Illustrator MCP Server](https://github.com/ie3jp/illustrator-mcp-server) | Controle local do Illustrator, manipulação vetorial e export | Servidor MIT, mas requer Adobe Illustrator instalado e licenciado; macOS/Windows, Node 20+ | Não priorizar para ambiente Linux/custo zero. |
 
 Não confundir ferramenta open-source com pipeline leve: DiffVG, PyTorch-SVGRender e Chat2SVG podem exigir ambiente de pesquisa, downloads de modelos e GPU. Conferir versão, licença, modelos, VRAM/RAM e custo antes de instalar. Nunca instalar vários motores por tentativa.
+
+## FlipHTML5 — plano Free (pesquisa documental em 27/11/2026)
+
+| Recurso | Estado verificado na documentação oficial | Orientação TS Digitais |
+|---|---|---|
+| Plano Free | 5 flipbooks/dia, 20 GB, até 500 páginas/livro, PDF até 100 MB, 1 estante e 1 usuário | Adequado para teste e conteúdo público |
+| Incorporar por iframe | Disponível | Pode ser usado em páginas públicas do site; o livro mantém URL e acesso próprios |
+| Marca d'água e anúncios | Presentes no Free | Aceitar apenas quando apropriado |
+| Acesso privado/senha | Sem proteção por senha no Free | Não usar para relatórios privados nem dados de clientes |
+| Indexação | Não há bloqueio de mecanismos de busca no Free | Considerar o livro público e encontrável |
+| Download | PDF original pode ser baixado pelo leitor; não pode ser desabilitado no Free | Não carregar material que não possa ser redistribuído |
+| Exportar HTML e hospedar no Cloudflare | Não incluído no Free | Iframe é o caminho disponível sem upgrade |
+| API convencional | Listada no Enterprise | Não desenhar automação contando com API Free |
+| MCP remoto | Documentado em `https://mcp.fliphtml5.com/mcp`, mas elegibilidade no Free não está clara | Status: não autenticado/não testado; verificar na conta antes de usar |
+| Conversão | Full Vector, HD Text, HD Image, Internal Library e GhostScript; opções de qualidade variam por conta/uso | Consultar `fliphtml5/SKILL.md` e comparar com PDF-fonte |
+
+Fontes: [preços](https://fliphtml5.com/pt/fliphtml5-pricing.php), [exportação](https://help.fliphtml5.com/pt/docs/download/), [qualidade](https://help.fliphtml5.com/pt/docs/page-split-modes-and-page-rendering-quality/), [embed](https://help.fliphtml5.com/docs/embed-a-flipbook/), [privacidade](https://help.fliphtml5.com/docs/book-privacy-settings/), [MCP](https://help.fliphtml5.com/pt/docs/connect-ai-assistant-to-fliphtml5-with-mcp/).
+
+**Estado da conta:** pesquisa documental concluída; nenhuma conta Free, chave MCP ou publicação foi autenticada/testada nesta atualização. Não presumir integração ativa.
