@@ -96,8 +96,8 @@ A página aberta na sessão do usuário é o LangSmith Fleet. O contexto da pág
 7. Nome: `FlipHTML5`; URL: `https://mcp.fliphtml5.com/mcp`.
 8. Authentication type: **Static Headers**.
 9. Adicionar header:
-   - Key: `Authorization`
-   - Value: `Bearer SUA_API_KEY_COMPLETA` (substituir pelo valor integral; não incluir aspas).
+   - Key: `X-API-Key`
+   - Value: a API key integral, sem prefixo `Bearer` e sem aspas.
 10. Salvar e aguardar descoberta de ferramentas.
 11. Conferir se a lista de ferramentas aparece no painel do agente.
 12. Executar primeiro uma consulta somente de leitura com URL de flipbook público de teste. Comparar o título/URL/id retornados ao dashboard FlipHTML5.
@@ -108,7 +108,7 @@ A configuração é específica do agente. Não cadastrar inicialmente em Fleet 
 
 O FlipHTML5 documenta manualmente API key authentication. O LangSmith documenta Static Headers com o padrão `Authorization: Bearer API_KEY`. O metadata OAuth do FlipHTML5 anuncia Bearer via header.
 
-O usuário tentou OAuth 2.1 (Auto) e LangSmith devolveu uma rejeição do cadastro de cliente DCR. Portanto, Static Headers é o caminho de menor complexidade e alinhado à documentação dos dois produtos.
+O usuário tentou OAuth 2.1 (Auto) e LangSmith devolveu uma rejeição do cadastro de cliente DCR. Portanto, Static Headers com `X-API-Key` é o caminho de menor complexidade e corresponde ao arquivo de configuração gerado no dashboard FlipHTML5.
 
 **Não enviar a chave neste chat.** Ela deve ser inserida apenas no campo de valor do header dentro do LangSmith. Nunca gravar em GitHub, skill, prompt compartilhado, código, logs ou screenshot.
 ## 4. Segurança e privilégio mínimo
@@ -160,7 +160,7 @@ A lista acima descreve capacidades gerais do produto; não é a lista de ferrame
 | Revogação | Procedimento para desconectar o agente e revogar token/chave documentado |
 | Resultado | ID/link do livro de teste e resposta verificados no dashboard |
 
-**Estado atual:** pesquisa dos metadados públicos concluída; tentativa OAuth 2.1 Auto rejeitada pelo LangSmith; Static Headers documentado como alternativa recomendada, mas ainda não configurado nem autenticado. Ainda não houve `tools/list` autenticado ou consulta de livro. Não declarar como instalado até o teste read-only passar.
+**Estado atual em 27/11/2026:** o Fleet mostra o servidor `fliphtml5` como `Connected`, com autenticação exibida como `OAuth`. Porém, o dashboard FlipHTML5 mostra a API key criada para LangSmith como `Nunca utilizado`. A conexão visual existe, mas a API key não demonstrou uso e ainda não houve leitura de livro comprovada. A tentativa OAuth Auto foi rejeitada anteriormente. O dashboard gerou configuração manual com header `X-API-Key`. Rotacionar a chave atualmente exposta, corrigir a conexão para Static Headers → `X-API-Key`, e então validar `tools/list` e uma consulta read-only antes de declarar integração funcional.
 
 ## 7. Fontes oficiais
 
