@@ -218,21 +218,54 @@ Para relatórios individuais de clientes, usar solução sob controle próprio c
 
 O FlipHTML5 oferece servidor MCP remoto em `https://mcp.fliphtml5.com/mcp`. A documentação descreve conversão de documentos online, busca de detalhes de livros, atualização de título/descrição/palavras-chave e gestão de acesso.
 
-**Pesquisa de endpoint em 27/11/2026:** chamada MCP `initialize` sem credenciais retornou HTTP 401 `Authentication required`. O metadata público do recurso declara escopo `fliphtml5:books` e Bearer token via header. O metadata do authorization server anuncia `registration_endpoint`, Authorization Code, refresh token e PKCE S256. Isso sugere compatibilidade com **OAuth 2.1 (Auto)** do LangSmith Fleet via DCR. Essa descoberta ainda não prova uma sessão autenticada ou a disponibilidade do MCP no Free.
+### Autenticação: resultado prático no LangSmith
 
-A configuração recomendada no LangSmith Fleet é adicionar o servidor ao agente específico, não globalmente:
-- Agente existente observado: `langchain-ai-design-agent`.
-- Abrir Connections → Add connection → + Add custom MCP.
-- Nome `FlipHTML5`; URL `https://mcp.fliphtml5.com/mcp`.
-- Tentar primeiro OAuth 2.1 (Auto), pois o metadata público anuncia DCR e PKCE S256.
-- Fallback: Static Headers com API key gerada em FlipHTML5 Settings → MCP Server. Conferir no prompt oficial do FlipHTML5 o cabeçalho exato; o padrão Fleet é `Authorization: Bearer API_KEY`, mas não adivinhar o método/header sem confirmação.
-- O Fleet exige a permissão MCP Server Create e permite anexar por agente ou ao workspace inteiro; preferir o agente específico.
-- Iniciar com ferramentas read-only e revisar nomes/schemas após a descoberta autenticada. Escrita, publicação, alteração de metadados, mudança de acesso ou exclusão exigem interrupt/confirmação.
+Pesquisa técnica em 27/11/2026:
+- A chamada MCP `initialize` sem credenciais retornou HTTP 401 `Authentication required`.
+- O metadata público do recurso declara escopo `fliphtml5:books` e Bearer token via header.
+- O authorization-server metadata anuncia endpoint de registro dinâmico (DCR), Authorization Code, refresh token e PKCE S256.
+- **Teste real no LangSmith Fleet:** o usuário tentou `OAuth 2.1 (Auto)` e recebeu: `This MCP server isn't supported yet. This server's OAuth provider rejected LangSmith's client registration. LangSmith Managed Tools currently supports servers that register OAuth clients automatically.`
+- Assim, embora os metadados anunciem DCR, o fluxo automático do LangSmith foi rejeitado pelo provedor FlipHTML5. Não continuar insistindo em OAuth Auto nesta integração sem mudança documentada no upstream.
 
-Não afirmar que MCP está instalado até concluir autorização, `tools/list`, teste de leitura e verificação no dashboard. A disponibilidade no plano Free ainda precisa ser observada na conta. Não assumir que OAuth altera os recursos/limites do plano.
+**Método recomendado para LangSmith: Static Headers com API key do MCP FlipHTML5.**
 
-Detalhes técnicos, passos de conexão, segurança, ferramentas e evidências estão em `fliphtml5/MCP-LANGSMITH.md`.
+1. No FlipHTML5, abrir perfil → Settings → MCP Server.
+2. Em API Key List, clicar **Create API key** e nomear de forma identificável, por exemplo `LangSmith Fleet - langchain-ai-design-agent`.
+3. Copiar a chave completa imediatamente; ela só aparece uma vez. Não copiar a versão mascarada.
+4. No agente `langchain-ai-design-agent`, abrir Connections → Add connection → + Add custom MCP.
+5. Nome: `FlipHTML5`.
+6. URL exata: `https://mcp.fliphtml5.com/mcp`.
+7. Authentication type: **Static Headers**.
+8. Adicionar um único header:
+   - Key: `Authorization`
+   - Value: `Bearer SUA_API_KEY_COMPLETA` (substituir pelo segredo; nunca incluir aspas)
+9. Salvar e aguardar o Fleet executar a descoberta de ferramentas.
+10. Começar com uma consulta read-only sobre um flipbook público de teste e conferir o resultado no dashboard FlipHTML5.
 
+A recomendação de header combina as duas documentações: o FlipHTML5 manda configurar API-key authentication e divulga Bearer via header no resource metadata; o LangSmith documenta `Authorization: Bearer API_KEY` como padrão de Static Headers. Nunca enviar a API key no chat, no prompt do agente, em screenshots, commits, issue, arquivo de skill ou frontend. Inserir somente no campo de credencial do LangSmith.
+
+### Segurança e escopo
+
+- Criar uma chave dedicada apenas a este agente.
+- Não cadastrar em Fleet > Integrations nem workspace global na primeira etapa: manter a conexão só em `langchain-ai-design-agent`.
+- O Fleet requer permissão **MCP Server Create** no workspace.
+- Começar com ferramentas read-only e revisar nomes, descrições, schemas e anotações depois da descoberta.
+- Escrita, conversão/criação de livro, atualização de metadados, alteração de visibilidade/acesso e exclusão exigem autorização explícita para o livro e a operação específica.
+- O escopo `fliphtml5:books` não deve ser tratado como read-only; o metadata não confirma granularidade.
+- API keys FlipHTML5 não expiram automaticamente; cada conta pode ter até 10 chaves ativas; a chave completa é mostrada apenas uma vez; revogação após exclusão pode levar cerca de 10 minutos.
+- OAuth ou API key não altera limites nem recursos do plano Free.
+
+### O que conta como instalado
+
+Não marcar MCP como conectado só porque o servidor foi salvo. Exigir:
+- Static Headers salvo e aceito.
+- Descoberta `tools/list` bem-sucedida.
+- Lista real de ferramentas documentada.
+- Consulta read-only validada no dashboard FlipHTML5.
+- Agente e escopo de acesso confirmados.
+- Nenhum segredo presente nos arquivos ou logs versionados.
+
+Detalhes técnicos e histórico de tentativa OAuth em `fliphtml5/MCP-LANGSMITH.md`.
 ## 9. Validação visual e funcional
 
 Build concluído, iframe HTTP 200 ou mensagem “conversion successful” não significam que a publicação está aprovada.
