@@ -216,19 +216,22 @@ Para relatórios individuais de clientes, usar solução sob controle próprio c
 
 ## 8. MCP e automação: não confundir com API
 
-A documentação oficial possui um servidor MCP remoto em `https://mcp.fliphtml5.com/mcp`. O material oficial descreve criação/conversão de livros a partir de documentos online, leitura de detalhes e atualização de título, descrição e palavras-chave, além de recursos de gestão de acesso.
+O FlipHTML5 oferece servidor MCP remoto em `https://mcp.fliphtml5.com/mcp`. A documentação descreve conversão de documentos online, busca de detalhes de livros, atualização de título/descrição/palavras-chave e gestão de acesso.
 
-**O acesso do MCP no plano Free não está claramente especificado na documentação pública consultada.** A página de preços lista a API convencional como Enterprise. Portanto:
+**Pesquisa de endpoint em 27/11/2026:** chamada MCP `initialize` sem credenciais retornou HTTP 401 `Authentication required`. O metadata público do recurso declara escopo `fliphtml5:books` e Bearer token via header. O metadata do authorization server anuncia `registration_endpoint`, Authorization Code, refresh token e PKCE S256. Isso sugere compatibilidade com **OAuth 2.1 (Auto)** do LangSmith Fleet via DCR. Essa descoberta ainda não prova uma sessão autenticada ou a disponibilidade do MCP no Free.
 
-- Não afirmar que o MCP é grátis nem que está habilitado no Free sem testar na conta.
-- Não assumir que MCP libera recursos Pro/Enterprise de privacidade, proteção, domínio ou exportação.
-- Primeiro confirmar no dashboard se Settings > MCP Server está disponível para a conta Free.
-- Se disponível, gerar uma chave exclusivamente para essa integração. A documentação alerta que a chave aparece uma única vez e pode haver limite de chaves ativas.
-- Tratar a chave como segredo: nunca colar em chat, commit, issue, arquivo de skill, logs, frontend ou screenshot. Guardar apenas em secret store/gestor de segredos aprovado.
-- Revogar chaves não utilizadas e conferir o prazo de propagação da revogação conforme documentação.
-- Começar com operações de leitura em publicação sintética/pública. Antes de criar, converter, alterar metadados, mudar visibilidade ou apagar livros, exigir autorização explícita.
-- Confirmar efeitos e estado final no dashboard. Não inferir sucesso a partir apenas da resposta do MCP.
-- Se o MCP não estiver disponível no Free, usar fluxo manual documentado. Não improvisar chamadas REST privadas nem endpoints não publicados.
+A configuração recomendada no LangSmith Fleet é adicionar o servidor ao agente específico, não globalmente:
+- Agente existente observado: `langchain-ai-design-agent`.
+- Abrir Connections → Add connection → + Add custom MCP.
+- Nome `FlipHTML5`; URL `https://mcp.fliphtml5.com/mcp`.
+- Tentar primeiro OAuth 2.1 (Auto), pois o metadata público anuncia DCR e PKCE S256.
+- Fallback: Static Headers com API key gerada em FlipHTML5 Settings → MCP Server. Conferir no prompt oficial do FlipHTML5 o cabeçalho exato; o padrão Fleet é `Authorization: Bearer API_KEY`, mas não adivinhar o método/header sem confirmação.
+- O Fleet exige a permissão MCP Server Create e permite anexar por agente ou ao workspace inteiro; preferir o agente específico.
+- Iniciar com ferramentas read-only e revisar nomes/schemas após a descoberta autenticada. Escrita, publicação, alteração de metadados, mudança de acesso ou exclusão exigem interrupt/confirmação.
+
+Não afirmar que MCP está instalado até concluir autorização, `tools/list`, teste de leitura e verificação no dashboard. A disponibilidade no plano Free ainda precisa ser observada na conta. Não assumir que OAuth altera os recursos/limites do plano.
+
+Detalhes técnicos, passos de conexão, segurança, ferramentas e evidências estão em `fliphtml5/MCP-LANGSMITH.md`.
 
 ## 9. Validação visual e funcional
 
