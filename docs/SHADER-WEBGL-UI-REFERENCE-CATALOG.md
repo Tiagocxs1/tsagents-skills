@@ -73,3 +73,72 @@ Atualizado: 25/11/2026. Curadoria inicial a partir de links fornecidos pelo usu�
 - Codrops: demos para download MIT salvo exceção explícita; manter notices e não revender/redistribuir a demo como item isolado ou versão editada.
 - Vanta.js upstream declara MIT (https://github.com/tengbao/vanta); não confundir com Vanta Supply.
 - Unicorn Studio Free é pessoal/não comercial; uso comercial e export JSON/self-host dependem do plano Legend. Não usar o Free em anúncios de clientes.
+
+
+## Engines 3D adicionais e rotas de renderização — verificado em 25/11/2026
+
+As tecnologias abaixo foram separadas por função para o seletor não escolher um motor completo quando basta aplicar um shader a um elemento HTML.
+
+| Tecnologia | Uso recomendado | Licença / estado |
+|---|---|---|
+| [Three.js](https://github.com/mrdoob/three.js) | Padrão geral da esteira para cenas autorais WebGL/WebGPU, GLTF, geometria, PBR, iluminação e shaders. | MIT. Há Skills locais r186 e módulos especializados. |
+| [Babylon.js](https://github.com/BabylonJS/Babylon.js) | Engine completa com WebGL/WebGPU, materiais PBR, editor de materiais e sistema de física plugável. | Apache-2.0. Conferir licença/termos de engines e plugins de física separadamente. |
+| [PlayCanvas Engine](https://github.com/playcanvas/engine) | Engine WebGL2/WebGPU para cena interativa, 3D e WebXR; inclui orientação/Skills para agentes de IA. | MIT no engine. Diferenciar engine open-source de Editor/serviços hospedados. |
+| [OGL](https://github.com/oframe/ogl) | Biblioteca WebGL mínima para shaders GLSL, efeitos, distorções e cenas pequenas com baixo overhead. | Unlicense. Menos abstração; não é substituta de engine completa. |
+| [Curtains.js](https://github.com/martinlaxenaire/curtainsjs) | Liga imagens/vídeos/elementos DOM a planos WebGL com shaders, preservando layout CSS. | MIT. Não é engine geral de modelagem 3D. |
+| [ThreePipe](https://github.com/repalash/threepipe) | Toolkit em cima de Three.js para visualização de produto e renderização web com materiais/estúdio. | Apache-2.0 no core; beta; revisar licença de cada plugin. |
+| [React Three Fiber](https://github.com/pmndrs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei) | Componentes declarativos e helpers para cenas Three.js dentro de React/Next.js. | MIT em ambos. Não introduzir React em tarefa HTML simples. |
+| [TresJS](https://github.com/Tresjs/tres) | Cenas Three.js declarativas em Vue. | MIT no core; revisar addons. |
+| [Threlte](https://github.com/threlte/threlte) | Cenas Three.js declarativas em Svelte. | MIT no core; revisar addons. |
+| [Google model-viewer](https://github.com/google/model-viewer) | Elemento HTML para apresentar GLB/GLTF com controles e iluminação, sem construir uma engine de cena. | Apache-2.0. Visualizador, não renderer offline. |
+| [Google Filament](https://github.com/google/filament) | Engine de render PBR de baixo nível; rota avançada quando há capacidade para integrar WebAssembly/WebGL. | Apache-2.0. Exige avaliação de build, tamanho e ciclo de vida; não é primeira opção para o runtime leve. |
+
+### Decisão por caso
+
+- **Shader em landing page / fundo / metal líquido / distorção:** OGL para shader próprio; Curtains.js quando o efeito precisa estar preso a imagens e elementos DOM; CSS quando já resolve.
+- **Cena 3D customizada na web:** Three.js é o padrão. Babylon.js ou PlayCanvas quando recursos integrados evitarem muito código próprio.
+- **Projeto React existente:** R3F + Drei. Projeto Vue: TresJS. Projeto Svelte: Threlte.
+- **Exibir um modelo GLB pronto:** model-viewer antes de escolher uma engine completa.
+- **Visualização de produto com estúdio web:** avaliar ThreePipe, com cautela para beta e plugins.
+- **Notebook com RAM/GPU limitadas:** importação sob demanda, DPR 1 como ponto inicial, limites de texturas/geometria, pausar fora da viewport, reduzir pós-processamento e respeitar prefers-reduced-motion. Não carregar várias engines juntas.
+
+### Blender remoto via GitHub Actions
+
+O Blender suporta modo sem interface gráfica por linha de comando. Uma cena gerada por Python/bpy pode ser renderizada por um runner Linux usando o comando:
+
+~~~bash
+blender --background cena.blend --python scripts/render.py
+~~~
+
+Arquitetura-alvo:
+1. TS Brain prepara um job com versão Blender fixa, cena/script autorizados, Cycles ou Eevee, resolução, amostras, threads e output.
+2. Workflow manual/API via workflow_dispatch valida os parâmetros e instala versão/checksum do Blender.
+3. Roda em CPU nos runners padrão (não presumir GPU dedicada/CUDA/OptiX).
+4. Verifica o arquivo gerado e publica como artifact com retenção curta.
+5. TS Brain consulta a execução, baixa artifact, gera preview e roda QA visual real. Falha/ausência do artifact bloqueia aprovação.
+
+Limites e privacidade:
+- GitHub documenta runners padrão públicos como gratuitos e sem limite de minutos; repositórios privados consomem franquia mensal e podem gerar cobrança após excedê-la. Self-hosted não cobra tempo de execução do GitHub, mas usa hardware do proprietário.
+- Runner Linux padrão: 4 CPUs, 16 GB RAM e 14 GB SSD; assumir CPU sem GPU dedicada. Adequado para teste, still moderado e algumas animações pequenas, não para prometer render pesado rápido.
+- Não colocar cenas, marcas, texturas, logos ou briefing privado em repo público, logs ou artifacts públicos. Usar repo privado e acompanhar a franquia, ou infraestrutura própria autorizada.
+- Secrets com menor privilégio; nunca aceitar código bpy não confiável em workflow com secrets; fixar versões, limitar amostras/resolução/threads/timeout e evitar registrar dados de clientes.
+- Blender renderiza cenas 3D offline; não renderiza DOM/Three.js/WebGL. Para HTML/WebGL usar Chromium/Playwright e capturar o canvas/DOM.
+
+**Status:** arquitetura documentada, não implementada. O TS Brain ainda não dispara workflows, acompanha execuções nem baixa artifacts. Antes de declarar o backend remoto disponível, provar o fluxo completo com uma cena pública/sintética e confirmar que artefato e preview chegam ao Creative Studio.
+
+## Fontes verificadas
+
+- Blender background render: https://docs.blender.org/manual/en/latest/advanced/command_line/render.html
+- GitHub Actions runners: https://docs.github.com/en/actions/reference/runners/github-hosted-runners
+- GitHub Actions billing: https://docs.github.com/en/actions/concepts/billing-and-usage
+- GitHub Actions limits: https://docs.github.com/en/actions/reference/limits
+- Three.js: https://github.com/mrdoob/three.js
+- Babylon.js: https://github.com/BabylonJS/Babylon.js
+- PlayCanvas Engine: https://github.com/playcanvas/engine
+- OGL: https://github.com/oframe/ogl
+- Curtains.js: https://github.com/martinlaxenaire/curtainsjs
+- ThreePipe: https://github.com/repalash/threepipe
+- R3F/Drei: https://github.com/pmndrs/react-three-fiber ; https://github.com/pmndrs/drei
+- TresJS/Threlte: https://github.com/Tresjs/tres ; https://github.com/threlte/threlte
+- model-viewer: https://github.com/google/model-viewer
+- Filament: https://github.com/google/filament

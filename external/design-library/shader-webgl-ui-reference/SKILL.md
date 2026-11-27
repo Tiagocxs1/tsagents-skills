@@ -75,3 +75,8 @@ Use this catalog when the brief calls for WebGL/WebGPU, GLSL/WGSL shaders, Three
 - Codrops downloadable demos are MIT unless stated otherwise; preserve notices and do not resell/redistribute the demo as a standalone item or edited version.
 - Vanta.js upstream declares MIT: https://github.com/tengbao/vanta.
 - Unicorn Studio Free is personal/non-commercial with branding/limits; commercial license and JSON self-host export require Legend. Do not use Free for client ads. The SDK/code is proprietary and not redistributable.
+
+
+## Match de roteamento
+
+Esta Skill também deve ser selecionada para briefs que contenham termos como "shaders WebGL", "shader WebGL", "GLSL", "WGSL", "efeito WebGL", "shader Three.js", "OGL", "Curtains.js", "shader background", "liquid glass", "metal líquido", "fluted glass", "shader abstrato", "fundo cinematográfico", "WebGPU" ou nomes das bibliotecas do catálogo. A escolha da engine é tratada em conjunto com ext-tsdigitais-3d-scene-production; não tratar uma galeria visual como motor de render.

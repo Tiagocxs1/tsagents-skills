@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-25",
   "description": "Curated index of external design, content, agent, 3D scene-production and technical illustration repositories.",
   "defaults": {
     "auto_install_apps": false,
@@ -10,7 +10,7 @@
     "max_external_skills_per_task": 2,
     "nvidia_prompt_policy": "Never send third-party Skill files, submodule content, private agents, references or Obsidian notes to NVIDIA. NVIDIA receives only generic role descriptions and public/synthetic task text.",
     "max_external_skills_per_3d_task": 3,
-    "three_d_policy": "No diffusion image generation or paid mesh-generation APIs. Blender/Three.js tools are not active until installation, connection and visual smoke tests succeed."
+    "three_d_policy": "No diffusion image generation or paid mesh-generation APIs. Three.js is the default web 3D engine; select Babylon.js, PlayCanvas, OGL, Curtains.js, ThreePipe, R3F/Drei, TresJS, Threlte, model-viewer or Filament by task. Blender/Three.js/GitHub Actions render backends are not operational until installation or connection and end-to-end visual smoke tests succeed. GitHub Actions Blender is a planned CPU fallback; never assume a GPU runner or expose private client assets in public repos."
   },
   "sources": [
     {
@@ -782,16 +782,42 @@
             "modelagem 3d",
             "glb",
             "gltf",
-            "vrm"
+            "vrm",
+            "Babylon.js",
+            "BabylonJS",
+            "PlayCanvas",
+            "PlayCanvas Engine",
+            "OGL",
+            "Curtains.js",
+            "ThreePipe",
+            "React Three Fiber",
+            "R3F",
+            "Drei",
+            "TresJS",
+            "Threlte",
+            "model-viewer",
+            "Google Filament",
+            "Filament",
+            "GitHub Actions Blender",
+            "Blender GitHub Actions",
+            "render remoto Blender",
+            "Blender headless",
+            "Cycles CPU",
+            "engine 3D web",
+            "motor 3D navegador",
+            "three dimensional web",
+            "3d web engine"
           ],
-          "max_chars": 6500,
+          "max_chars": 18000,
           "priority": 40
         }
       ],
       "notes": [
         "Guia de integração first-party da TS Digitais; não é uma ferramenta de renderização.",
         "Não usar geradores por difusão, nem APIs pagas de geração de malha.",
-        "Exige motor de render realmente instalado/conectado antes de qualquer afirmação de render executado."
+        "Exige motor de render realmente instalado/conectado antes de qualquer afirmação de render executado.",
+        "Motor de navegador: consultar a matriz 3D da Skill; Three.js é default, alternativas são escolhidas por caso.",
+        "GitHub Actions headless para Blender é somente arquitetura planejada; não habilitar como backend antes do teste E2E."
       ]
     },
     {
@@ -1622,9 +1648,25 @@
             "motion ui",
             "landing page inspiration",
             "21st.dev",
-            "shaders.com MCP"
+            "shaders.com MCP",
+            "shaders WebGL",
+            "shader WebGL",
+            "WebGL shaders",
+            "shader Three.js",
+            "shader ThreeJS",
+            "shader GLSL",
+            "shader WGSL",
+            "OGL shader",
+            "Curtains.js shader",
+            "efeito WebGL",
+            "efeitos WebGL",
+            "shader landing page",
+            "fundo WebGL",
+            "fundo WebGPU",
+            "metal líquido",
+            "distortion shader"
           ],
-          "max_chars": 9000
+          "max_chars": 11000
         }
       ],
       "capabilities": [
