@@ -197,3 +197,29 @@ O TS Brain/LangGraph lê até duas Skills locais relevantes por briefing a parti
 Para inventário e teste local: `ts-brain skills --sources`, `ts-brain skills --all` e `ts-brain skills --name <id>`. O conteúdo das Skills não é enviado ao provider NVIDIA atual.
 
 **Recuperação seletiva:** não inicialize todos os submodules novos com `--recursive`. OpenDesign, AiToEarn e 350 Layout Compositions contêm arquivos muito grandes. Use `git submodule update --init <path>` somente para o projeto necessário. Yingzao está documentado apenas como link até que a licença seja esclarecida.
+
+## SaaS Product Discovery, Marketing e Security
+
+Este arsenal reúne fontes revisadas para transformar a Central em um produto SaaS comercializável. Os repositórios upstream ficam fixados como Git submodules, com licença e commit registrados; não são instalados nem executados automaticamente.
+
+- [SaaS Product Readiness](./saas-product-readiness/SKILL.md): orquestra ideação, pesquisa, entrevistas, validação, posicionamento, precificação, segurança e preparação operacional.
+- [Pesquisa de mercado e produto](./docs/SAAS-PRODUCT-RESEARCH.md): hipótese, concorrentes, evidências públicas, lacunas e testes de disposição a pagar.
+- [Governança de ferramentas de segurança](./docs/SECURITY-TOOLS-GOVERNANCE.md): uso seguro de SkillSpector, Strix e auditoria MCP.
+- [Registro de upstreams](./external/design-library/registry.json): commit, licença, caminhos e condições de execução.
+
+### Fontes adicionadas
+
+| Fonte | Conteúdo | Condição |
+|---|---|---|
+| Claude SaaS Eval Skills | geração de nichos, first-pass e scorecard | MIT; score somente com evidência |
+| Solo Founder Skills | validação, segurança e precificação | MIT; exige prova de demanda |
+| Ultimate Product Discovery | JTBD, entrevistas, OST, Lean Canvas | MIT; scripts não executados automaticamente |
+| Claude Marketing Research | concorrência, avatar e proposta de valor | Apache-2.0 |
+| Addy Osmani Security and Hardening | OWASP, STRIDE e hardening | MIT; revisão, não certificação |
+| NVIDIA SkillSpector | scanner de Agent Skills | Apache-2.0; Alpha, instalação isolada pendente |
+| Strix | pentest dinâmico autorizado | Apache-2.0; requer Docker e chave de provider, somente staging |
+| MCP Server Audit | orientação e checks MCP | Apache-2.0; cobertura parcial |
+
+Corey Haines Marketing Skills já existia em upstream/marketing-skills-corey; não foi duplicado. Não foram incluídas skills sem licença identificável, repositórios cuja origem não pôde ser confirmada ou forks não oficiais de ferramentas da Anthropic.
+
+Para obter apenas as fontes relevantes, use git submodule update --init seguido do caminho upstream escolhido. Não inicialize todos os submodules grandes indiscriminadamente. Não execute scripts de instalação upstream sem ler o código, verificar dependências, isolar o ambiente e aprovar credenciais/custos.

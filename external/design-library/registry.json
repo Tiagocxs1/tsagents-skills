@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-27",
   "description": "Curated index of external design, content, agent, 3D scene-production and technical illustration repositories.",
   "defaults": {
     "auto_install_apps": false,
@@ -1645,6 +1645,314 @@
         "Codrops demos baixáveis MIT salvo aviso diferente; preservar notices e respeitar termos.",
         "21st.dev tem busca gratuita e limite de recuperação de código por conta; autenticação e limites mudam.",
         "MCPs não são ativados automaticamente."
+      ]
+    },
+    {
+      "id": "claude-saas-eval",
+      "name": "Claude SaaS Evaluation Skills",
+      "repository": "kirillpolevoy/claude-saas-eval-skills",
+      "url": "https://github.com/kirillpolevoy/claude-saas-eval-skills",
+      "ref": "6feca4f7ea3eefb687acce51da95d8ca50ef6472",
+      "commit": "6feca4f7ea3eefb687acce51da95d8ca50ef6472",
+      "license": "MIT",
+      "license_file": "upstream/claude-saas-eval-skills/LICENSE",
+      "kind": "saas-validation-skill-collection",
+      "status": "submodule_source_pinned_not_installed",
+      "local_path": "upstream/claude-saas-eval-skills",
+      "capabilities": [
+        "niche-ideation",
+        "distribution-first-market-validation",
+        "weighted-niche-scorecard"
+      ],
+      "entrypoints": [
+        {
+          "id": "niche-idea-generator",
+          "name": "niche-idea-generator",
+          "path": "upstream/claude-saas-eval-skills/niche-idea-generator/SKILL.md",
+          "triggers": [
+            "ideias de SaaS",
+            "gerar nichos SaaS",
+            "descoberta de oportunidades"
+          ],
+          "max_chars": 8000
+        },
+        {
+          "id": "niche-research-first-pass",
+          "name": "niche-research-first-pass",
+          "path": "upstream/claude-saas-eval-skills/niche-research-first-pass/SKILL.md",
+          "triggers": [
+            "pesquisa inicial de nicho",
+            "validar nicho SaaS",
+            "pesquisa de mercado"
+          ],
+          "max_chars": 10000
+        },
+        {
+          "id": "niche-success-scorecard",
+          "name": "niche-success-scorecard",
+          "path": "upstream/claude-saas-eval-skills/niche-success-scorecard/SKILL.md",
+          "triggers": [
+            "scorecard de nicho",
+            "pontuar mercado SaaS"
+          ],
+          "max_chars": 8000
+        }
+      ],
+      "notes": [
+        "MIT; preservar licença. O scorecard só pode ser executado depois da pesquisa e com dados observados.",
+        "A coleção não prova demanda, TAM ou disposição a pagar."
+      ]
+    },
+    {
+      "id": "solo-founder-skills",
+      "name": "Solo Founder Skills",
+      "repository": "whawkinsiv/solo-founder-skills",
+      "url": "https://github.com/whawkinsiv/solo-founder-skills",
+      "ref": "01bd10f79a4b6a741be78e3184612a90ecbd54ef",
+      "commit": "01bd10f79a4b6a741be78e3184612a90ecbd54ef",
+      "license": "MIT",
+      "license_file": "upstream/solo-founder-skills/LICENSE",
+      "kind": "founder-validation-security-pricing-skills",
+      "status": "submodule_source_pinned_not_installed",
+      "local_path": "upstream/solo-founder-skills",
+      "capabilities": [
+        "evidence-based-validation",
+        "security-checklist",
+        "early-stage-pricing"
+      ],
+      "entrypoints": [
+        {
+          "id": "founder-validate",
+          "name": "validate",
+          "path": "upstream/solo-founder-skills/skills/validate/SKILL.md",
+          "triggers": [
+            "validar ideia",
+            "go no-go",
+            "disposição a pagar",
+            "concierge MVP"
+          ],
+          "max_chars": 9000
+        },
+        {
+          "id": "founder-secure",
+          "name": "secure",
+          "path": "upstream/solo-founder-skills/skills/secure/SKILL.md",
+          "triggers": [
+            "auditoria de segurança",
+            "isolar dados de clientes",
+            "proteger SaaS"
+          ],
+          "max_chars": 9000
+        },
+        {
+          "id": "founder-pricing",
+          "name": "pricing",
+          "path": "upstream/solo-founder-skills/skills/pricing/SKILL.md",
+          "triggers": [
+            "precificação SaaS",
+            "planos e preços",
+            "ticket médio"
+          ],
+          "max_chars": 7000
+        }
+      ],
+      "notes": [
+        "MIT; preservar licença. Exige prova de demanda e pagamento.",
+        "O checklist Secure deve ser complementado por testes de tenant isolation e auditorias específicas do banco e runtime."
+      ]
+    },
+    {
+      "id": "ultimate-product-discovery",
+      "name": "Ultimate Product Discovery",
+      "repository": "ipavelm/ultimate-product-discovery-skill",
+      "url": "https://github.com/ipavelm/ultimate-product-discovery-skill",
+      "ref": "aa26c2e0d56ce2eb1939561345b230b86c5da7ba",
+      "commit": "aa26c2e0d56ce2eb1939561345b230b86c5da7ba",
+      "license": "MIT",
+      "license_file": "upstream/ultimate-product-discovery/LICENSE",
+      "kind": "product-discovery-methodology",
+      "status": "submodule_source_pinned_not_installed",
+      "local_path": "upstream/ultimate-product-discovery",
+      "capabilities": [
+        "JTBD",
+        "The-Mom-Test",
+        "Opportunity-Solution-Tree",
+        "Lean-Canvas",
+        "TAM-SAM-SOM",
+        "product-market-fit"
+      ],
+      "entrypoints": [
+        {
+          "id": "product-discovery",
+          "name": "product-discovery",
+          "path": "upstream/ultimate-product-discovery/SKILL.md",
+          "triggers": [
+            "product discovery",
+            "JTBD",
+            "entrevistas com clientes",
+            "Lean Canvas",
+            "Opportunity Solution Tree"
+          ],
+          "max_chars": 12000
+        }
+      ],
+      "notes": [
+        "MIT. O upstream exige opt-in explícito para instalação de dependências; não executar scripts de artefatos PPTX/Excel automaticamente.",
+        "Metodologia não substitui entrevistas reais nem dados de mercado."
+      ]
+    },
+    {
+      "id": "claude-marketing-research",
+      "name": "Claude Marketing Research Skill",
+      "repository": "ishwarjha/claude-marketing-research-skill",
+      "url": "https://github.com/ishwarjha/claude-marketing-research-skill",
+      "ref": "0b31cbde9a51c4a0a1d2ceca68fd39db00f5c558",
+      "commit": "0b31cbde9a51c4a0a1d2ceca68fd39db00f5c558",
+      "license": "Apache-2.0",
+      "license_file": "upstream/claude-marketing-research/LICENSE",
+      "kind": "marketing-research-skill",
+      "status": "submodule_source_pinned_not_installed",
+      "local_path": "upstream/claude-marketing-research",
+      "capabilities": [
+        "competitor-research",
+        "customer-avatar",
+        "market-awareness",
+        "value-proposition"
+      ],
+      "entrypoints": [
+        {
+          "id": "marketing-research",
+          "name": "marketing-research",
+          "path": "upstream/claude-marketing-research/marketing-research/SKILL.md",
+          "triggers": [
+            "pesquisa de marketing",
+            "perfil do cliente ideal",
+            "posicionamento do produto",
+            "proposta de valor"
+          ],
+          "max_chars": 10000
+        }
+      ],
+      "notes": [
+        "Apache-2.0; manter LICENSE e avisos. Pesquisa de marketing não é prova de product-market fit."
+      ]
+    },
+    {
+      "id": "addyosmani-security-hardening",
+      "name": "Addy Osmani Security and Hardening",
+      "repository": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "ref": "e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "commit": "e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "license": "MIT",
+      "license_file": "upstream/addyosmani-agent-skills/LICENSE",
+      "kind": "application-security-agent-skill",
+      "status": "submodule_source_pinned_not_installed",
+      "local_path": "upstream/addyosmani-agent-skills",
+      "capabilities": [
+        "OWASP-Top-10",
+        "STRIDE",
+        "auth-hardening",
+        "secret-hygiene",
+        "dependency-audit"
+      ],
+      "entrypoints": [
+        {
+          "id": "security-and-hardening",
+          "name": "security-and-hardening",
+          "path": "upstream/addyosmani-agent-skills/skills/security-and-hardening/SKILL.md",
+          "triggers": [
+            "OWASP",
+            "STRIDE",
+            "auditoria de código",
+            "hardening de aplicação",
+            "vazamento de chaves"
+          ],
+          "max_chars": 12000
+        }
+      ],
+      "notes": [
+        "MIT. Metodologia e revisão, não pentest independente ou certificação."
+      ]
+    },
+    {
+      "id": "nvidia-skillspector",
+      "name": "NVIDIA SkillSpector",
+      "repository": "NVIDIA/SkillSpector",
+      "url": "https://github.com/NVIDIA/SkillSpector",
+      "ref": "02894ec5b8a0a70637df5a6b45763de92940cedd",
+      "commit": "02894ec5b8a0a70637df5a6b45763de92940cedd",
+      "license": "Apache-2.0",
+      "license_file": "upstream/NVIDIA-SkillSpector/LICENSE",
+      "kind": "agent-skill-static-security-scanner",
+      "status": "source_pinned_not_installed",
+      "local_path": "upstream/NVIDIA-SkillSpector",
+      "capabilities": [
+        "static-skill-scan",
+        "prompt-injection-patterns",
+        "risk-scoring",
+        "optional-semantic-analysis"
+      ],
+      "runtime": {
+        "python": "3.12-3.15",
+        "status": "not_installed",
+        "note": "Upstream Alpha; YARA native dependencies and optional model integrations require isolated installation and validation."
+      },
+      "notes": [
+        "Use static/offline mode first. Não enviar private skills, secrets ou dados de cliente a modelos externos.",
+        "Não instalado nem executado; apenas source pinned."
+      ]
+    },
+    {
+      "id": "strix-pentest",
+      "name": "Strix",
+      "repository": "usestrix/strix",
+      "url": "https://github.com/usestrix/strix",
+      "ref": "9ed84f99c8f13fc921baebc59e0c696108cfab3e",
+      "commit": "9ed84f99c8f13fc921baebc59e0c696108cfab3e",
+      "license": "Apache-2.0",
+      "license_file": "upstream/strix/LICENSE",
+      "kind": "dynamic-application-security-testing-tool",
+      "status": "source_pinned_not_installed",
+      "local_path": "upstream/strix",
+      "capabilities": [
+        "authorized-web-pentest",
+        "dynamic-validation",
+        "proof-of-concept-findings",
+        "CI-security-gates"
+      ],
+      "runtime": {
+        "requires": [
+          "Docker",
+          "LLM API key"
+        ],
+        "status": "not_installed",
+        "scope": "isolated staging environment only"
+      },
+      "notes": [
+        "README requer Docker e chave de provedor LLM. Não executar contra produção ou terceiros; staging autorizado requerido."
+      ]
+    },
+    {
+      "id": "mcpserver-audit",
+      "name": "MCP Server Audit",
+      "repository": "ModelContextProtocol-Security/mcpserver-audit",
+      "url": "https://github.com/ModelContextProtocol-Security/mcpserver-audit",
+      "ref": "f53c1e13691a1fb35555e883b455f7129b9a7cf2",
+      "commit": "f53c1e13691a1fb35555e883b455f7129b9a7cf2",
+      "license": "Apache-2.0",
+      "license_file": "upstream/mcpserver-audit/LICENSE",
+      "kind": "mcp-security-audit-methodology-and-checks",
+      "status": "source_pinned_not_installed",
+      "local_path": "upstream/mcpserver-audit",
+      "capabilities": [
+        "mcp-server-configuration-review",
+        "credential-checks",
+        "container-and-ci-checks",
+        "protocol-security-guidance"
+      ],
+      "notes": [
+        "Community project with limited concrete checks and broader guidance; not a comprehensive independent security certification."
       ]
     }
   ]
