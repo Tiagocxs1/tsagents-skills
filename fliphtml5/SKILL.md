@@ -242,12 +242,13 @@ Pesquisa técnica em 27/11/2026:
 9. Salvar e aguardar o Fleet executar a descoberta de ferramentas.
 10. Começar com uma consulta read-only sobre um flipbook público de teste e conferir o resultado no dashboard FlipHTML5.
 
-A recomendação de header combina as duas documentações: o FlipHTML5 manda configurar API-key authentication e divulga Bearer via header no resource metadata; o LangSmith documenta `Authorization: Bearer API_KEY` como padrão de Static Headers. Nunca enviar a API key no chat, no prompt do agente, em screenshots, commits, issue, arquivo de skill ou frontend. Inserir somente no campo de credencial do LangSmith.
+A evidência operacional mais específica é o arquivo `mcp.json` gerado pelo próprio dashboard FlipHTML5: ele configura `headers: { "X-API-Key": "<chave>" }`. Usar esse cabeçalho, não `Authorization: Bearer`. O metadata público que anuncia Bearer descreve o mecanismo de acesso ao resource, mas o gerador de configuração do fornecedor fornece a instrução concreta da API key para este servidor. Nunca enviar a API key no chat, no prompt do agente, em screenshots, commits, issue, arquivo de skill ou frontend. Inserir somente no campo de credencial do LangSmith.
 
 ### Segurança e escopo
 
-- Criar uma chave dedicada apenas a este agente.
+- Criar uma chave dedicada apenas a este agente e usar o header `X-API-Key`.
 - Não cadastrar em Fleet > Integrations nem workspace global na primeira etapa: manter a conexão só em `langchain-ai-design-agent`.
+- Se um extrator de página, ferramenta ou log revelar o valor completo da chave, tratar como exposto e revogar/rotacionar. Nunca copiar o valor para a skill ou para o GitHub.
 - O Fleet requer permissão **MCP Server Create** no workspace.
 - Começar com ferramentas read-only e revisar nomes, descrições, schemas e anotações depois da descoberta.
 - Escrita, conversão/criação de livro, atualização de metadados, alteração de visibilidade/acesso e exclusão exigem autorização explícita para o livro e a operação específica.
