@@ -235,3 +235,18 @@ Não confundir ferramenta open-source com pipeline leve: DiffVG, PyTorch-SVGRend
 Fontes: [preços](https://fliphtml5.com/pt/fliphtml5-pricing.php), [exportação](https://help.fliphtml5.com/pt/docs/download/), [qualidade](https://help.fliphtml5.com/pt/docs/page-split-modes-and-page-rendering-quality/), [embed](https://help.fliphtml5.com/docs/embed-a-flipbook/), [privacidade](https://help.fliphtml5.com/docs/book-privacy-settings/), [MCP](https://help.fliphtml5.com/pt/docs/connect-ai-assistant-to-fliphtml5-with-mcp/).
 
 **Estado da conta:** pesquisa documental concluída; nenhuma conta Free, chave MCP ou publicação foi autenticada/testada nesta atualização. Não presumir integração ativa.
+
+
+### FlipHTML5 MCP — LangSmith Fleet (pesquisa técnica em 27/11/2026)
+
+- Endpoint remoto: `https://mcp.fliphtml5.com/mcp`.
+- O handshake `initialize` sem credenciais retornou HTTP 401; challenge exigiu Bearer token.
+- Metadata público anuncia escopo `fliphtml5:books`, bearer via header, OAuth Authorization Code, refresh token, DCR e PKCE S256.
+- **Primeira autenticação a testar:** OAuth 2.1 (Auto) no LangSmith Fleet, porque este cliente suporta DCR. Fallback documentado: API key + Static Headers, usando o header/método confirmado pelo prompt oficial do FlipHTML5.
+- Agente-alvo observado no Fleet: `langchain-ai-design-agent`; preferir conexão específica nesse agente em vez de publicar ferramentas para todo o workspace.
+- O MCP pode consultar livros, converter documentos online, editar metadados e gerenciar acesso. Não se conhece ainda a lista exata de tool names/schemas entregue à conta.
+- **Estado:** documentação e metadata pública estudados; sem autenticação, sem `tools/list` autenticado e sem conexão salva no Fleet. Elegibilidade do MCP no plano Free não confirmada.
+- Segurança: começar com read-only; mutações/publicação/visibilidade/exclusão exigem confirmação. Nunca versionar API keys ou tokens.
+
+Detalhes e configuração em [fliphtml5/MCP-LANGSMITH.md](../fliphtml5/MCP-LANGSMITH.md).
+Fontes oficiais: [FlipHTML5 MCP](https://help.fliphtml5.com/pt/docs/connect-ai-assistant-to-fliphtml5-with-mcp/), [LangSmith remote MCP](https://docs.langchain.com/langsmith/fleet/remote-mcp-servers), [OAuth protected-resource metadata](https://mcp.fliphtml5.com/.well-known/oauth-protected-resource/mcp), [OAuth authorization-server metadata](https://mcp.fliphtml5.com/.well-known/oauth-authorization-server).
