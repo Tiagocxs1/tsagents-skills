@@ -250,3 +250,16 @@ Fontes: [preços](https://fliphtml5.com/pt/fliphtml5-pricing.php), [exportação
 
 Detalhes e configuração em [fliphtml5/MCP-LANGSMITH.md](../fliphtml5/MCP-LANGSMITH.md).
 Fontes oficiais: [FlipHTML5 MCP](https://help.fliphtml5.com/pt/docs/connect-ai-assistant-to-fliphtml5-with-mcp/), [LangSmith remote MCP](https://docs.langchain.com/langsmith/fleet/remote-mcp-servers), [OAuth protected-resource metadata](https://mcp.fliphtml5.com/.well-known/oauth-protected-resource/mcp), [OAuth authorization-server metadata](https://mcp.fliphtml5.com/.well-known/oauth-authorization-server).
+
+
+#### Atualização de autenticação LangSmith — 27/11/2026
+
+- O usuário tentou OAuth 2.1 (Auto) para o FlipHTML5 MCP no LangSmith Fleet; o provedor rejeitou o registro DCR. Mensagem observada: `This MCP server isn't supported yet — This server's OAuth provider rejected LangSmith's client registration.`
+- Apesar de o metadata do FlipHTML5 anunciar DCR, o registro automático não funcionou com o cliente gerenciado do LangSmith.
+- **Método recomendado agora:** Static Headers, header `Authorization`, valor `Bearer SUA_API_KEY_COMPLETA`.
+- API key deve ser criada em FlipHTML5 → Settings → MCP Server → Create API key e inserida apenas no cofre/campo de credencial do LangSmith.
+- Configurar apenas no agente `langchain-ai-design-agent`; não publicar globalmente no workspace.
+- Estado permanece pendente: sem chave configurada, `tools/list` autenticado ou consulta read-only validada.
+
+Fonte FlipHTML5: [conectar assistente por MCP](https://help.fliphtml5.com/docs/connect-ai-assistant-to-fliphtml5-with-mcp/).
+Fonte LangSmith: [Remote MCP servers — Static Headers](https://docs.langchain.com/langsmith/fleet/remote-mcp-servers).
