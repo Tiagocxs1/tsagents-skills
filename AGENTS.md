@@ -100,6 +100,7 @@ Se não houver delegação real, executar esses papéis como etapas sequenciais.
 - Para prompts de imagem com texto, consultar `layered-image-prompting/SKILL.md`. Distinguir planos espaciais (foreground, midground, background) de camadas gráficas (imagem, overlays, tipografia e logo). Incluir a copy literal, definir modo native/editable/hybrid e conferir o texto renderizado. Não forçar técnicas de UI/HTML em fotografia.
 
 - Para revistas digitais, magazines, e-books diagramados e flipbooks, consultar obrigatoriamente `editorial-magazine/SKILL.md` e o perfil `agents/editorial-art-director.md`. O fluxo inclui direção de arte, arquitetura página a página, copy dimensionada, sistema de margens/grid/tipografia, páginas-piloto e revisão visual completa antes da publicação.
+- Para pesquisar, configurar, publicar ou integrar FlipHTML5, consultar obrigatoriamente `fliphtml5/SKILL.md`. O plano Free é público: nunca enviar conteúdo privado/confidencial, relatórios de clientes ou dados pessoais; iframe não herda a autenticação do site hospedeiro. Distinguir exportação HTML/API pagas do servidor MCP remoto e verificar a elegibilidade do MCP no Free antes de automatizar. Não guardar chaves ou tokens na skill ou no Git.
 
 - Para apresentações, slides e pitch decks, consultar presentation-studio/SKILL.md e docs/PRESENTATION-TOOLING.md. Para propostas comerciais, consultar também commercial-proposal/SKILL.md; não inventar preços, ROI ou cláusulas.
 
