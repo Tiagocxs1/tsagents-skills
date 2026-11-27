@@ -101,10 +101,10 @@ Usar no máximo duas famílias tipográficas, com funções nomeadas. Preferir f
 Escala inicial para A4 digital:
 - Headline principal: 30–38 pt.
 - Subheadline: 18–22 pt.
-- Deck/introdução: aproximadamente 14 pt.
-- Body copy: 11–12 pt, com entrelinha 1,45–1,55.
-- Legendas, fontes e metadados: 8,5–9 pt.
-- Corpo abaixo de 10,5 pt exige justificativa e prova de leitura em tamanho real; não usar redução como mecanismo automático de encaixe.
+- Deck/introdução: 14–18 pt.
+- Body copy: 12–14 pt, com entrelinha 1,45–1,55.
+- Legendas, notas, fontes, créditos, folios, labels e metadados: mínimo 12 pt.
+- Regra vinculante TS Digitais: nenhum texto visível pode ficar abaixo de 12 pt na versão impressa ou 16 CSS px na leitura digital a 100%. Se não couber, reorganizar, simplificar sem perda de informação, redistribuir ou adicionar páginas; nunca reduzir abaixo do limite para encaixar.
 
 Estabelecer pesos, estilos, entrelinha, tracking, alinhamento, largura de coluna e quebras antes de montar a publicação. Manter uma hierarquia clara: título é dominante, subtítulo explica, deck contextualiza, corpo desenvolve, legenda identifica.
 
@@ -171,6 +171,9 @@ A publicação e o flipbook são camadas distintas:
 - Motor: navegação, gesto de virar, zoom, pan, fullscreen e carregamento.
 - Interface: toolbar, controles, progresso e comportamento responsivo.
 
+Quando a plataforma escolhida for FlipHTML5, consultar também `fliphtml5/SKILL.md`. No plano Free, o livro é público, pode ser acessado pelo link direto, permite download do PDF original e não oferece senha/bloqueio de indexação. O iframe não herda a autenticação do site hospedeiro. Não usar Free para relatórios privados ou dados reais de clientes. Exportação HTML para hospedagem própria e API convencional não estão incluídas no Free; validar separadamente qualquer disponibilidade do MCP.
+O FlipHTML5 converte o documento existente, não corrige composição editorial: resolver tipografia, proporções, fontes, margens e páginas no PDF/HTML de origem antes da conversão.
+
 Não redesenhar uma revista como interface de cartões para adaptar a um motor. Não trocar bibliotecas antes de uma prova de conceito com páginas reais, acessibilidade, responsividade e desempenho. Para projetos React, avaliar StPageFlip como candidato MIT, comparando com o leitor existente. Nunca declarar equivalência a FlipHTML5 sem testar funcionalidades específicas.
 
 ## 10. Revisão visual obrigatória
@@ -211,7 +214,7 @@ Usar `visual-quality-review/SKILL.md` com rubrica de 0–5:
 - Consistência da marca.
 - Fidelidade e comportamento do leitor.
 
-Cada critério essencial precisa de nota mínima 4/5. Bloqueadores têm tolerância zero: cortes, sobreposições, conteúdo ausente, fonte ilegível, margens acidentais, claim inventado, identidade incorreta ou screenshot não inspecionada.
+Cada critério essencial precisa de nota mínima 4/5. Bloqueadores têm tolerância zero: cortes, sobreposições, conteúdo ausente, fonte ilegível, margens acidentais, claim inventado, identidade incorreta ou screenshot não inspecionada. Nenhum texto visível pode ficar abaixo de 16 CSS px no leitor a 100% ou 12 pt na impressão.
 
 Parecer deve listar: versão testada, páginas cobertas, viewports, screenshots, defeitos corrigidos, limitações e resultado. Build/deploy bem-sucedido não significa design aprovado.
 
