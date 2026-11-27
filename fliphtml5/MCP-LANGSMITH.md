@@ -1,7 +1,7 @@
 # FlipHTML5 MCP — LangSmith Fleet
 
 **Pesquisa:** 27/11/2026  
-**Estado da integração:** estudado; autenticação não concluída; não instalado ainda.  
+**Estado da integração:** OAuth 2.1 Auto foi tentado pelo usuário e rejeitado no registro DCR; Static Headers com API key é o método alternativo recomendado, ainda pendente de configuração e teste autenticado.  
 **Agente-alvo observado na sessão Fleet:** `langchain-ai-design-agent`. Configurar somente nesse agente, não como integração global para todos.
 
 ## 1. Objetivo
@@ -65,7 +65,7 @@ GET `https://mcp.fliphtml5.com/.well-known/oauth-authorization-server` retornou 
 }
 ```
 
-**Conclusão técnica:** o servidor anuncia endpoint de registro dinâmico de clientes (DCR), OAuth Authorization Code, refresh token e PKCE S256. Isso torna o modo OAuth 2.1 (Auto) do LangSmith Fleet o primeiro método a testar. Não foi feita inscrição DCR manual nem iniciado fluxo de autorização durante a pesquisa.
+**Conclusão técnica:** o servidor anuncia endpoint de registro dinâmico de clientes (DCR), OAuth Authorization Code, refresh token e PKCE S256. Porém, em 27/11/2026, o LangSmith Fleet rejeitou a tentativa OAuth 2.1 (Auto) com a mensagem: `This MCP server isn't supported yet — This server's OAuth provider rejected LangSmith's client registration. LangSmith Managed Tools currently supports servers that register OAuth clients automatically.` Assim, os metadados sugerem DCR, mas o fluxo real LangSmith↔FlipHTML5 não concluiu o registro. Não continuar insistindo em OAuth Auto sem alteração documentada do provedor.
 
 ### 2.4 O que ainda não foi provado
 
@@ -73,6 +73,7 @@ GET `https://mcp.fliphtml5.com/.well-known/oauth-authorization-server` retornou 
 - Não foi possível completar o OAuth handshake.
 - Não foi executada chamada MCP autenticada nem `tools/list`.
 - Ainda não conhecemos os nomes exatos, schemas e anotações read-only/destructive das ferramentas que o servidor expõe para esta conta.
+- A primeira tentativa OAuth 2.1 (Auto) foi rejeitada pelo cadastro DCR do provedor, conforme mensagem apresentada pelo usuário em 27/11/2026. A integração ainda não está conectada.
 - Não confirmamos que o MCP esteja habilitado no plano Free da conta. A página de features e a documentação de conexão descrevem o MCP, mas não estabelecem de modo inequívoco a elegibilidade por plano.
 - O endpoint anunciar OAuth DCR não prova que o dashboard do Free exponha todos os recursos MCP ou todos os tipos de operação.
 
@@ -84,35 +85,32 @@ Não registrar integração como ativa até completar autorização, descoberta 
 
 A página aberta na sessão do usuário é o LangSmith Fleet. O contexto da página mostrou o agente existente `langchain-ai-design-agent`. Esse é o alvo apropriado para a primeira integração. Não registrar no Fleet > Integrations globalmente, porque isso poderia disponibilizar as ferramentas para todos os agentes do workspace.
 
-### Passos na interface
+### Passos na interface — método recomendado
 
-1. Abrir o agente `langchain-ai-design-agent`.
-2. Expandir o painel lateral **Connections**.
-3. Selecionar **Add connection** e **+ Add custom MCP**.
-4. Nome: `FlipHTML5`.
-5. URL: `https://mcp.fliphtml5.com/mcp`.
-6. Tipo de autenticação inicial: **OAuth 2.1 (Auto)**, pois o metadata do servidor anuncia registro dinâmico de cliente.
-7. Salvar e seguir o fluxo de autorização/login que o Fleet apresentar.
-8. Confirmar a permissão/escopo solicitado e conferir a conta FlipHTML5 correta.
-9. Esperar o Fleet descobrir as ferramentas e registrar a lista real.
-10. Testar primeiro uma operação de leitura: localizar/ler metadados de um flipbook público de teste. Conferir se título, link e identificador retornados correspondem à publicação.
-11. Não usar um relatório real de cliente como primeiro teste.
+1. No painel FlipHTML5, abrir perfil → **Settings** → **MCP Server**.
+2. Em API Key List, clicar **Create API key**.
+3. Nomear a chave, por exemplo `LangSmith Fleet - langchain-ai-design-agent`.
+4. Copiar a chave completa imediatamente. Ela é exibida apenas uma vez; a lista posterior mostra apenas valor mascarado.
+5. No agente `langchain-ai-design-agent`, expandir **Connections**.
+6. Selecionar **Add connection** → **+ Add custom MCP**.
+7. Nome: `FlipHTML5`; URL: `https://mcp.fliphtml5.com/mcp`.
+8. Authentication type: **Static Headers**.
+9. Adicionar header:
+   - Key: `Authorization`
+   - Value: `Bearer SUA_API_KEY_COMPLETA` (substituir pelo valor integral; não incluir aspas).
+10. Salvar e aguardar descoberta de ferramentas.
+11. Conferir se a lista de ferramentas aparece no painel do agente.
+12. Executar primeiro uma consulta somente de leitura com URL de flipbook público de teste. Comparar o título/URL/id retornados ao dashboard FlipHTML5.
 
-A documentação atual do Fleet informa que OAuth 2.1 (Auto) registra um cliente para o servidor com DCR e encaminha o usuário para login quando necessário. A criação de servidor remoto requer permissão **MCP Server Create** no workspace.
+A configuração é específica do agente. Não cadastrar inicialmente em Fleet > Integrations nem em workspace settings globais, para não disponibilizar as ferramentas para todos os agentes. A documentação Fleet confirma que os headers são enviados tanto durante descoberta quanto nas chamadas das ferramentas.
 
-### Alternativa: API key + Static Headers
+### Por que usar Static Headers
 
-A documentação do FlipHTML5 também oferece uma configuração manual:
-1. No dashboard FlipHTML5: avatar/perfil → **Settings** → **MCP Server**.
-2. Criar uma API key com nome reconhecível, por exemplo `LangSmith Fleet`.
-3. Copiar a chave completa imediatamente. A chave completa é exibida apenas uma vez.
-4. No LangSmith, criar o Custom MCP com o endpoint acima e autenticação **Static Headers**.
-5. Usar o método/header exato indicado pelo prompt de configuração gerado pelo FlipHTML5. Não presumir que o campo tenha o mesmo nome em todos os clientes.
+O FlipHTML5 documenta manualmente API key authentication. O LangSmith documenta Static Headers com o padrão `Authorization: Bearer API_KEY`. O metadata OAuth do FlipHTML5 anuncia Bearer via header.
 
-A documentação Fleet mostra o padrão comum `Authorization: Bearer API_KEY`; o endpoint do FlipHTML5 também declara Bearer via header. Mesmo assim, conferir o prompt gerado pelo FlipHTML5 antes de salvar a chave manualmente, pois a documentação de configuração manual não imprime literalmente o nome do cabeçalho.
+O usuário tentou OAuth 2.1 (Auto) e LangSmith devolveu uma rejeição do cadastro de cliente DCR. Portanto, Static Headers é o caminho de menor complexidade e alinhado à documentação dos dois produtos.
 
-**Nunca colar a chave neste repositório, em issue, chat, prompt compartilhado, código de frontend ou screenshot.** Inserir apenas no campo de credencial do LangSmith. Preferir OAuth Auto quando o fluxo for compatível, para evitar manuseio de chave estática.
-
+**Não enviar a chave neste chat.** Ela deve ser inserida apenas no campo de valor do header dentro do LangSmith. Nunca gravar em GitHub, skill, prompt compartilhado, código, logs ou screenshot.
 ## 4. Segurança e privilégio mínimo
 
 ### Começar com leitura
@@ -162,7 +160,7 @@ A lista acima descreve capacidades gerais do produto; não é a lista de ferrame
 | Revogação | Procedimento para desconectar o agente e revogar token/chave documentado |
 | Resultado | ID/link do livro de teste e resposta verificados no dashboard |
 
-**Estado atual:** a pesquisa do endpoint e dos metadados públicos está concluída; integração no LangSmith não foi salva, porque a sessão ainda não demonstrou login/credencial do FlipHTML5 e o painel do agente não pôde ser modificado nesta sessão. Não declarar como instalado.
+**Estado atual:** pesquisa dos metadados públicos concluída; tentativa OAuth 2.1 Auto rejeitada pelo LangSmith; Static Headers documentado como alternativa recomendada, mas ainda não configurado nem autenticado. Ainda não houve `tools/list` autenticado ou consulta de livro. Não declarar como instalado até o teste read-only passar.
 
 ## 7. Fontes oficiais
 
