@@ -263,3 +263,13 @@ Fontes oficiais: [FlipHTML5 MCP](https://help.fliphtml5.com/pt/docs/connect-ai-a
 
 Fonte FlipHTML5: [conectar assistente por MCP](https://help.fliphtml5.com/docs/connect-ai-assistant-to-fliphtml5-with-mcp/).
 Fonte LangSmith: [Remote MCP servers — Static Headers](https://docs.langchain.com/langsmith/fleet/remote-mcp-servers).
+
+
+#### Evidência da conta e correção de header — 27/11/2026
+
+- O LangSmith Fleet (lista de servidores) mostra `fliphtml5` com status **Connected**, tipo de autenticação exibido como **OAuth**.
+- O dashboard autenticado do FlipHTML5 mostra a chave criada para LangSmith como **Nunca utilizado**; logo, o estado Connected não prova que essa chave está sendo usada nem que uma ferramenta foi executada.
+- O próprio dashboard gerou um exemplo `mcp.json` especificando `headers: { "X-API-Key": "<chave>" }`. Esta é a instrução operacional concreta para Static Headers.
+- Corrigida a orientação anterior: usar **Static Headers → Key `X-API-Key` → Value = API key integral**, sem `Bearer`. Não usar `Authorization: Bearer` para a API key do FlipHTML5.
+- Por prudência, revogar a chave que ficou visível no contexto da inspeção e gerar outra. Nunca copiar o segredo para GitHub/chat.
+- Ainda falta validar descoberta MCP e leitura de flipbook; não declarar a integração funcional só pelo status Connected.
