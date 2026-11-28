@@ -29,6 +29,9 @@ O estilo pode ser descrito como product promo video, motion-graphics product ad 
 - O prompt de destino precisa dizer explicitamente: gerar vídeo, não imagem estática, não storyboard e não uma coleção de imagens.
 - Especificar que a imagem do produto anexada ao campo de prompt é um ingredient/reference image e deve ser usada como identidade visual exata do equipamento.
 - Não supor qual modelo está selecionado no Flow. O Flow precisa estar em um modelo de vídeo compatível com Ingredients/References to Video. Não escolher um modelo de imagem.
+- Preferência de custo: para 8 segundos com ingredient, preferir Veo 3.1 Lite quando disponível; a documentação atual o descreve como opção de menor custo em 720p e suporta Ingredients/References to Video em 8 segundos. Não trocar silenciosamente para um modelo mais caro.
+- Alternativa econômica para rascunho: Omni Flash 1.2 em 360p pode custar um terço da opção 720p; informar a redução de resolução e considerar que upscale também pode consumir créditos.
+- Antes de acionar a geração, respeitar modelo, resolução e custo exibidos nas configurações do Flow. Nunca solicitar várias saídas para economizar tempo.
 - Não trocar a referência por uma representação aproximada do equipamento.
 
 ## Direção de movimento
