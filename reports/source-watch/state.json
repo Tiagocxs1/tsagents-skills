@@ -99,7 +99,7 @@
     }
   },
   "polyhaven": {
-    "texture_count": 872,
+    "texture_count": 873,
     "texture_ids": [
       "aerial_asphalt_01",
       "aerial_beach_01",
@@ -339,6 +339,7 @@
       "dark_rock_02",
       "dark_wood",
       "dark_wooden_planks",
+      "dashed_anti_skid_tiles",
       "decrepit_wallpaper",
       "defense_wall",
       "defense_wall_02",
